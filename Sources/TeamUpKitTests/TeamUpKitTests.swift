@@ -1,15 +1,15 @@
 //
-//  TeamUpKitTests.swift
-//  TeamUpKitTests
+//  TeamupKitTests.swift
+//  TeamupKitTests
 //
-//  Created by Merrick Sapsford on 19/05/2017.
+//  Created by Merrick Sapsford on 10/06/2017.
 //  Copyright © 2017 Merrick Sapsford. All rights reserved.
 //
 
 import XCTest
-@testable import TeamUpKit
+@testable import TeamupKit
 
-class TeamUpKitTests: XCTestCase {
+class TeamupKitTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

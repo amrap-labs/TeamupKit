@@ -1,19 +1,19 @@
 //
-//  TeamUpKit.h
-//  TeamUpKit
+//  TeamupKit.h
+//  TeamupKit
 //
-//  Created by Merrick Sapsford on 19/05/2017.
+//  Created by Merrick Sapsford on 10/06/2017.
 //  Copyright © 2017 Merrick Sapsford. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-//! Project version number for TeamUpKit.
-FOUNDATION_EXPORT double TeamUpKitVersionNumber;
+//! Project version number for TeamupKit.
+FOUNDATION_EXPORT double TeamupKitVersionNumber;
 
-//! Project version string for TeamUpKit.
-FOUNDATION_EXPORT const unsigned char TeamUpKitVersionString[];
+//! Project version string for TeamupKit.
+FOUNDATION_EXPORT const unsigned char TeamupKitVersionString[];
 
-// In this header, you should import all the public headers of your framework using statements like #import <TeamUpKit/PublicHeader.h>
+// In this header, you should import all the public headers of your framework using statements like #import <TeamupKit/PublicHeader.h>
 
 

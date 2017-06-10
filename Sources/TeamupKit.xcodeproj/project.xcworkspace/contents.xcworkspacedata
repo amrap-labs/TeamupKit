@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:TeamUpKit.xcodeproj">
+      location = "self:TeamupKit.xcodeproj">
    </FileRef>
 </Workspace>

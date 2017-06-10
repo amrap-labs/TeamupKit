@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Sources/TeamUpKit.xcodeproj">
+      location = "group:Example/TeamupKit-Example.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/merricks/Projects/TeamUpKit/Sources/TeamupKit.xcodeproj">
    </FileRef>
 </Workspace>
