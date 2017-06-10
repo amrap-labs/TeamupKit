@@ -10,26 +10,21 @@ import Foundation
 
 internal class Config {
     
-    // MARK: Keys
-    
-    private let configKey = "Config"
-    
     // MARK: Properties
     
     let providerId: String
     private(set) var api: ApiConfig!
     
     private var configDictionary: [String : Any] {
-        let infoPlist = Bundle(for: type(of: self)).infoDictionary
-        return infoPlist![configKey] as! [String : Any]
+        let plist = Bundle(for: type(of: self)).path(forResource: "Config", ofType: "plist")!
+        let dictionary = NSDictionary(contentsOfFile: plist)!
+        return dictionary as! [String : Any]
     }
     
-    init(apiToken: String,
-         providerId: String,
+    init(providerId: String,
          apiVersion: ApiConfig.Version) {
         self.providerId = providerId
         self.api = ApiConfig(with: configDictionary,
-                             version: apiVersion,
-                             token: apiToken)
+                             version: apiVersion)
     }
 }

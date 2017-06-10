@@ -14,13 +14,15 @@ public class Teamup {
     
     let config: Config
     
+    public var auth: Authentication?
+    
     // MARK: Init
     
     public init(apiToken: String,
                 providerId: String,
                 apiVersion: ApiConfig.Version = .current) {
-        self.config = Config(apiToken: apiToken,
-                             providerId: providerId,
+        self.config = Config(providerId: providerId,
                              apiVersion: apiVersion)
+        
     }
 }

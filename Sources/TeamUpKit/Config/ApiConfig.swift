@@ -26,22 +26,18 @@ public struct ApiConfig {
     
     private let baseUrl: String
     private let version: Version
-    private let token: String
     
-    public var urlString: String {
-        return "\(baseUrl)/\(version)"
-    }
-    public var url: URL {
-        return URL(string: urlString)!
-    }
+    public let urlString: String
+    public let url: URL
     
     // MARK: Init
     
     init(with configDictionary: [String: Any],
-         version: Version,
-         token: String) {
+         version: Version) {
         self.baseUrl = configDictionary[baseUrlKey] as! String
         self.version = version
-        self.token = token
+        
+        self.urlString = "\(baseUrl)/\(version)"
+        self.url = URL(string: urlString)!
     }
 }

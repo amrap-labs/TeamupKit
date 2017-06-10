@@ -15,6 +15,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         let teamup = Teamup(apiToken: "", providerId: "")
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
 

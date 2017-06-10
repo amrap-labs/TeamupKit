@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		D6364C1D1EEC02D4004CF152 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6364C1C1EEC02D4004CF152 /* Config.swift */; };
 		D6364C1F1EEC0310004CF152 /* ApiConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6364C1E1EEC0310004CF152 /* ApiConfig.swift */; };
+		D6D877AE1EEC29E800908EAD /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D877AD1EEC29E800908EAD /* Authentication.swift */; };
+		D6D877B01EEC2B8F00908EAD /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6D877AF1EEC2B8F00908EAD /* Config.plist */; };
 		D6F9EA691EEBE981002ABF64 /* TeamupKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6F9EA5F1EEBE980002ABF64 /* TeamupKit.framework */; };
 		D6F9EA6E1EEBE981002ABF64 /* TeamupKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F9EA6D1EEBE981002ABF64 /* TeamupKitTests.swift */; };
 		D6F9EA701EEBE981002ABF64 /* TeamupKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D6F9EA621EEBE980002ABF64 /* TeamupKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -28,6 +30,8 @@
 /* Begin PBXFileReference section */
 		D6364C1C1EEC02D4004CF152 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		D6364C1E1EEC0310004CF152 /* ApiConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiConfig.swift; sourceTree = "<group>"; };
+		D6D877AD1EEC29E800908EAD /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
+		D6D877AF1EEC2B8F00908EAD /* Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		D6F9EA5F1EEBE980002ABF64 /* TeamupKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TeamupKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6F9EA621EEBE980002ABF64 /* TeamupKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeamupKit.h; sourceTree = "<group>"; };
 		D6F9EA631EEBE980002ABF64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -108,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				D6F9EA631EEBE980002ABF64 /* Info.plist */,
+				D6D877AF1EEC2B8F00908EAD /* Config.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -115,6 +120,7 @@
 		D6F9EA811EEBEB41002ABF64 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				D6D877AD1EEC29E800908EAD /* Authentication.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -211,6 +217,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6D877B01EEC2B8F00908EAD /* Config.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,6 +238,7 @@
 				D6F9EA7C1EEBE9E6002ABF64 /* Teamup.swift in Sources */,
 				D6364C1D1EEC02D4004CF152 /* Config.swift in Sources */,
 				D6364C1F1EEC0310004CF152 /* ApiConfig.swift in Sources */,
+				D6D877AE1EEC29E800908EAD /* Authentication.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
