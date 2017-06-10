@@ -12,7 +12,23 @@
 		D6F9EA491EEBE927002ABF64 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6F9EA471EEBE927002ABF64 /* Main.storyboard */; };
 		D6F9EA4B1EEBE927002ABF64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6F9EA4A1EEBE927002ABF64 /* Assets.xcassets */; };
 		D6F9EA4E1EEBE927002ABF64 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6F9EA4C1EEBE927002ABF64 /* LaunchScreen.storyboard */; };
+		D6F9EA7E1EEBEA52002ABF64 /* TeamupKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6F9EA7D1EEBEA52002ABF64 /* TeamupKit.framework */; };
+		D6F9EA7F1EEBEA52002ABF64 /* TeamupKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D6F9EA7D1EEBEA52002ABF64 /* TeamupKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D6F9EA801EEBEA52002ABF64 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D6F9EA7F1EEBEA52002ABF64 /* TeamupKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		D6F9EA401EEBE927002ABF64 /* TeamupKit-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TeamupKit-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -22,6 +38,7 @@
 		D6F9EA4A1EEBE927002ABF64 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D6F9EA4D1EEBE927002ABF64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D6F9EA4F1EEBE927002ABF64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D6F9EA7D1EEBEA52002ABF64 /* TeamupKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TeamupKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6F9EA7E1EEBEA52002ABF64 /* TeamupKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +58,7 @@
 			children = (
 				D6F9EA421EEBE927002ABF64 /* TeamupKit-Example */,
 				D6F9EA411EEBE927002ABF64 /* Products */,
+				D6F9EA7D1EEBEA52002ABF64 /* TeamupKit.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,6 +93,7 @@
 				D6F9EA3C1EEBE927002ABF64 /* Sources */,
 				D6F9EA3D1EEBE927002ABF64 /* Frameworks */,
 				D6F9EA3E1EEBE927002ABF64 /* Resources */,
+				D6F9EA801EEBEA52002ABF64 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
