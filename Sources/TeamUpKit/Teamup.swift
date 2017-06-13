@@ -14,6 +14,7 @@ public class Teamup {
     
     private let config: Config
     private var requestBuilder: RequestBuilder!
+    private var requestExecutor: RequestExecutor!
     
     public var auth: Authentication!
     
@@ -36,6 +37,7 @@ public class Teamup {
         
         self.requestBuilder = RequestBuilder(with: config,
                                              urlBuilder: UrlBuilder(with: config))
+        self.requestExecutor = RequestExecutor()
     }
     
     private func initAuthControllers(with config: Config,
@@ -43,6 +45,7 @@ public class Teamup {
                                      apiToken: String) {
         let authController = AuthenticationController(with: config,
                                                       requestBuilder: requestBuilder,
+                                                      executor: requestExecutor,
                                                       apiToken: apiToken)
         requestBuilder.authProvider = authController
         self.auth = authController

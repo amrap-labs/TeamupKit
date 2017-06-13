@@ -18,9 +18,12 @@ class AuthenticationController: Controller, Authentication {
     
     init(with config: Config,
          requestBuilder: RequestBuilder,
+         executor: RequestExecutor,
          apiToken: String) {
         self.apiToken = apiToken
-        super.init(with: config, requestBuilder: requestBuilder)
+        super.init(with: config,
+                   requestBuilder: requestBuilder,
+                   executor: executor)
     }
     
     func logIn(with email: String, password: String) {
