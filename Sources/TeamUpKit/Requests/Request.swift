@@ -11,6 +11,7 @@ import Foundation
 class Request {
     
     enum Headers {
+        case none
         case masterAuthenticated
         case userAuthenticated
         case custom(headers: [String : Any])
@@ -19,12 +20,14 @@ class Request {
     // MARK: Properties
     
     let url: URL
+    let headers: [String : Any]?
     
     // MARK: Init
     
     init(with url: URL,
          headers: [String : Any]? = nil) {
         self.url = url
+        self.headers = headers
     }
 }
 

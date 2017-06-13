@@ -10,6 +10,8 @@ import Foundation
 
 protocol RequestBuilderAuthProvider: class {
     
+    func requestBuilder(requestMasterAuthHeaders requestBuilder: RequestBuilder) -> [String : Any]?
+    
     func requestBuilder(requestUserAuthHeaders requestBuilder: RequestBuilder) -> [String : Any]?
 }
 
@@ -33,6 +35,25 @@ class RequestBuilder {
     
     func build(for endpoint: Endpoint,
                headers: Request.Headers) -> Request {
-        return Request(with: urlBuilder.build(for: endpoint))
+        return Request(with: urlBuilder.build(for: endpoint),
+                       headers: generateHeaders(for: headers))
+    }
+    
+    // MARK: Header Generation
+    
+    private func generateHeaders(for headersType: Request.Headers) -> [String : Any]? {
+        switch headersType {
+        case .none:
+            return nil
+            
+        case .masterAuthenticated:
+            return authProvider?.requestBuilder(requestMasterAuthHeaders: self)
+            
+        case .userAuthenticated:
+            return authProvider?.requestBuilder(requestUserAuthHeaders: self)
+            
+        case .custom(let headers):
+            return headers
+        }
     }
 }
