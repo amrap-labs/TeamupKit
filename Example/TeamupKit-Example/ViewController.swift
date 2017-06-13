@@ -14,7 +14,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let teamup = Teamup(apiToken: "", providerId: "")
+        let plist = Bundle(for: type(of: self)).path(forResource: "Credentials", ofType: "plist")!
+        let dictionary = NSDictionary(contentsOfFile: plist) as! [String : Any]
+        
+        let teamup = Teamup(apiToken: dictionary["apiToken"] as! String,
+                            providerId: dictionary["providerId"] as! String)
         
         // Do any additional setup after loading the view, typically from a nib.
     }
