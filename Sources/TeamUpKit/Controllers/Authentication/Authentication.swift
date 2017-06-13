@@ -10,4 +10,5 @@ import Foundation
 
 public protocol Authentication {
     
+    func logIn(with email: String, password: String)
 }

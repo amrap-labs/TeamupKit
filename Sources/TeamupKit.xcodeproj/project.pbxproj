@@ -7,10 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D6319F681EF06D020057E3E3 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6319F671EF06D020057E3E3 /* Endpoints.swift */; };
+		D6319F6A1EF06D670057E3E3 /* UrlBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6319F691EF06D670057E3E3 /* UrlBuilder.swift */; };
+		D6319F6E1EF06DAF0057E3E3 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6319F6D1EF06DAF0057E3E3 /* Controller.swift */; };
+		D6319F701EF06DEC0057E3E3 /* AuthenticationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6319F6F1EF06DEC0057E3E3 /* AuthenticationController.swift */; };
 		D6364C1D1EEC02D4004CF152 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6364C1C1EEC02D4004CF152 /* Config.swift */; };
 		D6364C1F1EEC0310004CF152 /* ApiConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6364C1E1EEC0310004CF152 /* ApiConfig.swift */; };
 		D6D877AE1EEC29E800908EAD /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D877AD1EEC29E800908EAD /* Authentication.swift */; };
 		D6D877B01EEC2B8F00908EAD /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6D877AF1EEC2B8F00908EAD /* Config.plist */; };
+		D6E9DDA81EF0731F008CA490 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E9DDA71EF0731F008CA490 /* Request.swift */; };
 		D6F9EA691EEBE981002ABF64 /* TeamupKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6F9EA5F1EEBE980002ABF64 /* TeamupKit.framework */; };
 		D6F9EA6E1EEBE981002ABF64 /* TeamupKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F9EA6D1EEBE981002ABF64 /* TeamupKitTests.swift */; };
 		D6F9EA701EEBE981002ABF64 /* TeamupKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D6F9EA621EEBE980002ABF64 /* TeamupKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -28,10 +33,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D6319F671EF06D020057E3E3 /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
+		D6319F691EF06D670057E3E3 /* UrlBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlBuilder.swift; sourceTree = "<group>"; };
+		D6319F6D1EF06DAF0057E3E3 /* Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
+		D6319F6F1EF06DEC0057E3E3 /* AuthenticationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationController.swift; sourceTree = "<group>"; };
 		D6364C1C1EEC02D4004CF152 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		D6364C1E1EEC0310004CF152 /* ApiConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiConfig.swift; sourceTree = "<group>"; };
 		D6D877AD1EEC29E800908EAD /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		D6D877AF1EEC2B8F00908EAD /* Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
+		D6E9DDA71EF0731F008CA490 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		D6F9EA5F1EEBE980002ABF64 /* TeamupKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TeamupKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6F9EA621EEBE980002ABF64 /* TeamupKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeamupKit.h; sourceTree = "<group>"; };
 		D6F9EA631EEBE980002ABF64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -60,6 +70,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D6319F661EF06CF40057E3E3 /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				D6319F671EF06D020057E3E3 /* Endpoints.swift */,
+				D6319F691EF06D670057E3E3 /* UrlBuilder.swift */,
+				D6E9DDA71EF0731F008CA490 /* Request.swift */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
+		D6319F6C1EF06DA20057E3E3 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D6319F6D1EF06DAF0057E3E3 /* Controller.swift */,
+				D6F9EA811EEBEB41002ABF64 /* Authentication */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		D6364C1B1EEC02CB004CF152 /* Config */ = {
 			isa = PBXGroup;
 			children = (
@@ -93,7 +122,8 @@
 				D6F9EA621EEBE980002ABF64 /* TeamupKit.h */,
 				D6F9EA7B1EEBE9E6002ABF64 /* Teamup.swift */,
 				D6364C1B1EEC02CB004CF152 /* Config */,
-				D6F9EA811EEBEB41002ABF64 /* Authentication */,
+				D6319F6C1EF06DA20057E3E3 /* Controllers */,
+				D6319F661EF06CF40057E3E3 /* Requests */,
 				D6F9EA791EEBE9C6002ABF64 /* Resources */,
 			);
 			path = TeamupKit;
@@ -121,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				D6D877AD1EEC29E800908EAD /* Authentication.swift */,
+				D6319F6F1EF06DEC0057E3E3 /* AuthenticationController.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -238,7 +269,12 @@
 				D6F9EA7C1EEBE9E6002ABF64 /* Teamup.swift in Sources */,
 				D6364C1D1EEC02D4004CF152 /* Config.swift in Sources */,
 				D6364C1F1EEC0310004CF152 /* ApiConfig.swift in Sources */,
+				D6319F6A1EF06D670057E3E3 /* UrlBuilder.swift in Sources */,
 				D6D877AE1EEC29E800908EAD /* Authentication.swift in Sources */,
+				D6319F701EF06DEC0057E3E3 /* AuthenticationController.swift in Sources */,
+				D6319F681EF06D020057E3E3 /* Endpoints.swift in Sources */,
+				D6E9DDA81EF0731F008CA490 /* Request.swift in Sources */,
+				D6319F6E1EF06DAF0057E3E3 /* Controller.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
