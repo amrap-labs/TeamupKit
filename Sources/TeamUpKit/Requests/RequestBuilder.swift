@@ -34,26 +34,32 @@ class RequestBuilder {
     // MARK: Building
     
     func build(for endpoint: Endpoint,
-               headers: Request.Headers) -> Request {
+               headers: [String : Any]? = nil,
+               body: Request.Body? = nil,
+               authentication: Request.Authentication? = nil) -> Request {
+        
+        var headers: [String : Any] = headers ?? [:]
+        if let authentication = authentication, let authHeaders = generateAuthHeaders(for: authentication) {
+            authHeaders.forEach({ headers[$0.key] = $0.value })
+        }
+        
         return Request(with: urlBuilder.build(for: endpoint),
-                       headers: generateHeaders(for: headers))
+                       headers: headers,
+                       body: body)
     }
     
     // MARK: Header Generation
     
-    private func generateHeaders(for headersType: Request.Headers) -> [String : Any]? {
-        switch headersType {
+    private func generateAuthHeaders(for authentication: Request.Authentication) -> [String : Any]? {
+        switch authentication {
         case .none:
             return nil
             
-        case .masterAuthenticated:
+        case .apiToken:
             return authProvider?.requestBuilder(requestMasterAuthHeaders: self)
             
-        case .userAuthenticated:
+        case .userToken:
             return authProvider?.requestBuilder(requestUserAuthHeaders: self)
-            
-        case .custom(let headers):
-            return headers
         }
     }
 }

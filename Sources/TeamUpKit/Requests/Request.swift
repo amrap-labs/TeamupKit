@@ -10,24 +10,54 @@ import Foundation
 
 class Request {
     
-    enum Headers {
+    // MARK: Types
+    
+    enum Authentication {
         case none
-        case masterAuthenticated
-        case userAuthenticated
-        case custom(headers: [String : Any])
+        case apiToken
+        case userToken
+    }
+    
+    struct Body {
+        
+        enum Format {
+            case json
+            case formUrlEncoded
+        }
+        
+        let data: [String : Any]
+        let format: Format
     }
     
     // MARK: Properties
     
     let url: URL
     let headers: [String : Any]?
+    let body: Data?
     
     // MARK: Init
     
     init(with url: URL,
-         headers: [String : Any]? = nil) {
+         headers: [String : Any],
+         body: Body? = nil) {
         self.url = url
         self.headers = headers
+        self.body = body?.rawData
     }
 }
 
+extension Request.Body {
+    
+    var rawData: Data? {
+        switch self.format {
+            
+        case .formUrlEncoded:
+            return NSKeyedArchiver.archivedData(withRootObject: self.data)
+            
+        case .json:
+            do {
+                return try JSONEncoder().encode(data)
+            } catch { return nil }
+        }
+    }
+}

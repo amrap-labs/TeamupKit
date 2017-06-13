@@ -24,7 +24,13 @@ class AuthenticationController: Controller, Authentication {
     }
     
     func logIn(with email: String, password: String) {
-        let request = requestBuilder.build(for: .logIn, headers: .masterAuthenticated)
+        let body = Request.Body(data: ["email" : email,
+                                       "password" : password],
+                                format: .formUrlEncoded)
+        
+        let request = requestBuilder.build(for: .logIn,
+                                           body: body,
+                                           authentication: .apiToken)
         
     }
 }
