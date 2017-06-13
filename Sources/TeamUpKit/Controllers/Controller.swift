@@ -11,12 +11,12 @@ import Foundation
 class Controller {
     
     let config: Config
-    let urlBuilder: UrlBuilder
+    let requestBuilder: RequestBuilder
     
     // MARK: Init
     
-    init(with config: Config, urlBuilder: UrlBuilder) {
+    init(with config: Config, requestBuilder: RequestBuilder) {
         self.config = config
-        self.urlBuilder = urlBuilder
+        self.requestBuilder = requestBuilder
     }
 }

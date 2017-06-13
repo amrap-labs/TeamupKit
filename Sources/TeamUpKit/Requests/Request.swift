@@ -16,7 +16,15 @@ class Request {
         case custom(headers: [String : Any])
     }
     
-    init(with url: URL) {
-        
+    // MARK: Properties
+    
+    let url: URL
+    
+    // MARK: Init
+    
+    init(with url: URL,
+         headers: [String : Any]? = nil) {
+        self.url = url
     }
 }
+

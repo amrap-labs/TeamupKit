@@ -13,7 +13,7 @@ public class Teamup {
     // MARK: Properties
     
     private let config: Config
-    private var urlBuilder: UrlBuilder!
+    private var requestBuilder: RequestBuilder!
     
     public var auth: Authentication!
     
@@ -25,16 +25,21 @@ public class Teamup {
         self.config = Config(providerId: providerId,
                              apiVersion: apiVersion)
         initComponents(with: config)
-        initControllers(with: config)
+        initControllers(with: config,
+                        requestBuilder: requestBuilder)
     }
     
     private func initComponents(with config: Config) {
         
-        self.urlBuilder = UrlBuilder(with: config)
+        self.requestBuilder = RequestBuilder(with: config,
+                                             urlBuilder: UrlBuilder(with: config))
     }
     
-    private func initControllers(with config: Config) {
+    private func initControllers(with config: Config,
+                                 requestBuilder: RequestBuilder) {
         
-        auth = AuthenticationController(with: config, urlBuilder: urlBuilder)
+        let authController = AuthenticationController(with: config, requestBuilder: requestBuilder)
+        requestBuilder.authProvider = authController
+        self.auth = authController
     }
 }
