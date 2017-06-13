@@ -12,7 +12,7 @@ public class Teamup {
     
     // MARK: Properties
     
-    let config: Config
+    private let config: Config
     
     public var auth: Authentication?
     
