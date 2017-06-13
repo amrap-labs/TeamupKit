@@ -32,16 +32,19 @@ class Request {
     // MARK: Properties
     
     let url: URL
-    let headers: [String : Any]?
+    let headers: [String : Any]
+    let parameters: [String: Any]
     let body: Data?
     
     // MARK: Init
     
     init(with url: URL,
          headers: [String : Any],
+         parameters: [String : Any],
          body: Body? = nil) {
         self.url = url
         self.headers = headers
+        self.parameters = parameters
         self.body = body?.rawData
     }
 }
