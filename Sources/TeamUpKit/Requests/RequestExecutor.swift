@@ -10,6 +10,11 @@ import Foundation
 
 class RequestExecutor {
     
+    // MARK: Types
+    
+    typealias ExecutionSuccess = (_ request: Request, _ response: Response, _ data: Data?) -> Void
+    typealias ExecutionFailure = (_ request: Request, _ response: Response?, _ error: Error) -> Void
+    
     // MARK: Properties
     
     private var urlSession = URLSession.shared
@@ -18,7 +23,9 @@ class RequestExecutor {
     
     // MARK: Execution
     
-    func execute(request: Request) {
+    func execute(request: Request,
+                 success: @escaping ExecutionSuccess,
+                 failure: @escaping ExecutionFailure) {
         
         // add parameters to url if required
         var url = request.url
@@ -46,16 +53,22 @@ class RequestExecutor {
         // perform task
         let task = urlSession.dataTask(with: urlRequest) { (data, response, error) in
             self.dataTasks.removeValue(forKey: url)
+            let response = Response(with: response)
             
-            guard error == nil && data == nil else { // handle error
-                print("error: \(error)")
+            guard error == nil && response != nil, response?.isSuccessful == true else { // handle error
+                print("requestFailed (\(url.absoluteString)) - error: \(error!)")
+                failure(request, response, error!)
                 return
             }
             
-            let dataString =  String(data: data!, encoding: String.Encoding.utf8)
-            print("data: \(dataString)")
+            let data = data!
+            
+            print("requestComplete (\(url.absoluteString)")
+            success(request, response!, data)
         }
         dataTasks[url] = task
+        
+        print("requestBegin (\(url.absoluteString)")
         task.resume()
     }
 }

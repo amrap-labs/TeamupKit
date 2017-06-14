@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D60D634B1EF1CF7F00C93B9A /* UrlUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60D634A1EF1CF7F00C93B9A /* UrlUtils.swift */; };
+		D60D634D1EF1D58E00C93B9A /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60D634C1EF1D58E00C93B9A /* Response.swift */; };
 		D6319F681EF06D020057E3E3 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6319F671EF06D020057E3E3 /* Endpoints.swift */; };
 		D6319F6A1EF06D670057E3E3 /* UrlBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6319F691EF06D670057E3E3 /* UrlBuilder.swift */; };
 		D6319F6E1EF06DAF0057E3E3 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6319F6D1EF06DAF0057E3E3 /* Controller.swift */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		D60D634A1EF1CF7F00C93B9A /* UrlUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlUtils.swift; sourceTree = "<group>"; };
+		D60D634C1EF1D58E00C93B9A /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		D6319F671EF06D020057E3E3 /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
 		D6319F691EF06D670057E3E3 /* UrlBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlBuilder.swift; sourceTree = "<group>"; };
 		D6319F6D1EF06DAF0057E3E3 /* Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				D6319F671EF06D020057E3E3 /* Endpoints.swift */,
 				D6319F691EF06D670057E3E3 /* UrlBuilder.swift */,
 				D6E9DDA71EF0731F008CA490 /* Request.swift */,
+				D60D634C1EF1D58E00C93B9A /* Response.swift */,
 				D6E9DDAB1EF07513008CA490 /* RequestBuilder.swift */,
 				D6E9DDAD1EF0836C008CA490 /* RequestExecutor.swift */,
 			);
@@ -289,6 +292,7 @@
 				D6319F6A1EF06D670057E3E3 /* UrlBuilder.swift in Sources */,
 				D6D877AE1EEC29E800908EAD /* Authentication.swift in Sources */,
 				D60D634B1EF1CF7F00C93B9A /* UrlUtils.swift in Sources */,
+				D60D634D1EF1D58E00C93B9A /* Response.swift in Sources */,
 				D6E9DDAE1EF0836C008CA490 /* RequestExecutor.swift in Sources */,
 				D6E9DDAC1EF07513008CA490 /* RequestBuilder.swift in Sources */,
 				D6319F701EF06DEC0057E3E3 /* AuthenticationController.swift in Sources */,
