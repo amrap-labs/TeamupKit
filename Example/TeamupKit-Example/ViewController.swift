@@ -20,7 +20,8 @@ class ViewController: UIViewController {
         let teamup = Teamup(apiToken: dictionary["apiToken"] as! String,
                             providerId: dictionary["providerId"] as! String)
         
-        teamup.auth.logIn(with: "", password: "")
+        teamup.auth.logIn(with: dictionary["email"] as! String,
+                          password: dictionary["password"] as! String)
         // Do any additional setup after loading the view, typically from a nib.
     }
 

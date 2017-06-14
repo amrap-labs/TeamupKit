@@ -32,19 +32,20 @@ class AuthenticationController: Controller, Authentication {
                                 format: .formUrlEncoded)
         
         let request = requestBuilder.build(for: .logIn,
+                                           method: .post,
                                            body: body,
                                            authentication: .apiToken)
-        
+        requestExecutor.execute(request: request)
     }
 }
 
 extension AuthenticationController: RequestBuilderAuthProvider {
     
-    func requestBuilder(requestUserAuthHeaders requestBuilder: RequestBuilder) -> [String : Any]? {
+    func requestBuilder(requestUserAuthHeaders requestBuilder: RequestBuilder) -> [String : String]? {
         return nil
     }
     
-    func requestBuilder(requestMasterAuthHeaders requestBuilder: RequestBuilder) -> [String : Any]? {
+    func requestBuilder(requestMasterAuthHeaders requestBuilder: RequestBuilder) -> [String : String]? {
         return ["Authorization" : "Token \(apiToken)"]
     }
 }

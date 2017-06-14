@@ -29,20 +29,30 @@ class Request {
         let format: Format
     }
     
+    enum Method: String {
+        case get = "GET"
+        case post = "POST"
+        case patch = "PATCH"
+        case delete = "DELETE"
+    }
+    
     // MARK: Properties
     
     let url: URL
-    let headers: [String : Any]
+    let method: Method
+    let headers: [String : String]
     let parameters: [String: Any]
     let body: Data?
     
     // MARK: Init
     
     init(with url: URL,
-         headers: [String : Any],
+         method: Method,
+         headers: [String : String],
          parameters: [String : Any],
          body: Body? = nil) {
         self.url = url
+        self.method = method
         self.headers = headers
         self.parameters = parameters
         self.body = body?.rawData
@@ -55,7 +65,14 @@ extension Request.Body {
         switch self.format {
             
         case .formUrlEncoded:
-            return NSKeyedArchiver.archivedData(withRootObject: self.data)
+            var bodyString = String()
+            for (index, item) in data.enumerated() {
+                if index != 0 {
+                    bodyString.append("&")
+                }
+                bodyString.append("\(item.key)=\(item.value)")
+            }
+            return bodyString.data(using: .ascii, allowLossyConversion: false)
             
         case .json:
             do {
