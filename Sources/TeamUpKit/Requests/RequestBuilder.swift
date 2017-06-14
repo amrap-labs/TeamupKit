@@ -35,6 +35,7 @@ class RequestBuilder {
     
     func build(for endpoint: Endpoint,
                method: Request.Method,
+               contentType: Request.ContentType,
                headers: [String : String]? = nil,
                parameters: [String : Any]? = nil,
                body: Request.Body? = nil,
@@ -47,6 +48,7 @@ class RequestBuilder {
         
         return Request(with: urlBuilder.build(for: endpoint),
                        method: method,
+                       contentType: contentType,
                        headers: headers,
                        parameters: parameters ?? [:],
                        body: body)

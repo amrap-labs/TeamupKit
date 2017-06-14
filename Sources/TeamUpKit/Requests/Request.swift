@@ -18,15 +18,19 @@ class Request {
         case userToken
     }
     
+    enum ContentType: String {
+        case json = "application/json"
+        case formUrlEncoded = "application/x-www-form-urlencoded"
+    }
+    
     struct Body {
         
-        enum Format {
-            case json
-            case formUrlEncoded
-        }
-        
         let data: [String : Any]
-        let format: Format
+        fileprivate(set) var contentType: ContentType?
+        
+        init(_ data: [String : Any]) {
+            self.data = data
+        }
     }
     
     enum Method: String {
@@ -40,6 +44,7 @@ class Request {
     
     let url: URL
     let method: Method
+    let contentType: ContentType
     let headers: [String : String]
     let parameters: [String: Any]
     let body: Data?
@@ -48,13 +53,18 @@ class Request {
     
     init(with url: URL,
          method: Method,
+         contentType: ContentType,
          headers: [String : String],
          parameters: [String : Any],
          body: Body? = nil) {
         self.url = url
         self.method = method
+        self.contentType = contentType
         self.headers = headers
         self.parameters = parameters
+        
+        var body = body
+        body?.contentType = contentType
         self.body = body?.rawData
     }
 }
@@ -62,7 +72,8 @@ class Request {
 extension Request.Body {
     
     var rawData: Data? {
-        switch self.format {
+        guard let contentType = self.contentType else { return nil }
+        switch contentType {
             
         case .formUrlEncoded:
             var bodyString = String()
