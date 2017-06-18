@@ -8,6 +8,10 @@
 
 import Foundation
 
+protocol RequestExecutorAuthResponder: class {
+    
+}
+
 class RequestExecutor {
     
     // MARK: Types
@@ -18,8 +22,9 @@ class RequestExecutor {
     // MARK: Properties
     
     private var urlSession = URLSession.shared
-    
     private var dataTasks = [URL : URLSessionDataTask]()
+    
+    weak var authResponder: RequestExecutorAuthResponder?
     
     // MARK: Execution
     
@@ -56,6 +61,9 @@ class RequestExecutor {
             let response = Response(with: response)
             
             guard error == nil && response != nil, response?.isSuccessful == true else { // handle error
+                
+                // TODO - handle 401
+                
                 print("requestFailed (\(url.absoluteString)) - error: \(error!)")
                 failure(request, response, error!)
                 return

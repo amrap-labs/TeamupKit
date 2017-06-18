@@ -62,6 +62,13 @@ class AuthenticationController: Controller, Authentication {
             failure?(error)
         }
     }
+    
+    func register(with email: String,
+                  password: String,
+                  success: ((User) -> Void)?,
+                  failure: Controller.MethodFailure?) {
+        
+    }
 }
 
 // MARK: - Auth Management
@@ -69,6 +76,8 @@ private extension AuthenticationController {
     
     func authenticate(newUser: User) {
         self.currentUser = newUser
+        
+        // TODO - Keychain integration
     }
 }
 
@@ -82,4 +91,8 @@ extension AuthenticationController: RequestBuilderAuthProvider {
     func requestBuilder(requestMasterAuthHeaders requestBuilder: RequestBuilder) -> [String : String]? {
         return ["Authorization" : "Token \(apiToken)"]
     }
+}
+
+extension AuthenticationController: RequestExecutorAuthResponder {
+    
 }

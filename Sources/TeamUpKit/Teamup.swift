@@ -28,6 +28,7 @@ public class Teamup {
         initComponents(with: config)
         initAuthControllers(with: config,
                             requestBuilder: requestBuilder,
+                            executor: requestExecutor,
                             apiToken: apiToken)
         initControllers(with: config,
                         requestBuilder: requestBuilder)
@@ -42,12 +43,14 @@ public class Teamup {
     
     private func initAuthControllers(with config: Config,
                                      requestBuilder: RequestBuilder,
+                                     executor: RequestExecutor,
                                      apiToken: String) {
         let authController = AuthenticationController(with: config,
                                                       requestBuilder: requestBuilder,
                                                       executor: requestExecutor,
                                                       apiToken: apiToken)
         requestBuilder.authProvider = authController
+        executor.authResponder = authController
         self.auth = authController
     }
     
