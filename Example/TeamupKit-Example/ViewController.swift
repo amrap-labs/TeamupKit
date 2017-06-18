@@ -21,7 +21,11 @@ class ViewController: UIViewController {
                             providerId: dictionary["providerId"] as! String)
         
         teamup.auth.logIn(with: dictionary["email"] as! String,
-                          password: dictionary["password"] as! String)
+                          password: dictionary["password"] as! String,
+                          success: { (user) in
+                            dump(user)
+        },
+                          failure: nil)
         // Do any additional setup after loading the view, typically from a nib.
     }
 

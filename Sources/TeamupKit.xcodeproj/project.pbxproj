@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D6084C521EF702DF005A183D /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6084C511EF702DF005A183D /* RequestError.swift */; };
 		D60D634B1EF1CF7F00C93B9A /* UrlUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60D634A1EF1CF7F00C93B9A /* UrlUtils.swift */; };
 		D60D634D1EF1D58E00C93B9A /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60D634C1EF1D58E00C93B9A /* Response.swift */; };
 		D60D63501EF1D7DA00C93B9A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60D634F1EF1D7DA00C93B9A /* User.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D6084C511EF702DF005A183D /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
 		D60D634A1EF1CF7F00C93B9A /* UrlUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlUtils.swift; sourceTree = "<group>"; };
 		D60D634C1EF1D58E00C93B9A /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		D60D634F1EF1D7DA00C93B9A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				D6319F671EF06D020057E3E3 /* Endpoints.swift */,
 				D6319F691EF06D670057E3E3 /* UrlBuilder.swift */,
 				D6E9DDA71EF0731F008CA490 /* Request.swift */,
+				D6084C511EF702DF005A183D /* RequestError.swift */,
 				D60D634C1EF1D58E00C93B9A /* Response.swift */,
 				D6E9DDAB1EF07513008CA490 /* RequestBuilder.swift */,
 				D6E9DDAD1EF0836C008CA490 /* RequestExecutor.swift */,
@@ -300,6 +303,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6084C521EF702DF005A183D /* RequestError.swift in Sources */,
 				D6F9EA7C1EEBE9E6002ABF64 /* Teamup.swift in Sources */,
 				D6364C1D1EEC02D4004CF152 /* Config.swift in Sources */,
 				D6364C1F1EEC0310004CF152 /* ApiConfig.swift in Sources */,

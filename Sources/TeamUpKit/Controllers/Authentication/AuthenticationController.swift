@@ -14,6 +14,8 @@ class AuthenticationController: Controller, Authentication {
     
     private let apiToken: String
     
+    private(set) var currentUser: User?
+    
     // MARK: Init
     
     init(with config: Config,
@@ -26,7 +28,12 @@ class AuthenticationController: Controller, Authentication {
                    executor: executor)
     }
     
-    func logIn(with email: String, password: String) {
+    // MARK: Requests
+    
+    func logIn(with email: String,
+               password: String,
+               success: ((User) -> Void)?,
+               failure: MethodFailure?) {
         
         let body = Request.Body(["email" : email,
                                  "password" : password])
@@ -39,18 +46,37 @@ class AuthenticationController: Controller, Authentication {
         requestExecutor.execute(request: request,
                                 success:
             { (request, response, data) in
-                
-                
+                guard let data = data else {
+                    failure?(RequestError.unknown)
+                    return
+                }
+                do {
+                    let user = try self.decoder.decode(User.self, from: data)
+                    self.authenticate(newUser: user)
+                    
+                    success?(user)
+                } catch {
+                    failure?(error)
+                }
         }) { (request, response, error) in
-            
+            failure?(error)
         }
+    }
+}
+
+// MARK: - Auth Management
+private extension AuthenticationController {
+    
+    func authenticate(newUser: User) {
+        self.currentUser = newUser
     }
 }
 
 extension AuthenticationController: RequestBuilderAuthProvider {
     
     func requestBuilder(requestUserAuthHeaders requestBuilder: RequestBuilder) -> [String : String]? {
-        return nil
+        guard let currentUser = self.currentUser else { return nil }
+        return ["Authorization"  : "Token \(currentUser.token)"]
     }
     
     func requestBuilder(requestMasterAuthHeaders requestBuilder: RequestBuilder) -> [String : String]? {

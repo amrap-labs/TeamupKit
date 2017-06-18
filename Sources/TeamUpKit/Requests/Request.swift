@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Request {
+public class Request {
     
     // MARK: Types
     

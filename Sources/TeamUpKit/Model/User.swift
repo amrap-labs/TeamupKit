@@ -8,10 +8,10 @@
 
 import Foundation
 
-struct User: Codable {
+public struct User: Codable {
     
     let customer: Customer
     let token: String
-    let expires: Date
+    let expires: String
     let success: Bool
 }

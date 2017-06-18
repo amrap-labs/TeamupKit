@@ -8,11 +8,19 @@
 
 import Foundation
 
-class Controller {
+public class Controller {
+    
+    // MARK: Types
+    
+    public typealias MethodFailure = (Error) -> Void
+    
+    // MARK: Properties
     
     let config: Config
     let requestBuilder: RequestBuilder
     let requestExecutor: RequestExecutor
+    
+    let decoder = JSONDecoder()
     
     // MARK: Init
     
