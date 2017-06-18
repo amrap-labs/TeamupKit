@@ -8,11 +8,6 @@
 
 import Foundation
 
-public enum AuthenticationError: Error {
-    
-    case alreadySignedIn
-}
-
 public protocol Authentication {
     
     /// The currently authenticated user.
@@ -41,4 +36,7 @@ public protocol Authentication {
                   password: String,
                   success: ((User) -> Void)?,
                   failure: Controller.MethodFailure?)
+    
+    /// Sign out of the current user.
+    func signOut()
 }

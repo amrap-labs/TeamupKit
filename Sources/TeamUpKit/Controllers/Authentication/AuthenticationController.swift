@@ -49,12 +49,6 @@ class AuthenticationController: Controller, Authentication {
                success: ((User) -> Void)?,
                failure: MethodFailure?) {
         
-        // ensure a user is not currently signed in
-        guard currentUser == nil else {
-            failure?(AuthenticationError.alreadySignedIn)
-            return
-        }
-        
         let body = Request.Body(["email" : email,
                                  "password" : password])
         
@@ -89,6 +83,15 @@ class AuthenticationController: Controller, Authentication {
                   failure: Controller.MethodFailure?) {
         
     }
+    
+    func signOut() {
+        guard self.currentUser != nil else { return }
+        
+        self.currentUser = nil
+        clearKeychainOfUser()
+        
+        // TODO - Notify other controllers
+    }
 }
 
 // MARK: - Auth Management
@@ -99,7 +102,7 @@ private extension AuthenticationController {
     /// - Parameter user: The new user.
     func updateKeychain(for user: User?) {
         guard let user = user else {
-            keychain.delete(KeychainKeys.user)
+            clearKeychainOfUser()
             return
         }
         
@@ -108,6 +111,10 @@ private extension AuthenticationController {
             let data = try encoder.encode(user)
             keychain.set(data, forKey: KeychainKeys.user)
         } catch {}
+    }
+    
+    func clearKeychainOfUser() {
+        keychain.delete(KeychainKeys.user)
     }
     
     /// Attempt to load an authenticated user from the keychain
