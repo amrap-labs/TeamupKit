@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A268E54008621D44F580CCC /* Pods_TeamupKit_TeamupKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6B4487678CAB6206DD7EB46 /* Pods_TeamupKit_TeamupKitTests.framework */; };
+		7E043FE8B83248751E3B697A /* Pods_TeamupKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DAC488D650C6F517538BC8D /* Pods_TeamupKit.framework */; };
 		D6084C521EF702DF005A183D /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6084C511EF702DF005A183D /* RequestError.swift */; };
 		D60D634B1EF1CF7F00C93B9A /* UrlUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60D634A1EF1CF7F00C93B9A /* UrlUtils.swift */; };
 		D60D634D1EF1D58E00C93B9A /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60D634C1EF1D58E00C93B9A /* Response.swift */; };
@@ -40,6 +42,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0DAC488D650C6F517538BC8D /* Pods_TeamupKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TeamupKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		119DF92268BF44224C170B12 /* Pods-TeamupKit-TeamupKitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamupKit-TeamupKitTests.release.xcconfig"; path = "../Pods/Target Support Files/Pods-TeamupKit-TeamupKitTests/Pods-TeamupKit-TeamupKitTests.release.xcconfig"; sourceTree = "<group>"; };
+		A6B4487678CAB6206DD7EB46 /* Pods_TeamupKit_TeamupKitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TeamupKit_TeamupKitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD843D1BD5E25347739E324E /* Pods-TeamupKit-TeamupKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamupKit-TeamupKitTests.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-TeamupKit-TeamupKitTests/Pods-TeamupKit-TeamupKitTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B0CC661EB5603F63930F4EB3 /* Pods-TeamupKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamupKit.release.xcconfig"; path = "../Pods/Target Support Files/Pods-TeamupKit/Pods-TeamupKit.release.xcconfig"; sourceTree = "<group>"; };
+		BC26AC161FB548433C6EE2A9 /* Pods-TeamupKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamupKit.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-TeamupKit/Pods-TeamupKit.debug.xcconfig"; sourceTree = "<group>"; };
 		D6084C511EF702DF005A183D /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
 		D60D634A1EF1CF7F00C93B9A /* UrlUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlUtils.swift; sourceTree = "<group>"; };
 		D60D634C1EF1D58E00C93B9A /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
@@ -70,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E043FE8B83248751E3B697A /* Pods_TeamupKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,12 +87,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				D6F9EA691EEBE981002ABF64 /* TeamupKit.framework in Frameworks */,
+				3A268E54008621D44F580CCC /* Pods_TeamupKit_TeamupKitTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A2FECFD080D40FCC9E0B83F7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0DAC488D650C6F517538BC8D /* Pods_TeamupKit.framework */,
+				A6B4487678CAB6206DD7EB46 /* Pods_TeamupKit_TeamupKitTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D60D63471EF1CF6000C93B9A /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +158,8 @@
 				D6F9EA611EEBE980002ABF64 /* TeamupKit */,
 				D6F9EA6C1EEBE981002ABF64 /* TeamupKitTests */,
 				D6F9EA601EEBE980002ABF64 /* Products */,
+				F0A979CA08BF10E7CC881EEA /* Pods */,
+				A2FECFD080D40FCC9E0B83F7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -193,6 +214,17 @@
 			path = Authentication;
 			sourceTree = "<group>";
 		};
+		F0A979CA08BF10E7CC881EEA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BC26AC161FB548433C6EE2A9 /* Pods-TeamupKit.debug.xcconfig */,
+				B0CC661EB5603F63930F4EB3 /* Pods-TeamupKit.release.xcconfig */,
+				AD843D1BD5E25347739E324E /* Pods-TeamupKit-TeamupKitTests.debug.xcconfig */,
+				119DF92268BF44224C170B12 /* Pods-TeamupKit-TeamupKitTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -211,10 +243,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D6F9EA731EEBE981002ABF64 /* Build configuration list for PBXNativeTarget "TeamupKit" */;
 			buildPhases = (
+				6297C63AE2A8573A303E982C /* [CP] Check Pods Manifest.lock */,
 				D6F9EA5A1EEBE980002ABF64 /* Sources */,
 				D6F9EA5B1EEBE980002ABF64 /* Frameworks */,
 				D6F9EA5C1EEBE980002ABF64 /* Headers */,
 				D6F9EA5D1EEBE980002ABF64 /* Resources */,
+				8382F75D629FB0DD237490F8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -229,9 +263,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D6F9EA761EEBE981002ABF64 /* Build configuration list for PBXNativeTarget "TeamupKitTests" */;
 			buildPhases = (
+				64B12F11B94938EE8499EE0D /* [CP] Check Pods Manifest.lock */,
 				D6F9EA641EEBE981002ABF64 /* Sources */,
 				D6F9EA651EEBE981002ABF64 /* Frameworks */,
 				D6F9EA661EEBE981002ABF64 /* Resources */,
+				FC1DC510C82145A4D04F0FB3 /* [CP] Embed Pods Frameworks */,
+				B0B389705BF8D4AAC47A9358 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -297,6 +334,84 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6297C63AE2A8573A303E982C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		64B12F11B94938EE8499EE0D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8382F75D629FB0DD237490F8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-TeamupKit/Pods-TeamupKit-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B0B389705BF8D4AAC47A9358 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-TeamupKit-TeamupKitTests/Pods-TeamupKit-TeamupKitTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FC1DC510C82145A4D04F0FB3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-TeamupKit-TeamupKitTests/Pods-TeamupKit-TeamupKitTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D6F9EA5A1EEBE980002ABF64 /* Sources */ = {
@@ -452,6 +567,7 @@
 		};
 		D6F9EA741EEBE981002ABF64 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BC26AC161FB548433C6EE2A9 /* Pods-TeamupKit.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -473,6 +589,7 @@
 		};
 		D6F9EA751EEBE981002ABF64 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B0CC661EB5603F63930F4EB3 /* Pods-TeamupKit.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -493,8 +610,8 @@
 		};
 		D6F9EA771EEBE981002ABF64 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD843D1BD5E25347739E324E /* Pods-TeamupKit-TeamupKitTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = TeamupKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.msapsford.TeamupKitTests;
@@ -506,8 +623,8 @@
 		};
 		D6F9EA781EEBE981002ABF64 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 119DF92268BF44224C170B12 /* Pods-TeamupKit-TeamupKitTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = TeamupKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.msapsford.TeamupKitTests;

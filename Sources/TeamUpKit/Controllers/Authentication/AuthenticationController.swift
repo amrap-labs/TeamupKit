@@ -7,14 +7,26 @@
 //
 
 import Foundation
+import KeychainSwift
 
 class AuthenticationController: Controller, Authentication {
+    
+    // MARK: Constants
+    
+    private struct KeychainKeys {
+        static let user = "teamupUser"
+    }
     
     // MARK: Properties
     
     private let apiToken: String
+    private let keychain = KeychainSwift()
     
-    private(set) var currentUser: User?
+    private(set) var currentUser: User? {
+        didSet {
+            updateKeychain(for: currentUser)
+        }
+    }
     
     // MARK: Init
     
@@ -26,6 +38,8 @@ class AuthenticationController: Controller, Authentication {
         super.init(with: config,
                    requestBuilder: requestBuilder,
                    executor: executor)
+        
+        currentUser = loadAuthenticatedUserIfAvailable()
     }
     
     // MARK: Requests
@@ -34,6 +48,12 @@ class AuthenticationController: Controller, Authentication {
                password: String,
                success: ((User) -> Void)?,
                failure: MethodFailure?) {
+        
+        // ensure a user is not currently signed in
+        guard currentUser == nil else {
+            failure?(AuthenticationError.alreadySignedIn)
+            return
+        }
         
         let body = Request.Body(["email" : email,
                                  "password" : password])
@@ -52,7 +72,7 @@ class AuthenticationController: Controller, Authentication {
                 }
                 do {
                     let user = try self.decoder.decode(User.self, from: data)
-                    self.authenticate(newUser: user)
+                    self.currentUser = user
                     
                     success?(user)
                 } catch {
@@ -74,10 +94,32 @@ class AuthenticationController: Controller, Authentication {
 // MARK: - Auth Management
 private extension AuthenticationController {
     
-    func authenticate(newUser: User) {
-        self.currentUser = newUser
+    /// Update the keychain for a new user
+    ///
+    /// - Parameter user: The new user.
+    func updateKeychain(for user: User?) {
+        guard let user = user else {
+            keychain.delete(KeychainKeys.user)
+            return
+        }
         
-        // TODO - Keychain integration
+        let encoder = JSONEncoder()
+        do {
+            let data = try encoder.encode(user)
+            keychain.set(data, forKey: KeychainKeys.user)
+        } catch {}
+    }
+    
+    /// Attempt to load an authenticated user from the keychain
+    ///
+    /// - Returns: The currently authenticated user.
+    func loadAuthenticatedUserIfAvailable() -> User? {
+        guard let data = keychain.getData(KeychainKeys.user) else { return nil }
+        do {
+            return try decoder.decode(User.self, from: data)
+        } catch {
+            return nil
+        }
     }
 }
 

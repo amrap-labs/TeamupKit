@@ -2,12 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:TeamupKit.playground">
-   </FileRef>
-   <FileRef
       location = "group:Example/TeamupKit-Example.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:/Users/merricks/Projects/TeamUpKit/Sources/TeamupKit.xcodeproj">
+      location = "group:Sources/TeamupKit.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>

@@ -8,6 +8,11 @@
 
 import Foundation
 
+public enum AuthenticationError: Error {
+    
+    case alreadySignedIn
+}
+
 public protocol Authentication {
     
     /// The currently authenticated user.
