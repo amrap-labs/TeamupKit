@@ -15,6 +15,11 @@ class AuthenticationController: Controller, Authentication {
     
     private struct KeychainKeys {
         static let user = "teamupUser"
+        static let userAuthData = "teamupUserAuthData"
+    }
+    
+    private struct UserAuthData: Codable {
+        let password: String
     }
     
     // MARK: Properties
@@ -22,11 +27,8 @@ class AuthenticationController: Controller, Authentication {
     private let apiToken: String
     private let keychain = KeychainSwift()
     
-    private(set) var currentUser: User? {
-        didSet {
-            updateKeychain(for: currentUser)
-        }
-    }
+    private(set) var currentUser: User?
+    private var currentUserAuthData: UserAuthData?
     
     // MARK: Init
     
@@ -40,14 +42,51 @@ class AuthenticationController: Controller, Authentication {
                    executor: executor)
         
         currentUser = loadAuthenticatedUserIfAvailable()
+        currentUserAuthData = loadUserAuthenticationDataIfAvailable()
     }
     
-    // MARK: Requests
+    // MARK: Authentication
     
     func logIn(with email: String,
                password: String,
                success: ((User) -> Void)?,
                failure: MethodFailure?) {
+        logIn(with: email,
+              password: password,
+              success: success,
+              failure: failure,
+              force: false)
+    }
+    
+    func register(with email: String,
+                  password: String,
+                  success: ((User) -> Void)?,
+                  failure: Controller.MethodFailure?) {
+        
+    }
+    
+    func signOut() {
+        guard self.currentUser != nil else { return }
+        
+        self.currentUser = nil
+        clearKeychain()
+        
+        // TODO - Notify other controllers
+    }
+    
+    private func logIn(with email: String,
+                       password: String,
+                       success: ((User) -> Void)?,
+                       failure: MethodFailure?,
+                       force: Bool) {
+        
+        // ignore log in if already logged in
+        if force == false && currentUser != nil && currentUserAuthData != nil {
+            guard !(currentUser?.customer.emails.contains(where: { $0 == email }) ?? false) else {
+                success?(currentUser!)
+                return
+            }
+        }
         
         let body = Request.Body(["email" : email,
                                  "password" : password])
@@ -66,6 +105,9 @@ class AuthenticationController: Controller, Authentication {
                 }
                 do {
                     let user = try self.decoder.decode(User.self, from: data)
+                    let authData = UserAuthData(password: password)
+                    
+                    self.updateKeychain(for: user, authData: authData)
                     self.currentUser = user
                     
                     success?(user)
@@ -76,22 +118,6 @@ class AuthenticationController: Controller, Authentication {
             failure?(error)
         }
     }
-    
-    func register(with email: String,
-                  password: String,
-                  success: ((User) -> Void)?,
-                  failure: Controller.MethodFailure?) {
-        
-    }
-    
-    func signOut() {
-        guard self.currentUser != nil else { return }
-        
-        self.currentUser = nil
-        clearKeychainOfUser()
-        
-        // TODO - Notify other controllers
-    }
 }
 
 // MARK: - Auth Management
@@ -100,30 +126,47 @@ private extension AuthenticationController {
     /// Update the keychain for a new user
     ///
     /// - Parameter user: The new user.
-    func updateKeychain(for user: User?) {
-        guard let user = user else {
-            clearKeychainOfUser()
+    /// - Parameter authData: The new user's auth data.
+    private func updateKeychain(for user: User?,
+                                authData: UserAuthData?) {
+        guard let user = user, let authData = authData else {
+            clearKeychain()
             return
         }
         
         let encoder = JSONEncoder()
         do {
-            let data = try encoder.encode(user)
-            keychain.set(data, forKey: KeychainKeys.user)
+            let userData = try encoder.encode(user)
+            let authData = try encoder.encode(authData)
+            keychain.set(userData, forKey: KeychainKeys.user)
+            keychain.set(authData, forKey: KeychainKeys.userAuthData)
         } catch {}
     }
     
-    func clearKeychainOfUser() {
+    private func clearKeychain() {
         keychain.delete(KeychainKeys.user)
+        keychain.delete(KeychainKeys.userAuthData)
     }
     
     /// Attempt to load an authenticated user from the keychain
     ///
     /// - Returns: The currently authenticated user.
-    func loadAuthenticatedUserIfAvailable() -> User? {
+    private func loadAuthenticatedUserIfAvailable() -> User? {
         guard let data = keychain.getData(KeychainKeys.user) else { return nil }
         do {
             return try decoder.decode(User.self, from: data)
+        } catch {
+            return nil
+        }
+    }
+    
+    /// Attempt to load an authenticated user's auth data from the keychain.
+    ///
+    /// - Returns: The currently authenticated user's auth data.
+    private func loadUserAuthenticationDataIfAvailable() -> UserAuthData? {
+        guard let data = keychain.getData(KeychainKeys.userAuthData) else { return nil }
+        do {
+            return try decoder.decode(UserAuthData.self, from: data)
         } catch {
             return nil
         }
@@ -144,4 +187,27 @@ extension AuthenticationController: RequestBuilderAuthProvider {
 
 extension AuthenticationController: RequestExecutorAuthResponder {
     
+    func requestExecutor(_ executor: RequestExecutor,
+                         encounteredUnauthorizedErrorWhenExecuting request: Request,
+                         response: Response,
+                         success: @escaping (Request, Response, Data?) -> Void,
+                         failure: @escaping (Request, Response?, Error) -> Void) {
+        guard let currentUser = currentUser , let authData = currentUserAuthData else {
+            // TODO - Sign out
+            return
+        }
+        
+        print("Attempting to reauth")
+        
+        // attempt to reauthenticate current user and then execute request
+        logIn(with: currentUser.customer.emails.first!,
+              password: authData.password,
+              success: { (user) in
+                executor.execute(request: request, success: success, failure: failure)
+        },
+              failure: { (error) in
+                failure(request, nil, error)
+        },
+              force: true)
+    }
 }

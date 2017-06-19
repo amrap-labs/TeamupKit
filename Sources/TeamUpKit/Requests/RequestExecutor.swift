@@ -10,6 +10,11 @@ import Foundation
 
 protocol RequestExecutorAuthResponder: class {
     
+    func requestExecutor(_ executor: RequestExecutor,
+                         encounteredUnauthorizedErrorWhenExecuting request: Request,
+                         response: Response,
+                         success: @escaping RequestExecutor.ExecutionSuccess,
+                         failure: @escaping RequestExecutor.ExecutionFailure)
 }
 
 class RequestExecutor {
@@ -56,13 +61,21 @@ class RequestExecutor {
         urlRequest.addValue(request.contentType.rawValue, forHTTPHeaderField: "Content-Type")
         
         // perform task
-        let task = urlSession.dataTask(with: urlRequest) { (data, response, error) in
+        let task = urlSession.dataTask(with: urlRequest) { [unowned self] (data, response, error) in
             self.dataTasks.removeValue(forKey: url)
             let response = Response(with: response)
             
             guard error == nil && response != nil, response?.isSuccessful == true else { // handle error
                 
-                // TODO - handle 401
+                // Attempt reauth if 401
+                if response?.statusCode == .unauthorized {
+                    self.authResponder?.requestExecutor(self,
+                                                        encounteredUnauthorizedErrorWhenExecuting: request,
+                                                        response: response!,
+                                                        success: success,
+                                                        failure: failure)
+                    return
+                }
                 
                 print("requestFailed (\(url.absoluteString)) - error: \(error!)")
                 failure(request, response, error!)

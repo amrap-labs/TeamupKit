@@ -20,6 +20,7 @@
 		D6319F701EF06DEC0057E3E3 /* AuthenticationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6319F6F1EF06DEC0057E3E3 /* AuthenticationController.swift */; };
 		D6364C1D1EEC02D4004CF152 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6364C1C1EEC02D4004CF152 /* Config.swift */; };
 		D6364C1F1EEC0310004CF152 /* ApiConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6364C1E1EEC0310004CF152 /* ApiConfig.swift */; };
+		D64FFF8A1EF852150039911F /* AuthenticationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64FFF891EF852150039911F /* AuthenticationError.swift */; };
 		D6D877AE1EEC29E800908EAD /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D877AD1EEC29E800908EAD /* Authentication.swift */; };
 		D6D877B01EEC2B8F00908EAD /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6D877AF1EEC2B8F00908EAD /* Config.plist */; };
 		D6E9DDA81EF0731F008CA490 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E9DDA71EF0731F008CA490 /* Request.swift */; };
@@ -59,6 +60,7 @@
 		D6319F6F1EF06DEC0057E3E3 /* AuthenticationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationController.swift; sourceTree = "<group>"; };
 		D6364C1C1EEC02D4004CF152 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		D6364C1E1EEC0310004CF152 /* ApiConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiConfig.swift; sourceTree = "<group>"; };
+		D64FFF891EF852150039911F /* AuthenticationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationError.swift; sourceTree = "<group>"; };
 		D6D877AD1EEC29E800908EAD /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		D6D877AF1EEC2B8F00908EAD /* Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		D6E9DDA71EF0731F008CA490 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				D6D877AD1EEC29E800908EAD /* Authentication.swift */,
+				D64FFF891EF852150039911F /* AuthenticationError.swift */,
 				D6319F6F1EF06DEC0057E3E3 /* AuthenticationController.swift */,
 			);
 			path = Authentication;
@@ -431,6 +434,7 @@
 				D6E9DDAE1EF0836C008CA490 /* RequestExecutor.swift in Sources */,
 				D6E9DDAC1EF07513008CA490 /* RequestBuilder.swift in Sources */,
 				D6319F701EF06DEC0057E3E3 /* AuthenticationController.swift in Sources */,
+				D64FFF8A1EF852150039911F /* AuthenticationError.swift in Sources */,
 				D6319F681EF06D020057E3E3 /* Endpoints.swift in Sources */,
 				D6E9DDA81EF0731F008CA490 /* Request.swift in Sources */,
 				D6319F6E1EF06DAF0057E3E3 /* Controller.swift in Sources */,

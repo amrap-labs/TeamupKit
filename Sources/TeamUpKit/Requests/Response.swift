@@ -14,6 +14,7 @@ class Response {
     
     enum StatusCode: Int {
         case OK = 200
+        case unauthorized = 401
     }
     
     // MARK: Properties
