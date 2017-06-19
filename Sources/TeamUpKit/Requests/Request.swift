@@ -12,42 +12,55 @@ public class Request {
     
     // MARK: Types
     
-    enum Authentication {
+    public enum Authentication {
         case none
         case apiToken
         case userToken
     }
     
-    enum ContentType: String {
+    public enum ContentType: String {
         case json = "application/json"
         case formUrlEncoded = "application/x-www-form-urlencoded"
     }
     
-    struct Body {
+    public struct Body {
         
-        let data: [String : Any]
-        fileprivate(set) var contentType: ContentType?
+        public let data: [String : Any]
+        public fileprivate(set) var contentType: ContentType?
         
-        init(_ data: [String : Any]) {
+        public init(_ data: [String : Any]) {
             self.data = data
         }
     }
     
-    struct Parameters {
+    public struct Headers {
         
-        private(set) var data: [String : Any] = [:]
+        public private(set) var data: [String : String] = [:]
         
-        var count: Int {
+        public var count: Int {
             return data.count
         }
         
-        mutating func set(_ value: Any?, for key: String) {
+        public mutating func add(_ value: String, for key: String) {
+            data[key] = value
+        }
+    }
+    
+    public struct Parameters {
+        
+        public private(set) var data: [String : Any] = [:]
+        
+        public var count: Int {
+            return data.count
+        }
+        
+        public mutating func set(_ value: Any?, for key: String) {
             guard let value = value else { return }
             data[key] = value
         }
     }
     
-    enum Method: String {
+    public enum Method: String {
         case get = "GET"
         case post = "POST"
         case patch = "PATCH"
@@ -59,7 +72,7 @@ public class Request {
     let url: URL
     let method: Method
     let contentType: ContentType
-    let headers: [String : String]
+    let headers: Headers?
     let parameters: Parameters?
     let body: Data?
     
@@ -68,9 +81,9 @@ public class Request {
     init(with url: URL,
          method: Method,
          contentType: ContentType,
-         headers: [String : String],
-         parameters: Parameters? = nil,
-         body: Body? = nil) {
+         headers: Headers?,
+         parameters: Parameters?,
+         body: Body?) {
         self.url = url
         self.method = method
         self.contentType = contentType

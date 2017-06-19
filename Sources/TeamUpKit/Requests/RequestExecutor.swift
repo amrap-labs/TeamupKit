@@ -55,9 +55,9 @@ class RequestExecutor {
         urlRequest.httpBody = request.body
         
         // add headers
-        for header in request.headers {
+        request.headers?.data.forEach({ (header) in
             urlRequest.addValue(header.value, forHTTPHeaderField: header.key)
-        }
+        })
         urlRequest.addValue(request.contentType.rawValue, forHTTPHeaderField: "Content-Type")
         
         // perform task
