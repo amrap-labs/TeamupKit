@@ -12,12 +12,12 @@ class SessionsController: AuthenticatedController, Sessions {
     
     // MARK: Sessions
     
-    func loadSessions(between startDate: Date,
-                      and endDate: Date,
-                      includeRegistrationDetails: Bool,
-                      includeNonActive: Bool,
-                      success: (() -> Void)?,
-                      failure: Controller.MethodFailure?) {
+    func load(between startDate: Date,
+              and endDate: Date,
+              includeRegistrationDetails: Bool,
+              includeNonActive: Bool,
+              success: (() -> Void)?,
+              failure: Controller.MethodFailure?) {
         
         var parameters = Request.Parameters()
         parameters.set(config.business.businessId, for: "business")

@@ -29,11 +29,11 @@ class ViewController: UIViewController {
                               failure: nil)
         }
         
-        teamup.sessions.loadSessions(between: Date(), and: Date(),
-                                     includeRegistrationDetails: true,
-                                     includeNonActive: true,
-                                     success: nil,
-                                     failure: nil)
+        teamup.sessions.load(between: Date(), and: Date(),
+                             includeRegistrationDetails: true,
+                             includeNonActive: true,
+                             success: nil,
+                             failure: nil)
         // Do any additional setup after loading the view, typically from a nib.
     }
 
