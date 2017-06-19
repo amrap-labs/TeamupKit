@@ -63,30 +63,37 @@ class RequestExecutor {
         // perform task
         let task = urlSession.dataTask(with: urlRequest) { (data, response, error) in
             self.dataTasks.removeValue(forKey: url)
-            let response = Response(with: response, for: request, error: error)
             
-            guard response?.isSuccessful == true else { // handle error
+            // attempt to read response
+            guard let response = Response(with: response,
+                                    and: data,
+                                    for: request,
+                                    error: error) else
+            {
+                failure(request, nil, RequestError.unknown)
+                return
+            }
+            
+            guard response.isSuccessful == true else { // handle error
                 
                 // Attempt reauth if 401
-                if response?.statusCode == .unauthorized {
+                if response.statusCode == .unauthorized {
                     self.authResponder?.requestExecutor(self,
                                                         encounteredUnauthorizedErrorWhenExecuting: request,
-                                                        response: response!,
+                                                        response: response,
                                                         success: success,
                                                         failure: failure)
                     return
                 }
                 
-                let error = response?.error ?? RequestError.unknown
-                print("requestFailed (\(url.absoluteString)) - error: \(error), statusCode: \(response?.statusCode ?? .unknown)")
+                let error = response.error!
+                print("requestFailed (\(url.absoluteString)) - error: \(error), statusCode: \(response.statusCode.rawValue)")
                 failure(request, response, error)
                 return
             }
             
-            let data = data!
-            
             print("requestComplete (\(url.absoluteString)")
-            success(request, response!, data)
+            success(request, response, data)
         }
         dataTasks[url] = task
         

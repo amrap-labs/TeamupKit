@@ -11,5 +11,5 @@ import Foundation
 public enum RequestError: Error {
     case unknown
     
-    case badRequest(request: Request)
+    case badRequest(reason: String)
 }

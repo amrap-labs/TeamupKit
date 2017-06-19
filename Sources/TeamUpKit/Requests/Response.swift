@@ -26,7 +26,8 @@ class Response {
     private let request: Request
     
     let raw: URLResponse
-    let statusCode: StatusCode?
+    let data: Data?
+    let statusCode: StatusCode
     private(set) var error: Error?
     
     var isSuccessful: Bool {
@@ -36,6 +37,7 @@ class Response {
     // MARK: Init
     
     init?(with urlResponse: URLResponse?,
+          and data: Data?,
           for request: Request,
           error: Error?) {
         guard let httpUrlResponse = urlResponse as? HTTPURLResponse else {
@@ -43,9 +45,10 @@ class Response {
         }
         
         self.raw = httpUrlResponse
+        self.data = data
         self.request = request
         self.error = error
-        self.statusCode = StatusCode.init(rawValue: httpUrlResponse.statusCode)
+        self.statusCode = StatusCode.init(rawValue: httpUrlResponse.statusCode) ?? .unknown
         
         if !isSuccessful && error == nil {
             self.error = generateRequestError(for: statusCode)
@@ -56,10 +59,15 @@ class Response {
     
     private func generateRequestError(for statusCode: StatusCode?) -> RequestError {
         guard let statusCode = statusCode else { return .unknown }
+        var reason: String = "unknown"
+        if let data = data, let dataString = String(data: data, encoding: .utf8) {
+            reason = dataString
+        }
+        
         switch statusCode {
             
         case .badRequest:
-            return .badRequest(request: self.request)
+            return .badRequest(reason: reason)
             
         default:
             return .unknown
