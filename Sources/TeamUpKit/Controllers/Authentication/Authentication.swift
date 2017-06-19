@@ -29,11 +29,15 @@ public protocol Authentication {
     ///
     /// - Parameters:
     ///   - email: The user's desired email address.
-    ///   - password: The user's desired password
+    ///   - password: The user's desired password.
+    ///   - firstName: The user's first name.
+    ///   - surname: The user's surname.
     ///   - success: Execution block if the registration succeeds.
     ///   - failure: Execution block if the registration fails.
     func register(with email: String,
                   password: String,
+                  firstName: String,
+                  surname: String,
                   success: ((User) -> Void)?,
                   failure: Controller.MethodFailure?)
     

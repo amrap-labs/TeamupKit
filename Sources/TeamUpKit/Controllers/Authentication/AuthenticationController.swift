@@ -51,18 +51,19 @@ class AuthenticationController: Controller, Authentication {
                password: String,
                success: ((User) -> Void)?,
                failure: MethodFailure?) {
-        logIn(with: email,
-              password: password,
-              success: success,
-              failure: failure,
-              force: false)
+        performLogIn(with: email,
+                     password: password,
+                     success: success,
+                     failure: failure,
+                     force: false)
     }
     
     func register(with email: String,
                   password: String,
+                  firstName: String,
+                  surname: String,
                   success: ((User) -> Void)?,
                   failure: Controller.MethodFailure?) {
-        
     }
     
     func signOut() {
@@ -73,12 +74,16 @@ class AuthenticationController: Controller, Authentication {
         
         // TODO - Notify other controllers
     }
+}
+
+// MARK: - Authentication requests
+private extension AuthenticationController {
     
-    private func logIn(with email: String,
-                       password: String,
-                       success: ((User) -> Void)?,
-                       failure: MethodFailure?,
-                       force: Bool) {
+    private func performLogIn(with email: String,
+                              password: String,
+                              success: ((User) -> Void)?,
+                              failure: MethodFailure?,
+                              force: Bool) {
         
         // ignore log in if already logged in
         if force == false && currentUser != nil && currentUserAuthData != nil {
@@ -200,14 +205,16 @@ extension AuthenticationController: RequestExecutorAuthResponder {
         print("Attempting to reauth")
         
         // attempt to reauthenticate current user and then execute request
-        logIn(with: currentUser.customer.emails.first!,
-              password: authData.password,
-              success: { (user) in
+        performLogIn(with: currentUser.customer.emails.first!,
+                     password: authData.password,
+                     success:
+            { (user) in
                 executor.execute(request: request, success: success, failure: failure)
         },
-              failure: { (error) in
+                     failure:
+            { (error) in
                 failure(request, nil, error)
         },
-              force: true)
+                     force: true)
     }
 }
