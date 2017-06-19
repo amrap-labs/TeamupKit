@@ -21,6 +21,8 @@
 		D6364C1D1EEC02D4004CF152 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6364C1C1EEC02D4004CF152 /* Config.swift */; };
 		D6364C1F1EEC0310004CF152 /* ApiConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6364C1E1EEC0310004CF152 /* ApiConfig.swift */; };
 		D64FFF8A1EF852150039911F /* AuthenticationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64FFF891EF852150039911F /* AuthenticationError.swift */; };
+		D64FFF8D1EF85A3A0039911F /* Sessions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64FFF8C1EF85A3A0039911F /* Sessions.swift */; };
+		D64FFF8F1EF85A510039911F /* SessionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64FFF8E1EF85A510039911F /* SessionsController.swift */; };
 		D6D877AE1EEC29E800908EAD /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D877AD1EEC29E800908EAD /* Authentication.swift */; };
 		D6D877B01EEC2B8F00908EAD /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6D877AF1EEC2B8F00908EAD /* Config.plist */; };
 		D6E9DDA81EF0731F008CA490 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E9DDA71EF0731F008CA490 /* Request.swift */; };
@@ -61,6 +63,8 @@
 		D6364C1C1EEC02D4004CF152 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		D6364C1E1EEC0310004CF152 /* ApiConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiConfig.swift; sourceTree = "<group>"; };
 		D64FFF891EF852150039911F /* AuthenticationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationError.swift; sourceTree = "<group>"; };
+		D64FFF8C1EF85A3A0039911F /* Sessions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sessions.swift; sourceTree = "<group>"; };
+		D64FFF8E1EF85A510039911F /* SessionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionsController.swift; sourceTree = "<group>"; };
 		D6D877AD1EEC29E800908EAD /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		D6D877AF1EEC2B8F00908EAD /* Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		D6E9DDA71EF0731F008CA490 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
@@ -141,6 +145,7 @@
 			children = (
 				D6319F6D1EF06DAF0057E3E3 /* Controller.swift */,
 				D6F9EA811EEBEB41002ABF64 /* Authentication */,
+				D64FFF8B1EF85A2E0039911F /* Sessions */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -152,6 +157,15 @@
 				D6364C1E1EEC0310004CF152 /* ApiConfig.swift */,
 			);
 			path = Config;
+			sourceTree = "<group>";
+		};
+		D64FFF8B1EF85A2E0039911F /* Sessions */ = {
+			isa = PBXGroup;
+			children = (
+				D64FFF8C1EF85A3A0039911F /* Sessions.swift */,
+				D64FFF8E1EF85A510039911F /* SessionsController.swift */,
+			);
+			path = Sessions;
 			sourceTree = "<group>";
 		};
 		D6F9EA551EEBE980002ABF64 = {
@@ -433,8 +447,10 @@
 				D60D634D1EF1D58E00C93B9A /* Response.swift in Sources */,
 				D6E9DDAE1EF0836C008CA490 /* RequestExecutor.swift in Sources */,
 				D6E9DDAC1EF07513008CA490 /* RequestBuilder.swift in Sources */,
+				D64FFF8F1EF85A510039911F /* SessionsController.swift in Sources */,
 				D6319F701EF06DEC0057E3E3 /* AuthenticationController.swift in Sources */,
 				D64FFF8A1EF852150039911F /* AuthenticationError.swift in Sources */,
+				D64FFF8D1EF85A3A0039911F /* Sessions.swift in Sources */,
 				D6319F681EF06D020057E3E3 /* Endpoints.swift in Sources */,
 				D6E9DDA81EF0731F008CA490 /* Request.swift in Sources */,
 				D6319F6E1EF06DAF0057E3E3 /* Controller.swift in Sources */,

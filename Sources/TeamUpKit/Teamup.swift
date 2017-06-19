@@ -17,6 +17,7 @@ public class Teamup {
     private var requestExecutor: RequestExecutor!
     
     public var auth: Authentication!
+    public var sessions: Sessions!
     
     // MARK: Init
     
@@ -31,7 +32,8 @@ public class Teamup {
                             executor: requestExecutor,
                             apiToken: apiToken)
         initControllers(with: config,
-                        requestBuilder: requestBuilder)
+                        requestBuilder: requestBuilder,
+                        executor: requestExecutor)
     }
     
     private func initComponents(with config: Config) {
@@ -55,8 +57,11 @@ public class Teamup {
     }
     
     private func initControllers(with config: Config,
-                                 requestBuilder: RequestBuilder) {
-        
-        
+                                 requestBuilder: RequestBuilder,
+                                 executor: RequestExecutor) {
+        let sessionsController = SessionsController(with: config,
+                                                    requestBuilder: requestBuilder,
+                                                    executor: executor)
+        self.sessions = sessionsController   
     }
 }
