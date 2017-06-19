@@ -61,11 +61,11 @@ class RequestExecutor {
         urlRequest.addValue(request.contentType.rawValue, forHTTPHeaderField: "Content-Type")
         
         // perform task
-        let task = urlSession.dataTask(with: urlRequest) { [unowned self] (data, response, error) in
+        let task = urlSession.dataTask(with: urlRequest) { (data, response, error) in
             self.dataTasks.removeValue(forKey: url)
-            let response = Response(with: response)
+            let response = Response(with: response, for: request, error: error)
             
-            guard error == nil && response != nil, response?.isSuccessful == true else { // handle error
+            guard response?.isSuccessful == true else { // handle error
                 
                 // Attempt reauth if 401
                 if response?.statusCode == .unauthorized {
@@ -77,8 +77,9 @@ class RequestExecutor {
                     return
                 }
                 
-                print("requestFailed (\(url.absoluteString)) - error: \(error!)")
-                failure(request, response, error!)
+                let error = response?.error ?? RequestError.unknown
+                print("requestFailed (\(url.absoluteString)) - error: \(error), statusCode: \(response?.statusCode ?? .unknown)")
+                failure(request, response, error)
                 return
             }
             

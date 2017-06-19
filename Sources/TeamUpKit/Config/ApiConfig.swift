@@ -12,9 +12,13 @@ public struct ApiConfig {
     
     // MARK: Types
     
+    /// The version of the Teamup API to use
     public enum Version: String {
+        
+        /// Version 1.0
         case v1 = "v1"
         
+        /// The latest version of the API
         static var current: Version = .v1
     }
     
@@ -24,10 +28,12 @@ public struct ApiConfig {
     
     // MARK: Properties
     
+    /// The base url for the Teamup service.
     private let baseUrl: String
+    /// The version of the API that is being used.
     private let version: Version
     
-    public let urlString: String
+    /// The URL for the Teamup service.
     public let url: URL
     
     // MARK: Init
@@ -37,7 +43,7 @@ public struct ApiConfig {
         self.baseUrl = configDictionary[baseUrlKey] as! String
         self.version = version
         
-        self.urlString = "\(baseUrl)/\(version)"
+        let urlString = "\(baseUrl)/\(version)"
         self.url = URL(string: urlString)!
     }
 }

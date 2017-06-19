@@ -8,10 +8,13 @@
 
 import Foundation
 
-public protocol Authentication {
+public protocol Authentication: class {
     
     /// The currently authenticated user.
     var currentUser: User? { get }
+    
+    /// Whether a user is currently authenticated.
+    var isAuthenticated: Bool { get }
     
     /// Log In to an existing Teamup account.
     ///

@@ -12,7 +12,7 @@ internal class Config {
     
     // MARK: Properties
     
-    let providerId: String
+    let business: BusinessConfig
     private(set) var api: ApiConfig!
     
     private var configDictionary: [String : Any] {
@@ -21,9 +21,9 @@ internal class Config {
         return dictionary as! [String : Any]
     }
     
-    init(providerId: String,
+    init(businessId: String,
          apiVersion: ApiConfig.Version) {
-        self.providerId = providerId
+        self.business = BusinessConfig(businessId: businessId)
         self.api = ApiConfig(with: configDictionary,
                              version: apiVersion)
     }

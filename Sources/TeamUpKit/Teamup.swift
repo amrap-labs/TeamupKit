@@ -22,9 +22,9 @@ public class Teamup {
     // MARK: Init
     
     public init(apiToken: String,
-                providerId: String,
+                businessId: String,
                 apiVersion: ApiConfig.Version = .current) {
-        self.config = Config(providerId: providerId,
+        self.config = Config(businessId: businessId,
                              apiVersion: apiVersion)
         initComponents(with: config)
         initAuthControllers(with: config,
@@ -33,7 +33,8 @@ public class Teamup {
                             apiToken: apiToken)
         initControllers(with: config,
                         requestBuilder: requestBuilder,
-                        executor: requestExecutor)
+                        executor: requestExecutor,
+                        auth: self.auth)
     }
     
     private func initComponents(with config: Config) {
@@ -58,10 +59,12 @@ public class Teamup {
     
     private func initControllers(with config: Config,
                                  requestBuilder: RequestBuilder,
-                                 executor: RequestExecutor) {
+                                 executor: RequestExecutor,
+                                 auth: Authentication) {
         let sessionsController = SessionsController(with: config,
                                                     requestBuilder: requestBuilder,
-                                                    executor: executor)
+                                                    executor: executor,
+                                                    auth: auth)
         self.sessions = sessionsController   
     }
 }

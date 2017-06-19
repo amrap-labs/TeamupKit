@@ -23,6 +23,8 @@
 		D64FFF8A1EF852150039911F /* AuthenticationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64FFF891EF852150039911F /* AuthenticationError.swift */; };
 		D64FFF8D1EF85A3A0039911F /* Sessions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64FFF8C1EF85A3A0039911F /* Sessions.swift */; };
 		D64FFF8F1EF85A510039911F /* SessionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64FFF8E1EF85A510039911F /* SessionsController.swift */; };
+		D64FFF911EF868FE0039911F /* BusinessConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64FFF901EF868FE0039911F /* BusinessConfig.swift */; };
+		D64FFF931EF86A0E0039911F /* AuthenticatedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64FFF921EF86A0E0039911F /* AuthenticatedController.swift */; };
 		D6D877AE1EEC29E800908EAD /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D877AD1EEC29E800908EAD /* Authentication.swift */; };
 		D6D877B01EEC2B8F00908EAD /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6D877AF1EEC2B8F00908EAD /* Config.plist */; };
 		D6E9DDA81EF0731F008CA490 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E9DDA71EF0731F008CA490 /* Request.swift */; };
@@ -65,6 +67,8 @@
 		D64FFF891EF852150039911F /* AuthenticationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationError.swift; sourceTree = "<group>"; };
 		D64FFF8C1EF85A3A0039911F /* Sessions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sessions.swift; sourceTree = "<group>"; };
 		D64FFF8E1EF85A510039911F /* SessionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionsController.swift; sourceTree = "<group>"; };
+		D64FFF901EF868FE0039911F /* BusinessConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessConfig.swift; sourceTree = "<group>"; };
+		D64FFF921EF86A0E0039911F /* AuthenticatedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedController.swift; sourceTree = "<group>"; };
 		D6D877AD1EEC29E800908EAD /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		D6D877AF1EEC2B8F00908EAD /* Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		D6E9DDA71EF0731F008CA490 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
@@ -155,6 +159,7 @@
 			children = (
 				D6364C1C1EEC02D4004CF152 /* Config.swift */,
 				D6364C1E1EEC0310004CF152 /* ApiConfig.swift */,
+				D64FFF901EF868FE0039911F /* BusinessConfig.swift */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -227,6 +232,7 @@
 				D6D877AD1EEC29E800908EAD /* Authentication.swift */,
 				D64FFF891EF852150039911F /* AuthenticationError.swift */,
 				D6319F6F1EF06DEC0057E3E3 /* AuthenticationController.swift */,
+				D64FFF921EF86A0E0039911F /* AuthenticatedController.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -436,12 +442,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				D6084C521EF702DF005A183D /* RequestError.swift in Sources */,
+				D64FFF911EF868FE0039911F /* BusinessConfig.swift in Sources */,
 				D6F9EA7C1EEBE9E6002ABF64 /* Teamup.swift in Sources */,
 				D6364C1D1EEC02D4004CF152 /* Config.swift in Sources */,
 				D6364C1F1EEC0310004CF152 /* ApiConfig.swift in Sources */,
 				D6319F6A1EF06D670057E3E3 /* UrlBuilder.swift in Sources */,
 				D6D877AE1EEC29E800908EAD /* Authentication.swift in Sources */,
 				D60D634B1EF1CF7F00C93B9A /* UrlUtils.swift in Sources */,
+				D64FFF931EF86A0E0039911F /* AuthenticatedController.swift in Sources */,
 				D60D63521EF1D80B00C93B9A /* Customer.swift in Sources */,
 				D60D63501EF1D7DA00C93B9A /* User.swift in Sources */,
 				D60D634D1EF1D58E00C93B9A /* Response.swift in Sources */,

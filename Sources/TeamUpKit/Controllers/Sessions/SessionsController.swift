@@ -8,6 +8,28 @@
 
 import Foundation
 
-class SessionsController: Controller, Sessions {
+class SessionsController: AuthenticatedController, Sessions {
     
+    // MARK: Sessions
+    
+    func loadSessions(between startDate: Date,
+                      and endDate: Date,
+                      includeRegistrationDetails: Bool,
+                      includeNonActive: Bool,
+                      success: (() -> Void)?,
+                      failure: Controller.MethodFailure?) {
+        
+        let request = requestBuilder.build(for: .sessions,
+                                           method: .get,
+                                           contentType: .json,
+                                           authentication: .userToken)
+        requestExecutor.execute(request: request,
+                                success:
+        { (request, response, data) in
+            print(response)
+        })
+        { (request, response, error) in
+            
+        }
+    }
 }

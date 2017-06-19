@@ -18,14 +18,22 @@ class ViewController: UIViewController {
         let dictionary = NSDictionary(contentsOfFile: plist) as! [String : Any]
         
         let teamup = Teamup(apiToken: dictionary["apiToken"] as! String,
-                            providerId: dictionary["providerId"] as! String)
+                            businessId: dictionary["businessId"] as! String)
         
-        teamup.auth.logIn(with: dictionary["email"] as! String,
-                          password: dictionary["password"] as! String,
-                          success: { (user) in
-                            print("logged in!")
-        },
-                          failure: nil)
+        if !teamup.auth.isAuthenticated {
+            teamup.auth.logIn(with: dictionary["email"] as! String,
+                              password: dictionary["password"] as! String,
+                              success: { (user) in
+                                print("logged in!")
+            },
+                              failure: nil)
+        }
+        
+        teamup.sessions.loadSessions(between: Date(), and: Date(),
+                                     includeRegistrationDetails: true,
+                                     includeNonActive: true,
+                                     success: nil,
+                                     failure: nil)
         // Do any additional setup after loading the view, typically from a nib.
     }
 

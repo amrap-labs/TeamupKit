@@ -13,6 +13,12 @@ enum Endpoint {
     // MARK: Auth
     case logIn
     case register(businessId: String)
+    
+    // MARK: Sessions
+    case sessions
+    case session(id: String)
+    case waitlist(sessionId: String)
+    case registration(sessionId: String)
 }
 
 extension Endpoint {
@@ -22,9 +28,18 @@ extension Endpoint {
             
         case .logIn:
             return "/businesses/generic_login"
-            
         case .register(let businessId):
             return "/businesses/\(businessId)/register"
+            
+        case .sessions:
+            return "/sessions"
+        case .session(let id):
+            return "/sessions/\(id)"
+        case .waitlist(let sessionId):
+            return "/sessions/\(sessionId)/waitlist"
+        case .registration(let sessionId):
+            return "/sessions/\(sessionId)/register"
+            
         }
     }
 }

@@ -30,6 +30,10 @@ class AuthenticationController: Controller, Authentication {
     private(set) var currentUser: User?
     private var currentUserAuthData: UserAuthData?
     
+    var isAuthenticated: Bool {
+        return currentUser != nil
+    }
+    
     // MARK: Init
     
     init(with config: Config,
