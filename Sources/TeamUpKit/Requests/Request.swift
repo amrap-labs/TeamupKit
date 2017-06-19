@@ -33,6 +33,20 @@ public class Request {
         }
     }
     
+    struct Parameters {
+        
+        private(set) var data: [String : Any] = [:]
+        
+        var count: Int {
+            return data.count
+        }
+        
+        mutating func set(_ value: Any?, for key: String) {
+            guard let value = value else { return }
+            data[key] = value
+        }
+    }
+    
     enum Method: String {
         case get = "GET"
         case post = "POST"
@@ -46,7 +60,7 @@ public class Request {
     let method: Method
     let contentType: ContentType
     let headers: [String : String]
-    let parameters: [String: Any]
+    let parameters: Parameters?
     let body: Data?
     
     // MARK: Init
@@ -55,7 +69,7 @@ public class Request {
          method: Method,
          contentType: ContentType,
          headers: [String : String],
-         parameters: [String : Any],
+         parameters: Parameters? = nil,
          body: Body? = nil) {
         self.url = url
         self.method = method

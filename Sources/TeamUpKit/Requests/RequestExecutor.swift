@@ -39,9 +39,9 @@ class RequestExecutor {
         
         // add parameters to url if required
         var url = request.url
-        if request.parameters.count > 0 {
+        if request.parameters?.count ?? 0 > 0 {
             let urlString = request.url.absoluteString
-            url = URL(string: "\(urlString)?\(request.parameters.stringFromHttpParameters())")!
+            url = URL(string: "\(urlString)?\(request.parameters!.data.stringFromHttpParameters())")!
         }
         
         // avoid duplicate requests

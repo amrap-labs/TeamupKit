@@ -37,7 +37,7 @@ class RequestBuilder {
                method: Request.Method,
                contentType: Request.ContentType,
                headers: [String : String]? = nil,
-               parameters: [String : Any]? = nil,
+               parameters: Request.Parameters? = nil,
                body: Request.Body? = nil,
                authentication: Request.Authentication? = nil) -> Request {
         
@@ -50,7 +50,7 @@ class RequestBuilder {
                        method: method,
                        contentType: contentType,
                        headers: headers,
-                       parameters: parameters ?? [:],
+                       parameters: parameters,
                        body: body)
     }
     

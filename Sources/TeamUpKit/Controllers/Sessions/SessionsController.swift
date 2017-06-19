@@ -19,14 +19,19 @@ class SessionsController: AuthenticatedController, Sessions {
                       success: (() -> Void)?,
                       failure: Controller.MethodFailure?) {
         
+        var parameters = Request.Parameters()
+        parameters.set(config.business.businessId, for: "business")
+        parameters.set(auth?.currentUser?.customer.id, for: "customer")
+        
         let request = requestBuilder.build(for: .sessions,
                                            method: .get,
                                            contentType: .json,
+                                           parameters: parameters,
                                            authentication: .userToken)
         requestExecutor.execute(request: request,
                                 success:
         { (request, response, data) in
-            print(response)
+            
         })
         { (request, response, error) in
             
