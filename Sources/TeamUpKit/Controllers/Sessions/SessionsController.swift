@@ -28,7 +28,7 @@ class SessionsController: AuthenticatedController, Sessions {
     override init(with config: Config,
                   requestBuilder: RequestBuilder,
                   executor: RequestExecutor,
-                  auth: Authentication) {
+                  auth: AuthenticationController) {
         self.registrationsController = RegistrationsController(with: config,
                                                                requestBuilder: requestBuilder,
                                                                executor: executor,

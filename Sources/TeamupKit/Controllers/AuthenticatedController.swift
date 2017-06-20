@@ -11,14 +11,14 @@ import Foundation
 class AuthenticatedController: Controller {
     
     /// The active authentication service.
-    weak private(set) var auth: Authentication?
+    weak private(set) var auth: AuthenticationController?
     
     // MARK: Init
     
     init(with config: Config,
          requestBuilder: RequestBuilder,
          executor: RequestExecutor,
-         auth: Authentication) {
+         auth: AuthenticationController) {
         self.auth = auth
         super.init(with: config,
                    requestBuilder: requestBuilder,

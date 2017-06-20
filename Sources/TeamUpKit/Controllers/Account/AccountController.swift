@@ -22,7 +22,7 @@ class AccountController: AuthenticatedController, Account {
     override init(with config: Config,
                   requestBuilder: RequestBuilder,
                   executor: RequestExecutor,
-                  auth: Authentication) {
+                  auth: AuthenticationController) {
         membershipsController = MembershipsController(with: config,
                                                       requestBuilder: requestBuilder,
                                                       executor: executor,

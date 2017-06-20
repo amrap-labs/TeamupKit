@@ -16,7 +16,7 @@ public class Teamup {
     private var requestBuilder: RequestBuilder!
     private var requestExecutor: RequestExecutor!
     
-    public private(set) var auth: Authentication!
+    public private(set) var auth: AuthenticationController!
     public private(set) var sessions: Sessions!
     public private(set) var account: Account!
     
@@ -49,10 +49,10 @@ public class Teamup {
                                      requestBuilder: RequestBuilder,
                                      executor: RequestExecutor,
                                      apiToken: String) {
-        let authController = AuthenticationController(with: config,
-                                                      requestBuilder: requestBuilder,
-                                                      executor: requestExecutor,
-                                                      apiToken: apiToken)
+        let authController = AuthenticationApiController(with: config,
+                                                         requestBuilder: requestBuilder,
+                                                         executor: requestExecutor,
+                                                         apiToken: apiToken)
         requestBuilder.authProvider = authController
         executor.authResponder = authController
         self.auth = authController
@@ -61,7 +61,7 @@ public class Teamup {
     private func initControllers(with config: Config,
                                  requestBuilder: RequestBuilder,
                                  executor: RequestExecutor,
-                                 auth: Authentication) {
+                                 auth: AuthenticationController) {
         let sessionsController = SessionsController(with: config,
                                                     requestBuilder: requestBuilder,
                                                     executor: executor,
