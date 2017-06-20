@@ -12,6 +12,7 @@ class RegistrationsController: AuthenticatedController, Registrations {
     
 }
 
+// MARK: - Registration Details
 extension RegistrationsController {
     
     func loadDetails(forSession session: Session,
@@ -42,5 +43,16 @@ extension RegistrationsController {
         }) { (request, response, error) in
             failure?(error)
         }
+    }
+}
+
+// MARK: - Registration Updating
+extension RegistrationsController {
+    
+    func updateState(forSession session: Session,
+                     to: Session.RegistrationState,
+                     success: ((Session.RegistrationState) -> Void)?,
+                     failure: Controller.MethodFailure?) {
+        
     }
 }

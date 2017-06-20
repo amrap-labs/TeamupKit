@@ -40,6 +40,10 @@
 		D6FA17101EF998C200E3C506 /* Session+Waitlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA170F1EF998C200E3C506 /* Session+Waitlist.swift */; };
 		D6FA17151EF9A85B00E3C506 /* Registrations.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA17141EF9A85B00E3C506 /* Registrations.swift */; };
 		D6FA17171EF9A86700E3C506 /* RegistrationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA17161EF9A86700E3C506 /* RegistrationsController.swift */; };
+		D6FA171A1EF9AD7200E3C506 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA17191EF9AD7200E3C506 /* Account.swift */; };
+		D6FA171C1EF9AD7B00E3C506 /* AccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA171B1EF9AD7B00E3C506 /* AccountController.swift */; };
+		D6FA171F1EF9ADFF00E3C506 /* Memberships.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA171E1EF9ADFF00E3C506 /* Memberships.swift */; };
+		D6FA17211EF9AE1300E3C506 /* MembershipsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA17201EF9AE1300E3C506 /* MembershipsController.swift */; };
 		D6FA20C81EF90E5F00E7EA17 /* ResultsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA20C71EF90E5F00E7EA17 /* ResultsPage.swift */; };
 		D6FA20CA1EF90F9A00E7EA17 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA20C91EF90F9A00E7EA17 /* Session.swift */; };
 		D6FA20CC1EF9142000E7EA17 /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA20CB1EF9142000E7EA17 /* Venue.swift */; };
@@ -96,6 +100,10 @@
 		D6FA170F1EF998C200E3C506 /* Session+Waitlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Session+Waitlist.swift"; sourceTree = "<group>"; };
 		D6FA17141EF9A85B00E3C506 /* Registrations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registrations.swift; sourceTree = "<group>"; };
 		D6FA17161EF9A86700E3C506 /* RegistrationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationsController.swift; sourceTree = "<group>"; };
+		D6FA17191EF9AD7200E3C506 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		D6FA171B1EF9AD7B00E3C506 /* AccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountController.swift; sourceTree = "<group>"; };
+		D6FA171E1EF9ADFF00E3C506 /* Memberships.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memberships.swift; sourceTree = "<group>"; };
+		D6FA17201EF9AE1300E3C506 /* MembershipsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembershipsController.swift; sourceTree = "<group>"; };
 		D6FA20C71EF90E5F00E7EA17 /* ResultsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsPage.swift; sourceTree = "<group>"; };
 		D6FA20C91EF90F9A00E7EA17 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		D6FA20CB1EF9142000E7EA17 /* Venue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
@@ -175,6 +183,7 @@
 				D6319F6D1EF06DAF0057E3E3 /* Controller.swift */,
 				D6F9EA811EEBEB41002ABF64 /* Authentication */,
 				D64FFF8B1EF85A2E0039911F /* Sessions */,
+				D6FA17181EF9AD5500E3C506 /* Account */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -270,6 +279,25 @@
 				D6FA17161EF9A86700E3C506 /* RegistrationsController.swift */,
 			);
 			path = Registrations;
+			sourceTree = "<group>";
+		};
+		D6FA17181EF9AD5500E3C506 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				D6FA17191EF9AD7200E3C506 /* Account.swift */,
+				D6FA171B1EF9AD7B00E3C506 /* AccountController.swift */,
+				D6FA171D1EF9ADF300E3C506 /* Memberships */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		D6FA171D1EF9ADF300E3C506 /* Memberships */ = {
+			isa = PBXGroup;
+			children = (
+				D6FA171E1EF9ADFF00E3C506 /* Memberships.swift */,
+				D6FA17201EF9AE1300E3C506 /* MembershipsController.swift */,
+			);
+			path = Memberships;
 			sourceTree = "<group>";
 		};
 		F0A979CA08BF10E7CC881EEA /* Pods */ = {
@@ -479,6 +507,7 @@
 				D6084C521EF702DF005A183D /* RequestError.swift in Sources */,
 				D6FA20CC1EF9142000E7EA17 /* Venue.swift in Sources */,
 				D6FA170C1EF979EC00E3C506 /* SessionType.swift in Sources */,
+				D6FA171C1EF9AD7B00E3C506 /* AccountController.swift in Sources */,
 				D6FA20C81EF90E5F00E7EA17 /* ResultsPage.swift in Sources */,
 				D6FA170A1EF9779A00E3C506 /* Business.swift in Sources */,
 				D6FA17101EF998C200E3C506 /* Session+Waitlist.swift in Sources */,
@@ -490,6 +519,7 @@
 				D6D877AE1EEC29E800908EAD /* Authentication.swift in Sources */,
 				D60D634B1EF1CF7F00C93B9A /* UrlUtils.swift in Sources */,
 				D6FA170E1EF97AD700E3C506 /* Session+RegistrationDetails.swift in Sources */,
+				D6FA171A1EF9AD7200E3C506 /* Account.swift in Sources */,
 				D64FFF931EF86A0E0039911F /* AuthenticatedController.swift in Sources */,
 				D60D63521EF1D80B00C93B9A /* Customer.swift in Sources */,
 				D6FA17151EF9A85B00E3C506 /* Registrations.swift in Sources */,
@@ -503,7 +533,9 @@
 				D64FFF8D1EF85A3A0039911F /* Sessions.swift in Sources */,
 				D6FA20CA1EF90F9A00E7EA17 /* Session.swift in Sources */,
 				D6319F681EF06D020057E3E3 /* Endpoints.swift in Sources */,
+				D6FA17211EF9AE1300E3C506 /* MembershipsController.swift in Sources */,
 				D6E9DDA81EF0731F008CA490 /* Request.swift in Sources */,
+				D6FA171F1EF9ADFF00E3C506 /* Memberships.swift in Sources */,
 				D6FA17171EF9A86700E3C506 /* RegistrationsController.swift in Sources */,
 				D6319F6E1EF06DAF0057E3E3 /* Controller.swift in Sources */,
 			);
