@@ -41,4 +41,30 @@ class MembershipsController: AuthenticatedController, Memberships {
             failure?(error)
         }
     }
+    
+    func loadMembership(withId id: Int,
+                        success: ((Membership) -> Void)?,
+                        failure: Controller.MethodFailure?) {
+        
+        let request = requestBuilder.build(for: .membership(id: id),
+                                           method: .get,
+                                           contentType: .json,
+                                           authentication: .userToken)
+        requestExecutor.execute(request: request,
+                                success:
+            { (request, response, data) in
+                guard let data = data else {
+                    failure?(RequestError.unknown)
+                    return
+                }
+                do {
+                    let membership = try self.decoder.decode(Membership.self, from: data)
+                    success?(membership)
+                } catch {
+                    failure?(error)
+                }
+        }) { (request, response, error) in
+            failure?(error)
+        }
+    }
 }
