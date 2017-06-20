@@ -12,8 +12,8 @@ class AccountApiController: AuthenticatedController, AccountController {
     
     // MARK: Properties
     
-    var membershipsController: MembershipsController
-    var memberships: Memberships {
+    var membershipsController: MembershipsApiController
+    var memberships: MembershipsController {
         return membershipsController
     }
     
@@ -23,10 +23,10 @@ class AccountApiController: AuthenticatedController, AccountController {
                   requestBuilder: RequestBuilder,
                   executor: RequestExecutor,
                   auth: AuthenticationController) {
-        membershipsController = MembershipsController(with: config,
-                                                      requestBuilder: requestBuilder,
-                                                      executor: executor,
-                                                      auth: auth)
+        membershipsController = MembershipsApiController(with: config,
+                                                         requestBuilder: requestBuilder,
+                                                         executor: executor,
+                                                         auth: auth)
         
         super.init(with: config,
                    requestBuilder: requestBuilder,

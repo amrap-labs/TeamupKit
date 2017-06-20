@@ -41,8 +41,8 @@
 		D6FA17171EF9A86700E3C506 /* RegistrationsApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA17161EF9A86700E3C506 /* RegistrationsApiController.swift */; };
 		D6FA171A1EF9AD7200E3C506 /* AccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA17191EF9AD7200E3C506 /* AccountController.swift */; };
 		D6FA171C1EF9AD7B00E3C506 /* AccountApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA171B1EF9AD7B00E3C506 /* AccountApiController.swift */; };
-		D6FA171F1EF9ADFF00E3C506 /* Memberships.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA171E1EF9ADFF00E3C506 /* Memberships.swift */; };
-		D6FA17211EF9AE1300E3C506 /* MembershipsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA17201EF9AE1300E3C506 /* MembershipsController.swift */; };
+		D6FA171F1EF9ADFF00E3C506 /* MembershipsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA171E1EF9ADFF00E3C506 /* MembershipsController.swift */; };
+		D6FA17211EF9AE1300E3C506 /* MembershipsApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA17201EF9AE1300E3C506 /* MembershipsApiController.swift */; };
 		D6FA17231EF9AF4200E3C506 /* Membership.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA17221EF9AF4200E3C506 /* Membership.swift */; };
 		D6FA20C81EF90E5F00E7EA17 /* ResultsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA20C71EF90E5F00E7EA17 /* ResultsPage.swift */; };
 		D6FA20CA1EF90F9A00E7EA17 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA20C91EF90F9A00E7EA17 /* Session.swift */; };
@@ -100,8 +100,8 @@
 		D6FA17161EF9A86700E3C506 /* RegistrationsApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationsApiController.swift; sourceTree = "<group>"; };
 		D6FA17191EF9AD7200E3C506 /* AccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountController.swift; sourceTree = "<group>"; };
 		D6FA171B1EF9AD7B00E3C506 /* AccountApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountApiController.swift; sourceTree = "<group>"; };
-		D6FA171E1EF9ADFF00E3C506 /* Memberships.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memberships.swift; sourceTree = "<group>"; };
-		D6FA17201EF9AE1300E3C506 /* MembershipsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembershipsController.swift; sourceTree = "<group>"; };
+		D6FA171E1EF9ADFF00E3C506 /* MembershipsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembershipsController.swift; sourceTree = "<group>"; };
+		D6FA17201EF9AE1300E3C506 /* MembershipsApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembershipsApiController.swift; sourceTree = "<group>"; };
 		D6FA17221EF9AF4200E3C506 /* Membership.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Membership.swift; sourceTree = "<group>"; };
 		D6FA17291EF9C2C500E3C506 /* AuthenticatedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedController.swift; sourceTree = "<group>"; };
 		D6FA20C71EF90E5F00E7EA17 /* ResultsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsPage.swift; sourceTree = "<group>"; };
@@ -294,8 +294,8 @@
 		D6FA171D1EF9ADF300E3C506 /* Memberships */ = {
 			isa = PBXGroup;
 			children = (
-				D6FA171E1EF9ADFF00E3C506 /* Memberships.swift */,
-				D6FA17201EF9AE1300E3C506 /* MembershipsController.swift */,
+				D6FA171E1EF9ADFF00E3C506 /* MembershipsController.swift */,
+				D6FA17201EF9AE1300E3C506 /* MembershipsApiController.swift */,
 			);
 			path = Memberships;
 			sourceTree = "<group>";
@@ -532,9 +532,9 @@
 				D64FFF8D1EF85A3A0039911F /* SessionsController.swift in Sources */,
 				D6FA20CA1EF90F9A00E7EA17 /* Session.swift in Sources */,
 				D6319F681EF06D020057E3E3 /* Endpoints.swift in Sources */,
-				D6FA17211EF9AE1300E3C506 /* MembershipsController.swift in Sources */,
+				D6FA17211EF9AE1300E3C506 /* MembershipsApiController.swift in Sources */,
 				D6E9DDA81EF0731F008CA490 /* Request.swift in Sources */,
-				D6FA171F1EF9ADFF00E3C506 /* Memberships.swift in Sources */,
+				D6FA171F1EF9ADFF00E3C506 /* MembershipsController.swift in Sources */,
 				D6FA17171EF9A86700E3C506 /* RegistrationsApiController.swift in Sources */,
 				D6FA17231EF9AF4200E3C506 /* Membership.swift in Sources */,
 				D6319F6E1EF06DAF0057E3E3 /* Controller.swift in Sources */,

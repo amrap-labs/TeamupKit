@@ -12,5 +12,5 @@ public protocol AccountController: class {
     
     // MARK: Properties
     
-    var memberships: Memberships { get }
+    var memberships: MembershipsController { get }
 }
