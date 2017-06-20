@@ -74,6 +74,38 @@ extension SessionsController {
             failure?(error)
         }
     }
+    
+    func load(sessionWithId id: Int,
+              includeRegistrationDetails: Bool,
+              success: ((Session) -> Void)?,
+              failure: Controller.MethodFailure?) {
+        
+        var parameters = Request.Parameters()
+        parameters.set(auth?.currentUser?.customer.id, for: "customer")
+        parameters.set(includeRegistrationDetails, for: "include_registration_details")
+        
+        let request = requestBuilder.build(for: .session(id: id),
+                                           method: .get,
+                                           contentType: .json,
+                                           parameters: parameters,
+                                           authentication: .userToken)
+        requestExecutor.execute(request: request,
+                                success:
+            { (request, response, data) in
+                guard let data = data else {
+                    failure?(RequestError.unknown)
+                    return
+                }
+                do {
+                    let session = try self.decoder.decode(Session.self, from: data)
+                    success?(session)
+                } catch {
+                    failure?(error)
+                }
+        }) { (request, response, error) in
+            failure?(error)
+        }
+    }
 }
 
 extension SessionsController {

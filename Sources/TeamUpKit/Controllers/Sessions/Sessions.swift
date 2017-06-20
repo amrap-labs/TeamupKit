@@ -27,7 +27,7 @@ public protocol Sessions: class {
     /// - Parameters:
     ///   - startDate: The date to show sessions from.
     ///   - endDate: The date to show sessions until.
-    ///   - includeRegistrationDetails: Whether to include registration details in the session details.
+    ///   - includeRegistrationDetails: Whether to include registration details.
     ///   - includeNonActive: Whether to include non-active sessions.
     ///   - page: The page index to load.
     ///   - success: Closure to execute on successful request.
@@ -38,5 +38,17 @@ public protocol Sessions: class {
               includeNonActive: Bool,
               page: Int?,
               success: ((ResultsPage<Session>) -> Void)?,
+              failure: Controller.MethodFailure?)
+    
+    /// Load an individual session details.
+    ///
+    /// - Parameters:
+    ///   - id: The identifier of the session.
+    ///   - includeRegistrationDetails: Whether to include registration details.
+    ///   - success: Closure to execute on successful request.
+    ///   - failure: Closure to execute of failed request.
+    func load(sessionWithId id: Int,
+              includeRegistrationDetails: Bool,
+              success: ((Session) -> Void)?,
               failure: Controller.MethodFailure?)
 }

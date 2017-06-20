@@ -16,9 +16,9 @@ enum Endpoint {
     
     // MARK: Sessions
     case sessions
-    case session(id: String)
-    case waitlist(sessionId: String)
-    case registration(sessionId: String)
+    case session(id: Int)
+    case waitlist(sessionId: Int)
+    case registration(sessionId: Int)
 }
 
 extension Endpoint {

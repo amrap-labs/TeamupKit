@@ -32,8 +32,8 @@ public extension Session {
         
         /// Whether the current user has the required actions for the session.
         let hasRequiredActions: Bool
-        /// Whether the current user has been checked off for the session.
-        let checkoffStatus: Bool?
+        /// The check off status for the registration.
+        let checkoffStatus: String?
         
         /// Whether the session is full.
         let isFull: Bool
