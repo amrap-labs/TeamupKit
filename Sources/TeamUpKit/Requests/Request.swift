@@ -25,11 +25,20 @@ public class Request {
     
     public struct Body {
         
-        public let data: [String : Any]
+        public private(set) var data: [String : Any]
         public fileprivate(set) var contentType: ContentType?
         
         public init(_ data: [String : Any]) {
             self.data = data
+        }
+        
+        public init() {
+            self.init([:])
+        }
+        
+        public mutating func add(_ value: Any?, for key: String) {
+            guard let value = value else { return }
+            data[key] = value
         }
     }
     
@@ -41,7 +50,8 @@ public class Request {
             return data.count
         }
         
-        public mutating func add(_ value: String, for key: String) {
+        public mutating func add(_ value: String?, for key: String) {
+            guard let value = value else { return }
             data[key] = value
         }
     }

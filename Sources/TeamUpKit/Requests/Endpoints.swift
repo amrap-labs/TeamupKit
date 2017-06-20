@@ -17,8 +17,8 @@ enum Endpoint {
     // MARK: Sessions
     case sessions
     case session(id: Int)
-    case waitlist(sessionId: Int)
-    case registration(sessionId: Int)
+    case sessionWaitlist(sessionId: Int)
+    case sessionRegistration(sessionId: Int)
     
     // MARK: Memberships
     case memberships
@@ -39,9 +39,9 @@ extension Endpoint {
             return "/sessions"
         case .session(let id):
             return "/sessions/\(id)"
-        case .waitlist(let sessionId):
+        case .sessionWaitlist(let sessionId):
             return "/sessions/\(sessionId)/waitlist"
-        case .registration(let sessionId):
+        case .sessionRegistration(let sessionId):
             return "/sessions/\(sessionId)/register"
             
         case .memberships:

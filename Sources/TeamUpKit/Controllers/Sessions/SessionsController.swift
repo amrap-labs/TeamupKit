@@ -139,7 +139,7 @@ extension SessionsController {
         var parameters = Request.Parameters()
         parameters.set(auth?.currentUser?.customer.id, for: "customer")
         
-        let request = requestBuilder.build(for: .waitlist(sessionId: session.id),
+        let request = requestBuilder.build(for: .sessionWaitlist(sessionId: session.id),
                                            method: .get,
                                            contentType: .json,
                                            parameters: parameters,

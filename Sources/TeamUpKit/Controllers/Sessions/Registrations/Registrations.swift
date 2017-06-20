@@ -35,10 +35,12 @@ public protocol Registrations: class {
     /// - Parameters:
     ///   - session: The session to update registration for.
     ///   - to: The new registration state.
+    ///   - membership: The membership to use.
     ///   - success: Closure to execute on successful request.
     ///   - failure: Closure to execute of failed request.
     func updateState(forSession session: Session,
-                     to: Session.RegistrationState,
+                     to newState: Session.RegistrationState,
+                     membership: Membership?,
                      success: ((Session.RegistrationState) -> Void)?,
                      failure: Controller.MethodFailure?)
 }

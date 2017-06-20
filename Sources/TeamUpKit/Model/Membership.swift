@@ -26,7 +26,7 @@ public struct Membership: Codable {
     enum CodingKeys: String, CodingKey {
         case id
         case name
-        case membershipId = "membership"
+        case number = "membership"
         case expirationDate = "expiration_date"
         case maximumUsesOnClasses = "maximum_allowed_class_uses"
         case usesOnClasses = "class_uses"
@@ -44,8 +44,8 @@ public struct Membership: Codable {
     let id: Int
     /// The name of the membership.
     let name: String
-    /// The membership id that can be used for registration.
-    let membershipId: Int
+    /// The membership number.
+    let number: Int
     /// The expiration date of the membership.
     let expirationDate: String?
     

@@ -22,7 +22,7 @@ extension RegistrationsController {
         var parameters = Request.Parameters()
         parameters.set(auth?.currentUser?.customer.id, for: "customer")
         
-        let request = requestBuilder.build(for: .registration(sessionId: session.id),
+        let request = requestBuilder.build(for: .sessionRegistration(sessionId: session.id),
                                            method: .get,
                                            contentType: .json,
                                            parameters: parameters,
@@ -50,9 +50,27 @@ extension RegistrationsController {
 extension RegistrationsController {
     
     func updateState(forSession session: Session,
-                     to: Session.RegistrationState,
+                     to newState: Session.RegistrationState,
+                     membership: Membership?,
                      success: ((Session.RegistrationState) -> Void)?,
                      failure: Controller.MethodFailure?) {
         
+        var body = Request.Body()
+        body.add(auth?.currentUser?.customer.id, for: "customer")
+        body.add(newState.rawValue, for: "action")
+        body.add(membership?.id, for: "consumermembership")
+        
+        let request = requestBuilder.build(for: .sessionRegistration(sessionId: session.id),
+                                           method: .post,
+                                           contentType: .formUrlEncoded,
+                                           body: body,
+                                           authentication: .userToken)
+        requestExecutor.execute(request: request,
+                                success:
+            { (request, response, data) in
+                success?(newState)
+        }) { (request, response, error) in
+            failure?(error)
+        }
     }
 }
