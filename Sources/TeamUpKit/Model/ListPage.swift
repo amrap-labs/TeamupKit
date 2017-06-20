@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct ListPage<T : Codable>: Codable {
+public struct ListPage<T : Codable>: Codable {
     
     enum CodingKeys: String, CodingKey {
         case count
@@ -21,13 +21,13 @@ struct ListPage<T : Codable>: Codable {
         case results
     }
     
-    let count: Int
-    let nextPageUrl: String?
-    let nextPage: Int?
-    let previousPageUrl: String?
-    let previousPage: Int?
-    let currentPage: Int
-    let totalPageCount: Int
+    public let count: Int
+    public let nextPageUrl: URL?
+    public let nextPage: Int?
+    public let previousPageUrl: URL?
+    public let previousPage: Int?
+    public let currentPage: Int
+    public let totalPageCount: Int
     
-    let results: [T]
+    public let results: [T]
 }

@@ -8,12 +8,12 @@
 
 import Foundation
 
-struct Customer: Codable {
+public struct Customer: Codable {
     
     /// Customer identifier.
-    let id: Int
+    public let id: Int
     /// Customer name.
-    let name: String
+    public let name: String
     /// Associated emails for customer.
-    let emails: [String]
+    public let emails: [String]
 }

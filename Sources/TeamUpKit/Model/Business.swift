@@ -1,5 +1,5 @@
 //
-//  Venue.swift
+//  Business.swift
 //  TeamupKit
 //
 //  Created by Merrick Sapsford on 20/06/2017.
@@ -8,30 +8,27 @@
 
 import Foundation
 
-public struct Venue: Codable {
+public struct Business: Codable {
     
     enum CodingKeys: String, CodingKey {
         case id
         case name
         case address
-        case timezone
         case latitude = "lat"
         case longitude = "lng"
-        case description
+        case storeUrl = "store_url"
     }
     
-    /// Identifier of the venue.
+    /// Identifier of the business.
     public let id: Int
-    /// Name of the venue.
+    /// Name of the business.
     public let name: String
-    /// Address of the venue.
+    /// Address of the business.
     public let address: String
-    /// Timezone that the venue is in.
-    public let timezone: String
-    /// Latitude of the venue.
+    /// Latitude of the business.
     public let latitude: Double
-    /// Longitude of the venue.
+    /// Longitude of the business.
     public let longitude: Double
-    /// Description of the venue.
-    public let description: String
+    /// URL for business store.
+    public let storeUrl: URL
 }
