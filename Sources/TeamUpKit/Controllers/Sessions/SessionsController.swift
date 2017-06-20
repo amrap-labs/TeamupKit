@@ -12,11 +12,32 @@ class SessionsController: AuthenticatedController, Sessions {
     
     // MARK: Properties
     
+    private var registrationsController: RegistrationsController
+    var registrations: Registrations {
+        return registrationsController
+    }
+    
     private let sessionsDateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         return dateFormatter
     }()
+    
+    // MARK: Init
+    
+    override init(with config: Config,
+                  requestBuilder: RequestBuilder,
+                  executor: RequestExecutor,
+                  auth: Authentication) {
+        self.registrationsController = RegistrationsController(with: config,
+                                                               requestBuilder: requestBuilder,
+                                                               executor: executor,
+                                                               auth: auth)
+        super.init(with: config,
+                   requestBuilder: requestBuilder,
+                   executor: executor,
+                   auth: auth)
+    }
 }
 
 // MARK: - Session loading

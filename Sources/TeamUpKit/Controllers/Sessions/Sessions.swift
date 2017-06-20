@@ -10,6 +10,12 @@ import Foundation
 
 public protocol Sessions: class {
     
+    // MARK: Properties
+    
+    var registrations: Registrations { get }
+    
+    // MARK: Methods
+    
     /// Load sessions at the current business.
     ///
     /// - Parameters:

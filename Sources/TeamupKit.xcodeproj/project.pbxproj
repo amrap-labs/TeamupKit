@@ -38,6 +38,8 @@
 		D6FA170C1EF979EC00E3C506 /* SessionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA170B1EF979EC00E3C506 /* SessionType.swift */; };
 		D6FA170E1EF97AD700E3C506 /* Session+RegistrationDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA170D1EF97AD700E3C506 /* Session+RegistrationDetails.swift */; };
 		D6FA17101EF998C200E3C506 /* Session+Waitlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA170F1EF998C200E3C506 /* Session+Waitlist.swift */; };
+		D6FA17151EF9A85B00E3C506 /* Registrations.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA17141EF9A85B00E3C506 /* Registrations.swift */; };
+		D6FA17171EF9A86700E3C506 /* RegistrationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA17161EF9A86700E3C506 /* RegistrationsController.swift */; };
 		D6FA20C81EF90E5F00E7EA17 /* ResultsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA20C71EF90E5F00E7EA17 /* ResultsPage.swift */; };
 		D6FA20CA1EF90F9A00E7EA17 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA20C91EF90F9A00E7EA17 /* Session.swift */; };
 		D6FA20CC1EF9142000E7EA17 /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA20CB1EF9142000E7EA17 /* Venue.swift */; };
@@ -92,6 +94,8 @@
 		D6FA170B1EF979EC00E3C506 /* SessionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionType.swift; sourceTree = "<group>"; };
 		D6FA170D1EF97AD700E3C506 /* Session+RegistrationDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Session+RegistrationDetails.swift"; sourceTree = "<group>"; };
 		D6FA170F1EF998C200E3C506 /* Session+Waitlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Session+Waitlist.swift"; sourceTree = "<group>"; };
+		D6FA17141EF9A85B00E3C506 /* Registrations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registrations.swift; sourceTree = "<group>"; };
+		D6FA17161EF9A86700E3C506 /* RegistrationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationsController.swift; sourceTree = "<group>"; };
 		D6FA20C71EF90E5F00E7EA17 /* ResultsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsPage.swift; sourceTree = "<group>"; };
 		D6FA20C91EF90F9A00E7EA17 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		D6FA20CB1EF9142000E7EA17 /* Venue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
@@ -190,6 +194,7 @@
 			children = (
 				D64FFF8C1EF85A3A0039911F /* Sessions.swift */,
 				D64FFF8E1EF85A510039911F /* SessionsController.swift */,
+				D6FA17131EF9A84800E3C506 /* Registrations */,
 			);
 			path = Sessions;
 			sourceTree = "<group>";
@@ -256,6 +261,15 @@
 				D64FFF921EF86A0E0039911F /* AuthenticatedController.swift */,
 			);
 			path = Authentication;
+			sourceTree = "<group>";
+		};
+		D6FA17131EF9A84800E3C506 /* Registrations */ = {
+			isa = PBXGroup;
+			children = (
+				D6FA17141EF9A85B00E3C506 /* Registrations.swift */,
+				D6FA17161EF9A86700E3C506 /* RegistrationsController.swift */,
+			);
+			path = Registrations;
 			sourceTree = "<group>";
 		};
 		F0A979CA08BF10E7CC881EEA /* Pods */ = {
@@ -478,6 +492,7 @@
 				D6FA170E1EF97AD700E3C506 /* Session+RegistrationDetails.swift in Sources */,
 				D64FFF931EF86A0E0039911F /* AuthenticatedController.swift in Sources */,
 				D60D63521EF1D80B00C93B9A /* Customer.swift in Sources */,
+				D6FA17151EF9A85B00E3C506 /* Registrations.swift in Sources */,
 				D60D63501EF1D7DA00C93B9A /* User.swift in Sources */,
 				D60D634D1EF1D58E00C93B9A /* Response.swift in Sources */,
 				D6E9DDAE1EF0836C008CA490 /* RequestExecutor.swift in Sources */,
@@ -489,6 +504,7 @@
 				D6FA20CA1EF90F9A00E7EA17 /* Session.swift in Sources */,
 				D6319F681EF06D020057E3E3 /* Endpoints.swift in Sources */,
 				D6E9DDA81EF0731F008CA490 /* Request.swift in Sources */,
+				D6FA17171EF9A86700E3C506 /* RegistrationsController.swift in Sources */,
 				D6319F6E1EF06DAF0057E3E3 /* Controller.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
