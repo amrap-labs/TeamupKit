@@ -8,29 +8,9 @@
 
 import Foundation
 
-class AccountController: AuthenticatedController, Account {
+public protocol AccountController: class {
     
     // MARK: Properties
     
-    var membershipsController: MembershipsController
-    var memberships: Memberships {
-        return membershipsController
-    }
-    
-    // MARK: Init
-    
-    override init(with config: Config,
-                  requestBuilder: RequestBuilder,
-                  executor: RequestExecutor,
-                  auth: AuthenticationController) {
-        membershipsController = MembershipsController(with: config,
-                                                      requestBuilder: requestBuilder,
-                                                      executor: executor,
-                                                      auth: auth)
-        
-        super.init(with: config,
-                   requestBuilder: requestBuilder,
-                   executor: executor,
-                   auth: auth)
-    }
+    var memberships: Memberships { get }
 }

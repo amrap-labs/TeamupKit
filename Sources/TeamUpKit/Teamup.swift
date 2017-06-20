@@ -18,7 +18,7 @@ public class Teamup {
     
     public private(set) var auth: AuthenticationController!
     public private(set) var sessions: SessionsController!
-    public private(set) var account: Account!
+    public private(set) var account: AccountController!
     
     // MARK: Init
     
@@ -68,10 +68,10 @@ public class Teamup {
                                                        auth: auth)
         self.sessions = sessionsController
         
-        let accountController = AccountController(with: config,
-                                                  requestBuilder: requestBuilder,
-                                                  executor: executor,
-                                                  auth: auth)
+        let accountController = AccountApiController(with: config,
+                                                     requestBuilder: requestBuilder,
+                                                     executor: executor,
+                                                     auth: auth)
         self.account = accountController
     }
 }

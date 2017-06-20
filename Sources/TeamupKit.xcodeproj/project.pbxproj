@@ -39,8 +39,8 @@
 		D6FA17101EF998C200E3C506 /* Session+Waitlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA170F1EF998C200E3C506 /* Session+Waitlist.swift */; };
 		D6FA17151EF9A85B00E3C506 /* RegistrationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA17141EF9A85B00E3C506 /* RegistrationsController.swift */; };
 		D6FA17171EF9A86700E3C506 /* RegistrationsApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA17161EF9A86700E3C506 /* RegistrationsApiController.swift */; };
-		D6FA171A1EF9AD7200E3C506 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA17191EF9AD7200E3C506 /* Account.swift */; };
-		D6FA171C1EF9AD7B00E3C506 /* AccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA171B1EF9AD7B00E3C506 /* AccountController.swift */; };
+		D6FA171A1EF9AD7200E3C506 /* AccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA17191EF9AD7200E3C506 /* AccountController.swift */; };
+		D6FA171C1EF9AD7B00E3C506 /* AccountApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA171B1EF9AD7B00E3C506 /* AccountApiController.swift */; };
 		D6FA171F1EF9ADFF00E3C506 /* Memberships.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA171E1EF9ADFF00E3C506 /* Memberships.swift */; };
 		D6FA17211EF9AE1300E3C506 /* MembershipsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA17201EF9AE1300E3C506 /* MembershipsController.swift */; };
 		D6FA17231EF9AF4200E3C506 /* Membership.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA17221EF9AF4200E3C506 /* Membership.swift */; };
@@ -98,8 +98,8 @@
 		D6FA170F1EF998C200E3C506 /* Session+Waitlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Session+Waitlist.swift"; sourceTree = "<group>"; };
 		D6FA17141EF9A85B00E3C506 /* RegistrationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationsController.swift; sourceTree = "<group>"; };
 		D6FA17161EF9A86700E3C506 /* RegistrationsApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationsApiController.swift; sourceTree = "<group>"; };
-		D6FA17191EF9AD7200E3C506 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
-		D6FA171B1EF9AD7B00E3C506 /* AccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountController.swift; sourceTree = "<group>"; };
+		D6FA17191EF9AD7200E3C506 /* AccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountController.swift; sourceTree = "<group>"; };
+		D6FA171B1EF9AD7B00E3C506 /* AccountApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountApiController.swift; sourceTree = "<group>"; };
 		D6FA171E1EF9ADFF00E3C506 /* Memberships.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memberships.swift; sourceTree = "<group>"; };
 		D6FA17201EF9AE1300E3C506 /* MembershipsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembershipsController.swift; sourceTree = "<group>"; };
 		D6FA17221EF9AF4200E3C506 /* Membership.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Membership.swift; sourceTree = "<group>"; };
@@ -284,8 +284,8 @@
 		D6FA17181EF9AD5500E3C506 /* Account */ = {
 			isa = PBXGroup;
 			children = (
-				D6FA17191EF9AD7200E3C506 /* Account.swift */,
-				D6FA171B1EF9AD7B00E3C506 /* AccountController.swift */,
+				D6FA17191EF9AD7200E3C506 /* AccountController.swift */,
+				D6FA171B1EF9AD7B00E3C506 /* AccountApiController.swift */,
 				D6FA171D1EF9ADF300E3C506 /* Memberships */,
 			);
 			path = Account;
@@ -508,7 +508,7 @@
 				D610A0DE1EF9C3500079F3FA /* AuthenticatedController.swift in Sources */,
 				D6FA20CC1EF9142000E7EA17 /* Venue.swift in Sources */,
 				D6FA170C1EF979EC00E3C506 /* SessionType.swift in Sources */,
-				D6FA171C1EF9AD7B00E3C506 /* AccountController.swift in Sources */,
+				D6FA171C1EF9AD7B00E3C506 /* AccountApiController.swift in Sources */,
 				D6FA20C81EF90E5F00E7EA17 /* ResultsPage.swift in Sources */,
 				D6FA170A1EF9779A00E3C506 /* Business.swift in Sources */,
 				D6FA17101EF998C200E3C506 /* Session+Waitlist.swift in Sources */,
@@ -520,7 +520,7 @@
 				D6D877AE1EEC29E800908EAD /* AuthenticationController.swift in Sources */,
 				D60D634B1EF1CF7F00C93B9A /* UrlUtils.swift in Sources */,
 				D6FA170E1EF97AD700E3C506 /* Session+RegistrationDetails.swift in Sources */,
-				D6FA171A1EF9AD7200E3C506 /* Account.swift in Sources */,
+				D6FA171A1EF9AD7200E3C506 /* AccountController.swift in Sources */,
 				D60D63521EF1D80B00C93B9A /* Customer.swift in Sources */,
 				D6FA17151EF9A85B00E3C506 /* RegistrationsController.swift in Sources */,
 				D60D63501EF1D7DA00C93B9A /* User.swift in Sources */,
