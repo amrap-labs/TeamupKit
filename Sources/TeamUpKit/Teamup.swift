@@ -19,6 +19,7 @@ public class Teamup {
     public private(set) var auth: AuthenticationController!
     public private(set) var sessions: SessionsController!
     public private(set) var account: AccountController!
+    public private(set) var business: BusinessController!
     
     // MARK: Init
     
@@ -73,5 +74,11 @@ public class Teamup {
                                                      executor: executor,
                                                      auth: auth)
         self.account = accountController
+        
+        let businessController = BusinessApiController(with: config,
+                                                       requestBuilder: requestBuilder,
+                                                       executor: executor,
+                                                       auth: auth)
+        self.business = businessController
     }
 }

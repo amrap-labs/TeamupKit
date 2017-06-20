@@ -15,6 +15,8 @@
 		D60D63501EF1D7DA00C93B9A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60D634F1EF1D7DA00C93B9A /* User.swift */; };
 		D60D63521EF1D80B00C93B9A /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60D63511EF1D80B00C93B9A /* Customer.swift */; };
 		D610A0DE1EF9C3500079F3FA /* AuthenticatedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA17291EF9C2C500E3C506 /* AuthenticatedController.swift */; };
+		D610A0E21EF9C4EC0079F3FA /* BusinessController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D610A0E11EF9C4EC0079F3FA /* BusinessController.swift */; };
+		D610A0E41EF9C52F0079F3FA /* BusinessApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D610A0E31EF9C52F0079F3FA /* BusinessApiController.swift */; };
 		D6319F681EF06D020057E3E3 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6319F671EF06D020057E3E3 /* Endpoints.swift */; };
 		D6319F6A1EF06D670057E3E3 /* UrlBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6319F691EF06D670057E3E3 /* UrlBuilder.swift */; };
 		D6319F6E1EF06DAF0057E3E3 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6319F6D1EF06DAF0057E3E3 /* Controller.swift */; };
@@ -71,6 +73,8 @@
 		D60D634C1EF1D58E00C93B9A /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		D60D634F1EF1D7DA00C93B9A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D60D63511EF1D80B00C93B9A /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
+		D610A0E11EF9C4EC0079F3FA /* BusinessController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessController.swift; sourceTree = "<group>"; };
+		D610A0E31EF9C52F0079F3FA /* BusinessApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessApiController.swift; sourceTree = "<group>"; };
 		D6319F671EF06D020057E3E3 /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
 		D6319F691EF06D670057E3E3 /* UrlBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlBuilder.swift; sourceTree = "<group>"; };
 		D6319F6D1EF06DAF0057E3E3 /* Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
@@ -164,6 +168,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		D610A0E01EF9C4DE0079F3FA /* Business */ = {
+			isa = PBXGroup;
+			children = (
+				D610A0E11EF9C4EC0079F3FA /* BusinessController.swift */,
+				D610A0E31EF9C52F0079F3FA /* BusinessApiController.swift */,
+			);
+			path = Business;
+			sourceTree = "<group>";
+		};
 		D6319F661EF06CF40057E3E3 /* Requests */ = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +199,7 @@
 				D6F9EA811EEBEB41002ABF64 /* Authentication */,
 				D64FFF8B1EF85A2E0039911F /* Sessions */,
 				D6FA17181EF9AD5500E3C506 /* Account */,
+				D610A0E01EF9C4DE0079F3FA /* Business */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -524,6 +538,7 @@
 				D60D63521EF1D80B00C93B9A /* Customer.swift in Sources */,
 				D6FA17151EF9A85B00E3C506 /* RegistrationsController.swift in Sources */,
 				D60D63501EF1D7DA00C93B9A /* User.swift in Sources */,
+				D610A0E41EF9C52F0079F3FA /* BusinessApiController.swift in Sources */,
 				D60D634D1EF1D58E00C93B9A /* Response.swift in Sources */,
 				D6E9DDAE1EF0836C008CA490 /* RequestExecutor.swift in Sources */,
 				D6E9DDAC1EF07513008CA490 /* RequestBuilder.swift in Sources */,
@@ -538,6 +553,7 @@
 				D6FA17171EF9A86700E3C506 /* RegistrationsApiController.swift in Sources */,
 				D6FA17231EF9AF4200E3C506 /* Membership.swift in Sources */,
 				D6319F6E1EF06DAF0057E3E3 /* Controller.swift in Sources */,
+				D610A0E21EF9C4EC0079F3FA /* BusinessController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
