@@ -108,6 +108,36 @@ extension SessionsController {
     }
 }
 
+// MARK: - Session Waitlist loading
 extension SessionsController {
     
+    func loadWaitlist(forSession session: Session,
+                      success: ((Session.Waitlist) -> Void)?,
+                      failure: Controller.MethodFailure?) {
+        
+        var parameters = Request.Parameters()
+        parameters.set(auth?.currentUser?.customer.id, for: "customer")
+        
+        let request = requestBuilder.build(for: .waitlist(sessionId: session.id),
+                                           method: .get,
+                                           contentType: .json,
+                                           parameters: parameters,
+                                           authentication: .userToken)
+        requestExecutor.execute(request: request,
+                                success:
+            { (request, response, data) in
+                guard let data = data else {
+                    failure?(RequestError.unknown)
+                    return
+                }
+                do {
+                    let waitlist = try self.decoder.decode(Session.Waitlist.self, from: data)
+                    success?(waitlist)
+                } catch {
+                    failure?(error)
+                }
+        }) { (request, response, error) in
+            failure?(error)
+        }
+    }
 }

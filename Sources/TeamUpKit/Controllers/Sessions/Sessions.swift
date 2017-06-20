@@ -51,4 +51,14 @@ public protocol Sessions: class {
               includeRegistrationDetails: Bool,
               success: ((Session) -> Void)?,
               failure: Controller.MethodFailure?)
+    
+    /// Load the waitlist for a session.
+    ///
+    /// - Parameters:
+    ///   - session: The session to load the waitlist for.
+    ///   - success: Closure to execute on successful request.
+    ///   - failure: Closure to execute of failed request.
+    func loadWaitlist(forSession session: Session,
+                      success: ((Session.Waitlist) -> Void)?,
+                      failure: Controller.MethodFailure?)
 }
