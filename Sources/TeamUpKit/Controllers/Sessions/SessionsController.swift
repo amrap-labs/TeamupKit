@@ -8,157 +8,63 @@
 
 import Foundation
 
-class SessionsController: AuthenticatedController, Sessions {
+public protocol SessionsController: class {
     
     // MARK: Properties
     
-    private var registrationsController: RegistrationsController
-    var registrations: Registrations {
-        return registrationsController
-    }
+    var registrations: Registrations { get }
     
-    private let sessionsDateFormatter: DateFormatter = {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        return dateFormatter
-    }()
+    // MARK: Methods
     
-    // MARK: Init
-    
-    override init(with config: Config,
-                  requestBuilder: RequestBuilder,
-                  executor: RequestExecutor,
-                  auth: AuthenticationController) {
-        self.registrationsController = RegistrationsController(with: config,
-                                                               requestBuilder: requestBuilder,
-                                                               executor: executor,
-                                                               auth: auth)
-        super.init(with: config,
-                   requestBuilder: requestBuilder,
-                   executor: executor,
-                   auth: auth)
-    }
-}
-
-// MARK: - Session loading
-extension SessionsController {
-    
+    /// Load sessions at the current business.
+    ///
+    /// - Parameters:
+    ///   - startDate: The date to show sessions from.
+    ///   - endDate: The date to show sessions until.
+    ///   - success: Closure to execute on successful request.
+    ///   - failure: Closure to execute of failed request.
     func load(between startDate: Date,
               and endDate: Date,
               success: ((ResultsPage<Session>) -> Void)?,
-              failure: Controller.MethodFailure?) {
-        
-        load(between: startDate, and: endDate,
-             includeRegistrationDetails: true,
-             includeNonActive: false,
-             page: nil,
-             success: success, failure: failure)
-    }
+              failure: Controller.MethodFailure?)
     
+    /// Load sessions at the current business.
+    ///
+    /// - Parameters:
+    ///   - startDate: The date to show sessions from.
+    ///   - endDate: The date to show sessions until.
+    ///   - includeRegistrationDetails: Whether to include registration details.
+    ///   - includeNonActive: Whether to include non-active sessions.
+    ///   - page: The page index to load.
+    ///   - success: Closure to execute on successful request.
+    ///   - failure: Closure to execute of failed request.
     func load(between startDate: Date,
               and endDate: Date,
               includeRegistrationDetails: Bool,
               includeNonActive: Bool,
               page: Int?,
               success: ((ResultsPage<Session>) -> Void)?,
-              failure: Controller.MethodFailure?) {
-        
-        var parameters = Request.Parameters()
-        parameters.set(config.business.businessId, for: "business")
-        parameters.set(auth?.currentUser?.customer.id, for: "customer")
-        parameters.set(includeRegistrationDetails, for: "include_registration_details")
-        parameters.set(includeNonActive, for: "include_non_active")
-        parameters.set(page, for: "page")
-        parameters.set(sessionsDateFormatter.string(from: startDate), for: "start_date")
-        parameters.set(sessionsDateFormatter.string(from: startDate), for: "end_date")
-        
-        let request = requestBuilder.build(for: .sessions,
-                                           method: .get,
-                                           contentType: .json,
-                                           parameters: parameters,
-                                           authentication: .userToken)
-        requestExecutor.execute(request: request,
-                                success:
-            { (request, response, data) in
-                guard let data = data else {
-                    failure?(RequestError.unknown)
-                    return
-                }
-                do {
-                    let sessions = try self.decoder.decode(ResultsPage<Session>.self, from: data)
-                    success?(sessions)
-                } catch {
-                    failure?(error)
-                }
-        })
-        { (request, response, error) in
-            failure?(error)
-        }
-    }
+              failure: Controller.MethodFailure?)
     
+    /// Load an individual session details.
+    ///
+    /// - Parameters:
+    ///   - id: The identifier of the session.
+    ///   - includeRegistrationDetails: Whether to include registration details.
+    ///   - success: Closure to execute on successful request.
+    ///   - failure: Closure to execute of failed request.
     func load(sessionWithId id: Int,
               includeRegistrationDetails: Bool,
               success: ((Session) -> Void)?,
-              failure: Controller.MethodFailure?) {
-        
-        var parameters = Request.Parameters()
-        parameters.set(auth?.currentUser?.customer.id, for: "customer")
-        parameters.set(includeRegistrationDetails, for: "include_registration_details")
-        
-        let request = requestBuilder.build(for: .session(id: id),
-                                           method: .get,
-                                           contentType: .json,
-                                           parameters: parameters,
-                                           authentication: .userToken)
-        requestExecutor.execute(request: request,
-                                success:
-            { (request, response, data) in
-                guard let data = data else {
-                    failure?(RequestError.unknown)
-                    return
-                }
-                do {
-                    let session = try self.decoder.decode(Session.self, from: data)
-                    success?(session)
-                } catch {
-                    failure?(error)
-                }
-        }) { (request, response, error) in
-            failure?(error)
-        }
-    }
-}
-
-// MARK: - Session Waitlist loading
-extension SessionsController {
+              failure: Controller.MethodFailure?)
     
+    /// Load the waitlist for a session.
+    ///
+    /// - Parameters:
+    ///   - session: The session to load the waitlist for.
+    ///   - success: Closure to execute on successful request.
+    ///   - failure: Closure to execute of failed request.
     func loadWaitlist(forSession session: Session,
                       success: ((Session.Waitlist) -> Void)?,
-                      failure: Controller.MethodFailure?) {
-        
-        var parameters = Request.Parameters()
-        parameters.set(auth?.currentUser?.customer.id, for: "customer")
-        
-        let request = requestBuilder.build(for: .sessionWaitlist(sessionId: session.id),
-                                           method: .get,
-                                           contentType: .json,
-                                           parameters: parameters,
-                                           authentication: .userToken)
-        requestExecutor.execute(request: request,
-                                success:
-            { (request, response, data) in
-                guard let data = data else {
-                    failure?(RequestError.unknown)
-                    return
-                }
-                do {
-                    let waitlist = try self.decoder.decode(Session.Waitlist.self, from: data)
-                    success?(waitlist)
-                } catch {
-                    failure?(error)
-                }
-        }) { (request, response, error) in
-            failure?(error)
-        }
-    }
+                      failure: Controller.MethodFailure?)
 }
