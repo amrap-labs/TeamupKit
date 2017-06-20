@@ -8,69 +8,39 @@
 
 import Foundation
 
-class RegistrationsController: AuthenticatedController, Registrations {
+public extension Session {
     
-}
-
-// MARK: - Registration Details
-extension RegistrationsController {
-    
-    func loadDetails(forSession session: Session,
-                     success: ((Session.RegistrationDetails) -> Void)?,
-                     failure: Controller.MethodFailure?) {
-        
-        var parameters = Request.Parameters()
-        parameters.set(auth?.currentUser?.customer.id, for: "customer")
-        
-        let request = requestBuilder.build(for: .sessionRegistration(sessionId: session.id),
-                                           method: .get,
-                                           contentType: .json,
-                                           parameters: parameters,
-                                           authentication: .userToken)
-        requestExecutor.execute(request: request,
-                                success:
-            { (request, response, data) in
-                guard let data = data else {
-                    failure?(RequestError.unknown)
-                    return
-                }
-                do {
-                    let registrationDetails = try self.decoder.decode(Session.RegistrationDetails.self, from: data)
-                    success?(registrationDetails)
-                } catch {
-                    failure?(error)
-                }
-        }) { (request, response, error) in
-            failure?(error)
-        }
+    public enum RegistrationState: String {
+        case attending = "REGISTER"
+        case notAttending = "LEAVE"
     }
 }
 
-// MARK: - Registration Updating
-extension RegistrationsController {
+public protocol RegistrationsController: class {
     
+    // MARK: Methods
+    
+    /// Load registration details for a session.
+    ///
+    /// - Parameters:
+    ///   - session: The session to load details for.
+    ///   - success: Closure to execute on successful request.
+    ///   - failure: Closure to execute of failed request.
+    func loadDetails(forSession session: Session,
+                     success: ((Session.RegistrationDetails) -> Void)?,
+                     failure: Controller.MethodFailure?)
+    
+    /// Update the registration state for a session for the current user.
+    ///
+    /// - Parameters:
+    ///   - session: The session to update registration for.
+    ///   - to: The new registration state.
+    ///   - membership: The membership to use.
+    ///   - success: Closure to execute on successful request.
+    ///   - failure: Closure to execute of failed request.
     func updateState(forSession session: Session,
                      to newState: Session.RegistrationState,
                      membership: Membership?,
                      success: ((Session.RegistrationState) -> Void)?,
-                     failure: Controller.MethodFailure?) {
-        
-        var body = Request.Body()
-        body.add(auth?.currentUser?.customer.id, for: "customer")
-        body.add(newState.rawValue, for: "action")
-        body.add(membership?.id, for: "consumermembership")
-        
-        let request = requestBuilder.build(for: .sessionRegistration(sessionId: session.id),
-                                           method: .post,
-                                           contentType: .formUrlEncoded,
-                                           body: body,
-                                           authentication: .userToken)
-        requestExecutor.execute(request: request,
-                                success:
-            { (request, response, data) in
-                success?(newState)
-        }) { (request, response, error) in
-            failure?(error)
-        }
-    }
+                     failure: Controller.MethodFailure?)
 }

@@ -12,8 +12,8 @@ class SessionsApiController: AuthenticatedController, SessionsController {
     
     // MARK: Properties
     
-    private var registrationsController: RegistrationsController
-    var registrations: Registrations {
+    private var registrationsController: RegistrationsApiController
+    var registrations: RegistrationsController {
         return registrationsController
     }
     
@@ -29,10 +29,10 @@ class SessionsApiController: AuthenticatedController, SessionsController {
                   requestBuilder: RequestBuilder,
                   executor: RequestExecutor,
                   auth: AuthenticationController) {
-        self.registrationsController = RegistrationsController(with: config,
-                                                               requestBuilder: requestBuilder,
-                                                               executor: executor,
-                                                               auth: auth)
+        self.registrationsController = RegistrationsApiController(with: config,
+                                                                  requestBuilder: requestBuilder,
+                                                                  executor: executor,
+                                                                  auth: auth)
         super.init(with: config,
                    requestBuilder: requestBuilder,
                    executor: executor,

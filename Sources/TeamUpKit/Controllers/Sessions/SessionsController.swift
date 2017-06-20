@@ -12,7 +12,7 @@ public protocol SessionsController: class {
     
     // MARK: Properties
     
-    var registrations: Registrations { get }
+    var registrations: RegistrationsController { get }
     
     // MARK: Methods
     
