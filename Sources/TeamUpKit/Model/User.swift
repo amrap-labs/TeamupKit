@@ -8,10 +8,16 @@
 
 import Foundation
 
+/// A user that is associated with a customer.
 public struct User: Codable {
     
+    /// The customer associated with the user.
     public let customer: Customer
+    
+    /// The access token for the user.
     internal let token: String
+    /// The expiry date of the token.
     internal let expires: String
+    /// Whether the user was successfully authenticated.
     internal let success: Bool
 }

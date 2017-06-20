@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// An individual customer of a business.
 public struct Customer: Codable {
     
     /// Customer identifier.

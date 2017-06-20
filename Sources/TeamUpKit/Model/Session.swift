@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// A session that is occurring or has occurred.
 public struct Session: Codable {
     
     enum CodingKeys: String, CodingKey {
@@ -25,16 +26,31 @@ public struct Session: Codable {
         case isActive = "active"
     }
     
+    /// The identifier of the session.
     public let id: Int
+    /// The name of the session.
     public let name: String
+    /// The description of the session.
     public let description: String
+    
+    /// The venue that the session is occuring at.
     public let venue: Venue
+    /// The business that is hosting the session.
     public let business: Business
+    
+    /// Web URL for the session details.
     public let detailUrl: URL
+    /// Web URL for the session registration.
     public let registrationUrl: URL
-    public let occupancy: Int?
-    public let attendanceCount: Int
-    public let type: SessionType
+    /// Details on registering the current user for the session.
     public let registrationDetails: RegistrationDetails?
+    
+    /// The total amount of registrations allowed for the session.
+    public let occupancy: Int?
+    /// The current attendance count for the session.
+    public let attendanceCount: Int
+    /// The type of the session.
+    public let type: SessionType
+    /// Whether the session is active.
     public let isActive: Bool
 }

@@ -10,7 +10,10 @@ import Foundation
 
 public struct SessionType: Codable {
     
+    /// Identifier of the session type.
     let id: Int
+    /// Session type name.
     let name: String
+    /// Session type description.
     let description: String
 }

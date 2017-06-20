@@ -37,7 +37,8 @@
 		D6FA170A1EF9779A00E3C506 /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA17091EF9779A00E3C506 /* Business.swift */; };
 		D6FA170C1EF979EC00E3C506 /* SessionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA170B1EF979EC00E3C506 /* SessionType.swift */; };
 		D6FA170E1EF97AD700E3C506 /* Session+RegistrationDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA170D1EF97AD700E3C506 /* Session+RegistrationDetails.swift */; };
-		D6FA20C81EF90E5F00E7EA17 /* ListPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA20C71EF90E5F00E7EA17 /* ListPage.swift */; };
+		D6FA17101EF998C200E3C506 /* Session+Waitlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA170F1EF998C200E3C506 /* Session+Waitlist.swift */; };
+		D6FA20C81EF90E5F00E7EA17 /* ResultsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA20C71EF90E5F00E7EA17 /* ResultsPage.swift */; };
 		D6FA20CA1EF90F9A00E7EA17 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA20C91EF90F9A00E7EA17 /* Session.swift */; };
 		D6FA20CC1EF9142000E7EA17 /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA20CB1EF9142000E7EA17 /* Venue.swift */; };
 /* End PBXBuildFile section */
@@ -90,7 +91,8 @@
 		D6FA17091EF9779A00E3C506 /* Business.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
 		D6FA170B1EF979EC00E3C506 /* SessionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionType.swift; sourceTree = "<group>"; };
 		D6FA170D1EF97AD700E3C506 /* Session+RegistrationDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Session+RegistrationDetails.swift"; sourceTree = "<group>"; };
-		D6FA20C71EF90E5F00E7EA17 /* ListPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPage.swift; sourceTree = "<group>"; };
+		D6FA170F1EF998C200E3C506 /* Session+Waitlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Session+Waitlist.swift"; sourceTree = "<group>"; };
+		D6FA20C71EF90E5F00E7EA17 /* ResultsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsPage.swift; sourceTree = "<group>"; };
 		D6FA20C91EF90F9A00E7EA17 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		D6FA20CB1EF9142000E7EA17 /* Venue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -138,9 +140,10 @@
 			children = (
 				D60D634F1EF1D7DA00C93B9A /* User.swift */,
 				D60D63511EF1D80B00C93B9A /* Customer.swift */,
-				D6FA20C71EF90E5F00E7EA17 /* ListPage.swift */,
+				D6FA20C71EF90E5F00E7EA17 /* ResultsPage.swift */,
 				D6FA20C91EF90F9A00E7EA17 /* Session.swift */,
 				D6FA170D1EF97AD700E3C506 /* Session+RegistrationDetails.swift */,
+				D6FA170F1EF998C200E3C506 /* Session+Waitlist.swift */,
 				D6FA170B1EF979EC00E3C506 /* SessionType.swift */,
 				D6FA20CB1EF9142000E7EA17 /* Venue.swift */,
 				D6FA17091EF9779A00E3C506 /* Business.swift */,
@@ -462,8 +465,9 @@
 				D6084C521EF702DF005A183D /* RequestError.swift in Sources */,
 				D6FA20CC1EF9142000E7EA17 /* Venue.swift in Sources */,
 				D6FA170C1EF979EC00E3C506 /* SessionType.swift in Sources */,
-				D6FA20C81EF90E5F00E7EA17 /* ListPage.swift in Sources */,
+				D6FA20C81EF90E5F00E7EA17 /* ResultsPage.swift in Sources */,
 				D6FA170A1EF9779A00E3C506 /* Business.swift in Sources */,
+				D6FA17101EF998C200E3C506 /* Session+Waitlist.swift in Sources */,
 				D64FFF911EF868FE0039911F /* BusinessConfig.swift in Sources */,
 				D6F9EA7C1EEBE9E6002ABF64 /* Teamup.swift in Sources */,
 				D6364C1D1EEC02D4004CF152 /* Config.swift in Sources */,

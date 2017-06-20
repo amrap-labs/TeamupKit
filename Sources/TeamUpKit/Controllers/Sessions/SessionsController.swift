@@ -38,7 +38,7 @@ class SessionsController: AuthenticatedController, Sessions {
                 return
             }
             do {
-                let sessions = try self.decoder.decode(ListPage<Session>.self, from: data)
+                let sessions = try self.decoder.decode(ResultsPage<Session>.self, from: data)
                 dump(sessions)
             } catch {
                 print(error)
