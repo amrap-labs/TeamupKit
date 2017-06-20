@@ -34,6 +34,9 @@
 		D6F9EA6E1EEBE981002ABF64 /* TeamupKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F9EA6D1EEBE981002ABF64 /* TeamupKitTests.swift */; };
 		D6F9EA701EEBE981002ABF64 /* TeamupKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D6F9EA621EEBE980002ABF64 /* TeamupKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D6F9EA7C1EEBE9E6002ABF64 /* Teamup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F9EA7B1EEBE9E6002ABF64 /* Teamup.swift */; };
+		D6FA20C81EF90E5F00E7EA17 /* ListPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA20C71EF90E5F00E7EA17 /* ListPage.swift */; };
+		D6FA20CA1EF90F9A00E7EA17 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA20C91EF90F9A00E7EA17 /* Session.swift */; };
+		D6FA20CC1EF9142000E7EA17 /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA20CB1EF9142000E7EA17 /* Venue.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +84,9 @@
 		D6F9EA6D1EEBE981002ABF64 /* TeamupKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamupKitTests.swift; sourceTree = "<group>"; };
 		D6F9EA6F1EEBE981002ABF64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D6F9EA7B1EEBE9E6002ABF64 /* Teamup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teamup.swift; sourceTree = "<group>"; };
+		D6FA20C71EF90E5F00E7EA17 /* ListPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPage.swift; sourceTree = "<group>"; };
+		D6FA20C91EF90F9A00E7EA17 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		D6FA20CB1EF9142000E7EA17 /* Venue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +132,9 @@
 			children = (
 				D60D634F1EF1D7DA00C93B9A /* User.swift */,
 				D60D63511EF1D80B00C93B9A /* Customer.swift */,
+				D6FA20C71EF90E5F00E7EA17 /* ListPage.swift */,
+				D6FA20C91EF90F9A00E7EA17 /* Session.swift */,
+				D6FA20CB1EF9142000E7EA17 /* Venue.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -442,6 +451,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D6084C521EF702DF005A183D /* RequestError.swift in Sources */,
+				D6FA20CC1EF9142000E7EA17 /* Venue.swift in Sources */,
+				D6FA20C81EF90E5F00E7EA17 /* ListPage.swift in Sources */,
 				D64FFF911EF868FE0039911F /* BusinessConfig.swift in Sources */,
 				D6F9EA7C1EEBE9E6002ABF64 /* Teamup.swift in Sources */,
 				D6364C1D1EEC02D4004CF152 /* Config.swift in Sources */,
@@ -459,6 +470,7 @@
 				D6319F701EF06DEC0057E3E3 /* AuthenticationController.swift in Sources */,
 				D64FFF8A1EF852150039911F /* AuthenticationError.swift in Sources */,
 				D64FFF8D1EF85A3A0039911F /* Sessions.swift in Sources */,
+				D6FA20CA1EF90F9A00E7EA17 /* Session.swift in Sources */,
 				D6319F681EF06D020057E3E3 /* Endpoints.swift in Sources */,
 				D6E9DDA81EF0731F008CA490 /* Request.swift in Sources */,
 				D6319F6E1EF06DAF0057E3E3 /* Controller.swift in Sources */,

@@ -10,7 +10,10 @@ import Foundation
 
 struct Customer: Codable {
     
+    /// Customer identifier.
     let id: Int
+    /// Customer name.
     let name: String
+    /// Associated emails for customer.
     let emails: [String]
 }

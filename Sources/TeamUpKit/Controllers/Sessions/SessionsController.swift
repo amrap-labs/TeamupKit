@@ -31,7 +31,16 @@ class SessionsController: AuthenticatedController, Sessions {
         requestExecutor.execute(request: request,
                                 success:
         { (request, response, data) in
-            
+            guard let data = data else {
+                failure?(RequestError.unknown)
+                return
+            }
+            do {
+                let sessions = try self.decoder.decode(ListPage<Session>.self, from: data)
+                dump(sessions)
+            } catch {
+                failure?(error)
+            }
         })
         { (request, response, error) in
             
