@@ -19,6 +19,10 @@ enum Endpoint {
     case session(id: Int)
     case waitlist(sessionId: Int)
     case registration(sessionId: Int)
+    
+    // MARK: Memberships
+    case memberships
+    case membership(id: Int)
 }
 
 extension Endpoint {
@@ -40,6 +44,10 @@ extension Endpoint {
         case .registration(let sessionId):
             return "/sessions/\(sessionId)/register"
             
+        case .memberships:
+            return "/customermemberships"
+        case .membership(let id):
+            return "/customermemberships/\(id)"
         }
     }
 }

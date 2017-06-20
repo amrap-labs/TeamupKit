@@ -44,6 +44,7 @@
 		D6FA171C1EF9AD7B00E3C506 /* AccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA171B1EF9AD7B00E3C506 /* AccountController.swift */; };
 		D6FA171F1EF9ADFF00E3C506 /* Memberships.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA171E1EF9ADFF00E3C506 /* Memberships.swift */; };
 		D6FA17211EF9AE1300E3C506 /* MembershipsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA17201EF9AE1300E3C506 /* MembershipsController.swift */; };
+		D6FA17231EF9AF4200E3C506 /* Membership.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA17221EF9AF4200E3C506 /* Membership.swift */; };
 		D6FA20C81EF90E5F00E7EA17 /* ResultsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA20C71EF90E5F00E7EA17 /* ResultsPage.swift */; };
 		D6FA20CA1EF90F9A00E7EA17 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA20C91EF90F9A00E7EA17 /* Session.swift */; };
 		D6FA20CC1EF9142000E7EA17 /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA20CB1EF9142000E7EA17 /* Venue.swift */; };
@@ -104,6 +105,7 @@
 		D6FA171B1EF9AD7B00E3C506 /* AccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountController.swift; sourceTree = "<group>"; };
 		D6FA171E1EF9ADFF00E3C506 /* Memberships.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memberships.swift; sourceTree = "<group>"; };
 		D6FA17201EF9AE1300E3C506 /* MembershipsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembershipsController.swift; sourceTree = "<group>"; };
+		D6FA17221EF9AF4200E3C506 /* Membership.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Membership.swift; sourceTree = "<group>"; };
 		D6FA20C71EF90E5F00E7EA17 /* ResultsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsPage.swift; sourceTree = "<group>"; };
 		D6FA20C91EF90F9A00E7EA17 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		D6FA20CB1EF9142000E7EA17 /* Venue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				D6FA170B1EF979EC00E3C506 /* SessionType.swift */,
 				D6FA20CB1EF9142000E7EA17 /* Venue.swift */,
 				D6FA17091EF9779A00E3C506 /* Business.swift */,
+				D6FA17221EF9AF4200E3C506 /* Membership.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -537,6 +540,7 @@
 				D6E9DDA81EF0731F008CA490 /* Request.swift in Sources */,
 				D6FA171F1EF9ADFF00E3C506 /* Memberships.swift in Sources */,
 				D6FA17171EF9A86700E3C506 /* RegistrationsController.swift in Sources */,
+				D6FA17231EF9AF4200E3C506 /* Membership.swift in Sources */,
 				D6319F6E1EF06DAF0057E3E3 /* Controller.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

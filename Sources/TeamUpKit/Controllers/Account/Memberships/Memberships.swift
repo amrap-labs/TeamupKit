@@ -10,4 +10,7 @@ import Foundation
 
 public protocol Memberships: class {
     
+    func loadAll(success: ((ResultsPage<Membership>) -> Void)?,
+                 failure: Controller.MethodFailure?)
+    
 }
