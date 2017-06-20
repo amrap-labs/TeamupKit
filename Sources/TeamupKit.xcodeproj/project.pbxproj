@@ -17,6 +17,8 @@
 		D610A0DE1EF9C3500079F3FA /* AuthenticatedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA17291EF9C2C500E3C506 /* AuthenticatedController.swift */; };
 		D610A0E21EF9C4EC0079F3FA /* BusinessController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D610A0E11EF9C4EC0079F3FA /* BusinessController.swift */; };
 		D610A0E41EF9C52F0079F3FA /* BusinessApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D610A0E31EF9C52F0079F3FA /* BusinessApiController.swift */; };
+		D610A0E71EF9C5C10079F3FA /* WaitlistsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D610A0E61EF9C5C10079F3FA /* WaitlistsController.swift */; };
+		D610A0E91EF9C5E10079F3FA /* WaitlistsApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D610A0E81EF9C5E10079F3FA /* WaitlistsApiController.swift */; };
 		D6319F681EF06D020057E3E3 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6319F671EF06D020057E3E3 /* Endpoints.swift */; };
 		D6319F6A1EF06D670057E3E3 /* UrlBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6319F691EF06D670057E3E3 /* UrlBuilder.swift */; };
 		D6319F6E1EF06DAF0057E3E3 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6319F6D1EF06DAF0057E3E3 /* Controller.swift */; };
@@ -75,6 +77,8 @@
 		D60D63511EF1D80B00C93B9A /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		D610A0E11EF9C4EC0079F3FA /* BusinessController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessController.swift; sourceTree = "<group>"; };
 		D610A0E31EF9C52F0079F3FA /* BusinessApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessApiController.swift; sourceTree = "<group>"; };
+		D610A0E61EF9C5C10079F3FA /* WaitlistsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitlistsController.swift; sourceTree = "<group>"; };
+		D610A0E81EF9C5E10079F3FA /* WaitlistsApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitlistsApiController.swift; sourceTree = "<group>"; };
 		D6319F671EF06D020057E3E3 /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
 		D6319F691EF06D670057E3E3 /* UrlBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlBuilder.swift; sourceTree = "<group>"; };
 		D6319F6D1EF06DAF0057E3E3 /* Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
@@ -177,6 +181,15 @@
 			path = Business;
 			sourceTree = "<group>";
 		};
+		D610A0E51EF9C5B10079F3FA /* Waitlists */ = {
+			isa = PBXGroup;
+			children = (
+				D610A0E61EF9C5C10079F3FA /* WaitlistsController.swift */,
+				D610A0E81EF9C5E10079F3FA /* WaitlistsApiController.swift */,
+			);
+			path = Waitlists;
+			sourceTree = "<group>";
+		};
 		D6319F661EF06CF40057E3E3 /* Requests */ = {
 			isa = PBXGroup;
 			children = (
@@ -220,6 +233,7 @@
 				D64FFF8C1EF85A3A0039911F /* SessionsController.swift */,
 				D64FFF8E1EF85A510039911F /* SessionsApiController.swift */,
 				D6FA17131EF9A84800E3C506 /* Registrations */,
+				D610A0E51EF9C5B10079F3FA /* Waitlists */,
 			);
 			path = Sessions;
 			sourceTree = "<group>";
@@ -521,6 +535,7 @@
 				D6084C521EF702DF005A183D /* RequestError.swift in Sources */,
 				D610A0DE1EF9C3500079F3FA /* AuthenticatedController.swift in Sources */,
 				D6FA20CC1EF9142000E7EA17 /* Venue.swift in Sources */,
+				D610A0E91EF9C5E10079F3FA /* WaitlistsApiController.swift in Sources */,
 				D6FA170C1EF979EC00E3C506 /* SessionType.swift in Sources */,
 				D6FA171C1EF9AD7B00E3C506 /* AccountApiController.swift in Sources */,
 				D6FA20C81EF90E5F00E7EA17 /* ResultsPage.swift in Sources */,
@@ -546,6 +561,7 @@
 				D6319F701EF06DEC0057E3E3 /* AuthenticationApiController.swift in Sources */,
 				D64FFF8D1EF85A3A0039911F /* SessionsController.swift in Sources */,
 				D6FA20CA1EF90F9A00E7EA17 /* Session.swift in Sources */,
+				D610A0E71EF9C5C10079F3FA /* WaitlistsController.swift in Sources */,
 				D6319F681EF06D020057E3E3 /* Endpoints.swift in Sources */,
 				D6FA17211EF9AE1300E3C506 /* MembershipsApiController.swift in Sources */,
 				D6E9DDA81EF0731F008CA490 /* Request.swift in Sources */,

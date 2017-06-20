@@ -17,6 +17,11 @@ class SessionsApiController: AuthenticatedController, SessionsController {
         return registrationsController
     }
     
+    private var waitlistsController: WaitlistsApiController
+    var waitlists: WaitlistsController {
+        return waitlistsController
+    }
+    
     private let sessionsDateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
@@ -33,6 +38,10 @@ class SessionsApiController: AuthenticatedController, SessionsController {
                                                                   requestBuilder: requestBuilder,
                                                                   executor: executor,
                                                                   auth: auth)
+        self.waitlistsController = WaitlistsApiController(with: config,
+                                                          requestBuilder: requestBuilder,
+                                                          executor: executor,
+                                                          auth: auth)
         super.init(with: config,
                    requestBuilder: requestBuilder,
                    executor: executor,
@@ -120,40 +129,6 @@ extension SessionsApiController {
                 do {
                     let session = try self.decoder.decode(Session.self, from: data)
                     success?(session)
-                } catch {
-                    failure?(error)
-                }
-        }) { (request, response, error) in
-            failure?(error)
-        }
-    }
-}
-
-// MARK: - Session Waitlist loading
-extension SessionsApiController {
-    
-    func loadWaitlist(forSession session: Session,
-                      success: ((Session.Waitlist) -> Void)?,
-                      failure: Controller.MethodFailure?) {
-        
-        var parameters = Request.Parameters()
-        parameters.set(auth?.currentUser?.customer.id, for: "customer")
-        
-        let request = requestBuilder.build(for: .sessionWaitlist(sessionId: session.id),
-                                           method: .get,
-                                           contentType: .json,
-                                           parameters: parameters,
-                                           authentication: .userToken)
-        requestExecutor.execute(request: request,
-                                success:
-            { (request, response, data) in
-                guard let data = data else {
-                    failure?(RequestError.unknown)
-                    return
-                }
-                do {
-                    let waitlist = try self.decoder.decode(Session.Waitlist.self, from: data)
-                    success?(waitlist)
                 } catch {
                     failure?(error)
                 }

@@ -12,7 +12,10 @@ public protocol SessionsController: class {
     
     // MARK: Properties
     
+    /// Controller for session registrations.
     var registrations: RegistrationsController { get }
+    /// Controller for session waitlists.
+    var waitlists: WaitlistsController { get }
     
     // MARK: Methods
     
@@ -57,14 +60,4 @@ public protocol SessionsController: class {
               includeRegistrationDetails: Bool,
               success: ((Session) -> Void)?,
               failure: Controller.MethodFailure?)
-    
-    /// Load the waitlist for a session.
-    ///
-    /// - Parameters:
-    ///   - session: The session to load the waitlist for.
-    ///   - success: Closure to execute on successful request.
-    ///   - failure: Closure to execute of failed request.
-    func loadWaitlist(forSession session: Session,
-                      success: ((Session.Waitlist) -> Void)?,
-                      failure: Controller.MethodFailure?)
 }
