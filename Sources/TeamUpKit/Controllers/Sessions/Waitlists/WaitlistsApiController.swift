@@ -39,4 +39,16 @@ class WaitlistsApiController: AuthenticatedController, WaitlistsController {
             failure?(error)
         }
     }
+    
+    func join(forSession session: Session,
+              success: ((Session.Waitlist) -> Void)?,
+              failure: Controller.MethodFailure?) {
+        // TODO
+    }
+    
+    func leave(forSession session: Session,
+               success: ((Session.Waitlist) -> Void)?,
+               failure: Controller.MethodFailure?) {
+        // TODO
+    }
 }
