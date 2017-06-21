@@ -43,4 +43,30 @@ extension InstructorsApiController {
             failure?(error)
         }
     }
+    
+    func load(withId id: Int,
+              success: ((Instructor) -> Void)?,
+              failure: Controller.MethodFailure?) {
+        
+        let request = requestBuilder.build(for: .instructor(id: id),
+                                           method: .get,
+                                           contentType: .json,
+                                           authentication: .userToken)
+        requestExecutor.execute(request: request,
+                                success:
+            { (request, response, data) in
+                guard let data = data else {
+                    failure?(RequestError.unknown)
+                    return
+                }
+                do {
+                    let instructor = try self.decoder.decode(Instructor.self, from: data)
+                    success?(instructor)
+                } catch {
+                    failure?(error)
+                }
+        }) { (request, response, error) in
+            failure?(error)
+        }
+    }
 }

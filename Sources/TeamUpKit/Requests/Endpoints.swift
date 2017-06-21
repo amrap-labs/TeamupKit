@@ -29,6 +29,7 @@ enum Endpoint {
     
     // MARK: Instructors
     case instructors
+    case instructor(id: Int)
 }
 
 extension Endpoint {
@@ -60,6 +61,8 @@ extension Endpoint {
             
         case .instructors:
             return "/instructors"
+        case .instructor(let id):
+            return "/instructors/\(id)"
         }
     }
 }
