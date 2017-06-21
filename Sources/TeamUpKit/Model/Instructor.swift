@@ -10,4 +10,12 @@ import Foundation
 
 public struct Instructor: Codable {
     
+    /// The Id of the instructor.
+    let id: Int
+    /// The name of the instructor.
+    let name: String
+    /// Description about the instructor.
+    let description: String
+    /// URL for the instructor's picture.
+    let picture: URL
 }
