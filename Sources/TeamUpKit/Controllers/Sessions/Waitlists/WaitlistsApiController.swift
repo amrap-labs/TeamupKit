@@ -43,12 +43,51 @@ class WaitlistsApiController: AuthenticatedController, WaitlistsController {
     func join(forSession session: Session,
               success: ((Session.Waitlist) -> Void)?,
               failure: Controller.MethodFailure?) {
-        // TODO
+        
+        updateWaitlist(withAction: "JOIN",
+                       forSession: session,
+                       success: success,
+                       failure: failure)
     }
     
     func leave(forSession session: Session,
                success: ((Session.Waitlist) -> Void)?,
                failure: Controller.MethodFailure?) {
-        // TODO
+        
+        updateWaitlist(withAction: "LEAVE",
+                       forSession: session,
+                       success: success,
+                       failure: failure)
+    }
+    
+    private func updateWaitlist(withAction action: String,
+                                forSession session: Session,
+                                success: ((Session.Waitlist) -> Void)?,
+                                failure: Controller.MethodFailure?) {
+        var body = Request.Body()
+        body.add(auth?.currentUser?.customer.id, for: "customer")
+        body.add(action, for: "action")
+        
+        let request = requestBuilder.build(for: .sessionWaitlist(sessionId: session.id),
+                                           method: .post,
+                                           contentType: .formUrlEncoded,
+                                           body: body,
+                                           authentication: .userToken)
+        requestExecutor.execute(request: request,
+                                success:
+            { (request, response, data) in
+                guard let data = data else {
+                    failure?(RequestError.unknown)
+                    return
+                }
+                do {
+                    let waitlist = try self.decoder.decode(Session.Waitlist.self, from: data)
+                    success?(waitlist)
+                } catch {
+                    failure?(error)
+                }
+        }) { (request, response, error) in
+            failure?(error)
+        }
     }
 }
