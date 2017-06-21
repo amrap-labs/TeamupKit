@@ -30,6 +30,8 @@ class AuthenticationApiController: Controller, AuthenticationController {
     private(set) var currentUser: User?
     private var currentUserAuthData: UserAuthData?
     
+    private var loginRequest: Request?
+    
     var isAuthenticated: Bool {
         return currentUser != nil
     }
@@ -105,6 +107,7 @@ private extension AuthenticationApiController {
                                            contentType: .formUrlEncoded,
                                            body: body,
                                            authentication: .apiToken)
+        self.loginRequest = request
         requestExecutor.execute(request: request,
                                 success:
             { (request, response, data) in
@@ -120,11 +123,14 @@ private extension AuthenticationApiController {
                     self.currentUser = user
                     
                     success?(user)
+                    self.loginRequest = nil
                 } catch {
                     failure?(error)
+                    self.loginRequest = nil
                 }
         }) { (request, response, error) in
             failure?(error)
+            self.loginRequest = nil
         }
     }
 }
@@ -205,6 +211,7 @@ extension AuthenticationApiController: RequestExecutorAuthResponder {
             // TODO - Sign out
             return
         }
+        guard request != self.loginRequest else { return }
         
         print("Attempting to reauth")
         

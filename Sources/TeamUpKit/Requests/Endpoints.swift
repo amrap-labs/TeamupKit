@@ -57,3 +57,10 @@ extension Endpoint {
         }
     }
 }
+
+extension Endpoint: Equatable {
+    
+    static func ==(lhs: Endpoint, rhs: Endpoint) -> Bool {
+        return lhs.path == rhs.path
+    }
+}

@@ -129,3 +129,10 @@ extension Request.Body {
         }
     }
 }
+
+extension Request: Equatable {
+    
+    public static func ==(lhs: Request, rhs: Request) -> Bool {
+        return lhs.url == rhs.url
+    }
+}
