@@ -10,4 +10,11 @@ import Foundation
 
 public protocol InstructorsController: class {
     
+    /// Load all instructors at the current business.
+    ///
+    /// - Parameters:
+    ///   - success: Closure to execute on successful request.
+    ///   - failure: Closure to execute of failed request.
+    func loadAll(success: ((ResultsPage<Instructor>) -> Void)?,
+                 failure: Controller.MethodFailure?)
 }
