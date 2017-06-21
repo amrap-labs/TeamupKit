@@ -28,6 +28,8 @@
 		D64FFF8D1EF85A3A0039911F /* SessionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64FFF8C1EF85A3A0039911F /* SessionsController.swift */; };
 		D64FFF8F1EF85A510039911F /* SessionsApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64FFF8E1EF85A510039911F /* SessionsApiController.swift */; };
 		D64FFF911EF868FE0039911F /* BusinessConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64FFF901EF868FE0039911F /* BusinessConfig.swift */; };
+		D68D8FF51EFA5E18000E24B8 /* InstructorsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68D8FF41EFA5E18000E24B8 /* InstructorsController.swift */; };
+		D68D8FF71EFA5E20000E24B8 /* InstructorsApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68D8FF61EFA5E20000E24B8 /* InstructorsApiController.swift */; };
 		D6D877AE1EEC29E800908EAD /* AuthenticationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D877AD1EEC29E800908EAD /* AuthenticationController.swift */; };
 		D6D877B01EEC2B8F00908EAD /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6D877AF1EEC2B8F00908EAD /* Config.plist */; };
 		D6E9DDA81EF0731F008CA490 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E9DDA71EF0731F008CA490 /* Request.swift */; };
@@ -88,6 +90,8 @@
 		D64FFF8C1EF85A3A0039911F /* SessionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionsController.swift; sourceTree = "<group>"; };
 		D64FFF8E1EF85A510039911F /* SessionsApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionsApiController.swift; sourceTree = "<group>"; };
 		D64FFF901EF868FE0039911F /* BusinessConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessConfig.swift; sourceTree = "<group>"; };
+		D68D8FF41EFA5E18000E24B8 /* InstructorsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructorsController.swift; sourceTree = "<group>"; };
+		D68D8FF61EFA5E20000E24B8 /* InstructorsApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructorsApiController.swift; sourceTree = "<group>"; };
 		D6D877AD1EEC29E800908EAD /* AuthenticationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationController.swift; sourceTree = "<group>"; };
 		D6D877AF1EEC2B8F00908EAD /* Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		D6E9DDA71EF0731F008CA490 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
@@ -177,6 +181,7 @@
 			children = (
 				D610A0E11EF9C4EC0079F3FA /* BusinessController.swift */,
 				D610A0E31EF9C52F0079F3FA /* BusinessApiController.swift */,
+				D68D8FF31EFA5E07000E24B8 /* Instructors */,
 			);
 			path = Business;
 			sourceTree = "<group>";
@@ -236,6 +241,15 @@
 				D610A0E51EF9C5B10079F3FA /* Waitlists */,
 			);
 			path = Sessions;
+			sourceTree = "<group>";
+		};
+		D68D8FF31EFA5E07000E24B8 /* Instructors */ = {
+			isa = PBXGroup;
+			children = (
+				D68D8FF41EFA5E18000E24B8 /* InstructorsController.swift */,
+				D68D8FF61EFA5E20000E24B8 /* InstructorsApiController.swift */,
+			);
+			path = Instructors;
 			sourceTree = "<group>";
 		};
 		D6F9EA551EEBE980002ABF64 = {
@@ -560,6 +574,7 @@
 				D64FFF8F1EF85A510039911F /* SessionsApiController.swift in Sources */,
 				D6319F701EF06DEC0057E3E3 /* AuthenticationApiController.swift in Sources */,
 				D64FFF8D1EF85A3A0039911F /* SessionsController.swift in Sources */,
+				D68D8FF51EFA5E18000E24B8 /* InstructorsController.swift in Sources */,
 				D6FA20CA1EF90F9A00E7EA17 /* Session.swift in Sources */,
 				D610A0E71EF9C5C10079F3FA /* WaitlistsController.swift in Sources */,
 				D6319F681EF06D020057E3E3 /* Endpoints.swift in Sources */,
@@ -570,6 +585,7 @@
 				D6FA17231EF9AF4200E3C506 /* Membership.swift in Sources */,
 				D6319F6E1EF06DAF0057E3E3 /* Controller.swift in Sources */,
 				D610A0E21EF9C4EC0079F3FA /* BusinessController.swift in Sources */,
+				D68D8FF71EFA5E20000E24B8 /* InstructorsApiController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,4 +10,8 @@ import Foundation
 
 public protocol BusinessController: class {
     
+    // MARK: Properties
+    
+    var instructors: InstructorsController { get }
+    
 }
