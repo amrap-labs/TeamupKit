@@ -34,3 +34,40 @@ class BusinessApiController: AuthenticatedController, BusinessController {
                    auth: auth)
     }
 }
+
+// MARK: - BusinessController Methods
+extension BusinessApiController {
+    
+    func loadBusiness(success: ((Business) -> Void)?,
+                      failure: Controller.MethodFailure?) {
+        loadBusiness(withId: config.business.businessId,
+                     success: success,
+                     failure: failure)
+    }
+    
+    func loadBusiness(withId id: Int,
+                      success: ((Business) -> Void)?,
+                      failure: Controller.MethodFailure?) {
+        
+        let request = requestBuilder.build(for: .business(id: id),
+                                           method: .get,
+                                           contentType: .json,
+                                           authentication: .userToken)
+        requestExecutor.execute(request: request,
+                                success:
+            { (request, response, data) in
+                guard let data = data else {
+                    failure?(RequestError.unknown)
+                    return
+                }
+                do {
+                    let business = try self.decoder.decode(Business.self, from: data)
+                    success?(business)
+                } catch {
+                    failure?(error)
+                }
+        }) { (request, response, error) in
+            failure?(error)
+        }
+    }
+}

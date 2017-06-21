@@ -11,5 +11,5 @@ import Foundation
 public struct BusinessConfig {
     
     /// Identifier of the business.
-    let businessId: String
+    let businessId: Int
 }

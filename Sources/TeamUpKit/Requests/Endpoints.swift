@@ -23,6 +23,9 @@ enum Endpoint {
     // MARK: Memberships
     case memberships
     case membership(id: Int)
+    
+    // MARK: Business
+    case business(id: Int)
 }
 
 extension Endpoint {
@@ -48,6 +51,9 @@ extension Endpoint {
             return "/customermemberships"
         case .membership(let id):
             return "/customermemberships/\(id)"
+            
+        case .business(let id):
+            return "/businesses/\(id)"
         }
     }
 }

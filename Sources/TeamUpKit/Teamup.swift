@@ -24,7 +24,7 @@ public class Teamup {
     // MARK: Init
     
     public init(apiToken: String,
-                businessId: String,
+                businessId: Int,
                 apiVersion: ApiConfig.Version = .current) {
         self.config = Config(businessId: businessId,
                              apiVersion: apiVersion)

@@ -18,7 +18,7 @@ class ViewController: UIViewController {
         let dictionary = NSDictionary(contentsOfFile: plist) as! [String : Any]
         
         let teamup = Teamup(apiToken: dictionary["apiToken"] as! String,
-                            businessId: dictionary["businessId"] as! String)
+                            businessId: dictionary["businessId"] as! Int)
         
         if !teamup.auth.isAuthenticated {
             teamup.auth.logIn(with: dictionary["email"] as! String,

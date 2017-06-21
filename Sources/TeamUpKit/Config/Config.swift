@@ -21,7 +21,7 @@ internal class Config {
         return dictionary as! [String : Any]
     }
     
-    init(businessId: String,
+    init(businessId: Int,
          apiVersion: ApiConfig.Version) {
         self.business = BusinessConfig(businessId: businessId)
         self.api = ApiConfig(with: configDictionary,
