@@ -38,16 +38,16 @@ class BusinessApiController: AuthenticatedController, BusinessController {
 // MARK: - BusinessController Methods
 extension BusinessApiController {
     
-    func loadBusiness(success: ((Business) -> Void)?,
-                      failure: Controller.MethodFailure?) {
-        loadBusiness(withId: config.business.businessId,
-                     success: success,
-                     failure: failure)
+    func load(success: ((Business) -> Void)?,
+              failure: Controller.MethodFailure?) {
+        load(withId: config.business.businessId,
+             success: success,
+             failure: failure)
     }
     
-    func loadBusiness(withId id: Int,
-                      success: ((Business) -> Void)?,
-                      failure: Controller.MethodFailure?) {
+    func load(withId id: Int,
+              success: ((Business) -> Void)?,
+              failure: Controller.MethodFailure?) {
         
         let request = requestBuilder.build(for: .business(id: id),
                                            method: .get,

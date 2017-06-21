@@ -24,7 +24,7 @@ public protocol MembershipsController: class {
     ///   - id: The membership identifier.
     ///   - success: Closure to execute on successful request.
     ///   - failure: Closure to execute of failed request.
-    func loadMembership(withId id: Int,
-                        success: ((Membership) -> Void)?,
-                        failure: Controller.MethodFailure?)
+    func load(withId id: Int,
+              success: ((Membership) -> Void)?,
+              failure: Controller.MethodFailure?)
 }

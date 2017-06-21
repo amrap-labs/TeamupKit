@@ -42,9 +42,9 @@ class MembershipsApiController: AuthenticatedController, MembershipsController {
         }
     }
     
-    func loadMembership(withId id: Int,
-                        success: ((Membership) -> Void)?,
-                        failure: Controller.MethodFailure?) {
+    func load(withId id: Int,
+              success: ((Membership) -> Void)?,
+              failure: Controller.MethodFailure?) {
         
         let request = requestBuilder.build(for: .membership(id: id),
                                            method: .get,

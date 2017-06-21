@@ -22,8 +22,8 @@ public protocol BusinessController: class {
     /// - Parameters:
     ///   - success: Closure to execute on successful request.
     ///   - failure: Closure to execute of failed request.
-    func loadBusiness(success: ((Business) -> Void)?,
-                      failure: Controller.MethodFailure?)
+    func load(success: ((Business) -> Void)?,
+              failure: Controller.MethodFailure?)
     
     /// Load the details of a business.
     ///
@@ -31,7 +31,7 @@ public protocol BusinessController: class {
     ///   - id: The id of the business.
     ///   - success: Closure to execute on successful request.
     ///   - failure: Closure to execute of failed request.
-    func loadBusiness(withId id: Int,
-                      success: ((Business) -> Void)?,
-                      failure: Controller.MethodFailure?)
+    func load(withId id: Int,
+              success: ((Business) -> Void)?,
+              failure: Controller.MethodFailure?)
 }
