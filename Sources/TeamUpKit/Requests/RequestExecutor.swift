@@ -61,6 +61,7 @@ class RequestExecutor {
         urlRequest.addValue(request.contentType.rawValue, forHTTPHeaderField: "Content-Type")
         
         // perform task
+        let authResponder = self.authResponder
         let task = urlSession.dataTask(with: urlRequest) { [weak self] (data, response, error) in
             guard let welf = self else { return }
             welf.dataTasks.removeValue(forKey: url)
@@ -79,11 +80,11 @@ class RequestExecutor {
                 
                 // Attempt reauth if 401
                 if response.statusCode == .unauthorized {
-                    welf.authResponder?.requestExecutor(welf,
-                                                        encounteredUnauthorizedErrorWhenExecuting: request,
-                                                        response: response,
-                                                        success: success,
-                                                        failure: failure)
+                    authResponder?.requestExecutor(welf,
+                                                   encounteredUnauthorizedErrorWhenExecuting: request,
+                                                   response: response,
+                                                   success: success,
+                                                   failure: failure)
                     return
                 }
                 
