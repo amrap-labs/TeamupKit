@@ -19,7 +19,7 @@ public struct ApiConfig {
         case v1 = "v1"
         
         /// The latest version of the API
-        static var current: Version = .v1
+        static public var current: Version = .v1
     }
     
     // MARK: Keys
