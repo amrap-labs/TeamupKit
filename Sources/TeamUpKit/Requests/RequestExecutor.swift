@@ -89,7 +89,7 @@ class RequestExecutor {
                 }
                 
                 let error = response.error!
-                print("requestFailed (\(url.absoluteString)) - error: \(error), statusCode: \(response.statusCode.rawValue)")
+                print("requestFailed (\(url.absoluteString)) - error: \(error)")
                 failure(request, response, error)
                 return
             }

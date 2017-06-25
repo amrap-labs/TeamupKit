@@ -20,6 +20,7 @@ public class TURequestError {
     
     let raw: Error
     let statusCode: TUResponse.StatusCode
+    let detail: String?
     
     class var unknown: TURequestError {
         return TURequestError(raw: Raw.unknown, statusCode: .unknown)
@@ -33,6 +34,14 @@ public class TURequestError {
         self.raw = raw ?? Raw.unknown
         self.statusCode = statusCode
         
+        var details: ErrorDetail?
+        if let data = response?.data {
+            let decoder = JSONDecoder()
+            do {
+                details = try decoder.decode(ErrorDetail.self, from: data)
+            } catch {}
+        }
+        self.detail = details?.detail
     }
     
     convenience init(raw: Error?,
@@ -40,5 +49,19 @@ public class TURequestError {
         self.init(raw: raw,
                   statusCode: statusCode,
                   response: nil)
+    }
+}
+
+extension TURequestError: CustomStringConvertible {
+    
+    public var description: String {
+        var description = ""
+        description += "\(self.statusCode) (\(self.statusCode.rawValue)) -"
+        if let detail = self.detail {
+            description += " Reason: \(detail)"
+        } else {
+            description += " \(raw)"
+        }
+        return description
     }
 }

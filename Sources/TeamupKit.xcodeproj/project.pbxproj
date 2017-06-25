@@ -30,6 +30,7 @@
 		D64FFF911EF868FE0039911F /* BusinessConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64FFF901EF868FE0039911F /* BusinessConfig.swift */; };
 		D65FCB061EFADCE000449A9B /* Instructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65FCB051EFADCE000449A9B /* Instructor.swift */; };
 		D67547261F0051E500760772 /* TURequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67547251F0051E500760772 /* TURequestError.swift */; };
+		D67547281F0057F000760772 /* ErrorDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67547271F0057F000760772 /* ErrorDetail.swift */; };
 		D68D8FF51EFA5E18000E24B8 /* InstructorsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68D8FF41EFA5E18000E24B8 /* InstructorsController.swift */; };
 		D68D8FF71EFA5E20000E24B8 /* InstructorsApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68D8FF61EFA5E20000E24B8 /* InstructorsApiController.swift */; };
 		D6D877AE1EEC29E800908EAD /* AuthenticationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D877AD1EEC29E800908EAD /* AuthenticationController.swift */; };
@@ -94,6 +95,7 @@
 		D64FFF901EF868FE0039911F /* BusinessConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessConfig.swift; sourceTree = "<group>"; };
 		D65FCB051EFADCE000449A9B /* Instructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instructor.swift; sourceTree = "<group>"; };
 		D67547251F0051E500760772 /* TURequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TURequestError.swift; sourceTree = "<group>"; };
+		D67547271F0057F000760772 /* ErrorDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorDetail.swift; sourceTree = "<group>"; };
 		D68D8FF41EFA5E18000E24B8 /* InstructorsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructorsController.swift; sourceTree = "<group>"; };
 		D68D8FF61EFA5E20000E24B8 /* InstructorsApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructorsApiController.swift; sourceTree = "<group>"; };
 		D6D877AD1EEC29E800908EAD /* AuthenticationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationController.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				D6FA17091EF9779A00E3C506 /* Business.swift */,
 				D6FA17221EF9AF4200E3C506 /* Membership.swift */,
 				D65FCB051EFADCE000449A9B /* Instructor.swift */,
+				D67547271F0057F000760772 /* ErrorDetail.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -584,6 +587,7 @@
 				D68D8FF51EFA5E18000E24B8 /* InstructorsController.swift in Sources */,
 				D6FA20CA1EF90F9A00E7EA17 /* Session.swift in Sources */,
 				D610A0E71EF9C5C10079F3FA /* WaitlistsController.swift in Sources */,
+				D67547281F0057F000760772 /* ErrorDetail.swift in Sources */,
 				D6319F681EF06D020057E3E3 /* Endpoints.swift in Sources */,
 				D6FA17211EF9AE1300E3C506 /* MembershipsApiController.swift in Sources */,
 				D6E9DDA81EF0731F008CA490 /* TURequest.swift in Sources */,
