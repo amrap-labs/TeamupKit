@@ -18,10 +18,14 @@ public class TURequestError {
     
     // MARK: Properties
     
+    /// The raw error for the request.
     let raw: Error
+    /// The status code for the request.
     let statusCode: TUResponse.StatusCode
+    /// Any detail that provides reason for the request error.
     let detail: String?
     
+    /// Unknown request error
     class var unknown: TURequestError {
         return TURequestError(raw: Raw.unknown, statusCode: .unknown)
     }
