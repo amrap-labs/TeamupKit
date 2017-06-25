@@ -10,17 +10,19 @@ import Foundation
 
 public class TURequestError {
     
-    public enum Cause: Error {
+    // MARK: Types
+    
+    public enum Raw: Error {
         case unknown
-        
-        case badRequest(reason: String)
     }
+    
+    // MARK: Properties
     
     let raw: Error
     let statusCode: TUResponse.StatusCode
     
     class var unknown: TURequestError {
-        return TURequestError(raw: Cause.unknown, statusCode: .unknown)
+        return TURequestError(raw: Raw.unknown, statusCode: .unknown)
     }
     
     // MARK: Init
@@ -28,7 +30,7 @@ public class TURequestError {
     init(raw: Error?,
          statusCode: TUResponse.StatusCode,
          response: TUResponse?) {
-        self.raw = raw ?? Cause.unknown
+        self.raw = raw ?? Raw.unknown
         self.statusCode = statusCode
         
     }
