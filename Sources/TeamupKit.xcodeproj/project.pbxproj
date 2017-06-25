@@ -29,6 +29,7 @@
 		D64FFF8F1EF85A510039911F /* SessionsApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64FFF8E1EF85A510039911F /* SessionsApiController.swift */; };
 		D64FFF911EF868FE0039911F /* BusinessConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64FFF901EF868FE0039911F /* BusinessConfig.swift */; };
 		D65FCB061EFADCE000449A9B /* Instructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65FCB051EFADCE000449A9B /* Instructor.swift */; };
+		D67547261F0051E500760772 /* TURequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67547251F0051E500760772 /* TURequestError.swift */; };
 		D68D8FF51EFA5E18000E24B8 /* InstructorsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68D8FF41EFA5E18000E24B8 /* InstructorsController.swift */; };
 		D68D8FF71EFA5E20000E24B8 /* InstructorsApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68D8FF61EFA5E20000E24B8 /* InstructorsApiController.swift */; };
 		D6D877AE1EEC29E800908EAD /* AuthenticationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D877AD1EEC29E800908EAD /* AuthenticationController.swift */; };
@@ -92,6 +93,7 @@
 		D64FFF8E1EF85A510039911F /* SessionsApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionsApiController.swift; sourceTree = "<group>"; };
 		D64FFF901EF868FE0039911F /* BusinessConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessConfig.swift; sourceTree = "<group>"; };
 		D65FCB051EFADCE000449A9B /* Instructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instructor.swift; sourceTree = "<group>"; };
+		D67547251F0051E500760772 /* TURequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TURequestError.swift; sourceTree = "<group>"; };
 		D68D8FF41EFA5E18000E24B8 /* InstructorsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructorsController.swift; sourceTree = "<group>"; };
 		D68D8FF61EFA5E20000E24B8 /* InstructorsApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructorsApiController.swift; sourceTree = "<group>"; };
 		D6D877AD1EEC29E800908EAD /* AuthenticationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationController.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				D6319F671EF06D020057E3E3 /* Endpoints.swift */,
 				D6319F691EF06D670057E3E3 /* UrlBuilder.swift */,
 				D6E9DDA71EF0731F008CA490 /* TURequest.swift */,
+				D67547251F0051E500760772 /* TURequestError.swift */,
 				D60D634C1EF1D58E00C93B9A /* TUResponse.swift */,
 				D6084C511EF702DF005A183D /* RequestError.swift */,
 				D6E9DDAB1EF07513008CA490 /* RequestBuilder.swift */,
@@ -584,6 +587,7 @@
 				D6319F681EF06D020057E3E3 /* Endpoints.swift in Sources */,
 				D6FA17211EF9AE1300E3C506 /* MembershipsApiController.swift in Sources */,
 				D6E9DDA81EF0731F008CA490 /* TURequest.swift in Sources */,
+				D67547261F0051E500760772 /* TURequestError.swift in Sources */,
 				D6FA171F1EF9ADFF00E3C506 /* MembershipsController.swift in Sources */,
 				D6FA17171EF9A86700E3C506 /* RegistrationsApiController.swift in Sources */,
 				D6FA17231EF9AF4200E3C506 /* Membership.swift in Sources */,

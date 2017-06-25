@@ -18,6 +18,7 @@ class TUResponse {
         case OK = 200
         case unauthorized = 401
         case badRequest = 400
+        case forbidden = 403
         case notFound = 404
     }
     
@@ -28,7 +29,7 @@ class TUResponse {
     let raw: URLResponse
     let data: Data?
     let statusCode: StatusCode
-    private(set) var error: Error?
+    private(set) var error: TURequestError?
     
     var isSuccessful: Bool {
         return statusCode == .OK
@@ -47,30 +48,12 @@ class TUResponse {
         self.raw = httpUrlResponse
         self.data = data
         self.request = request
-        self.error = error
         self.statusCode = StatusCode.init(rawValue: httpUrlResponse.statusCode) ?? .unknown
         
-        if !isSuccessful && error == nil {
-            self.error = generateRequestError(for: statusCode)
-        }
-    }
-    
-    // MARK: Error generation
-    
-    private func generateRequestError(for statusCode: StatusCode?) -> RequestError {
-        guard let statusCode = statusCode else { return .unknown }
-        var reason: String = "unknown"
-        if let data = data, let dataString = String(data: data, encoding: .utf8) {
-            reason = dataString
-        }
-        
-        switch statusCode {
-            
-        case .badRequest:
-            return .badRequest(reason: reason)
-            
-        default:
-            return .unknown
+        if !isSuccessful {
+            self.error = TURequestError(raw: error,
+                                        statusCode: statusCode,
+                                        response: self)
         }
     }
 }

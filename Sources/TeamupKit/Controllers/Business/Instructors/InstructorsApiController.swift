@@ -30,7 +30,7 @@ extension InstructorsApiController {
                                 success:
             { (request, response, data) in
                 guard let data = data else {
-                    failure?(RequestError.unknown)
+                    failure?(TURequestError.unknown.raw)
                     return
                 }
                 do {
@@ -40,7 +40,7 @@ extension InstructorsApiController {
                     failure?(error)
                 }
         }) { (request, response, error) in
-            failure?(error)
+            failure?(error.raw)
         }
     }
     
@@ -56,7 +56,7 @@ extension InstructorsApiController {
                                 success:
             { (request, response, data) in
                 guard let data = data else {
-                    failure?(RequestError.unknown)
+                    failure?(TURequestError.unknown.raw)
                     return
                 }
                 do {
@@ -66,7 +66,7 @@ extension InstructorsApiController {
                     failure?(error)
                 }
         }) { (request, response, error) in
-            failure?(error)
+            failure?(error.raw)
         }
     }
 }

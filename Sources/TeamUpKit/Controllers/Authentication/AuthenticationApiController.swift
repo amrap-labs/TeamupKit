@@ -112,7 +112,7 @@ private extension AuthenticationApiController {
                                 success:
             { (request, response, data) in
                 guard let data = data else {
-                    failure?(RequestError.unknown)
+                    failure?(TURequestError.unknown.raw)
                     return
                 }
                 do {
@@ -129,7 +129,7 @@ private extension AuthenticationApiController {
                     self.loginRequest = nil
                 }
         }) { (request, response, error) in
-            failure?(error)
+            failure?(error.raw)
             self.loginRequest = nil
         }
     }
@@ -206,7 +206,7 @@ extension AuthenticationApiController: RequestExecutorAuthResponder {
                          encounteredUnauthorizedErrorWhenExecuting request: TURequest,
                          response: TUResponse,
                          success: @escaping (TURequest, TUResponse, Data?) -> Void,
-                         failure: @escaping (TURequest, TUResponse?, Error) -> Void) {
+                         failure: @escaping (TURequest, TUResponse?, TURequestError) -> Void) {
         guard let currentUser = currentUser , let authData = currentUserAuthData else {
             // TODO - Sign out
             return
@@ -224,7 +224,7 @@ extension AuthenticationApiController: RequestExecutorAuthResponder {
         },
                      failure:
             { (error) in
-                failure(request, nil, error)
+                failure(request, nil, TURequestError(raw: error, statusCode: response.statusCode))
         },
                      force: true)
     }

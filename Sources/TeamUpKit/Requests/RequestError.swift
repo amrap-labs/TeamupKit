@@ -7,9 +7,3 @@
 //
 
 import Foundation
-
-public enum RequestError: Error {
-    case unknown
-    
-    case badRequest(reason: String)
-}

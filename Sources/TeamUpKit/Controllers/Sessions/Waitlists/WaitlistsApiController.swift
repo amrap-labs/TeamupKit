@@ -26,7 +26,7 @@ class WaitlistsApiController: AuthenticatedController, WaitlistsController {
                                 success:
             { (request, response, data) in
                 guard let data = data else {
-                    failure?(RequestError.unknown)
+                    failure?(TURequestError.unknown.raw)
                     return
                 }
                 do {
@@ -36,7 +36,7 @@ class WaitlistsApiController: AuthenticatedController, WaitlistsController {
                     failure?(error)
                 }
         }) { (request, response, error) in
-            failure?(error)
+            failure?(error.raw)
         }
     }
     
@@ -77,7 +77,7 @@ class WaitlistsApiController: AuthenticatedController, WaitlistsController {
                                 success:
             { (request, response, data) in
                 guard let data = data else {
-                    failure?(RequestError.unknown)
+                    failure?(TURequestError.unknown.raw)
                     return
                 }
                 do {
@@ -87,7 +87,7 @@ class WaitlistsApiController: AuthenticatedController, WaitlistsController {
                     failure?(error)
                 }
         }) { (request, response, error) in
-            failure?(error)
+            failure?(error.raw)
         }
     }
 }

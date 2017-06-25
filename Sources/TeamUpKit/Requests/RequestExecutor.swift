@@ -22,7 +22,7 @@ class RequestExecutor {
     // MARK: Types
     
     typealias ExecutionSuccess = (_ request: TURequest, _ response: TUResponse, _ data: Data?) -> Void
-    typealias ExecutionFailure = (_ request: TURequest, _ response: TUResponse?, _ error: Error) -> Void
+    typealias ExecutionFailure = (_ request: TURequest, _ response: TUResponse?, _ error: TURequestError) -> Void
     
     // MARK: Properties
     
@@ -72,7 +72,7 @@ class RequestExecutor {
                                     for: request,
                                     error: error) else
             {
-                failure(request, nil, RequestError.unknown)
+                failure(request, nil, TURequestError.unknown)
                 return
             }
             
