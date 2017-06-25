@@ -204,9 +204,9 @@ extension AuthenticationApiController: RequestExecutorAuthResponder {
     
     func requestExecutor(_ executor: RequestExecutor,
                          encounteredUnauthorizedErrorWhenExecuting request: TURequest,
-                         response: Response,
-                         success: @escaping (TURequest, Response, Data?) -> Void,
-                         failure: @escaping (TURequest, Response?, Error) -> Void) {
+                         response: TUResponse,
+                         success: @escaping (TURequest, TUResponse, Data?) -> Void,
+                         failure: @escaping (TURequest, TUResponse?, Error) -> Void) {
         guard let currentUser = currentUser , let authData = currentUserAuthData else {
             // TODO - Sign out
             return

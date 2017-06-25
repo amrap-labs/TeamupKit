@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Response {
+class TUResponse {
     
     // MARK: Types
     

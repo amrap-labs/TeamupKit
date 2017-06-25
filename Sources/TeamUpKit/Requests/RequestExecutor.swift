@@ -12,7 +12,7 @@ protocol RequestExecutorAuthResponder: class {
     
     func requestExecutor(_ executor: RequestExecutor,
                          encounteredUnauthorizedErrorWhenExecuting request: TURequest,
-                         response: Response,
+                         response: TUResponse,
                          success: @escaping RequestExecutor.ExecutionSuccess,
                          failure: @escaping RequestExecutor.ExecutionFailure)
 }
@@ -21,8 +21,8 @@ class RequestExecutor {
     
     // MARK: Types
     
-    typealias ExecutionSuccess = (_ request: TURequest, _ response: Response, _ data: Data?) -> Void
-    typealias ExecutionFailure = (_ request: TURequest, _ response: Response?, _ error: Error) -> Void
+    typealias ExecutionSuccess = (_ request: TURequest, _ response: TUResponse, _ data: Data?) -> Void
+    typealias ExecutionFailure = (_ request: TURequest, _ response: TUResponse?, _ error: Error) -> Void
     
     // MARK: Properties
     
@@ -67,7 +67,7 @@ class RequestExecutor {
             welf.dataTasks.removeValue(forKey: url)
             
             // attempt to read response
-            guard let response = Response(with: response,
+            guard let response = TUResponse(with: response,
                                     and: data,
                                     for: request,
                                     error: error) else
