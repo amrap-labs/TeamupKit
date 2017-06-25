@@ -30,7 +30,7 @@ class AuthenticationApiController: Controller, AuthenticationController {
     private(set) var currentUser: User?
     private var currentUserAuthData: UserAuthData?
     
-    private var loginRequest: Request?
+    private var loginRequest: TURequest?
     
     var isAuthenticated: Bool {
         return currentUser != nil
@@ -99,7 +99,7 @@ private extension AuthenticationApiController {
             }
         }
         
-        let body = Request.Body(["email" : email,
+        let body = TURequest.Body(["email" : email,
                                  "password" : password])
         
         let request = requestBuilder.build(for: .logIn,
@@ -203,10 +203,10 @@ extension AuthenticationApiController: RequestBuilderAuthProvider {
 extension AuthenticationApiController: RequestExecutorAuthResponder {
     
     func requestExecutor(_ executor: RequestExecutor,
-                         encounteredUnauthorizedErrorWhenExecuting request: Request,
+                         encounteredUnauthorizedErrorWhenExecuting request: TURequest,
                          response: Response,
-                         success: @escaping (Request, Response, Data?) -> Void,
-                         failure: @escaping (Request, Response?, Error) -> Void) {
+                         success: @escaping (TURequest, Response, Data?) -> Void,
+                         failure: @escaping (TURequest, Response?, Error) -> Void) {
         guard let currentUser = currentUser , let authData = currentUserAuthData else {
             // TODO - Sign out
             return

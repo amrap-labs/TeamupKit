@@ -18,7 +18,7 @@ extension InstructorsApiController {
     func loadAll(success: ((ResultsPage<Instructor>) -> Void)?,
                  failure: Controller.MethodFailure?) {
         
-        var parameters = Request.Parameters()
+        var parameters = TURequest.Parameters()
         parameters.set(config.business.businessId, for: "business")
         
         let request = requestBuilder.build(for: .instructors,

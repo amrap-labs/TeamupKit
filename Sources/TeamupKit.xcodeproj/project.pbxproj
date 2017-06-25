@@ -33,7 +33,7 @@
 		D68D8FF71EFA5E20000E24B8 /* InstructorsApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68D8FF61EFA5E20000E24B8 /* InstructorsApiController.swift */; };
 		D6D877AE1EEC29E800908EAD /* AuthenticationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D877AD1EEC29E800908EAD /* AuthenticationController.swift */; };
 		D6D877B01EEC2B8F00908EAD /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6D877AF1EEC2B8F00908EAD /* Config.plist */; };
-		D6E9DDA81EF0731F008CA490 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E9DDA71EF0731F008CA490 /* Request.swift */; };
+		D6E9DDA81EF0731F008CA490 /* TURequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E9DDA71EF0731F008CA490 /* TURequest.swift */; };
 		D6E9DDAC1EF07513008CA490 /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E9DDAB1EF07513008CA490 /* RequestBuilder.swift */; };
 		D6E9DDAE1EF0836C008CA490 /* RequestExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E9DDAD1EF0836C008CA490 /* RequestExecutor.swift */; };
 		D6F9EA691EEBE981002ABF64 /* TeamupKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6F9EA5F1EEBE980002ABF64 /* TeamupKit.framework */; };
@@ -96,7 +96,7 @@
 		D68D8FF61EFA5E20000E24B8 /* InstructorsApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructorsApiController.swift; sourceTree = "<group>"; };
 		D6D877AD1EEC29E800908EAD /* AuthenticationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationController.swift; sourceTree = "<group>"; };
 		D6D877AF1EEC2B8F00908EAD /* Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
-		D6E9DDA71EF0731F008CA490 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		D6E9DDA71EF0731F008CA490 /* TURequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TURequest.swift; sourceTree = "<group>"; };
 		D6E9DDAB1EF07513008CA490 /* RequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
 		D6E9DDAD1EF0836C008CA490 /* RequestExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestExecutor.swift; sourceTree = "<group>"; };
 		D6F9EA5F1EEBE980002ABF64 /* TeamupKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TeamupKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -203,7 +203,7 @@
 			children = (
 				D6319F671EF06D020057E3E3 /* Endpoints.swift */,
 				D6319F691EF06D670057E3E3 /* UrlBuilder.swift */,
-				D6E9DDA71EF0731F008CA490 /* Request.swift */,
+				D6E9DDA71EF0731F008CA490 /* TURequest.swift */,
 				D6084C511EF702DF005A183D /* RequestError.swift */,
 				D60D634C1EF1D58E00C93B9A /* Response.swift */,
 				D6E9DDAB1EF07513008CA490 /* RequestBuilder.swift */,
@@ -583,7 +583,7 @@
 				D610A0E71EF9C5C10079F3FA /* WaitlistsController.swift in Sources */,
 				D6319F681EF06D020057E3E3 /* Endpoints.swift in Sources */,
 				D6FA17211EF9AE1300E3C506 /* MembershipsApiController.swift in Sources */,
-				D6E9DDA81EF0731F008CA490 /* Request.swift in Sources */,
+				D6E9DDA81EF0731F008CA490 /* TURequest.swift in Sources */,
 				D6FA171F1EF9ADFF00E3C506 /* MembershipsController.swift in Sources */,
 				D6FA17171EF9A86700E3C506 /* RegistrationsApiController.swift in Sources */,
 				D6FA17231EF9AF4200E3C506 /* Membership.swift in Sources */,

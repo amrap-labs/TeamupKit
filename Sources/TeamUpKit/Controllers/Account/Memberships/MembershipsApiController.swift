@@ -15,7 +15,7 @@ class MembershipsApiController: AuthenticatedController, MembershipsController {
     func loadAll(success: ((ResultsPage<Membership>) -> Void)?,
                  failure: Controller.MethodFailure?) {
         
-        var parameters = Request.Parameters()
+        var parameters = TURequest.Parameters()
         parameters.set(auth?.currentUser?.customer.id, for: "customer")
         parameters.set(config.business.businessId, for: "business")
         

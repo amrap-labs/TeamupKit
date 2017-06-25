@@ -72,7 +72,7 @@ extension SessionsApiController {
               success: ((ResultsPage<Session>) -> Void)?,
               failure: Controller.MethodFailure?) {
         
-        var parameters = Request.Parameters()
+        var parameters = TURequest.Parameters()
         parameters.set(config.business.businessId, for: "business")
         parameters.set(auth?.currentUser?.customer.id, for: "customer")
         parameters.set(includeRegistrationDetails, for: "include_registration_details")
@@ -110,7 +110,7 @@ extension SessionsApiController {
               success: ((Session) -> Void)?,
               failure: Controller.MethodFailure?) {
         
-        var parameters = Request.Parameters()
+        var parameters = TURequest.Parameters()
         parameters.set(auth?.currentUser?.customer.id, for: "customer")
         parameters.set(includeRegistrationDetails, for: "include_registration_details")
         

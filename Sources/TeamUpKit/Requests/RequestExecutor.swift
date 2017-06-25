@@ -11,7 +11,7 @@ import Foundation
 protocol RequestExecutorAuthResponder: class {
     
     func requestExecutor(_ executor: RequestExecutor,
-                         encounteredUnauthorizedErrorWhenExecuting request: Request,
+                         encounteredUnauthorizedErrorWhenExecuting request: TURequest,
                          response: Response,
                          success: @escaping RequestExecutor.ExecutionSuccess,
                          failure: @escaping RequestExecutor.ExecutionFailure)
@@ -21,8 +21,8 @@ class RequestExecutor {
     
     // MARK: Types
     
-    typealias ExecutionSuccess = (_ request: Request, _ response: Response, _ data: Data?) -> Void
-    typealias ExecutionFailure = (_ request: Request, _ response: Response?, _ error: Error) -> Void
+    typealias ExecutionSuccess = (_ request: TURequest, _ response: Response, _ data: Data?) -> Void
+    typealias ExecutionFailure = (_ request: TURequest, _ response: Response?, _ error: Error) -> Void
     
     // MARK: Properties
     
@@ -33,7 +33,7 @@ class RequestExecutor {
     
     // MARK: Execution
     
-    func execute(request: Request,
+    func execute(request: TURequest,
                  success: @escaping ExecutionSuccess,
                  failure: @escaping ExecutionFailure) {
         

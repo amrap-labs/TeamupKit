@@ -34,19 +34,19 @@ class RequestBuilder {
     // MARK: Building
     
     func build(for endpoint: Endpoint,
-               method: Request.Method,
-               contentType: Request.ContentType,
-               headers: Request.Headers? = nil,
-               parameters: Request.Parameters? = nil,
-               body: Request.Body? = nil,
-               authentication: Request.Authentication? = nil) -> Request {
+               method: TURequest.Method,
+               contentType: TURequest.ContentType,
+               headers: TURequest.Headers? = nil,
+               parameters: TURequest.Parameters? = nil,
+               body: TURequest.Body? = nil,
+               authentication: TURequest.Authentication? = nil) -> TURequest {
         
-        var headers: Request.Headers = headers ?? Request.Headers()
+        var headers: TURequest.Headers = headers ?? TURequest.Headers()
         if let authentication = authentication, let authHeaders = generateAuthHeaders(for: authentication) {
             authHeaders.forEach({ headers.add($0.value, for: $0.key) })
         }
         
-        return Request(with: urlBuilder.build(for: endpoint),
+        return TURequest(with: urlBuilder.build(for: endpoint),
                        method: method,
                        contentType: contentType,
                        headers: headers,
@@ -56,7 +56,7 @@ class RequestBuilder {
     
     // MARK: Header Generation
     
-    private func generateAuthHeaders(for authentication: Request.Authentication) -> [String : String]? {
+    private func generateAuthHeaders(for authentication: TURequest.Authentication) -> [String : String]? {
         switch authentication {
         case .none:
             return nil

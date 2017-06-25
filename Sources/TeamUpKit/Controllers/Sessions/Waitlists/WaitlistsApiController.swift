@@ -14,7 +14,7 @@ class WaitlistsApiController: AuthenticatedController, WaitlistsController {
               success: ((Session.Waitlist) -> Void)?,
               failure: Controller.MethodFailure?) {
         
-        var parameters = Request.Parameters()
+        var parameters = TURequest.Parameters()
         parameters.set(auth?.currentUser?.customer.id, for: "customer")
         
         let request = requestBuilder.build(for: .sessionWaitlist(sessionId: session.id),
@@ -64,7 +64,7 @@ class WaitlistsApiController: AuthenticatedController, WaitlistsController {
                                 forSession session: Session,
                                 success: ((Session.Waitlist) -> Void)?,
                                 failure: Controller.MethodFailure?) {
-        var body = Request.Body()
+        var body = TURequest.Body()
         body.add(auth?.currentUser?.customer.id, for: "customer")
         body.add(action, for: "action")
         

@@ -19,7 +19,7 @@ extension RegistrationsApiController {
                      success: ((Session.RegistrationDetails) -> Void)?,
                      failure: Controller.MethodFailure?) {
         
-        var parameters = Request.Parameters()
+        var parameters = TURequest.Parameters()
         parameters.set(auth?.currentUser?.customer.id, for: "customer")
         
         let request = requestBuilder.build(for: .sessionRegistration(sessionId: session.id),
@@ -55,7 +55,7 @@ extension RegistrationsApiController {
                      success: ((Session.RegistrationState) -> Void)?,
                      failure: Controller.MethodFailure?) {
         
-        var body = Request.Body()
+        var body = TURequest.Body()
         body.add(auth?.currentUser?.customer.id, for: "customer")
         body.add(newState.rawValue, for: "action")
         body.add(membership?.id, for: "consumermembership")

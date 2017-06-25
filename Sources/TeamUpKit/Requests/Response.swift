@@ -23,7 +23,7 @@ class Response {
     
     // MARK: Properties
     
-    private let request: Request
+    private let request: TURequest
     
     let raw: URLResponse
     let data: Data?
@@ -38,7 +38,7 @@ class Response {
     
     init?(with urlResponse: URLResponse?,
           and data: Data?,
-          for request: Request,
+          for request: TURequest,
           error: Error?) {
         guard let httpUrlResponse = urlResponse as? HTTPURLResponse else {
             return nil
