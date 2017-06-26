@@ -76,6 +76,7 @@
 		B0CC661EB5603F63930F4EB3 /* Pods-TeamupKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamupKit.release.xcconfig"; path = "../Pods/Target Support Files/Pods-TeamupKit/Pods-TeamupKit.release.xcconfig"; sourceTree = "<group>"; };
 		BC26AC161FB548433C6EE2A9 /* Pods-TeamupKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamupKit.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-TeamupKit/Pods-TeamupKit.debug.xcconfig"; sourceTree = "<group>"; };
 		D600CD8D1F017D9C0064A97D /* TURequest+Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TURequest+Components.swift"; sourceTree = "<group>"; };
+		D600CDAD1F0185ED0064A97D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D60D634A1EF1CF7F00C93B9A /* UrlUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlUtils.swift; sourceTree = "<group>"; };
 		D60D634C1EF1D58E00C93B9A /* TUResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TUResponse.swift; sourceTree = "<group>"; };
 		D60D634F1EF1D7DA00C93B9A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -105,7 +106,6 @@
 		D6E9DDAD1EF0836C008CA490 /* RequestExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestExecutor.swift; sourceTree = "<group>"; };
 		D6F9EA5F1EEBE980002ABF64 /* TeamupKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TeamupKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6F9EA621EEBE980002ABF64 /* TeamupKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeamupKit.h; sourceTree = "<group>"; };
-		D6F9EA631EEBE980002ABF64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D6F9EA681EEBE981002ABF64 /* TeamupKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TeamupKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6F9EA6D1EEBE981002ABF64 /* TeamupKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamupKitTests.swift; sourceTree = "<group>"; };
 		D6F9EA6F1EEBE981002ABF64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -300,6 +300,7 @@
 				D6319F661EF06CF40057E3E3 /* Requests */,
 				D60D63471EF1CF6000C93B9A /* Utils */,
 				D6F9EA791EEBE9C6002ABF64 /* Resources */,
+				D600CDAD1F0185ED0064A97D /* Info.plist */,
 			);
 			path = TeamupKit;
 			sourceTree = "<group>";
@@ -316,7 +317,6 @@
 		D6F9EA791EEBE9C6002ABF64 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				D6F9EA631EEBE980002ABF64 /* Info.plist */,
 				D6D877AF1EEC2B8F00908EAD /* Config.plist */,
 			);
 			path = Resources;
@@ -747,7 +747,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "$(SRCROOT)/TeamupKit/Resources/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/TeamupKit/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.msapsford.TeamupKit;
@@ -769,7 +769,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "$(SRCROOT)/TeamupKit/Resources/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/TeamupKit/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.msapsford.TeamupKit;
