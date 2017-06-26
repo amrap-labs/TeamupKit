@@ -10,6 +10,14 @@ import Foundation
 
 protocol RequestExecutorAuthResponder: class {
     
+    /// The request executor experienced an authentication error when executing a request.
+    ///
+    /// - Parameters:
+    ///   - executor: The request executor.
+    ///   - request: The request that failed.
+    ///   - response: The response that was received.
+    ///   - success: The closure to execute on a successful request.
+    ///   - failure: The closure to execute on a failed request.
     func requestExecutor(_ executor: RequestExecutor,
                          encounteredUnauthorizedErrorWhenExecuting request: TURequest,
                          response: TUResponse,
@@ -26,13 +34,29 @@ class RequestExecutor {
     
     // MARK: Properties
     
-    private var urlSession = URLSession.shared
+    /// The URL session the executor is using.
+    private var urlSession: URLSession! = URLSession.shared
+    /// The data tasks that are currently in progress.
     private var dataTasks = [URL : URLSessionDataTask]()
     
+    /// The object that is acting as a responder for auth execution.
     weak var authResponder: RequestExecutorAuthResponder?
+    
+    // MARK: Init
+    
+    deinit {
+        self.urlSession = nil
+        self.dataTasks.removeAll()
+    }
     
     // MARK: Execution
     
+    /// Execute a request.
+    ///
+    /// - Parameters:
+    ///   - request: The request to execute.
+    ///   - success: Closure to execute on a successfuly execution.
+    ///   - failure: Closure to execute on a failed execution.
     func execute(request: TURequest,
                  success: @escaping ExecutionSuccess,
                  failure: @escaping ExecutionFailure) {
