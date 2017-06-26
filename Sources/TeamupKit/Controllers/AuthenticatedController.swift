@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// A controller that has access to the authentication controller.
 class AuthenticatedController: Controller {
     
     /// The active authentication service.
@@ -15,6 +16,13 @@ class AuthenticatedController: Controller {
     
     // MARK: Init
     
+    /// Create an authenticated controller.
+    ///
+    /// - Parameters:
+    ///   - config: The configuration to use.
+    ///   - requestBuilder: The request builder to use.
+    ///   - executor: The request executor to use.
+    ///   - auth: The authentication controller to provide.
     init(with config: Config,
          requestBuilder: RequestBuilder,
          executor: RequestExecutor,

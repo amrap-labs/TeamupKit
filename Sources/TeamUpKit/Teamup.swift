@@ -16,9 +16,13 @@ public class Teamup {
     private var requestBuilder: RequestBuilder!
     private var requestExecutor: RequestExecutor!
     
+    /// The active authentication controller.
     public private(set) var auth: AuthenticationController!
+    /// The active sessions controller.
     public private(set) var sessions: SessionsController!
+    /// The active account controller.
     public private(set) var account: AccountController!
+    /// The active business controller.
     public private(set) var business: BusinessController!
     
     // MARK: Init

@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// A controller that is used to interact with an element of the service.
 public class Controller {
     
     // MARK: Types
@@ -16,15 +17,25 @@ public class Controller {
     
     // MARK: Properties
     
-    let config: Config
-    let requestBuilder: RequestBuilder
-    let requestExecutor: RequestExecutor
+    /// The configuration for the controller.
+    internal let config: Config
+    /// The request builder.
+    internal let requestBuilder: RequestBuilder
+    /// The request executor.
+    internal let requestExecutor: RequestExecutor
     
-    let decoder = JSONDecoder()
+    /// The JSON Decoder.
+    internal let decoder = JSONDecoder()
     
     // MARK: Init
     
-    init(with config: Config,
+    /// Create a controller.
+    ///
+    /// - Parameters:
+    ///   - config: The configuration to use.
+    ///   - requestBuilder: The request builder to use.
+    ///   - executor: The request executor to use.
+    internal init(with config: Config,
          requestBuilder: RequestBuilder,
          executor: RequestExecutor) {
         self.config = config
