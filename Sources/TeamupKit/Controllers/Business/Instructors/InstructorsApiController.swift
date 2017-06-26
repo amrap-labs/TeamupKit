@@ -30,17 +30,17 @@ extension InstructorsApiController {
                                 success:
             { (request, response, data) in
                 guard let data = data else {
-                    failure?(TURequestError.unknown.raw)
+                    failure?(TURequestError.unknown)
                     return
                 }
                 do {
                     let instructors = try self.decoder.decode(ResultsPage<Instructor>.self, from: data)
                     success?(instructors)
                 } catch {
-                    failure?(error)
+                    failure?(TURequestError(with: error))
                 }
         }) { (request, response, error) in
-            failure?(error.raw)
+            failure?(error)
         }
     }
     
@@ -56,17 +56,17 @@ extension InstructorsApiController {
                                 success:
             { (request, response, data) in
                 guard let data = data else {
-                    failure?(TURequestError.unknown.raw)
+                    failure?(TURequestError.unknown)
                     return
                 }
                 do {
                     let instructor = try self.decoder.decode(Instructor.self, from: data)
                     success?(instructor)
                 } catch {
-                    failure?(error)
+                    failure?(TURequestError(with: error))
                 }
         }) { (request, response, error) in
-            failure?(error.raw)
+            failure?(error)
         }
     }
 }

@@ -28,17 +28,17 @@ class MembershipsApiController: AuthenticatedController, MembershipsController {
                                 success:
             { (request, response, data) in
                 guard let data = data else {
-                    failure?(TURequestError.unknown.raw)
+                    failure?(TURequestError.unknown)
                     return
                 }
                 do {
                     let memberships = try self.decoder.decode(ResultsPage<Membership>.self, from: data)
                     success?(memberships)
                 } catch {
-                    failure?(error)
+                    failure?(TURequestError(with: error))
                 }
         }) { (request, response, error) in
-            failure?(error.raw)
+            failure?(error)
         }
     }
     
@@ -54,17 +54,17 @@ class MembershipsApiController: AuthenticatedController, MembershipsController {
                                 success:
             { (request, response, data) in
                 guard let data = data else {
-                    failure?(TURequestError.unknown.raw)
+                    failure?(TURequestError.unknown)
                     return
                 }
                 do {
                     let membership = try self.decoder.decode(Membership.self, from: data)
                     success?(membership)
                 } catch {
-                    failure?(error)
+                    failure?(TURequestError(with: error))
                 }
         }) { (request, response, error) in
-            failure?(error.raw)
+            failure?(error)
         }
     }
 }

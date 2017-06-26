@@ -31,17 +31,17 @@ extension RegistrationsApiController {
                                 success:
             { (request, response, data) in
                 guard let data = data else {
-                    failure?(TURequestError.unknown.raw)
+                    failure?(TURequestError.unknown)
                     return
                 }
                 do {
                     let registrationDetails = try self.decoder.decode(Session.RegistrationDetails.self, from: data)
                     success?(registrationDetails)
                 } catch {
-                    failure?(error)
+                    failure?(TURequestError(with: error))
                 }
         }) { (request, response, error) in
-            failure?(error.raw)
+            failure?(error)
         }
     }
 }
@@ -70,7 +70,7 @@ extension RegistrationsApiController {
             { (request, response, data) in
                 success?(newState)
         }) { (request, response, error) in
-            failure?(error.raw)
+            failure?(error)
         }
     }
 }

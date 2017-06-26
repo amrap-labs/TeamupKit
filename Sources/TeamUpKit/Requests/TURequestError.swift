@@ -48,6 +48,12 @@ public class TURequestError {
         self.detail = details?.detail
     }
     
+    init(with error: Error?) {
+        self.raw = error ?? Raw.unknown
+        self.statusCode = .unknown
+        self.detail = nil
+    }
+    
     convenience init(raw: Error?,
                      statusCode: TUResponse.StatusCode) {
         self.init(raw: raw,

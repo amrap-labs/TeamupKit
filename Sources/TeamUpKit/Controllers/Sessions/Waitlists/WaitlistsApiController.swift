@@ -26,17 +26,17 @@ class WaitlistsApiController: AuthenticatedController, WaitlistsController {
                                 success:
             { (request, response, data) in
                 guard let data = data else {
-                    failure?(TURequestError.unknown.raw)
+                    failure?(TURequestError.unknown)
                     return
                 }
                 do {
                     let waitlist = try self.decoder.decode(Session.Waitlist.self, from: data)
                     success?(waitlist)
                 } catch {
-                    failure?(error)
+                    failure?(TURequestError(with: error))
                 }
         }) { (request, response, error) in
-            failure?(error.raw)
+            failure?(error)
         }
     }
     
@@ -77,17 +77,17 @@ class WaitlistsApiController: AuthenticatedController, WaitlistsController {
                                 success:
             { (request, response, data) in
                 guard let data = data else {
-                    failure?(TURequestError.unknown.raw)
+                    failure?(TURequestError.unknown)
                     return
                 }
                 do {
                     let waitlist = try self.decoder.decode(Session.Waitlist.self, from: data)
                     success?(waitlist)
                 } catch {
-                    failure?(error)
+                    failure?(TURequestError(with: error))
                 }
         }) { (request, response, error) in
-            failure?(error.raw)
+            failure?(error)
         }
     }
 }

@@ -20,19 +20,19 @@ class ViewController: UIViewController {
         let teamup = Teamup(apiToken: dictionary["apiToken"] as! String,
                             businessId: dictionary["businessId"] as! Int)
         
-//        if !teamup.auth.isAuthenticated {
-//            teamup.auth.logIn(with: dictionary["email"] as! String,
-//                              password: dictionary["password"] as! String,
-//                              success: { (user) in
-//                                print("logged in!")
-//            },
-//                              failure: nil)
-//        }
+        if !teamup.auth.isAuthenticated {
+            teamup.auth.logIn(with: dictionary["email"] as! String,
+                              password: dictionary["password"] as! String,
+                              success: { (user) in
+                                print("logged in!")
+            },
+                              failure: nil)
+        }
         
-        teamup.business.load(success: { (business) in
+        teamup.sessions.load(sessionWithId: 2313131321, includeRegistrationDetails: true, success: { (session) in
             
         }) { (error) in
-            
+            print(error)
         }
         
         // Do any additional setup after loading the view, typically from a nib.

@@ -112,7 +112,7 @@ private extension AuthenticationApiController {
                                 success:
             { (request, response, data) in
                 guard let data = data else {
-                    failure?(TURequestError.unknown.raw)
+                    failure?(TURequestError.unknown)
                     return
                 }
                 do {
@@ -125,11 +125,11 @@ private extension AuthenticationApiController {
                     success?(user)
                     self.loginRequest = nil
                 } catch {
-                    failure?(error)
+                    failure?(TURequestError(with: error))
                     self.loginRequest = nil
                 }
         }) { (request, response, error) in
-            failure?(error.raw)
+            failure?(error)
             self.loginRequest = nil
         }
     }
@@ -224,7 +224,7 @@ extension AuthenticationApiController: RequestExecutorAuthResponder {
         },
                      failure:
             { (error) in
-                failure(request, nil, TURequestError(raw: error, statusCode: response.statusCode))
+                failure(request, nil, error)
         },
                      force: true)
     }

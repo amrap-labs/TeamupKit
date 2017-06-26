@@ -57,17 +57,17 @@ extension BusinessApiController {
                                 success:
             { (request, response, data) in
                 guard let data = data else {
-                    failure?(TURequestError.unknown.raw)
+                    failure?(TURequestError.unknown)
                     return
                 }
                 do {
                     let business = try self.decoder.decode(Business.self, from: data)
                     success?(business)
                 } catch {
-                    failure?(error)
+                    failure?(TURequestError(with: error))
                 }
         }) { (request, response, error) in
-            failure?(error.raw)
+            failure?(error)
         }
     }
 }

@@ -12,7 +12,7 @@ public class Controller {
     
     // MARK: Types
     
-    public typealias MethodFailure = (Error) -> Void
+    public typealias MethodFailure = (TURequestError) -> Void
     
     // MARK: Properties
     

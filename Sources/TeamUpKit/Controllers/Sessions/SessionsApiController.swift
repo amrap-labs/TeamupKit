@@ -90,18 +90,18 @@ extension SessionsApiController {
                                 success:
             { (request, response, data) in
                 guard let data = data else {
-                    failure?(TURequestError.unknown.raw)
+                    failure?(TURequestError.unknown)
                     return
                 }
                 do {
                     let sessions = try self.decoder.decode(ResultsPage<Session>.self, from: data)
                     success?(sessions)
                 } catch {
-                    failure?(error)
+                    failure?(TURequestError(with: error))
                 }
         })
         { (request, response, error) in
-            failure?(error.raw)
+            failure?(error)
         }
     }
     
@@ -123,17 +123,17 @@ extension SessionsApiController {
                                 success:
             { (request, response, data) in
                 guard let data = data else {
-                    failure?(TURequestError.unknown.raw)
+                    failure?(TURequestError.unknown)
                     return
                 }
                 do {
                     let session = try self.decoder.decode(Session.self, from: data)
                     success?(session)
                 } catch {
-                    failure?(error)
+                    failure?(TURequestError(with: error))
                 }
         }) { (request, response, error) in
-            failure?(error.raw)
+            failure?(error)
         }
     }
 }
