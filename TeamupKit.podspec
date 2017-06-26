@@ -17,6 +17,7 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => "https://github.com/amrap-labs/TeamupKit.git", :tag => s.version.to_s }
   s.source_files = "Sources/TeamupKit/**/*.{h,m,swift}"
+  s.resource_bundle = { 'TeamupKit' => 'Pod/Resources/**/*' }
 
   s.dependency 'KeychainSwift', '~> 8.0.0'
 
