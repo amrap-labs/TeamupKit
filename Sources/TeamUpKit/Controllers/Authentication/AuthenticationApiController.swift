@@ -190,12 +190,12 @@ private extension AuthenticationApiController {
 
 extension AuthenticationApiController: RequestBuilderAuthProvider {
     
-    func requestBuilder(requestUserAuthHeaders requestBuilder: RequestBuilder) -> [String : String]? {
+    func requestBuilder(requestUserTokenAuthHeaders requestBuilder: RequestBuilder) -> [String : String]? {
         guard let currentUser = self.currentUser else { return nil }
         return ["Authorization"  : "Token \(currentUser.token)"]
     }
     
-    func requestBuilder(requestMasterAuthHeaders requestBuilder: RequestBuilder) -> [String : String]? {
+    func requestBuilder(requestApiTokenAuthHeaders requestBuilder: RequestBuilder) -> [String : String]? {
         return ["Authorization" : "Token \(apiToken)"]
     }
 }

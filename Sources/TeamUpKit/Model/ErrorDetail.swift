@@ -8,7 +8,8 @@
 
 import Foundation
 
-public struct ErrorDetail: Codable {
+internal struct ErrorDetail: Codable {
     
+    /// The detail string for the error.
     let detail: String
 }
