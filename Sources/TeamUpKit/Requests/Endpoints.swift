@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Endpoint {
+internal enum Endpoint {
     
     // MARK: Auth
     case logIn
@@ -32,7 +32,7 @@ enum Endpoint {
     case instructor(id: Int)
 }
 
-extension Endpoint {
+internal extension Endpoint {
     
     var path: String {
         switch self {

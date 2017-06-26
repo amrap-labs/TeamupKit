@@ -18,9 +18,12 @@ internal class Config {
     
     // MARK: Properties
     
+    /// The business configuration.
     let business: BusinessConfig
+    /// The API configuration.
     private(set) var api: ApiConfig!
     
+    /// Dictionary of configuration items from Config.plist
     private var configDictionary: [String : Any] {
         let frameworkBundle = Bundle(for: type(of: self))
         let filename = Constants.plistFilename
@@ -31,11 +34,22 @@ internal class Config {
             bundle = Bundle(url: resourceBundleUrl)!
         }
         
-        let plist = bundle.path(forResource: "Config", ofType: "plist")!
-        let dictionary = NSDictionary(contentsOfFile: plist)!
+        // attempt to load config dictionary
+        guard let plist = bundle.path(forResource: "Config", ofType: "plist"),
+            let dictionary = NSDictionary(contentsOfFile: plist) else {
+                fatalError("Unable to configure Teamup Config. Please raise an issue on Github: https://github.com/amrap-labs/TeamupKit")
+        }
+        
         return dictionary as! [String : Any]
     }
     
+    // MARK: Init
+    
+    /// Initialize a configuration.
+    ///
+    /// - Parameters:
+    ///   - businessId: The business Id for the configuration.
+    ///   - apiVersion: The version of the API to use.
     init(businessId: Int,
          apiVersion: ApiConfig.Version) {
         self.business = BusinessConfig(businessId: businessId)

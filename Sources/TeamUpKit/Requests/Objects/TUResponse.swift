@@ -8,11 +8,19 @@
 
 import Foundation
 
-class TUResponse {
+public class TUResponse {
     
     // MARK: Types
     
-    enum StatusCode: Int {
+    /// The status code of the repsonse
+    ///
+    /// - unknown: Unknown
+    /// - OK: 200
+    /// - unauthorized: 401
+    /// - badRequest: 400
+    /// - forbidden: 403
+    /// - notFound: 404
+    public enum StatusCode: Int {
         case unknown = -1
         
         case OK = 200
@@ -24,14 +32,17 @@ class TUResponse {
     
     // MARK: Properties
     
-    private let request: TURequest
+    /// The raw URL response that was received.
+    public let raw: URLResponse
+    /// Data that was received as part of the response.
+    public let data: Data?
+    /// The status code of the response.
+    public let statusCode: StatusCode
+    /// Any error that was received as part of the response.
+    public private(set) var error: TURequestError?
     
-    let raw: URLResponse
-    let data: Data?
-    let statusCode: StatusCode
-    private(set) var error: TURequestError?
-    
-    var isSuccessful: Bool {
+    /// Whether the response is a successful one.
+    public var isSuccessful: Bool {
         return statusCode == .OK
     }
     
@@ -47,11 +58,11 @@ class TUResponse {
         
         self.raw = httpUrlResponse
         self.data = data
-        self.request = request
         self.statusCode = StatusCode.init(rawValue: httpUrlResponse.statusCode) ?? .unknown
         
         if !isSuccessful {
-            self.error = TURequestError(raw: error,
+            self.error = TURequestError(for: request,
+                                        raw: error,
                                         statusCode: statusCode,
                                         response: self)
         }

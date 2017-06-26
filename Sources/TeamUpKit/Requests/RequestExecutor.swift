@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol RequestExecutorAuthResponder: class {
+internal protocol RequestExecutorAuthResponder: class {
     
     /// The request executor experienced an authentication error when executing a request.
     ///
@@ -25,7 +25,7 @@ protocol RequestExecutorAuthResponder: class {
                          failure: @escaping RequestExecutor.ExecutionFailure)
 }
 
-class RequestExecutor {
+internal class RequestExecutor {
     
     // MARK: Types
     

@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol RequestBuilderAuthProvider: class {
+internal protocol RequestBuilderAuthProvider: class {
     
     /// The request builder requires headers for authorizing via the application API token.
     ///

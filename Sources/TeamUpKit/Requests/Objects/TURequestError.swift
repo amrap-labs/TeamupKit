@@ -18,23 +18,27 @@ public class TURequestError {
     
     // MARK: Properties
     
+    /// The request that errored.
+    public let request: TURequest?
     /// The raw error for the request.
-    let raw: Error
+    public let raw: Error
     /// The status code for the request.
-    let statusCode: TUResponse.StatusCode
+    public let statusCode: TUResponse.StatusCode
     /// Any detail that provides reason for the request error.
-    let detail: String?
+    public let detail: String?
     
     /// Unknown request error
-    class var unknown: TURequestError {
-        return TURequestError(raw: Raw.unknown, statusCode: .unknown)
+    public class var unknown: TURequestError {
+        return TURequestError(for: nil, raw: Raw.unknown, statusCode: .unknown)
     }
     
     // MARK: Init
     
-    init(raw: Error?,
+    internal init(for request: TURequest?,
+                  raw: Error?,
          statusCode: TUResponse.StatusCode,
          response: TUResponse?) {
+        self.request = request
         self.raw = raw ?? Raw.unknown
         self.statusCode = statusCode
         
@@ -48,15 +52,18 @@ public class TURequestError {
         self.detail = details?.detail
     }
     
-    init(with error: Error?) {
+    internal init(with error: Error?) {
+        self.request = nil
         self.raw = error ?? Raw.unknown
         self.statusCode = .unknown
         self.detail = nil
     }
     
-    convenience init(raw: Error?,
+    internal convenience init(for request: TURequest?,
+                              raw: Error?,
                      statusCode: TUResponse.StatusCode) {
-        self.init(raw: raw,
+        self.init(for: request,
+                  raw: raw,
                   statusCode: statusCode,
                   response: nil)
     }
@@ -73,5 +80,12 @@ extension TURequestError: CustomStringConvertible {
             description += " \(raw)"
         }
         return description
+    }
+}
+
+extension TURequestError: Equatable {
+    
+    public static func ==(lhs: TURequestError, rhs: TURequestError) -> Bool {
+        return lhs.statusCode == rhs.statusCode && lhs.detail == rhs.detail
     }
 }
