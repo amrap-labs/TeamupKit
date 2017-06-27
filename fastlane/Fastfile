@@ -17,7 +17,7 @@ platform :ios do
   lane :test do
     bootstrap
     scan(workspace: "TeamupKit.xcworkspace", scheme: "TeamupKit", clean: true)
-    pod_lib_lint(verbose: true)
+    # pod_lib_lint(verbose: true)
   end
 
 end
