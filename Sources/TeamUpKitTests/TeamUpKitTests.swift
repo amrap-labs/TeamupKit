@@ -11,14 +11,15 @@ import XCTest
 
 class TeamupKitTests: XCTestCase {
     
+    private(set) var teamup: Teamup!
+    
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
+        
+        let environment = MockEnvironment()
+        teamup = Teamup(apiToken: "TEST_TOKEN", businessId: 0,
+                        apiVersion: .current,
+                        environment: environment)
     }
     
     func testExample() {
