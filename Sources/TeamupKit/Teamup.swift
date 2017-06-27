@@ -37,24 +37,34 @@ public class Teamup {
     
     // MARK: Init
     
-    public init(apiToken: String,
+    public convenience init(apiToken: String,
                 businessId: Int,
                 apiVersion: ApiConfig.Version = .current) {
-        self.config = Config(businessId: businessId,
-                             apiVersion: apiVersion)
-        self.controllerFactory = ApiControllerFactory()
-        
-        initComponents(with: config)
-        controllerFactory.initialize(with: config,
-                                     requestBuilder: requestBuilder,
-                                     requestExecutor: requestExecutor,
-                                     apiToken: apiToken)
+        self.init(apiToken: apiToken,
+                  businessId: businessId,
+                  apiVersion: apiVersion,
+                  requestExecutor: nil)
     }
     
-    private func initComponents(with config: Config) {
+    internal init(apiToken: String,
+                  businessId: Int,
+                  apiVersion: ApiConfig.Version,
+                  requestExecutor: RequestExecutor?) {
+        self.config = Config(businessId: businessId,
+                             apiVersion: apiVersion)
         
         self.requestBuilder = RequestBuilder(with: config,
                                              urlBuilder: UrlBuilder(with: config))
-        self.requestExecutor = RequestExecutor()
+        if requestExecutor == nil {
+            self.requestExecutor = RequestExecutor()
+        } else {
+            self.requestExecutor = requestExecutor
+        }
+        
+        self.controllerFactory = ApiControllerFactory()
+        controllerFactory.initialize(with: self.config,
+                                     requestBuilder: self.requestBuilder,
+                                     requestExecutor: self.requestExecutor,
+                                     apiToken: apiToken)
     }
 }

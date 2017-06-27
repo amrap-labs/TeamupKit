@@ -17,6 +17,8 @@ internal class ApiControllerFactory: ControllerFactory {
     private(set) var accountController: AccountController!
     private(set) var businessController: BusinessController!
     
+    // MARK: Initialization
+    
     func initialize(with config: Config,
                     requestBuilder: RequestBuilder,
                     requestExecutor: RequestExecutor,
