@@ -16,14 +16,24 @@ public class Teamup {
     private var requestBuilder: RequestBuilder!
     private var requestExecutor: RequestExecutor!
     
+    private let controllerFactory: ControllerFactory
+    
     /// The active authentication controller.
-    public private(set) var auth: AuthenticationController!
+    public var auth: AuthenticationController {
+        return controllerFactory.authenticationController
+    }
     /// The active sessions controller.
-    public private(set) var sessions: SessionsController!
+    public var sessions: SessionsController {
+        return controllerFactory.sessionsController
+    }
     /// The active account controller.
-    public private(set) var account: AccountController!
+    public var account: AccountController {
+        return controllerFactory.accountController
+    }
     /// The active business controller.
-    public private(set) var business: BusinessController!
+    public var business: BusinessController {
+        return controllerFactory.businessController
+    }
     
     // MARK: Init
     
@@ -32,15 +42,13 @@ public class Teamup {
                 apiVersion: ApiConfig.Version = .current) {
         self.config = Config(businessId: businessId,
                              apiVersion: apiVersion)
+        self.controllerFactory = ApiControllerFactory()
+        
         initComponents(with: config)
-        initAuthControllers(with: config,
-                            requestBuilder: requestBuilder,
-                            executor: requestExecutor,
-                            apiToken: apiToken)
-        initControllers(with: config,
-                        requestBuilder: requestBuilder,
-                        executor: requestExecutor,
-                        auth: self.auth)
+        controllerFactory.initialize(with: config,
+                                     requestBuilder: requestBuilder,
+                                     requestExecutor: requestExecutor,
+                                     apiToken: apiToken)
     }
     
     private func initComponents(with config: Config) {
@@ -48,41 +56,5 @@ public class Teamup {
         self.requestBuilder = RequestBuilder(with: config,
                                              urlBuilder: UrlBuilder(with: config))
         self.requestExecutor = RequestExecutor()
-    }
-    
-    private func initAuthControllers(with config: Config,
-                                     requestBuilder: RequestBuilder,
-                                     executor: RequestExecutor,
-                                     apiToken: String) {
-        let authController = AuthenticationApiController(with: config,
-                                                         requestBuilder: requestBuilder,
-                                                         executor: requestExecutor,
-                                                         apiToken: apiToken)
-        requestBuilder.authProvider = authController
-        executor.authResponder = authController
-        self.auth = authController
-    }
-    
-    private func initControllers(with config: Config,
-                                 requestBuilder: RequestBuilder,
-                                 executor: RequestExecutor,
-                                 auth: AuthenticationController) {
-        let sessionsController = SessionsApiController(with: config,
-                                                       requestBuilder: requestBuilder,
-                                                       executor: executor,
-                                                       auth: auth)
-        self.sessions = sessionsController
-        
-        let accountController = AccountApiController(with: config,
-                                                     requestBuilder: requestBuilder,
-                                                     executor: executor,
-                                                     auth: auth)
-        self.account = accountController
-        
-        let businessController = BusinessApiController(with: config,
-                                                       requestBuilder: requestBuilder,
-                                                       executor: executor,
-                                                       auth: auth)
-        self.business = businessController
     }
 }

@@ -28,6 +28,8 @@
 		D64FFF8D1EF85A3A0039911F /* SessionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64FFF8C1EF85A3A0039911F /* SessionsController.swift */; };
 		D64FFF8F1EF85A510039911F /* SessionsApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64FFF8E1EF85A510039911F /* SessionsApiController.swift */; };
 		D64FFF911EF868FE0039911F /* BusinessConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64FFF901EF868FE0039911F /* BusinessConfig.swift */; };
+		D659392F1F02D62C00A9C1B3 /* ControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D659392E1F02D62C00A9C1B3 /* ControllerFactory.swift */; };
+		D65939311F02D64300A9C1B3 /* ApiControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65939301F02D64300A9C1B3 /* ApiControllerFactory.swift */; };
 		D65FCB061EFADCE000449A9B /* Instructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65FCB051EFADCE000449A9B /* Instructor.swift */; };
 		D67547261F0051E500760772 /* TURequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67547251F0051E500760772 /* TURequestError.swift */; };
 		D67547281F0057F000760772 /* ErrorDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67547271F0057F000760772 /* ErrorDetail.swift */; };
@@ -94,6 +96,8 @@
 		D64FFF8C1EF85A3A0039911F /* SessionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionsController.swift; sourceTree = "<group>"; };
 		D64FFF8E1EF85A510039911F /* SessionsApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionsApiController.swift; sourceTree = "<group>"; };
 		D64FFF901EF868FE0039911F /* BusinessConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessConfig.swift; sourceTree = "<group>"; };
+		D659392E1F02D62C00A9C1B3 /* ControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerFactory.swift; sourceTree = "<group>"; };
+		D65939301F02D64300A9C1B3 /* ApiControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiControllerFactory.swift; sourceTree = "<group>"; };
 		D65FCB051EFADCE000449A9B /* Instructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instructor.swift; sourceTree = "<group>"; };
 		D67547251F0051E500760772 /* TURequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TURequestError.swift; sourceTree = "<group>"; };
 		D67547271F0057F000760772 /* ErrorDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorDetail.swift; sourceTree = "<group>"; };
@@ -231,6 +235,7 @@
 			children = (
 				D6319F6D1EF06DAF0057E3E3 /* Controller.swift */,
 				D6FA17291EF9C2C500E3C506 /* AuthenticatedController.swift */,
+				D659392D1F02D62100A9C1B3 /* Factory */,
 				D6F9EA811EEBEB41002ABF64 /* Authentication */,
 				D64FFF8B1EF85A2E0039911F /* Sessions */,
 				D6FA17181EF9AD5500E3C506 /* Account */,
@@ -258,6 +263,15 @@
 				D610A0E51EF9C5B10079F3FA /* Waitlists */,
 			);
 			path = Sessions;
+			sourceTree = "<group>";
+		};
+		D659392D1F02D62100A9C1B3 /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				D659392E1F02D62C00A9C1B3 /* ControllerFactory.swift */,
+				D65939301F02D64300A9C1B3 /* ApiControllerFactory.swift */,
+			);
+			path = Factory;
 			sourceTree = "<group>";
 		};
 		D68D8FF31EFA5E07000E24B8 /* Instructors */ = {
@@ -588,6 +602,7 @@
 				D6E9DDAE1EF0836C008CA490 /* RequestExecutor.swift in Sources */,
 				D65FCB061EFADCE000449A9B /* Instructor.swift in Sources */,
 				D6E9DDAC1EF07513008CA490 /* RequestBuilder.swift in Sources */,
+				D65939311F02D64300A9C1B3 /* ApiControllerFactory.swift in Sources */,
 				D64FFF8F1EF85A510039911F /* SessionsApiController.swift in Sources */,
 				D6319F701EF06DEC0057E3E3 /* AuthenticationApiController.swift in Sources */,
 				D64FFF8D1EF85A3A0039911F /* SessionsController.swift in Sources */,
@@ -597,6 +612,7 @@
 				D67547281F0057F000760772 /* ErrorDetail.swift in Sources */,
 				D6319F681EF06D020057E3E3 /* Endpoints.swift in Sources */,
 				D6FA17211EF9AE1300E3C506 /* MembershipsApiController.swift in Sources */,
+				D659392F1F02D62C00A9C1B3 /* ControllerFactory.swift in Sources */,
 				D6E9DDA81EF0731F008CA490 /* TURequest.swift in Sources */,
 				D67547261F0051E500760772 /* TURequestError.swift in Sources */,
 				D6FA171F1EF9ADFF00E3C506 /* MembershipsController.swift in Sources */,
