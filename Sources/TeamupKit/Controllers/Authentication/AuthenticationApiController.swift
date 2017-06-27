@@ -47,8 +47,9 @@ class AuthenticationApiController: Controller, AuthenticationController {
                    requestBuilder: requestBuilder,
                    executor: executor)
         
+        var requestExecutor = executor
         requestBuilder.authProvider = self
-        executor.authResponder = self
+        requestExecutor.authResponder = self
         
         currentUser = loadAuthenticatedUserIfAvailable()
         currentUserAuthData = loadUserAuthenticationDataIfAvailable()

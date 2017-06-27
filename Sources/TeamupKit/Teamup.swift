@@ -43,25 +43,25 @@ public class Teamup {
         self.init(apiToken: apiToken,
                   businessId: businessId,
                   apiVersion: apiVersion,
-                  requestExecutor: nil)
+                  environment: nil)
     }
     
     internal init(apiToken: String,
                   businessId: Int,
                   apiVersion: ApiConfig.Version,
-                  requestExecutor: RequestExecutor?) {
+                  environment: Environment?) {
         self.config = Config(businessId: businessId,
                              apiVersion: apiVersion)
+        var environment: Environment! = environment
+        if environment == nil {
+            environment = ApiEnvironment()
+        }
         
         self.requestBuilder = RequestBuilder(with: config,
                                              urlBuilder: UrlBuilder(with: config))
-        if requestExecutor == nil {
-            self.requestExecutor = RequestExecutor()
-        } else {
-            self.requestExecutor = requestExecutor
-        }
+        self.requestExecutor = environment.requestExecutorType.init()
         
-        self.controllerFactory = ApiControllerFactory()
+        self.controllerFactory = environment.controllerFactoryType.init()
         controllerFactory.initialize(with: self.config,
                                      requestBuilder: self.requestBuilder,
                                      requestExecutor: self.requestExecutor,

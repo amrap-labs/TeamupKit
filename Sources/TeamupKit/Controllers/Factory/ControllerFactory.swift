@@ -8,7 +8,9 @@
 
 import Foundation
 
-internal protocol ControllerFactory {
+internal protocol ControllerFactory: class {
+    
+    // MARK: Properties
     
     /// The active authentication controller.
     var authenticationController: AuthenticationController! { get }
@@ -18,6 +20,12 @@ internal protocol ControllerFactory {
     var accountController: AccountController! { get }
     /// The active business controller.
     var businessController: BusinessController! { get }
+    
+    // MARK: Init
+    
+    init()
+    
+    // MARK: Controller Initialization
     
     /// Initialize all controllers.
     ///

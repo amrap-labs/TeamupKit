@@ -17,7 +17,13 @@ internal class ApiControllerFactory: ControllerFactory {
     private(set) var accountController: AccountController!
     private(set) var businessController: BusinessController!
     
-    // MARK: Initialization
+    // MARK: Init
+    
+    required init() {
+        
+    }
+    
+    // MARK: Controller Initialization
     
     func initialize(with config: Config,
                     requestBuilder: RequestBuilder,

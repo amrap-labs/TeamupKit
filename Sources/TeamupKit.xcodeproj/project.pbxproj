@@ -19,6 +19,9 @@
 		D610A0E41EF9C52F0079F3FA /* BusinessApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D610A0E31EF9C52F0079F3FA /* BusinessApiController.swift */; };
 		D610A0E71EF9C5C10079F3FA /* WaitlistsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D610A0E61EF9C5C10079F3FA /* WaitlistsController.swift */; };
 		D610A0E91EF9C5E10079F3FA /* WaitlistsApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D610A0E81EF9C5E10079F3FA /* WaitlistsApiController.swift */; };
+		D61E51DD1F02DEAB003B375F /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61E51DC1F02DEAB003B375F /* Environment.swift */; };
+		D61E51DF1F02DEB8003B375F /* ApiEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61E51DE1F02DEB8003B375F /* ApiEnvironment.swift */; };
+		D61E51E11F02DF95003B375F /* ApiRequestExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61E51E01F02DF95003B375F /* ApiRequestExecutor.swift */; };
 		D6319F681EF06D020057E3E3 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6319F671EF06D020057E3E3 /* Endpoints.swift */; };
 		D6319F6A1EF06D670057E3E3 /* UrlBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6319F691EF06D670057E3E3 /* UrlBuilder.swift */; };
 		D6319F6E1EF06DAF0057E3E3 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6319F6D1EF06DAF0057E3E3 /* Controller.swift */; };
@@ -87,6 +90,9 @@
 		D610A0E31EF9C52F0079F3FA /* BusinessApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessApiController.swift; sourceTree = "<group>"; };
 		D610A0E61EF9C5C10079F3FA /* WaitlistsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitlistsController.swift; sourceTree = "<group>"; };
 		D610A0E81EF9C5E10079F3FA /* WaitlistsApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitlistsApiController.swift; sourceTree = "<group>"; };
+		D61E51DC1F02DEAB003B375F /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		D61E51DE1F02DEB8003B375F /* ApiEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiEnvironment.swift; sourceTree = "<group>"; };
+		D61E51E01F02DF95003B375F /* ApiRequestExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequestExecutor.swift; sourceTree = "<group>"; };
 		D6319F671EF06D020057E3E3 /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
 		D6319F691EF06D670057E3E3 /* UrlBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlBuilder.swift; sourceTree = "<group>"; };
 		D6319F6D1EF06DAF0057E3E3 /* Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
@@ -218,6 +224,15 @@
 			path = Waitlists;
 			sourceTree = "<group>";
 		};
+		D61E51DB1F02DE99003B375F /* Environment */ = {
+			isa = PBXGroup;
+			children = (
+				D61E51DC1F02DEAB003B375F /* Environment.swift */,
+				D61E51DE1F02DEB8003B375F /* ApiEnvironment.swift */,
+			);
+			path = Environment;
+			sourceTree = "<group>";
+		};
 		D6319F661EF06CF40057E3E3 /* Requests */ = {
 			isa = PBXGroup;
 			children = (
@@ -226,6 +241,7 @@
 				D6319F691EF06D670057E3E3 /* UrlBuilder.swift */,
 				D6E9DDAB1EF07513008CA490 /* RequestBuilder.swift */,
 				D6E9DDAD1EF0836C008CA490 /* RequestExecutor.swift */,
+				D61E51E01F02DF95003B375F /* ApiRequestExecutor.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -307,6 +323,7 @@
 			children = (
 				D6F9EA621EEBE980002ABF64 /* TeamupKit.h */,
 				D6F9EA7B1EEBE9E6002ABF64 /* Teamup.swift */,
+				D61E51DB1F02DE99003B375F /* Environment */,
 				D6364C1B1EEC02CB004CF152 /* Config */,
 				D6319F6C1EF06DA20057E3E3 /* Controllers */,
 				D60D634E1EF1D7BD00C93B9A /* Model */,
@@ -586,10 +603,12 @@
 				D6FA170A1EF9779A00E3C506 /* Business.swift in Sources */,
 				D6FA17101EF998C200E3C506 /* Session+Waitlist.swift in Sources */,
 				D64FFF911EF868FE0039911F /* BusinessConfig.swift in Sources */,
+				D61E51DF1F02DEB8003B375F /* ApiEnvironment.swift in Sources */,
 				D6F9EA7C1EEBE9E6002ABF64 /* Teamup.swift in Sources */,
 				D6364C1D1EEC02D4004CF152 /* Config.swift in Sources */,
 				D6364C1F1EEC0310004CF152 /* ApiConfig.swift in Sources */,
 				D6319F6A1EF06D670057E3E3 /* UrlBuilder.swift in Sources */,
+				D61E51DD1F02DEAB003B375F /* Environment.swift in Sources */,
 				D6D877AE1EEC29E800908EAD /* AuthenticationController.swift in Sources */,
 				D60D634B1EF1CF7F00C93B9A /* UrlUtils.swift in Sources */,
 				D6FA170E1EF97AD700E3C506 /* Session+RegistrationDetails.swift in Sources */,
@@ -612,6 +631,7 @@
 				D67547281F0057F000760772 /* ErrorDetail.swift in Sources */,
 				D6319F681EF06D020057E3E3 /* Endpoints.swift in Sources */,
 				D6FA17211EF9AE1300E3C506 /* MembershipsApiController.swift in Sources */,
+				D61E51E11F02DF95003B375F /* ApiRequestExecutor.swift in Sources */,
 				D659392F1F02D62C00A9C1B3 /* ControllerFactory.swift in Sources */,
 				D6E9DDA81EF0731F008CA490 /* TURequest.swift in Sources */,
 				D67547261F0051E500760772 /* TURequestError.swift in Sources */,
