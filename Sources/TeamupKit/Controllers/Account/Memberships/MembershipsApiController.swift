@@ -1,0 +1,70 @@
+//
+//  MembershipsApiController.swift
+//  TeamupKit
+//
+//  Created by Merrick Sapsford on 20/06/2017.
+//  Copyright © 2017 Merrick Sapsford. All rights reserved.
+//
+
+import Foundation
+
+class MembershipsApiController: AuthenticatedController, MembershipsController {
+    
+    // MARK: Methods
+    
+    func loadAll(success: ((ResultsPage<Membership>) -> Void)?,
+                 failure: Controller.MethodFailure?) {
+        
+        var parameters = TURequest.Parameters()
+        parameters.set(auth?.currentUser?.customer.id, for: "customer")
+        parameters.set(config.business.businessId, for: "business")
+        
+        let request = requestBuilder.build(for: .memberships,
+                                           method: .get,
+                                           contentType: .json,
+                                           parameters: parameters,
+                                           authentication: .userToken)
+        requestExecutor.execute(request: request,
+                                success:
+            { (request, response, data) in
+                guard let data = data else {
+                    failure?(TURequestError.unknown)
+                    return
+                }
+                do {
+                    let memberships = try self.decoder.decode(ResultsPage<Membership>.self, from: data)
+                    success?(memberships)
+                } catch {
+                    failure?(TURequestError(with: error))
+                }
+        }) { (request, response, error) in
+            failure?(error)
+        }
+    }
+    
+    func load(withId id: Int,
+              success: ((Membership) -> Void)?,
+              failure: Controller.MethodFailure?) {
+        
+        let request = requestBuilder.build(for: .membership(id: id),
+                                           method: .get,
+                                           contentType: .json,
+                                           authentication: .userToken)
+        requestExecutor.execute(request: request,
+                                success:
+            { (request, response, data) in
+                guard let data = data else {
+                    failure?(TURequestError.unknown)
+                    return
+                }
+                do {
+                    let membership = try self.decoder.decode(Membership.self, from: data)
+                    success?(membership)
+                } catch {
+                    failure?(TURequestError(with: error))
+                }
+        }) { (request, response, error) in
+            failure?(error)
+        }
+    }
+}
