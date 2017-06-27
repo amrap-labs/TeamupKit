@@ -234,7 +234,6 @@
 			isa = PBXGroup;
 			children = (
 				D6319F6D1EF06DAF0057E3E3 /* Controller.swift */,
-				D6FA17291EF9C2C500E3C506 /* AuthenticatedController.swift */,
 				D659392D1F02D62100A9C1B3 /* Factory */,
 				D6F9EA811EEBEB41002ABF64 /* Authentication */,
 				D64FFF8B1EF85A2E0039911F /* Sessions */,
@@ -341,6 +340,7 @@
 			children = (
 				D6D877AD1EEC29E800908EAD /* AuthenticationController.swift */,
 				D6319F6F1EF06DEC0057E3E3 /* AuthenticationApiController.swift */,
+				D6FA17291EF9C2C500E3C506 /* AuthenticatedController.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
