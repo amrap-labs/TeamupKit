@@ -9,7 +9,7 @@
 import Foundation
 
 /// A controller that is used to interact with an element of the service.
-public class ApiController {
+public class ApiController: PageableController {
     
     // MARK: Properties
     
@@ -37,5 +37,11 @@ public class ApiController {
         self.config = config
         self.requestBuilder = requestBuilder
         self.requestExecutor = executor
+    }
+    
+    public func loadNextPage<DataType>(of results: ResultsPage<DataType>,
+                                       success: ((ResultsPage<DataType>) -> Void)?,
+                                       failure: Controller.MethodFailure?) {
+        
     }
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol MembershipsController: class {
+public protocol MembershipsController: class, PageableController {
     
     /// Load all memberships associated with the current user.
     ///

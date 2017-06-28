@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol InstructorsController: class {
+public protocol InstructorsController: class, PageableController {
     
     /// Load all instructors at the current business.
     ///

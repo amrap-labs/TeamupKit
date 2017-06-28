@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol SessionsController: class {
+public protocol SessionsController: class, PageableController {
     
     // MARK: Properties
     
