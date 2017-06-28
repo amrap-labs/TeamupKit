@@ -39,9 +39,10 @@ public class ApiController: PageableController {
         self.requestExecutor = executor
     }
     
-    public func loadNextPage<DataType>(of results: ResultsPage<DataType>,
-                                       success: ((ResultsPage<DataType>) -> Void)?,
-                                       failure: Controller.MethodFailure?) {
-        
+    public func loadPage<DataType>(at index: ResultsPage<DataType>.Index,
+                                   for results: ResultsPage<DataType>,
+                                   success: ((ResultsPage<DataType>) -> Void)?,
+                                   failure: Controller.MethodFailure?) {
+        // TODO - Perform request
     }
 }

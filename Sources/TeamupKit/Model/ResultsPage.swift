@@ -11,6 +11,13 @@ import Foundation
 /// A page of results within a number of pages.
 public struct ResultsPage<T : Codable>: Codable {
     
+    // MARK: Types
+    
+    public enum Index: String {
+        case previous = "previous_page"
+        case next = "next_page"
+    }
+    
     enum CodingKeys: String, CodingKey {
         case count
         case nextPageUrl = "next"

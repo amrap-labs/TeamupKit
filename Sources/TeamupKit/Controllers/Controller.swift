@@ -21,7 +21,15 @@ public protocol PageableController: Controller {
     
     // MARK: Methods
     
-    func loadNextPage<DataType>(of results: ResultsPage<DataType>,
-                                success: ((ResultsPage<DataType>) -> Void)?,
-                                failure: Controller.MethodFailure?)
+    /// Load another page of results.
+    ///
+    /// - Parameters:
+    ///   - index: The index of results to load.
+    ///   - results: The original page of results.
+    ///   - success: Closure to execute on successful request.
+    ///   - failure: Closure to execute of failed request.
+    func loadPage<DataType>(at index: ResultsPage<DataType>.Index,
+                            for results: ResultsPage<DataType>,
+                            success: ((ResultsPage<DataType>) -> Void)?,
+                            failure: Controller.MethodFailure?)
 }
