@@ -14,6 +14,7 @@ class MockRequestExecutor: RequestExecutor {
     // MARK: Properties
     
     var authResponder: RequestExecutorAuthResponder?
+    let dataProvider = MockDataProvider()
     
     // MARK: Init
     
@@ -26,6 +27,12 @@ class MockRequestExecutor: RequestExecutor {
     func execute(request: TURequest,
                  success: @escaping RequestExecutor.ExecutionSuccess,
                  failure: @escaping RequestExecutor.ExecutionFailure) {
-        
+        if let data = dataProvider.provide(dataFor: request.url.absoluteString) {
+            let urlResponse = HTTPURLResponse(url: request.url, statusCode: 200, httpVersion: nil, headerFields: nil)
+            let response = TUResponse(with: urlResponse, and: data, for: request, error: nil)!
+            success(request, response, data)
+        } else {
+            failure(request, nil, TURequestError.unknown)
+        }
     }
 }

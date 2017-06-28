@@ -1,0 +1,12 @@
+{
+    "https://goteamup.com/api/v1/businesses/generic_login": {
+        "customer": {
+            "id":12478913,
+            "name":"Eddie Hall",
+            "emails":["eddie@gainz.com"]
+        },
+        "token":"zrRVIqMVE0ztY7ONcytYrxCqzmpZS1",
+        "expires":"2019-06-28T17:49:11.183124",
+        "success":true
+    }
+}
