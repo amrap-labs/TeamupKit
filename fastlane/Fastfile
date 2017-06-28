@@ -7,7 +7,9 @@ platform :ios do
 
   desc "Bootstrap dependencies"
   lane :bootstrap do
-    cocoapods
+    cocoapods(
+      repo_update: true
+    )
   end
 
   desc "Run unit tests and check library"
