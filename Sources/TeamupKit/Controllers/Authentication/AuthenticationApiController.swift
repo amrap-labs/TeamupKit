@@ -9,7 +9,7 @@
 import Foundation
 import KeychainSwift
 
-class AuthenticationApiController: Controller, AuthenticationController {
+class AuthenticationApiController: ApiController, AuthenticationController {
     
     // MARK: Constants
     
@@ -47,7 +47,7 @@ class AuthenticationApiController: Controller, AuthenticationController {
                    requestBuilder: requestBuilder,
                    executor: executor)
         
-        var requestExecutor = executor
+        let requestExecutor = executor
         requestBuilder.authProvider = self
         requestExecutor.authResponder = self
         
@@ -60,7 +60,7 @@ class AuthenticationApiController: Controller, AuthenticationController {
     func logIn(with email: String,
                password: String,
                success: ((User) -> Void)?,
-               failure: MethodFailure?) {
+               failure: Controller.MethodFailure?) {
         performLogIn(with: email,
                      password: password,
                      success: success,
@@ -92,7 +92,7 @@ private extension AuthenticationApiController {
     private func performLogIn(with email: String,
                               password: String,
                               success: ((User) -> Void)?,
-                              failure: MethodFailure?,
+                              failure: Controller.MethodFailure?,
                               force: Bool) {
         
         // ignore log in if already logged in

@@ -9,7 +9,7 @@
 import Foundation
 
 /// A controller that has access to the authentication controller.
-class AuthenticatedController: Controller {
+class AuthenticatedController: ApiController {
     
     /// The active authentication service.
     weak private(set) var auth: AuthenticationController?

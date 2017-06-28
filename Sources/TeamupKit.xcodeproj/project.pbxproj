@@ -26,7 +26,7 @@
 		D61E51E61F02E2E8003B375F /* MockRequestExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61E51E51F02E2E8003B375F /* MockRequestExecutor.swift */; };
 		D6319F681EF06D020057E3E3 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6319F671EF06D020057E3E3 /* Endpoints.swift */; };
 		D6319F6A1EF06D670057E3E3 /* UrlBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6319F691EF06D670057E3E3 /* UrlBuilder.swift */; };
-		D6319F6E1EF06DAF0057E3E3 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6319F6D1EF06DAF0057E3E3 /* Controller.swift */; };
+		D6319F6E1EF06DAF0057E3E3 /* ApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6319F6D1EF06DAF0057E3E3 /* ApiController.swift */; };
 		D6319F701EF06DEC0057E3E3 /* AuthenticationApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6319F6F1EF06DEC0057E3E3 /* AuthenticationApiController.swift */; };
 		D63282721F04246D00128C48 /* MockDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63282711F04246D00128C48 /* MockDataProvider.swift */; };
 		D63282731F04258A00128C48 /* mockdata.json in Resources */ = {isa = PBXBuildFile; fileRef = D63282701F04236A00128C48 /* mockdata.json */; };
@@ -39,6 +39,7 @@
 		D65939311F02D64300A9C1B3 /* ApiControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65939301F02D64300A9C1B3 /* ApiControllerFactory.swift */; };
 		D65FCB061EFADCE000449A9B /* Instructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65FCB051EFADCE000449A9B /* Instructor.swift */; };
 		D67238541F042A1000CC8EFB /* TeamupKitAuthenticationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67238531F042A1000CC8EFB /* TeamupKitAuthenticationTests.swift */; };
+		D672387E1F04313700CC8EFB /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D672387D1F04313700CC8EFB /* Controller.swift */; };
 		D67547261F0051E500760772 /* TURequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67547251F0051E500760772 /* TURequestError.swift */; };
 		D67547281F0057F000760772 /* ErrorDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67547271F0057F000760772 /* ErrorDetail.swift */; };
 		D68D8FF51EFA5E18000E24B8 /* InstructorsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68D8FF41EFA5E18000E24B8 /* InstructorsController.swift */; };
@@ -104,7 +105,7 @@
 		D61E51E51F02E2E8003B375F /* MockRequestExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRequestExecutor.swift; sourceTree = "<group>"; };
 		D6319F671EF06D020057E3E3 /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
 		D6319F691EF06D670057E3E3 /* UrlBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlBuilder.swift; sourceTree = "<group>"; };
-		D6319F6D1EF06DAF0057E3E3 /* Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
+		D6319F6D1EF06DAF0057E3E3 /* ApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiController.swift; sourceTree = "<group>"; };
 		D6319F6F1EF06DEC0057E3E3 /* AuthenticationApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationApiController.swift; sourceTree = "<group>"; };
 		D63282701F04236A00128C48 /* mockdata.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mockdata.json; sourceTree = "<group>"; };
 		D63282711F04246D00128C48 /* MockDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataProvider.swift; sourceTree = "<group>"; };
@@ -117,6 +118,7 @@
 		D65939301F02D64300A9C1B3 /* ApiControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiControllerFactory.swift; sourceTree = "<group>"; };
 		D65FCB051EFADCE000449A9B /* Instructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instructor.swift; sourceTree = "<group>"; };
 		D67238531F042A1000CC8EFB /* TeamupKitAuthenticationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamupKitAuthenticationTests.swift; sourceTree = "<group>"; };
+		D672387D1F04313700CC8EFB /* Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
 		D67547251F0051E500760772 /* TURequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TURequestError.swift; sourceTree = "<group>"; };
 		D67547271F0057F000760772 /* ErrorDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorDetail.swift; sourceTree = "<group>"; };
 		D68D8FF41EFA5E18000E24B8 /* InstructorsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructorsController.swift; sourceTree = "<group>"; };
@@ -273,7 +275,8 @@
 		D6319F6C1EF06DA20057E3E3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D6319F6D1EF06DAF0057E3E3 /* Controller.swift */,
+				D672387D1F04313700CC8EFB /* Controller.swift */,
+				D6319F6D1EF06DAF0057E3E3 /* ApiController.swift */,
 				D659392D1F02D62100A9C1B3 /* Factory */,
 				D6F9EA811EEBEB41002ABF64 /* Authentication */,
 				D64FFF8B1EF85A2E0039911F /* Sessions */,
@@ -666,6 +669,7 @@
 				D68D8FF51EFA5E18000E24B8 /* InstructorsController.swift in Sources */,
 				D6FA20CA1EF90F9A00E7EA17 /* Session.swift in Sources */,
 				D610A0E71EF9C5C10079F3FA /* WaitlistsController.swift in Sources */,
+				D672387E1F04313700CC8EFB /* Controller.swift in Sources */,
 				D67547281F0057F000760772 /* ErrorDetail.swift in Sources */,
 				D6319F681EF06D020057E3E3 /* Endpoints.swift in Sources */,
 				D6FA17211EF9AE1300E3C506 /* MembershipsApiController.swift in Sources */,
@@ -677,7 +681,7 @@
 				D6FA17171EF9A86700E3C506 /* RegistrationsApiController.swift in Sources */,
 				D600CD8E1F017D9C0064A97D /* TURequest+Components.swift in Sources */,
 				D6FA17231EF9AF4200E3C506 /* Membership.swift in Sources */,
-				D6319F6E1EF06DAF0057E3E3 /* Controller.swift in Sources */,
+				D6319F6E1EF06DAF0057E3E3 /* ApiController.swift in Sources */,
 				D610A0E21EF9C4EC0079F3FA /* BusinessController.swift in Sources */,
 				D68D8FF71EFA5E20000E24B8 /* InstructorsApiController.swift in Sources */,
 			);
