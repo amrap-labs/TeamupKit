@@ -79,7 +79,7 @@ extension SessionsApiController {
         parameters.set(includeNonActive, for: "include_non_active")
         parameters.set(page, for: "page")
         parameters.set(sessionsDateFormatter.string(from: startDate), for: "start_date")
-        parameters.set(sessionsDateFormatter.string(from: startDate), for: "end_date")
+        parameters.set(sessionsDateFormatter.string(from: endDate), for: "end_date")
         
         let request = requestBuilder.build(for: .sessions,
                                            method: .get,

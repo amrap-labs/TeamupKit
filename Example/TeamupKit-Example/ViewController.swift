@@ -29,11 +29,24 @@ class ViewController: UIViewController {
                               failure: nil)
         }
         
-        teamup.sessions.load(sessionWithId: 2313131321, includeRegistrationDetails: true, success: { (session) in
-            
-        }) { (error) in
-            print(error)
-        }
+        let startDateString = "2017-06-05"
+        let endDateString = "2017-06-27"
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        
+        teamup.sessions.load(between: dateFormatter.date(from: startDateString)!,
+                             and: dateFormatter.date(from: endDateString)!, success: { (sessions) in
+            teamup.sessions.loadPage(at: .next, for: sessions, success: { (sessions) in
+
+            }, failure: nil)
+        }, failure: nil)
+        
+//        teamup.sessions.load(sessionWithId: 2313131321, includeRegistrationDetails: true, success: { (session) in
+//
+//        }) { (error) in
+//            print(error)
+//        }
         
         // Do any additional setup after loading the view, typically from a nib.
     }

@@ -39,10 +39,36 @@ public class ApiController: PageableController {
         self.requestExecutor = executor
     }
     
+    // MARK: Methods
+    
     public func loadPage<DataType>(at index: ResultsPage<DataType>.Index,
                                    for results: ResultsPage<DataType>,
                                    success: ((ResultsPage<DataType>) -> Void)?,
                                    failure: Controller.MethodFailure?) {
-        // TODO - Perform request
+        guard let url = results.pageUrl(for: index) else {
+            failure?(TURequestError(with: TUError.Paging.pageNotFound))
+            return
+        }
+        
+        let request = requestBuilder.build(for: url,
+                                           method: .get,
+                                           contentType: .json,
+                                           authentication: .userToken)
+        requestExecutor.execute(request: request,
+                                success:
+            { (request, response, data) in
+                guard let data = data else {
+                    failure?(TURequestError.unknown)
+                    return
+                }
+                do {
+                    let results = try self.decoder.decode(ResultsPage<DataType>.self, from: data)
+                    success?(results)
+                } catch {
+                    failure?(TURequestError(with: error))
+                }
+        }) { (request, response, error) in
+            failure?(error)
+        }
     }
 }

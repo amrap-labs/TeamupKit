@@ -14,8 +14,8 @@ public struct ResultsPage<T : Codable>: Codable {
     // MARK: Types
     
     public enum Index: String {
-        case previous = "previous_page"
-        case next = "next_page"
+        case previous
+        case next
     }
     
     enum CodingKeys: String, CodingKey {
@@ -28,6 +28,8 @@ public struct ResultsPage<T : Codable>: Codable {
         case totalPageCount = "total_pages"
         case results
     }
+    
+    // MARK: Properties
     
     /// The number of results in the page.
     public let count: Int
@@ -46,4 +48,19 @@ public struct ResultsPage<T : Codable>: Codable {
     
     /// The results in the page.
     public let results: [T]
+    
+    // MARK: Utility
+    
+    /// Get the Page URL for an index.
+    ///
+    /// - Parameter index: The index.
+    /// - Returns: The page URL.
+    internal func pageUrl(for index: Index) -> URL? {
+        switch index {
+        case .next:
+            return nextPageUrl
+        case .previous:
+            return previousPageUrl
+        }
+    }
 }

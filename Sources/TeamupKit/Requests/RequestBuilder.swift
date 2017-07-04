@@ -68,17 +68,34 @@ internal class RequestBuilder {
                body: TURequest.Body? = nil,
                authentication: TURequest.Authentication? = nil) -> TURequest {
         
+        return build(for: urlBuilder.build(for: endpoint),
+                     method: method,
+                     contentType: contentType,
+                     headers: headers,
+                     parameters: parameters,
+                     body: body,
+                     authentication: authentication)
+    }
+    
+    func build(for url: URL,
+               method: TURequest.Method,
+               contentType: TURequest.ContentType,
+               headers: TURequest.Headers? = nil,
+               parameters: TURequest.Parameters? = nil,
+               body: TURequest.Body? = nil,
+               authentication: TURequest.Authentication? = nil) -> TURequest {
+        
         var headers: TURequest.Headers = headers ?? TURequest.Headers()
         if let authentication = authentication, let authHeaders = generateAuthHeaders(for: authentication) {
             authHeaders.forEach({ headers.add($0.value, for: $0.key) })
         }
         
-        return TURequest(with: urlBuilder.build(for: endpoint),
-                       method: method,
-                       contentType: contentType,
-                       headers: headers,
-                       parameters: parameters,
-                       body: body)
+        return TURequest(with: url,
+                         method: method,
+                         contentType: contentType,
+                         headers: headers,
+                         parameters: parameters,
+                         body: body)
     }
     
     // MARK: Header Generation

@@ -46,6 +46,7 @@
 		D68D8FF71EFA5E20000E24B8 /* InstructorsApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68D8FF61EFA5E20000E24B8 /* InstructorsApiController.swift */; };
 		D69B3B3F1F02EC8500AA7FE2 /* TeamupKitConfigTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69B3B3E1F02EC8500AA7FE2 /* TeamupKitConfigTests.swift */; };
 		D69B3B411F02EE4500AA7FE2 /* TeamupKitEnvironmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69B3B401F02EE4500AA7FE2 /* TeamupKitEnvironmentTests.swift */; };
+		D6A0EE2F1F0C268F001E6D4E /* TUError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A0EE2E1F0C268F001E6D4E /* TUError.swift */; };
 		D6D877AE1EEC29E800908EAD /* AuthenticationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D877AD1EEC29E800908EAD /* AuthenticationController.swift */; };
 		D6D877B01EEC2B8F00908EAD /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6D877AF1EEC2B8F00908EAD /* Config.plist */; };
 		D6E9DDA81EF0731F008CA490 /* TURequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E9DDA71EF0731F008CA490 /* TURequest.swift */; };
@@ -125,6 +126,7 @@
 		D68D8FF61EFA5E20000E24B8 /* InstructorsApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructorsApiController.swift; sourceTree = "<group>"; };
 		D69B3B3E1F02EC8500AA7FE2 /* TeamupKitConfigTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamupKitConfigTests.swift; sourceTree = "<group>"; };
 		D69B3B401F02EE4500AA7FE2 /* TeamupKitEnvironmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamupKitEnvironmentTests.swift; sourceTree = "<group>"; };
+		D6A0EE2E1F0C268F001E6D4E /* TUError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TUError.swift; sourceTree = "<group>"; };
 		D6D877AD1EEC29E800908EAD /* AuthenticationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationController.swift; sourceTree = "<group>"; };
 		D6D877AF1EEC2B8F00908EAD /* Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		D6E9DDA71EF0731F008CA490 /* TURequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TURequest.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				D600CD8D1F017D9C0064A97D /* TURequest+Components.swift */,
 				D67547251F0051E500760772 /* TURequestError.swift */,
 				D60D634C1EF1D58E00C93B9A /* TUResponse.swift */,
+				D6A0EE2E1F0C268F001E6D4E /* TUError.swift */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -644,6 +647,7 @@
 				D6FA170A1EF9779A00E3C506 /* Business.swift in Sources */,
 				D6FA17101EF998C200E3C506 /* Session+Waitlist.swift in Sources */,
 				D64FFF911EF868FE0039911F /* BusinessConfig.swift in Sources */,
+				D6A0EE2F1F0C268F001E6D4E /* TUError.swift in Sources */,
 				D61E51DF1F02DEB8003B375F /* ApiEnvironment.swift in Sources */,
 				D6F9EA7C1EEBE9E6002ABF64 /* Teamup.swift in Sources */,
 				D6364C1D1EEC02D4004CF152 /* Config.swift in Sources */,

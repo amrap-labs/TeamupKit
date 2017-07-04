@@ -63,6 +63,7 @@ internal extension Endpoint {
             return "/instructors"
         case .instructor(let id):
             return "/instructors/\(id)"
+            
         }
     }
 }
