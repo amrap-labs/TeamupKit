@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class TUResponse {
+public class Response {
     
     // MARK: Types
     
@@ -39,7 +39,7 @@ public class TUResponse {
     /// The status code of the response.
     public let statusCode: StatusCode
     /// Any error that was received as part of the response.
-    public private(set) var error: TURequestError?
+    public private(set) var error: RequestError?
     
     /// Whether the response is a successful one.
     public var isSuccessful: Bool {
@@ -50,7 +50,7 @@ public class TUResponse {
     
     init?(with urlResponse: URLResponse?,
           and data: Data?,
-          for request: TURequest,
+          for request: Request,
           error: Error?) {
         guard let httpUrlResponse = urlResponse as? HTTPURLResponse else {
             return nil
@@ -61,7 +61,7 @@ public class TUResponse {
         self.statusCode = StatusCode.init(rawValue: httpUrlResponse.statusCode) ?? .unknown
         
         if !isSuccessful {
-            self.error = TURequestError(for: request,
+            self.error = RequestError(for: request,
                                         raw: error,
                                         statusCode: statusCode,
                                         response: self)

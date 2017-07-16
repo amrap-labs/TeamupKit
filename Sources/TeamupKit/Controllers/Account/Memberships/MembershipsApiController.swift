@@ -15,7 +15,7 @@ class MembershipsApiController: AuthenticatedController, MembershipsController {
     func loadAll(success: ((ResultsPage<Membership>) -> Void)?,
                  failure: Controller.MethodFailure?) {
         
-        var parameters = TURequest.Parameters()
+        var parameters = Request.Parameters()
         parameters.set(auth?.currentUser?.customer.id, for: "customer")
         parameters.set(config.business.businessId, for: "business")
         
@@ -28,14 +28,14 @@ class MembershipsApiController: AuthenticatedController, MembershipsController {
                                 success:
             { (request, response, data) in
                 guard let data = data else {
-                    failure?(TURequestError.unknown)
+                    failure?(RequestError.unknown)
                     return
                 }
                 do {
                     let memberships = try self.decoder.decode(ResultsPage<Membership>.self, from: data)
                     success?(memberships)
                 } catch {
-                    failure?(TURequestError(with: error))
+                    failure?(RequestError(with: error))
                 }
         }) { (request, response, error) in
             failure?(error)
@@ -54,14 +54,14 @@ class MembershipsApiController: AuthenticatedController, MembershipsController {
                                 success:
             { (request, response, data) in
                 guard let data = data else {
-                    failure?(TURequestError.unknown)
+                    failure?(RequestError.unknown)
                     return
                 }
                 do {
                     let membership = try self.decoder.decode(Membership.self, from: data)
                     success?(membership)
                 } catch {
-                    failure?(TURequestError(with: error))
+                    failure?(RequestError(with: error))
                 }
         }) { (request, response, error) in
             failure?(error)

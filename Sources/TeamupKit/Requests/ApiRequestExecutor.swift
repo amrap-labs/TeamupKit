@@ -34,7 +34,7 @@ internal class ApiRequestExecutor: RequestExecutor {
     
     // MARK: Execution
     
-    func execute(request: TURequest,
+    func execute(request: Request,
                  success: @escaping RequestExecutor.ExecutionSuccess,
                  failure: @escaping RequestExecutor.ExecutionFailure) {
         
@@ -68,12 +68,12 @@ internal class ApiRequestExecutor: RequestExecutor {
             welf.dataTasks.removeValue(forKey: url)
             
             // attempt to read response
-            guard let response = TUResponse(with: response,
+            guard let response = Response(with: response,
                                             and: data,
                                             for: request,
                                             error: error) else
             {
-                failure(request, nil, TURequestError.unknown)
+                failure(request, nil, RequestError.unknown)
                 return
             }
             

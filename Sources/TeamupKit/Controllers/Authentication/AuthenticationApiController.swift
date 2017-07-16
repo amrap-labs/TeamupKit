@@ -30,7 +30,7 @@ class AuthenticationApiController: ApiController, AuthenticationController {
     private(set) var currentUser: User?
     private var currentUserAuthData: UserAuthData?
     
-    private var loginRequest: TURequest?
+    private var loginRequest: Request?
     
     var isAuthenticated: Bool {
         return currentUser != nil
@@ -103,7 +103,7 @@ private extension AuthenticationApiController {
             }
         }
         
-        let body = TURequest.Body(["email" : email,
+        let body = Request.Body(["email" : email,
                                  "password" : password])
         
         let request = requestBuilder.build(for: .logIn,
@@ -116,7 +116,7 @@ private extension AuthenticationApiController {
                                 success:
             { (request, response, data) in
                 guard let data = data else {
-                    failure?(TURequestError.unknown)
+                    failure?(RequestError.unknown)
                     return
                 }
                 do {
@@ -129,7 +129,7 @@ private extension AuthenticationApiController {
                     success?(user)
                     self.loginRequest = nil
                 } catch {
-                    failure?(TURequestError(with: error))
+                    failure?(RequestError(with: error))
                     self.loginRequest = nil
                 }
         }) { (request, response, error) in
@@ -207,10 +207,10 @@ extension AuthenticationApiController: RequestBuilderAuthProvider {
 extension AuthenticationApiController: RequestExecutorAuthResponder {
     
     func requestExecutor(_ executor: RequestExecutor,
-                         encounteredUnauthorizedErrorWhenExecuting request: TURequest,
-                         response: TUResponse,
-                         success: @escaping (TURequest, TUResponse, Data?) -> Void,
-                         failure: @escaping (TURequest, TUResponse?, TURequestError) -> Void) {
+                         encounteredUnauthorizedErrorWhenExecuting request: Request,
+                         response: Response,
+                         success: @escaping (Request, Response, Data?) -> Void,
+                         failure: @escaping (Request, Response?, RequestError) -> Void) {
         guard let currentUser = currentUser , let authData = currentUserAuthData else {
             // TODO - Sign out
             return

@@ -1,5 +1,5 @@
 //
-//  TURequest+Components.swift
+//  Request+Components.swift
 //  TeamupKit
 //
 //  Created by Merrick Sapsford on 26/06/2017.
@@ -8,8 +8,8 @@
 
 import Foundation
 
-// MARK: - TURequest Components
-public extension TURequest {
+// MARK: - Request Components
+public extension Request {
     
     /// The body object of the request.
     public struct Body {
@@ -76,7 +76,7 @@ public extension TURequest {
     }
 }
 
-internal extension TURequest.Body {
+internal extension Request.Body {
     
     /// The raw body data encoded in the specified format.
     var rawData: Data? {

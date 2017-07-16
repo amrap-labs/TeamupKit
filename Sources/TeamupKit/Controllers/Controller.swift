@@ -13,7 +13,7 @@ public protocol Controller {
     
     // MARK: Types
     
-    typealias MethodFailure = (TURequestError) -> Void
+    typealias MethodFailure = (RequestError) -> Void
 }
 
 /// A Controller that provides pageable content.

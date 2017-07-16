@@ -19,7 +19,7 @@ extension RegistrationsApiController {
                      success: ((Session.RegistrationDetails) -> Void)?,
                      failure: Controller.MethodFailure?) {
         
-        var parameters = TURequest.Parameters()
+        var parameters = Request.Parameters()
         parameters.set(auth?.currentUser?.customer.id, for: "customer")
         
         let request = requestBuilder.build(for: .sessionRegistration(sessionId: session.id),
@@ -31,14 +31,14 @@ extension RegistrationsApiController {
                                 success:
             { (request, response, data) in
                 guard let data = data else {
-                    failure?(TURequestError.unknown)
+                    failure?(RequestError.unknown)
                     return
                 }
                 do {
                     let registrationDetails = try self.decoder.decode(Session.RegistrationDetails.self, from: data)
                     success?(registrationDetails)
                 } catch {
-                    failure?(TURequestError(with: error))
+                    failure?(RequestError(with: error))
                 }
         }) { (request, response, error) in
             failure?(error)
@@ -55,7 +55,7 @@ extension RegistrationsApiController {
                      success: ((Session.RegistrationState) -> Void)?,
                      failure: Controller.MethodFailure?) {
         
-        var body = TURequest.Body()
+        var body = Request.Body()
         body.add(auth?.currentUser?.customer.id, for: "customer")
         body.add(newState.rawValue, for: "action")
         body.add(membership?.id, for: "consumermembership")

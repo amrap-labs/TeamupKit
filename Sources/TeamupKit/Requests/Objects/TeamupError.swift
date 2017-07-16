@@ -8,10 +8,15 @@
 
 import Foundation
 
-enum TUError: Error {
+enum TeamupError: Error {
     
     enum Paging: Error {
         
         case pageNotFound
+    }
+    
+    enum Comms: Error {
+        
+        case unknown
     }
 }

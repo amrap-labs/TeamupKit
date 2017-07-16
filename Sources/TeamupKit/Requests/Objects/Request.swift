@@ -1,5 +1,5 @@
 //
-//  TURequest.swift
+//  Request.swift
 //  TeamupKit
 //
 //  Created by Merrick Sapsford on 13/06/2017.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class TURequest {
+public class Request {
     
     // MARK: Types
     
@@ -89,9 +89,9 @@ public class TURequest {
     }
 }
 
-extension TURequest: Equatable {
+extension Request: Equatable {
     
-    public static func ==(lhs: TURequest, rhs: TURequest) -> Bool {
+    public static func ==(lhs: Request, rhs: Request) -> Bool {
         return lhs.url == rhs.url
     }
 }

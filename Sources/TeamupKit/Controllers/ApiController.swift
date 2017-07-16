@@ -46,7 +46,7 @@ public class ApiController: PageableController {
                                    success: ((ResultsPage<DataType>) -> Void)?,
                                    failure: Controller.MethodFailure?) {
         guard let url = results.pageUrl(for: index) else {
-            failure?(TURequestError(with: TUError.Paging.pageNotFound))
+            failure?(RequestError(with: TeamupError.Paging.pageNotFound))
             return
         }
         
@@ -58,14 +58,14 @@ public class ApiController: PageableController {
                                 success:
             { (request, response, data) in
                 guard let data = data else {
-                    failure?(TURequestError.unknown)
+                    failure?(RequestError.unknown)
                     return
                 }
                 do {
                     let results = try self.decoder.decode(ResultsPage<DataType>.self, from: data)
                     success?(results)
                 } catch {
-                    failure?(TURequestError(with: error))
+                    failure?(RequestError(with: error))
                 }
         }) { (request, response, error) in
             failure?(error)

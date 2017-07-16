@@ -72,7 +72,7 @@ extension SessionsApiController {
               success: ((ResultsPage<Session>) -> Void)?,
               failure: Controller.MethodFailure?) {
         
-        var parameters = TURequest.Parameters()
+        var parameters = Request.Parameters()
         parameters.set(config.business.businessId, for: "business")
         parameters.set(auth?.currentUser?.customer.id, for: "customer")
         parameters.set(includeRegistrationDetails, for: "include_registration_details")
@@ -90,14 +90,14 @@ extension SessionsApiController {
                                 success:
             { (request, response, data) in
                 guard let data = data else {
-                    failure?(TURequestError.unknown)
+                    failure?(RequestError.unknown)
                     return
                 }
                 do {
                     let sessions = try self.decoder.decode(ResultsPage<Session>.self, from: data)
                     success?(sessions)
                 } catch {
-                    failure?(TURequestError(with: error))
+                    failure?(RequestError(with: error))
                 }
         })
         { (request, response, error) in
@@ -110,7 +110,7 @@ extension SessionsApiController {
               success: ((Session) -> Void)?,
               failure: Controller.MethodFailure?) {
         
-        var parameters = TURequest.Parameters()
+        var parameters = Request.Parameters()
         parameters.set(auth?.currentUser?.customer.id, for: "customer")
         parameters.set(includeRegistrationDetails, for: "include_registration_details")
         
@@ -123,14 +123,14 @@ extension SessionsApiController {
                                 success:
             { (request, response, data) in
                 guard let data = data else {
-                    failure?(TURequestError.unknown)
+                    failure?(RequestError.unknown)
                     return
                 }
                 do {
                     let session = try self.decoder.decode(Session.self, from: data)
                     success?(session)
                 } catch {
-                    failure?(TURequestError(with: error))
+                    failure?(RequestError(with: error))
                 }
         }) { (request, response, error) in
             failure?(error)

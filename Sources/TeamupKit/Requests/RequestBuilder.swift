@@ -61,12 +61,12 @@ internal class RequestBuilder {
     ///   - authentication: The type of authentication to use.
     /// - Returns: The request.
     func build(for endpoint: Endpoint,
-               method: TURequest.Method,
-               contentType: TURequest.ContentType,
-               headers: TURequest.Headers? = nil,
-               parameters: TURequest.Parameters? = nil,
-               body: TURequest.Body? = nil,
-               authentication: TURequest.Authentication? = nil) -> TURequest {
+               method: Request.Method,
+               contentType: Request.ContentType,
+               headers: Request.Headers? = nil,
+               parameters: Request.Parameters? = nil,
+               body: Request.Body? = nil,
+               authentication: Request.Authentication? = nil) -> Request {
         
         return build(for: urlBuilder.build(for: endpoint),
                      method: method,
@@ -78,19 +78,19 @@ internal class RequestBuilder {
     }
     
     func build(for url: URL,
-               method: TURequest.Method,
-               contentType: TURequest.ContentType,
-               headers: TURequest.Headers? = nil,
-               parameters: TURequest.Parameters? = nil,
-               body: TURequest.Body? = nil,
-               authentication: TURequest.Authentication? = nil) -> TURequest {
+               method: Request.Method,
+               contentType: Request.ContentType,
+               headers: Request.Headers? = nil,
+               parameters: Request.Parameters? = nil,
+               body: Request.Body? = nil,
+               authentication: Request.Authentication? = nil) -> Request {
         
-        var headers: TURequest.Headers = headers ?? TURequest.Headers()
+        var headers: Request.Headers = headers ?? Request.Headers()
         if let authentication = authentication, let authHeaders = generateAuthHeaders(for: authentication) {
             authHeaders.forEach({ headers.add($0.value, for: $0.key) })
         }
         
-        return TURequest(with: url,
+        return Request(with: url,
                          method: method,
                          contentType: contentType,
                          headers: headers,
@@ -100,7 +100,7 @@ internal class RequestBuilder {
     
     // MARK: Header Generation
     
-    private func generateAuthHeaders(for authentication: TURequest.Authentication) -> [String : String]? {
+    private func generateAuthHeaders(for authentication: Request.Authentication) -> [String : String]? {
         switch authentication {
         case .none:
             return nil

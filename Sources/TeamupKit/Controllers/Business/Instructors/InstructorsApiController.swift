@@ -18,7 +18,7 @@ extension InstructorsApiController {
     func loadAll(success: ((ResultsPage<Instructor>) -> Void)?,
                  failure: Controller.MethodFailure?) {
         
-        var parameters = TURequest.Parameters()
+        var parameters = Request.Parameters()
         parameters.set(config.business.businessId, for: "business")
         
         let request = requestBuilder.build(for: .instructors,
@@ -30,14 +30,14 @@ extension InstructorsApiController {
                                 success:
             { (request, response, data) in
                 guard let data = data else {
-                    failure?(TURequestError.unknown)
+                    failure?(RequestError.unknown)
                     return
                 }
                 do {
                     let instructors = try self.decoder.decode(ResultsPage<Instructor>.self, from: data)
                     success?(instructors)
                 } catch {
-                    failure?(TURequestError(with: error))
+                    failure?(RequestError(with: error))
                 }
         }) { (request, response, error) in
             failure?(error)
@@ -56,14 +56,14 @@ extension InstructorsApiController {
                                 success:
             { (request, response, data) in
                 guard let data = data else {
-                    failure?(TURequestError.unknown)
+                    failure?(RequestError.unknown)
                     return
                 }
                 do {
                     let instructor = try self.decoder.decode(Instructor.self, from: data)
                     success?(instructor)
                 } catch {
-                    failure?(TURequestError(with: error))
+                    failure?(RequestError(with: error))
                 }
         }) { (request, response, error) in
             failure?(error)

@@ -1,5 +1,5 @@
 //
-//  TURequestError.swift
+//  RequestError.swift
 //  TeamupKit
 //
 //  Created by Merrick Sapsford on 25/06/2017.
@@ -8,38 +8,32 @@
 
 import Foundation
 
-public class TURequestError {
-    
-    // MARK: Types
-    
-    public enum Raw: Error {
-        case unknown
-    }
+public class RequestError {
     
     // MARK: Properties
     
     /// The request that errored.
-    public let request: TURequest?
+    public let request: Request?
     /// The raw error for the request.
     public let raw: Error
     /// The status code for the request.
-    public let statusCode: TUResponse.StatusCode
+    public let statusCode: Response.StatusCode
     /// Any detail that provides reason for the request error.
     public let detail: String?
     
     /// Unknown request error
-    public class var unknown: TURequestError {
-        return TURequestError(for: nil, raw: Raw.unknown, statusCode: .unknown)
+    public class var unknown: RequestError {
+        return RequestError(for: nil, raw: TeamupError.Comms.unknown, statusCode: .unknown)
     }
     
     // MARK: Init
     
-    internal init(for request: TURequest?,
+    internal init(for request: Request?,
                   raw: Error?,
-         statusCode: TUResponse.StatusCode,
-         response: TUResponse?) {
+         statusCode: Response.StatusCode,
+         response: Response?) {
         self.request = request
-        self.raw = raw ?? Raw.unknown
+        self.raw = raw ?? TeamupError.Comms.unknown
         self.statusCode = statusCode
         
         var details: ErrorDetail?
@@ -54,14 +48,14 @@ public class TURequestError {
     
     internal init(with error: Error?) {
         self.request = nil
-        self.raw = error ?? Raw.unknown
+        self.raw = error ?? TeamupError.Comms.unknown
         self.statusCode = .unknown
         self.detail = nil
     }
     
-    internal convenience init(for request: TURequest?,
+    internal convenience init(for request: Request?,
                               raw: Error?,
-                     statusCode: TUResponse.StatusCode) {
+                     statusCode: Response.StatusCode) {
         self.init(for: request,
                   raw: raw,
                   statusCode: statusCode,
@@ -69,7 +63,7 @@ public class TURequestError {
     }
 }
 
-extension TURequestError: CustomStringConvertible {
+extension RequestError: CustomStringConvertible {
     
     public var description: String {
         var description = ""
@@ -83,9 +77,9 @@ extension TURequestError: CustomStringConvertible {
     }
 }
 
-extension TURequestError: Equatable {
+extension RequestError: Equatable {
     
-    public static func ==(lhs: TURequestError, rhs: TURequestError) -> Bool {
+    public static func ==(lhs: RequestError, rhs: RequestError) -> Bool {
         return lhs.statusCode == rhs.statusCode && lhs.detail == rhs.detail
     }
 }

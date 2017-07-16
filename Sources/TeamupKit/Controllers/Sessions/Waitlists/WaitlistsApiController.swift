@@ -14,7 +14,7 @@ class WaitlistsApiController: AuthenticatedController, WaitlistsController {
               success: ((Session.Waitlist) -> Void)?,
               failure: Controller.MethodFailure?) {
         
-        var parameters = TURequest.Parameters()
+        var parameters = Request.Parameters()
         parameters.set(auth?.currentUser?.customer.id, for: "customer")
         
         let request = requestBuilder.build(for: .sessionWaitlist(sessionId: session.id),
@@ -26,14 +26,14 @@ class WaitlistsApiController: AuthenticatedController, WaitlistsController {
                                 success:
             { (request, response, data) in
                 guard let data = data else {
-                    failure?(TURequestError.unknown)
+                    failure?(RequestError.unknown)
                     return
                 }
                 do {
                     let waitlist = try self.decoder.decode(Session.Waitlist.self, from: data)
                     success?(waitlist)
                 } catch {
-                    failure?(TURequestError(with: error))
+                    failure?(RequestError(with: error))
                 }
         }) { (request, response, error) in
             failure?(error)
@@ -64,7 +64,7 @@ class WaitlistsApiController: AuthenticatedController, WaitlistsController {
                                 forSession session: Session,
                                 success: ((Session.Waitlist) -> Void)?,
                                 failure: Controller.MethodFailure?) {
-        var body = TURequest.Body()
+        var body = Request.Body()
         body.add(auth?.currentUser?.customer.id, for: "customer")
         body.add(action, for: "action")
         
@@ -77,14 +77,14 @@ class WaitlistsApiController: AuthenticatedController, WaitlistsController {
                                 success:
             { (request, response, data) in
                 guard let data = data else {
-                    failure?(TURequestError.unknown)
+                    failure?(RequestError.unknown)
                     return
                 }
                 do {
                     let waitlist = try self.decoder.decode(Session.Waitlist.self, from: data)
                     success?(waitlist)
                 } catch {
-                    failure?(TURequestError(with: error))
+                    failure?(RequestError(with: error))
                 }
         }) { (request, response, error) in
             failure?(error)
