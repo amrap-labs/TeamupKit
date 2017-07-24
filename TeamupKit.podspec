@@ -20,6 +20,5 @@ Pod::Spec.new do |s|
   s.resource_bundle = { 'TeamupKit' => 'Pod/Resources/**/*' }
 
   s.dependency 'KeychainSwift', '~> 8.0.0'
-  s.dependency 'Alamofire', '~> 4.5.0'
 
 end
