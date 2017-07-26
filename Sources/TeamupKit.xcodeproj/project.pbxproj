@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		3A268E54008621D44F580CCC /* Pods_TeamupKit_TeamupKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6B4487678CAB6206DD7EB46 /* Pods_TeamupKit_TeamupKitTests.framework */; };
 		7E043FE8B83248751E3B697A /* Pods_TeamupKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DAC488D650C6F517538BC8D /* Pods_TeamupKit.framework */; };
-		D600CD8E1F017D9C0064A97D /* Request+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = D600CD8D1F017D9C0064A97D /* Request+Components.swift */; };
+		D605F1431F288E090029C3A6 /* ExecutableRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D605F1421F288E080029C3A6 /* ExecutableRequest.swift */; };
 		D60D634B1EF1CF7F00C93B9A /* UrlUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60D634A1EF1CF7F00C93B9A /* UrlUtils.swift */; };
 		D60D634D1EF1D58E00C93B9A /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60D634C1EF1D58E00C93B9A /* Response.swift */; };
 		D60D63501EF1D7DA00C93B9A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60D634F1EF1D7DA00C93B9A /* User.swift */; };
@@ -89,8 +89,8 @@
 		AD843D1BD5E25347739E324E /* Pods-TeamupKit-TeamupKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamupKit-TeamupKitTests.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-TeamupKit-TeamupKitTests/Pods-TeamupKit-TeamupKitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B0CC661EB5603F63930F4EB3 /* Pods-TeamupKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamupKit.release.xcconfig"; path = "../Pods/Target Support Files/Pods-TeamupKit/Pods-TeamupKit.release.xcconfig"; sourceTree = "<group>"; };
 		BC26AC161FB548433C6EE2A9 /* Pods-TeamupKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamupKit.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-TeamupKit/Pods-TeamupKit.debug.xcconfig"; sourceTree = "<group>"; };
-		D600CD8D1F017D9C0064A97D /* Request+Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Request+Components.swift"; sourceTree = "<group>"; };
 		D600CDAD1F0185ED0064A97D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D605F1421F288E080029C3A6 /* ExecutableRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExecutableRequest.swift; sourceTree = "<group>"; };
 		D60D634A1EF1CF7F00C93B9A /* UrlUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlUtils.swift; sourceTree = "<group>"; };
 		D60D634C1EF1D58E00C93B9A /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		D60D634F1EF1D7DA00C93B9A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -189,7 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				D6E9DDA71EF0731F008CA490 /* Request.swift */,
-				D600CD8D1F017D9C0064A97D /* Request+Components.swift */,
+				D605F1421F288E080029C3A6 /* ExecutableRequest.swift */,
 				D67547251F0051E500760772 /* RequestError.swift */,
 				D60D634C1EF1D58E00C93B9A /* Response.swift */,
 				D6A0EE2E1F0C268F001E6D4E /* TeamupError.swift */,
@@ -658,6 +658,7 @@
 				D60D634B1EF1CF7F00C93B9A /* UrlUtils.swift in Sources */,
 				D6FA170E1EF97AD700E3C506 /* Session+RegistrationDetails.swift in Sources */,
 				D6FA171A1EF9AD7200E3C506 /* AccountController.swift in Sources */,
+				D605F1431F288E090029C3A6 /* ExecutableRequest.swift in Sources */,
 				D60D63521EF1D80B00C93B9A /* Customer.swift in Sources */,
 				D6FA17151EF9A85B00E3C506 /* RegistrationsController.swift in Sources */,
 				D60D63501EF1D7DA00C93B9A /* User.swift in Sources */,
@@ -683,7 +684,6 @@
 				D67547261F0051E500760772 /* RequestError.swift in Sources */,
 				D6FA171F1EF9ADFF00E3C506 /* MembershipsController.swift in Sources */,
 				D6FA17171EF9A86700E3C506 /* RegistrationsApiController.swift in Sources */,
-				D600CD8E1F017D9C0064A97D /* Request+Components.swift in Sources */,
 				D6FA17231EF9AF4200E3C506 /* Membership.swift in Sources */,
 				D6319F6E1EF06DAF0057E3E3 /* ApiController.swift in Sources */,
 				D610A0E21EF9C4EC0079F3FA /* BusinessController.swift in Sources */,

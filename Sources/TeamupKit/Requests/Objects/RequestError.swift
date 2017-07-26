@@ -11,31 +11,31 @@ import Foundation
 public class RequestError {
     
     // MARK: Properties
-    
+
     /// The request that errored.
     public let request: Request?
     /// The raw error for the request.
     public let raw: Error
     /// The status code for the request.
-    public let statusCode: Response.StatusCode
+    public let statusCode: Response.StatusCode?
     /// Any detail that provides reason for the request error.
     public let detail: String?
-    
+
     /// Unknown request error
     public class var unknown: RequestError {
-        return RequestError(for: nil, raw: TeamupError.Comms.unknown, statusCode: .unknown)
+        return RequestError(for: nil, raw: TeamupError.Comms.unknown, statusCode: nil)
     }
-    
+
     // MARK: Init
-    
+
     internal init(for request: Request?,
                   raw: Error?,
-         statusCode: Response.StatusCode,
-         response: Response?) {
+                  statusCode: Response.StatusCode?,
+                  response: Response?) {
         self.request = request
         self.raw = raw ?? TeamupError.Comms.unknown
         self.statusCode = statusCode
-        
+
         var details: ErrorDetail?
         if let data = response?.data {
             let decoder = JSONDecoder()
@@ -45,17 +45,17 @@ public class RequestError {
         }
         self.detail = details?.detail
     }
-    
+
     internal init(with error: Error?) {
         self.request = nil
         self.raw = error ?? TeamupError.Comms.unknown
-        self.statusCode = .unknown
+        self.statusCode = nil
         self.detail = nil
     }
-    
+
     internal convenience init(for request: Request?,
                               raw: Error?,
-                     statusCode: Response.StatusCode) {
+                              statusCode: Response.StatusCode?) {
         self.init(for: request,
                   raw: raw,
                   statusCode: statusCode,
@@ -64,10 +64,12 @@ public class RequestError {
 }
 
 extension RequestError: CustomStringConvertible {
-    
+
     public var description: String {
         var description = ""
-        description += "\(self.statusCode) (\(self.statusCode.rawValue)) -"
+        if let statusCode = self.statusCode {
+            description += "Status Code: \(statusCode) -"
+        }
         if let detail = self.detail {
             description += " Reason: \(detail)"
         } else {
@@ -83,3 +85,5 @@ extension RequestError: Equatable {
         return lhs.statusCode == rhs.statusCode && lhs.detail == rhs.detail
     }
 }
+
+

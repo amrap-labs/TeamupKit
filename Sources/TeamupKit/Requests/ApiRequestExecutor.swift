@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 /// Live API Request executor.
 internal class ApiRequestExecutor: RequestExecutor {
@@ -38,69 +39,65 @@ internal class ApiRequestExecutor: RequestExecutor {
                  success: @escaping RequestExecutor.ExecutionSuccess,
                  failure: @escaping RequestExecutor.ExecutionFailure) {
         
-        // add parameters to url if required
-        var url = request.url
-        if request.parameters?.count ?? 0 > 0 {
-            let urlString = request.url.absoluteString
-            url = URL(string: "\(urlString)?\(request.parameters!.data.stringFromHttpParameters())")!
-        }
-        
-        // avoid duplicate requests
-        guard dataTasks[url] == nil else {
-            // TODO - Handle pending completions
+        guard let executableRequest = request as? ExecutableRequest else {
+            let error = RequestExecutorError.unknown
+            failure(request, nil, error)
+//            request.updateListeners({ $0.0.request(request, didFailWith: error, response: nil) })
             return
         }
+        let request = executableRequest
         
-        var urlRequest = URLRequest(url: url)
-        urlRequest.httpMethod = request.method.rawValue
-        urlRequest.httpBody = request.body
+        request.inProgress = true
+//        request.updateListeners({ $0.0.request(didBegin: request) })
         
-        // add headers
-        request.headers?.data.forEach({ (header) in
-            urlRequest.addValue(header.value, forHTTPHeaderField: header.key)
-        })
-        urlRequest.addValue(request.contentType.rawValue, forHTTPHeaderField: "Content-Type")
+        let dataRequest = Alamofire.request(request.url,
+                                            method: request.method,
+                                            parameters: request.parameters,
+                                            encoding: request.encoding ?? URLEncoding.default,
+                                            headers: request.headers)
+        request.dataRequest = dataRequest
         
-        // perform task
-        let authResponder = self.authResponder
-        let task = urlSession.dataTask(with: urlRequest) { [weak self] (data, response, error) in
-            guard let welf = self else { return }
-            welf.dataTasks.removeValue(forKey: url)
+        // handle response
+        dataRequest.response { (response) in
             
-            // attempt to read response
-            guard let response = Response(with: response,
-                                            and: data,
-                                            for: request,
-                                            error: error) else
-            {
-                failure(request, nil, RequestError.unknown)
+            // handle cancellation
+            guard self.wasCancelled(error: response.error) == false else {
+                failure(request, nil, RequestExecutorError.cancelled)
                 return
             }
             
-            guard response.isSuccessful == true else { // handle error
-                
-                // Attempt reauth if 401
-                if response.statusCode == .unauthorized {
-                    authResponder?.requestExecutor(welf,
-                                                   encounteredUnauthorizedErrorWhenExecuting: request,
-                                                   response: response,
-                                                   success: success,
-                                                   failure: failure)
-                    return
-                }
-                
-                let error = response.error!
-                print("requestFailed (\(url.absoluteString)) - error: \(error)")
+            guard let urlResponse = response.response else {
+                failure(request, nil, RequestExecutorError.unknown)
+                return
+            }
+            
+            let response = Response(rawResponse: urlResponse,
+                                    statusCode: urlResponse.statusCode,
+                                    data: response.data,
+                                    error: response.error)
+            request.response = response
+            request.inProgress = false
+            
+            // Handle failed request
+            guard response.isSuccessful else {
+                let error = response.error ?? RequestExecutorError.unknown
                 failure(request, response, error)
+//                request.updateListeners({ $0.0.request(request, didFailWith: error, response: response) })
                 return
             }
             
-            print("requestComplete (\(url.absoluteString)")
-            success(request, response, data)
+            success(request, response, response.data)
+//            request.updateListeners({ $0.0.request(request, didFinishWith: response, data: response.data) })
         }
-        dataTasks[url] = task
-        
-        print("requestBegin (\(url.absoluteString)")
-        task.resume()
+    }
+    
+    // MARK: Utility
+    
+    func wasCancelled(error: Error?) -> Bool {
+        guard let error = error else {
+            return false
+        }
+        let nsError = error as NSError
+        return nsError.domain == NSURLErrorDomain && nsError.code == NSURLErrorCancelled
     }
 }

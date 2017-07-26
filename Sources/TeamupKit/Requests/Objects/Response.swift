@@ -12,59 +12,32 @@ public class Response {
     
     // MARK: Types
     
-    /// The status code of the repsonse
-    ///
-    /// - unknown: Unknown
-    /// - OK: 200
-    /// - unauthorized: 401
-    /// - badRequest: 400
-    /// - forbidden: 403
-    /// - notFound: 404
-    public enum StatusCode: Int {
-        case unknown = -1
-        
-        case OK = 200
-        case unauthorized = 401
-        case badRequest = 400
-        case forbidden = 403
-        case notFound = 404
-    }
+    public typealias StatusCode = Int
     
     // MARK: Properties
     
-    /// The raw URL response that was received.
-    public let raw: URLResponse
-    /// Data that was received as part of the response.
-    public let data: Data?
+    /// The raw response.
+    let raw: URLResponse
     /// The status code of the response.
-    public let statusCode: StatusCode
-    /// Any error that was received as part of the response.
-    public private(set) var error: RequestError?
+    let statusCode: StatusCode
+    /// The data included with the response.
+    let data: Data?
+    /// The error included with the response.
+    let error: Error?
     
     /// Whether the response is a successful one.
-    public var isSuccessful: Bool {
-        return statusCode == .OK
+    var isSuccessful: Bool {
+        return error == nil && 200 ... 299 ~= statusCode
     }
     
-    // MARK: Init
-    
-    init?(with urlResponse: URLResponse?,
-          and data: Data?,
-          for request: Request,
-          error: Error?) {
-        guard let httpUrlResponse = urlResponse as? HTTPURLResponse else {
-            return nil
-        }
-        
-        self.raw = httpUrlResponse
+    init(rawResponse: URLResponse,
+         statusCode: Int,
+         data: Data?,
+         error: Error?) {
+        self.raw = rawResponse
+        self.statusCode = statusCode
         self.data = data
-        self.statusCode = StatusCode.init(rawValue: httpUrlResponse.statusCode) ?? .unknown
-        
-        if !isSuccessful {
-            self.error = RequestError(for: request,
-                                        raw: error,
-                                        statusCode: statusCode,
-                                        response: self)
-        }
+        self.error = error
     }
 }
+

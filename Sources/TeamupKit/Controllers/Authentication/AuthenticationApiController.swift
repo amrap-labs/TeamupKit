@@ -96,46 +96,46 @@ private extension AuthenticationApiController {
                               force: Bool) {
         
         // ignore log in if already logged in
-        if force == false && currentUser != nil && currentUserAuthData != nil {
-            guard !(currentUser?.customer.emails.contains(where: { $0 == email }) ?? false) else {
-                success?(currentUser!)
-                return
-            }
-        }
-        
-        let body = Request.Body(["email" : email,
-                                 "password" : password])
-        
-        let request = requestBuilder.build(for: .logIn,
-                                           method: .post,
-                                           contentType: .formUrlEncoded,
-                                           body: body,
-                                           authentication: .apiToken)
-        self.loginRequest = request
-        requestExecutor.execute(request: request,
-                                success:
-            { (request, response, data) in
-                guard let data = data else {
-                    failure?(RequestError.unknown)
-                    return
-                }
-                do {
-                    let user = try self.decoder.decode(User.self, from: data)
-                    let authData = UserAuthData(password: password)
-                    
-                    self.updateKeychain(for: user, authData: authData)
-                    self.currentUser = user
-                    
-                    success?(user)
-                    self.loginRequest = nil
-                } catch {
-                    failure?(RequestError(with: error))
-                    self.loginRequest = nil
-                }
-        }) { (request, response, error) in
-            failure?(error)
-            self.loginRequest = nil
-        }
+//        if force == false && currentUser != nil && currentUserAuthData != nil {
+//            guard !(currentUser?.customer.emails.contains(where: { $0 == email }) ?? false) else {
+//                success?(currentUser!)
+//                return
+//            }
+//        }
+//        
+//        let body = Request.Body(["email" : email,
+//                                 "password" : password])
+//        
+//        let request = requestBuilder.build(for: .logIn,
+//                                           method: .post,
+//                                           contentType: .formUrlEncoded,
+//                                           body: body,
+//                                           authentication: .apiToken)
+//        self.loginRequest = request
+//        requestExecutor.execute(request: request,
+//                                success:
+//            { (request, response, data) in
+//                guard let data = data else {
+//                    failure?(RequestError.unknown)
+//                    return
+//                }
+//                do {
+//                    let user = try self.decoder.decode(User.self, from: data)
+//                    let authData = UserAuthData(password: password)
+//                    
+//                    self.updateKeychain(for: user, authData: authData)
+//                    self.currentUser = user
+//                    
+//                    success?(user)
+//                    self.loginRequest = nil
+//                } catch {
+//                    failure?(RequestError(with: error))
+//                    self.loginRequest = nil
+//                }
+//        }) { (request, response, error) in
+//            failure?(error)
+//            self.loginRequest = nil
+//        }
     }
 }
 
@@ -210,7 +210,7 @@ extension AuthenticationApiController: RequestExecutorAuthResponder {
                          encounteredUnauthorizedErrorWhenExecuting request: Request,
                          response: Response,
                          success: @escaping (Request, Response, Data?) -> Void,
-                         failure: @escaping (Request, Response?, RequestError) -> Void) {
+                         failure: @escaping (Request, Response?, Error) -> Void) {
         guard let currentUser = currentUser , let authData = currentUserAuthData else {
             // TODO - Sign out
             return
