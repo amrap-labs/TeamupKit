@@ -6,7 +6,7 @@ use_frameworks!
 
 def shared_pods
 
-    pod 'KeychainSwift'
+    pod 'KeychainSwift', '~> 8.0.0'
     pod 'Alamofire', '~> 4.5.0'
 end
 

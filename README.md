@@ -9,6 +9,30 @@
 [![codecov](https://codecov.io/gh/amrap-labs/TeamupKit/branch/master/graph/badge.svg)](https://codecov.io/gh/amrap-labs/TeamupKit)
 [![GitHub release](https://img.shields.io/github/release/amrap-labs/TeamupKit.svg)](https://github.com/amrap-labs/TeamupKit/releases)
 
+**This is currently a work in progress.**
+
 A Swift framework for integrating with Teamup: all-in-one management software for top fitness businesses.
 
-**This is currently a work in progress.**
+## Installation
+
+### CocoaPods
+Add `TeamupKit` to your `Podfile`:
+
+```ruby
+pod 'TeamupKit'
+```
+
+### Carthage
+Add `TeamupKit` to your `Cartfile`:
+
+```ruby
+github "amrap-labs/TeamupKit"
+```
+
+### Dependencies
+TeamupKit requires the following dependencies to function:
+
+- [Alamofire](https://github.com/Alamofire/Alamofire) v4.5.x
+- [KeychainSwift](https://github.com/evgenyneu/keychain-swift) v8.0.x
+
+## Getting Started
