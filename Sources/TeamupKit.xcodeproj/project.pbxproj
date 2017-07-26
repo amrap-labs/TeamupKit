@@ -40,7 +40,9 @@
 		D67238541F042A1000CC8EFB /* TeamupKitAuthenticationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67238531F042A1000CC8EFB /* TeamupKitAuthenticationTests.swift */; };
 		D672387E1F04313700CC8EFB /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D672387D1F04313700CC8EFB /* Controller.swift */; };
 		D67547281F0057F000760772 /* ErrorDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67547271F0057F000760772 /* ErrorDetail.swift */; };
-		D67FF7F61F28A1D300C876FC /* TeamupError.swift in Headers */ = {isa = PBXBuildFile; fileRef = D67FF7F51F28A1D300C876FC /* TeamupError.swift */; };
+		D67FF7F71F28A25E00C876FC /* RequestExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67FF7F41F28A1BB00C876FC /* RequestExecutor.swift */; };
+		D67FF7F81F28A26100C876FC /* ApiRequestExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67FF7F31F28A1BB00C876FC /* ApiRequestExecutor.swift */; };
+		D67FF7F91F28A28800C876FC /* TeamupError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67FF7F51F28A1D300C876FC /* TeamupError.swift */; };
 		D68D8FF51EFA5E18000E24B8 /* InstructorsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68D8FF41EFA5E18000E24B8 /* InstructorsController.swift */; };
 		D68D8FF71EFA5E20000E24B8 /* InstructorsApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68D8FF61EFA5E20000E24B8 /* InstructorsApiController.swift */; };
 		D69B3B3F1F02EC8500AA7FE2 /* TeamupKitConfigTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69B3B3E1F02EC8500AA7FE2 /* TeamupKitConfigTests.swift */; };
@@ -454,7 +456,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D67FF7F61F28A1D300C876FC /* TeamupError.swift in Headers */,
 				D6F9EA701EEBE981002ABF64 /* TeamupKit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -643,6 +644,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D610A0DE1EF9C3500079F3FA /* AuthenticatedController.swift in Sources */,
+				D67FF7F91F28A28800C876FC /* TeamupError.swift in Sources */,
 				D6FA20CC1EF9142000E7EA17 /* Venue.swift in Sources */,
 				D610A0E91EF9C5E10079F3FA /* WaitlistsApiController.swift in Sources */,
 				D6FA170C1EF979EC00E3C506 /* SessionType.swift in Sources */,
@@ -662,6 +664,7 @@
 				D6FA170E1EF97AD700E3C506 /* Session+RegistrationDetails.swift in Sources */,
 				D6FA171A1EF9AD7200E3C506 /* AccountController.swift in Sources */,
 				D605F1431F288E090029C3A6 /* ExecutableRequest.swift in Sources */,
+				D67FF7F71F28A25E00C876FC /* RequestExecutor.swift in Sources */,
 				D60D63521EF1D80B00C93B9A /* Customer.swift in Sources */,
 				D6FA17151EF9A85B00E3C506 /* RegistrationsController.swift in Sources */,
 				D60D63501EF1D7DA00C93B9A /* User.swift in Sources */,
@@ -678,6 +681,7 @@
 				D610A0E71EF9C5C10079F3FA /* WaitlistsController.swift in Sources */,
 				D672387E1F04313700CC8EFB /* Controller.swift in Sources */,
 				D67547281F0057F000760772 /* ErrorDetail.swift in Sources */,
+				D67FF7F81F28A26100C876FC /* ApiRequestExecutor.swift in Sources */,
 				D6319F681EF06D020057E3E3 /* Endpoints.swift in Sources */,
 				D6FA17211EF9AE1300E3C506 /* MembershipsApiController.swift in Sources */,
 				D659392F1F02D62C00A9C1B3 /* ControllerFactory.swift in Sources */,

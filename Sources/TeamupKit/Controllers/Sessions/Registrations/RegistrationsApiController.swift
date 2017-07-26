@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 class RegistrationsApiController: AuthenticatedController, RegistrationsController {
     
@@ -19,30 +20,31 @@ extension RegistrationsApiController {
                      success: ((Session.RegistrationDetails) -> Void)?,
                      failure: Controller.MethodFailure?) {
         
-//        var parameters = Request.Parameters()
-//        parameters.set(auth?.currentUser?.customer.id, for: "customer")
-//
-//        let request = requestBuilder.build(for: .sessionRegistration(sessionId: session.id),
-//                                           method: .get,
-//                                           contentType: .json,
-//                                           parameters: parameters,
-//                                           authentication: .userToken)
-//        requestExecutor.execute(request: request,
-//                                success:
-//            { (request, response, data) in
-//                guard let data = data else {
-//                    failure?(RequestError.unknown)
-//                    return
-//                }
-//                do {
-//                    let registrationDetails = try self.decoder.decode(Session.RegistrationDetails.self, from: data)
-//                    success?(registrationDetails)
-//                } catch {
-//                    failure?(RequestError(with: error))
-//                }
-//        }) { (request, response, error) in
-//            failure?(error)
-//        }
+        var parameters: Alamofire.Parameters = [:]
+        if let customerId = auth?.currentUser?.customer.id {
+            parameters["customer"] = customerId
+        }
+        
+        let request = requestBuilder.build(for: .sessionRegistration(sessionId: session.id),
+                                           method: .get,
+                                           parameters: parameters,
+                                           authentication: .userToken)
+        requestExecutor.execute(request: request,
+                                success:
+            { (request, response, data) in
+                guard let data = data else {
+                    failure?(TeamupError.unknown, nil)
+                    return
+                }
+                do {
+                    let registrationDetails = try self.decoder.decode(Session.RegistrationDetails.self, from: data)
+                    success?(registrationDetails)
+                } catch {
+                    failure?(error, nil)
+                }
+        }) { (request, response, error) in
+            failure?(error, response?.errorDetail)
+        }
     }
 }
 
@@ -55,22 +57,25 @@ extension RegistrationsApiController {
                      success: ((Session.RegistrationState) -> Void)?,
                      failure: Controller.MethodFailure?) {
         
-//        var body = Request.Body()
-//        body.add(auth?.currentUser?.customer.id, for: "customer")
-//        body.add(newState.rawValue, for: "action")
-//        body.add(membership?.id, for: "consumermembership")
-//        
-//        let request = requestBuilder.build(for: .sessionRegistration(sessionId: session.id),
-//                                           method: .post,
-//                                           contentType: .formUrlEncoded,
-//                                           body: body,
-//                                           authentication: .userToken)
-//        requestExecutor.execute(request: request,
-//                                success:
-//            { (request, response, data) in
-//                success?(newState)
-//        }) { (request, response, error) in
-//            failure?(error)
-//        }
+        var parameters: Alamofire.Parameters = [
+            "action" : newState.rawValue
+        ]
+        if let membershipId = membership?.id {
+            parameters["consumermembership"] = membershipId
+        }
+        
+        let request = requestBuilder.build(for: .sessionRegistration(sessionId: session.id),
+                                           method: .post,
+                                           parameters: parameters,
+                                           encoding: URLEncoding.httpBody,
+                                           authentication: .userToken)
+        
+        requestExecutor.execute(request: request,
+                                success:
+            { (request, response, data) in
+                success?(newState)
+        }) { (request, response, error) in
+            failure?(error, response?.errorDetail)
+        }
     }
 }
