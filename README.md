@@ -55,3 +55,16 @@ You are required to have an API token and business identifier to initialize a Te
 Once you have successfully configured a session, you can use any of the API's available in TeamupKit.
 
 ### Authentication
+Most of the API's available in Teamup require customer level authentication, meaning the customer is required to be signed in to access sessions and account functionality. 
+
+Authenticate an existing user:
+
+```swift
+teamup.auth.logIn(email: "test@test.com",
+                  password: "password",
+                  success: { (user) in
+        // successfully authenticated                   
+    }) { (error, details) in
+        // handle error    
+}
+```
