@@ -42,7 +42,6 @@ internal class ApiRequestExecutor: RequestExecutor {
         guard let executableRequest = request as? ExecutableRequest else {
             let error = RequestExecutorError.unknown
             failure(request, nil, error)
-//            request.updateListeners({ $0.0.request(request, didFailWith: error, response: nil) })
             return
         }
         let request = executableRequest

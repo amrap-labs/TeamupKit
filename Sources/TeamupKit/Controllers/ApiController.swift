@@ -46,30 +46,30 @@ public class ApiController: PageableController {
                                    for results: ResultsPage<DataType>,
                                    success: ((ResultsPage<DataType>) -> Void)?,
                                    failure: Controller.MethodFailure?) {
-//        guard let url = results.pageUrl(for: index) else {
-//            failure?(RequestError(with: TeamupError.Paging.pageNotFound))
-//            return
-//        }
-//        
-//        let request = requestBuilder.build(for: url,
-//                                           method: .get,
-//                                           contentType: .json,
-//                                           authentication: .userToken)
-//        requestExecutor.execute(request: request,
-//                                success:
-//            { (request, response, data) in
-//                guard let data = data else {
-//                    failure?(RequestError.unknown)
-//                    return
-//                }
-//                do {
-//                    let results = try self.decoder.decode(ResultsPage<DataType>.self, from: data)
-//                    success?(results)
-//                } catch {
-//                    failure?(RequestError(with: error))
-//                }
-//        }) { (request, response, error) in
-//            failure?(error)
-//        }
+        guard let url = results.pageUrl(for: index) else {
+            failure?(TeamupError.Paging.pageNotFound, nil)
+            return
+        }
+        
+        let request = requestBuilder.build(for: url,
+                                           method: .get,
+                                           authentication: .userToken)
+        
+        requestExecutor.execute(request: request,
+                                success:
+            { (request, response, data) in
+                guard let data = data else {
+                    failure?(TeamupError.unknown, nil)
+                    return
+                }
+                do {
+                    let results = try self.decoder.decode(ResultsPage<DataType>.self, from: data)
+                    success?(results)
+                } catch {
+                    failure?(error, nil)
+                }
+        }) { (request, response, error) in
+            failure?(error, response?.errorDetail)
+        }
     }
 }
