@@ -23,7 +23,7 @@ public protocol AuthenticationController: class, Controller {
     ///   - password: The user's password.
     ///   - success: Execution block if the login succeeds.
     ///   - failure: Execution block if the login fails.
-    func logIn(with email: String,
+    func logIn(email: String,
                password: String,
                success: ((User) -> Void)?,
                failure: Controller.MethodFailure?)
@@ -37,7 +37,7 @@ public protocol AuthenticationController: class, Controller {
     ///   - surname: The user's surname.
     ///   - success: Execution block if the registration succeeds.
     ///   - failure: Execution block if the registration fails.
-    func register(with email: String,
+    func register(email: String,
                   password: String,
                   firstName: String,
                   surname: String,

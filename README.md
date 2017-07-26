@@ -13,6 +13,9 @@
 
 A Swift framework for integrating with Teamup: all-in-one management software for top fitness businesses.
 
+## Requirements
+TeamupKit requires Swift 4.0 and works with iOS 9 and above. 
+
 ## Installation
 
 ### CocoaPods
@@ -36,3 +39,19 @@ TeamupKit requires the following dependencies to function:
 - [KeychainSwift](https://github.com/evgenyneu/keychain-swift) v8.0.x
 
 ## Getting Started
+
+### Basics
+Initialize a Teamup session:
+
+```swift
+import TeamupKit
+
+let teamup = Teamup(apiToken: "API_TOKEN",
+                    businessId: BUSINESS_ID)
+```
+
+You are required to have an API token and business identifier to initialize a Teamup session. In order to gain an API token you will need to request one from Teamup ([Submit a request](https://support.goteamup.com/hc/en-us/requests/new)).
+
+Once you have successfully configured a session, you can use any of the API's available in TeamupKit.
+
+### Authentication

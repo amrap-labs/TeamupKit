@@ -21,7 +21,7 @@ class ViewController: UIViewController {
                             businessId: dictionary["businessId"] as! Int)
         
         if !teamup.auth.isAuthenticated {
-            teamup.auth.logIn(with: dictionary["email"] as! String,
+            teamup.auth.logIn(email: dictionary["email"] as! String,
                               password: dictionary["password"] as! String,
                               success: { (user) in
                                 print("logged in!")
@@ -30,6 +30,14 @@ class ViewController: UIViewController {
     
         }
     
+        teamup.auth.logIn(email: "test@test.com",
+                          password: "password",
+                          success: { (user) in
+                            
+        }) { (error, details) in
+            
+        }
+        
         let startDateString = "2017-06-05"
         let endDateString = "2017-06-27"
 

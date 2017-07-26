@@ -14,7 +14,7 @@ class TeamupKitAuthenticationTests: TeamupKitTests {
     /// Test the logIn method available in AuthenticationController.
     func testLogInMethod() {
         
-        teamup.auth.logIn(with: "Test User",
+        teamup.auth.logIn(email: "Test User",
                           password: "Test Password",
                           success: { (user) in
               XCTAssertTrue(user.expires.count > 0)

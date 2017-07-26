@@ -58,7 +58,7 @@ class AuthenticationApiController: ApiController, AuthenticationController {
     
     // MARK: Authentication
     
-    func logIn(with email: String,
+    func logIn(email: String,
                password: String,
                success: ((User) -> Void)?,
                failure: Controller.MethodFailure?) {
@@ -69,7 +69,7 @@ class AuthenticationApiController: ApiController, AuthenticationController {
                      force: false)
     }
     
-    func register(with email: String,
+    func register(email: String,
                   password: String,
                   firstName: String,
                   surname: String,
