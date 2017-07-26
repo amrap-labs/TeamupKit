@@ -28,11 +28,13 @@ class MockRequestExecutor: RequestExecutor {
                  success: @escaping RequestExecutor.ExecutionSuccess,
                  failure: @escaping RequestExecutor.ExecutionFailure) {
         if let data = dataProvider.provide(dataFor: request.url.absoluteString) {
-            let urlResponse = HTTPURLResponse(url: request.url, statusCode: 200, httpVersion: nil, headerFields: nil)
-            let response = Response(with: urlResponse, and: data, for: request, error: nil)!
+            let urlResponse = HTTPURLResponse(url: request.url, statusCode: 200, httpVersion: nil, headerFields: nil)!
+            let response = Response(rawResponse: urlResponse,
+                                    statusCode: urlResponse.statusCode,
+                                    data: data, error: nil)
             success(request, response, data)
         } else {
-            failure(request, nil, RequestError.unknown)
+            failure(request, nil, TeamupError.unknown)
         }
     }
 }

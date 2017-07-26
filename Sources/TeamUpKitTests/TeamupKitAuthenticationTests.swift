@@ -18,7 +18,7 @@ class TeamupKitAuthenticationTests: TeamupKitTests {
                           password: "Test Password",
                           success: { (user) in
               XCTAssertTrue(user.expires.count > 0)
-        }) { (error) in
+        }) { (error, details) in
             XCTFail("Log In method fails")
         }
     }
