@@ -16,6 +16,6 @@ class MockEnvironment: Environment {
     }
     
     var controllerFactoryType: ControllerFactory.Type {
-        return ApiControllerFactory.self
+        return MockControllerFactory.self
     }
 }

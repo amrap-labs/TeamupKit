@@ -19,6 +19,8 @@
 		D610A0E41EF9C52F0079F3FA /* BusinessApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D610A0E31EF9C52F0079F3FA /* BusinessApiController.swift */; };
 		D610A0E71EF9C5C10079F3FA /* WaitlistsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D610A0E61EF9C5C10079F3FA /* WaitlistsController.swift */; };
 		D610A0E91EF9C5E10079F3FA /* WaitlistsApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D610A0E81EF9C5E10079F3FA /* WaitlistsApiController.swift */; };
+		D61965711F28CF9200A7B871 /* AuthenticationMockController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61965701F28CF9200A7B871 /* AuthenticationMockController.swift */; };
+		D61965731F28D01700A7B871 /* MockControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61965721F28D01700A7B871 /* MockControllerFactory.swift */; };
 		D61E51DD1F02DEAB003B375F /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61E51DC1F02DEAB003B375F /* Environment.swift */; };
 		D61E51DF1F02DEB8003B375F /* ApiEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61E51DE1F02DEB8003B375F /* ApiEnvironment.swift */; };
 		D61E51E41F02E1F6003B375F /* MockEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61E51E31F02E1F6003B375F /* MockEnvironment.swift */; };
@@ -43,6 +45,8 @@
 		D67FF7F71F28A25E00C876FC /* RequestExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67FF7F41F28A1BB00C876FC /* RequestExecutor.swift */; };
 		D67FF7F81F28A26100C876FC /* ApiRequestExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67FF7F31F28A1BB00C876FC /* ApiRequestExecutor.swift */; };
 		D67FF7F91F28A28800C876FC /* TeamupError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67FF7F51F28A1D300C876FC /* TeamupError.swift */; };
+		D6805F871F28C8F5001E3FF0 /* TeamupKitRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6805F861F28C8F5001E3FF0 /* TeamupKitRequestTests.swift */; };
+		D6805F881F28C910001E3FF0 /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6805F851F28C7ED001E3FF0 /* RequestBuilder.swift */; };
 		D68D8FF51EFA5E18000E24B8 /* InstructorsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68D8FF41EFA5E18000E24B8 /* InstructorsController.swift */; };
 		D68D8FF71EFA5E20000E24B8 /* InstructorsApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68D8FF61EFA5E20000E24B8 /* InstructorsApiController.swift */; };
 		D69B3B3F1F02EC8500AA7FE2 /* TeamupKitConfigTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69B3B3E1F02EC8500AA7FE2 /* TeamupKitConfigTests.swift */; };
@@ -97,6 +101,8 @@
 		D610A0E31EF9C52F0079F3FA /* BusinessApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessApiController.swift; sourceTree = "<group>"; };
 		D610A0E61EF9C5C10079F3FA /* WaitlistsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitlistsController.swift; sourceTree = "<group>"; };
 		D610A0E81EF9C5E10079F3FA /* WaitlistsApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitlistsApiController.swift; sourceTree = "<group>"; };
+		D61965701F28CF9200A7B871 /* AuthenticationMockController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationMockController.swift; sourceTree = "<group>"; };
+		D61965721F28D01700A7B871 /* MockControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockControllerFactory.swift; sourceTree = "<group>"; };
 		D61E51DC1F02DEAB003B375F /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		D61E51DE1F02DEB8003B375F /* ApiEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiEnvironment.swift; sourceTree = "<group>"; };
 		D61E51E31F02E1F6003B375F /* MockEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockEnvironment.swift; sourceTree = "<group>"; };
@@ -122,6 +128,7 @@
 		D67FF7F41F28A1BB00C876FC /* RequestExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestExecutor.swift; sourceTree = "<group>"; };
 		D67FF7F51F28A1D300C876FC /* TeamupError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamupError.swift; sourceTree = "<group>"; };
 		D6805F851F28C7ED001E3FF0 /* RequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
+		D6805F861F28C8F5001E3FF0 /* TeamupKitRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamupKitRequestTests.swift; sourceTree = "<group>"; };
 		D68D8FF41EFA5E18000E24B8 /* InstructorsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructorsController.swift; sourceTree = "<group>"; };
 		D68D8FF61EFA5E20000E24B8 /* InstructorsApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructorsApiController.swift; sourceTree = "<group>"; };
 		D69B3B3E1F02EC8500AA7FE2 /* TeamupKitConfigTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamupKitConfigTests.swift; sourceTree = "<group>"; };
@@ -253,6 +260,8 @@
 				D61E51E31F02E1F6003B375F /* MockEnvironment.swift */,
 				D61E51E51F02E2E8003B375F /* MockRequestExecutor.swift */,
 				D63282711F04246D00128C48 /* MockDataProvider.swift */,
+				D61965721F28D01700A7B871 /* MockControllerFactory.swift */,
+				D61965701F28CF9200A7B871 /* AuthenticationMockController.swift */,
 			);
 			path = "Mock Service";
 			sourceTree = "<group>";
@@ -393,6 +402,7 @@
 				D6F9EA6D1EEBE981002ABF64 /* TeamupKitTests.swift */,
 				D69B3B3E1F02EC8500AA7FE2 /* TeamupKitConfigTests.swift */,
 				D69B3B401F02EE4500AA7FE2 /* TeamupKitEnvironmentTests.swift */,
+				D6805F861F28C8F5001E3FF0 /* TeamupKitRequestTests.swift */,
 				D67238531F042A1000CC8EFB /* TeamupKitAuthenticationTests.swift */,
 				D6F9EA6F1EEBE981002ABF64 /* Info.plist */,
 			);
@@ -664,6 +674,7 @@
 				D6F9EA7C1EEBE9E6002ABF64 /* Teamup.swift in Sources */,
 				D6364C1D1EEC02D4004CF152 /* Config.swift in Sources */,
 				D6364C1F1EEC0310004CF152 /* ApiConfig.swift in Sources */,
+				D6805F881F28C910001E3FF0 /* RequestBuilder.swift in Sources */,
 				D6319F6A1EF06D670057E3E3 /* UrlBuilder.swift in Sources */,
 				D61E51DD1F02DEAB003B375F /* Environment.swift in Sources */,
 				D6D877AE1EEC29E800908EAD /* AuthenticationController.swift in Sources */,
@@ -707,10 +718,13 @@
 			files = (
 				D69B3B411F02EE4500AA7FE2 /* TeamupKitEnvironmentTests.swift in Sources */,
 				D6F9EA6E1EEBE981002ABF64 /* TeamupKitTests.swift in Sources */,
+				D61965731F28D01700A7B871 /* MockControllerFactory.swift in Sources */,
 				D61E51E41F02E1F6003B375F /* MockEnvironment.swift in Sources */,
 				D69B3B3F1F02EC8500AA7FE2 /* TeamupKitConfigTests.swift in Sources */,
 				D67238541F042A1000CC8EFB /* TeamupKitAuthenticationTests.swift in Sources */,
 				D63282721F04246D00128C48 /* MockDataProvider.swift in Sources */,
+				D61965711F28CF9200A7B871 /* AuthenticationMockController.swift in Sources */,
+				D6805F871F28C8F5001E3FF0 /* TeamupKitRequestTests.swift in Sources */,
 				D61E51E61F02E2E8003B375F /* MockRequestExecutor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
