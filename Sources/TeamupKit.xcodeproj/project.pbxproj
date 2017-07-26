@@ -21,7 +21,6 @@
 		D610A0E91EF9C5E10079F3FA /* WaitlistsApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D610A0E81EF9C5E10079F3FA /* WaitlistsApiController.swift */; };
 		D61E51DD1F02DEAB003B375F /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61E51DC1F02DEAB003B375F /* Environment.swift */; };
 		D61E51DF1F02DEB8003B375F /* ApiEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61E51DE1F02DEB8003B375F /* ApiEnvironment.swift */; };
-		D61E51E11F02DF95003B375F /* ApiRequestExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61E51E01F02DF95003B375F /* ApiRequestExecutor.swift */; };
 		D61E51E41F02E1F6003B375F /* MockEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61E51E31F02E1F6003B375F /* MockEnvironment.swift */; };
 		D61E51E61F02E2E8003B375F /* MockRequestExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61E51E51F02E2E8003B375F /* MockRequestExecutor.swift */; };
 		D6319F681EF06D020057E3E3 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6319F671EF06D020057E3E3 /* Endpoints.swift */; };
@@ -41,16 +40,15 @@
 		D67238541F042A1000CC8EFB /* TeamupKitAuthenticationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67238531F042A1000CC8EFB /* TeamupKitAuthenticationTests.swift */; };
 		D672387E1F04313700CC8EFB /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D672387D1F04313700CC8EFB /* Controller.swift */; };
 		D67547281F0057F000760772 /* ErrorDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67547271F0057F000760772 /* ErrorDetail.swift */; };
+		D67FF7F61F28A1D300C876FC /* TeamupError.swift in Headers */ = {isa = PBXBuildFile; fileRef = D67FF7F51F28A1D300C876FC /* TeamupError.swift */; };
 		D68D8FF51EFA5E18000E24B8 /* InstructorsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68D8FF41EFA5E18000E24B8 /* InstructorsController.swift */; };
 		D68D8FF71EFA5E20000E24B8 /* InstructorsApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68D8FF61EFA5E20000E24B8 /* InstructorsApiController.swift */; };
 		D69B3B3F1F02EC8500AA7FE2 /* TeamupKitConfigTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69B3B3E1F02EC8500AA7FE2 /* TeamupKitConfigTests.swift */; };
 		D69B3B411F02EE4500AA7FE2 /* TeamupKitEnvironmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69B3B401F02EE4500AA7FE2 /* TeamupKitEnvironmentTests.swift */; };
-		D6A0EE2F1F0C268F001E6D4E /* TeamupError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A0EE2E1F0C268F001E6D4E /* TeamupError.swift */; };
 		D6D877AE1EEC29E800908EAD /* AuthenticationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D877AD1EEC29E800908EAD /* AuthenticationController.swift */; };
 		D6D877B01EEC2B8F00908EAD /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6D877AF1EEC2B8F00908EAD /* Config.plist */; };
 		D6E9DDA81EF0731F008CA490 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E9DDA71EF0731F008CA490 /* Request.swift */; };
 		D6E9DDAC1EF07513008CA490 /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E9DDAB1EF07513008CA490 /* RequestBuilder.swift */; };
-		D6E9DDAE1EF0836C008CA490 /* RequestExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E9DDAD1EF0836C008CA490 /* RequestExecutor.swift */; };
 		D6F9EA691EEBE981002ABF64 /* TeamupKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6F9EA5F1EEBE980002ABF64 /* TeamupKit.framework */; };
 		D6F9EA6E1EEBE981002ABF64 /* TeamupKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F9EA6D1EEBE981002ABF64 /* TeamupKitTests.swift */; };
 		D6F9EA701EEBE981002ABF64 /* TeamupKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D6F9EA621EEBE980002ABF64 /* TeamupKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -100,7 +98,6 @@
 		D610A0E81EF9C5E10079F3FA /* WaitlistsApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitlistsApiController.swift; sourceTree = "<group>"; };
 		D61E51DC1F02DEAB003B375F /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		D61E51DE1F02DEB8003B375F /* ApiEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiEnvironment.swift; sourceTree = "<group>"; };
-		D61E51E01F02DF95003B375F /* ApiRequestExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequestExecutor.swift; sourceTree = "<group>"; };
 		D61E51E31F02E1F6003B375F /* MockEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockEnvironment.swift; sourceTree = "<group>"; };
 		D61E51E51F02E2E8003B375F /* MockRequestExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRequestExecutor.swift; sourceTree = "<group>"; };
 		D6319F671EF06D020057E3E3 /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
@@ -120,16 +117,17 @@
 		D67238531F042A1000CC8EFB /* TeamupKitAuthenticationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamupKitAuthenticationTests.swift; sourceTree = "<group>"; };
 		D672387D1F04313700CC8EFB /* Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
 		D67547271F0057F000760772 /* ErrorDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorDetail.swift; sourceTree = "<group>"; };
+		D67FF7F31F28A1BB00C876FC /* ApiRequestExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequestExecutor.swift; sourceTree = "<group>"; };
+		D67FF7F41F28A1BB00C876FC /* RequestExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestExecutor.swift; sourceTree = "<group>"; };
+		D67FF7F51F28A1D300C876FC /* TeamupError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamupError.swift; sourceTree = "<group>"; };
 		D68D8FF41EFA5E18000E24B8 /* InstructorsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructorsController.swift; sourceTree = "<group>"; };
 		D68D8FF61EFA5E20000E24B8 /* InstructorsApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructorsApiController.swift; sourceTree = "<group>"; };
 		D69B3B3E1F02EC8500AA7FE2 /* TeamupKitConfigTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamupKitConfigTests.swift; sourceTree = "<group>"; };
 		D69B3B401F02EE4500AA7FE2 /* TeamupKitEnvironmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamupKitEnvironmentTests.swift; sourceTree = "<group>"; };
-		D6A0EE2E1F0C268F001E6D4E /* TeamupError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamupError.swift; sourceTree = "<group>"; };
 		D6D877AD1EEC29E800908EAD /* AuthenticationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationController.swift; sourceTree = "<group>"; };
 		D6D877AF1EEC2B8F00908EAD /* Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		D6E9DDA71EF0731F008CA490 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		D6E9DDAB1EF07513008CA490 /* RequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
-		D6E9DDAD1EF0836C008CA490 /* RequestExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestExecutor.swift; sourceTree = "<group>"; };
 		D6F9EA5F1EEBE980002ABF64 /* TeamupKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TeamupKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6F9EA621EEBE980002ABF64 /* TeamupKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeamupKit.h; sourceTree = "<group>"; };
 		D6F9EA681EEBE981002ABF64 /* TeamupKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TeamupKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -189,7 +187,6 @@
 				D6E9DDA71EF0731F008CA490 /* Request.swift */,
 				D605F1421F288E080029C3A6 /* ExecutableRequest.swift */,
 				D60D634C1EF1D58E00C93B9A /* Response.swift */,
-				D6A0EE2E1F0C268F001E6D4E /* TeamupError.swift */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -263,11 +260,10 @@
 			isa = PBXGroup;
 			children = (
 				D600CD8C1F017D6B0064A97D /* Objects */,
+				D67FF7F21F28A1BB00C876FC /* Executor */,
 				D6319F671EF06D020057E3E3 /* Endpoints.swift */,
 				D6319F691EF06D670057E3E3 /* UrlBuilder.swift */,
 				D6E9DDAB1EF07513008CA490 /* RequestBuilder.swift */,
-				D6E9DDAD1EF0836C008CA490 /* RequestExecutor.swift */,
-				D61E51E01F02DF95003B375F /* ApiRequestExecutor.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -324,6 +320,15 @@
 			path = Factory;
 			sourceTree = "<group>";
 		};
+		D67FF7F21F28A1BB00C876FC /* Executor */ = {
+			isa = PBXGroup;
+			children = (
+				D67FF7F31F28A1BB00C876FC /* ApiRequestExecutor.swift */,
+				D67FF7F41F28A1BB00C876FC /* RequestExecutor.swift */,
+			);
+			path = Executor;
+			sourceTree = "<group>";
+		};
 		D68D8FF31EFA5E07000E24B8 /* Instructors */ = {
 			isa = PBXGroup;
 			children = (
@@ -358,6 +363,7 @@
 			children = (
 				D6F9EA621EEBE980002ABF64 /* TeamupKit.h */,
 				D6F9EA7B1EEBE9E6002ABF64 /* Teamup.swift */,
+				D67FF7F51F28A1D300C876FC /* TeamupError.swift */,
 				D61E51DB1F02DE99003B375F /* Environment */,
 				D6364C1B1EEC02CB004CF152 /* Config */,
 				D6319F6C1EF06DA20057E3E3 /* Controllers */,
@@ -448,6 +454,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D67FF7F61F28A1D300C876FC /* TeamupError.swift in Headers */,
 				D6F9EA701EEBE981002ABF64 /* TeamupKit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -644,7 +651,6 @@
 				D6FA170A1EF9779A00E3C506 /* Business.swift in Sources */,
 				D6FA17101EF998C200E3C506 /* Session+Waitlist.swift in Sources */,
 				D64FFF911EF868FE0039911F /* BusinessConfig.swift in Sources */,
-				D6A0EE2F1F0C268F001E6D4E /* TeamupError.swift in Sources */,
 				D61E51DF1F02DEB8003B375F /* ApiEnvironment.swift in Sources */,
 				D6F9EA7C1EEBE9E6002ABF64 /* Teamup.swift in Sources */,
 				D6364C1D1EEC02D4004CF152 /* Config.swift in Sources */,
@@ -661,7 +667,6 @@
 				D60D63501EF1D7DA00C93B9A /* User.swift in Sources */,
 				D610A0E41EF9C52F0079F3FA /* BusinessApiController.swift in Sources */,
 				D60D634D1EF1D58E00C93B9A /* Response.swift in Sources */,
-				D6E9DDAE1EF0836C008CA490 /* RequestExecutor.swift in Sources */,
 				D65FCB061EFADCE000449A9B /* Instructor.swift in Sources */,
 				D6E9DDAC1EF07513008CA490 /* RequestBuilder.swift in Sources */,
 				D65939311F02D64300A9C1B3 /* ApiControllerFactory.swift in Sources */,
@@ -675,7 +680,6 @@
 				D67547281F0057F000760772 /* ErrorDetail.swift in Sources */,
 				D6319F681EF06D020057E3E3 /* Endpoints.swift in Sources */,
 				D6FA17211EF9AE1300E3C506 /* MembershipsApiController.swift in Sources */,
-				D61E51E11F02DF95003B375F /* ApiRequestExecutor.swift in Sources */,
 				D659392F1F02D62C00A9C1B3 /* ControllerFactory.swift in Sources */,
 				D6E9DDA81EF0731F008CA490 /* Request.swift in Sources */,
 				D6FA171F1EF9ADFF00E3C506 /* MembershipsController.swift in Sources */,
