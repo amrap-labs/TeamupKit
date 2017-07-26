@@ -8,6 +8,7 @@
 
 import Foundation
 import KeychainSwift
+import Alamofire
 
 class AuthenticationApiController: ApiController, AuthenticationController {
     
@@ -96,46 +97,45 @@ private extension AuthenticationApiController {
                               force: Bool) {
         
         // ignore log in if already logged in
-//        if force == false && currentUser != nil && currentUserAuthData != nil {
-//            guard !(currentUser?.customer.emails.contains(where: { $0 == email }) ?? false) else {
-//                success?(currentUser!)
-//                return
-//            }
-//        }
-//        
-//        let body = Request.Body(["email" : email,
-//                                 "password" : password])
-//        
-//        let request = requestBuilder.build(for: .logIn,
-//                                           method: .post,
-//                                           contentType: .formUrlEncoded,
-//                                           body: body,
-//                                           authentication: .apiToken)
-//        self.loginRequest = request
-//        requestExecutor.execute(request: request,
-//                                success:
-//            { (request, response, data) in
-//                guard let data = data else {
-//                    failure?(RequestError.unknown)
-//                    return
-//                }
-//                do {
-//                    let user = try self.decoder.decode(User.self, from: data)
-//                    let authData = UserAuthData(password: password)
-//                    
-//                    self.updateKeychain(for: user, authData: authData)
-//                    self.currentUser = user
-//                    
-//                    success?(user)
-//                    self.loginRequest = nil
-//                } catch {
-//                    failure?(RequestError(with: error))
-//                    self.loginRequest = nil
-//                }
-//        }) { (request, response, error) in
-//            failure?(error)
-//            self.loginRequest = nil
-//        }
+        if force == false && currentUser != nil && currentUserAuthData != nil {
+            guard !(currentUser?.customer.emails.contains(where: { $0 == email }) ?? false) else {
+                success?(currentUser!)
+                return
+            }
+        }
+        
+        let parameters = ["email" : email,
+                          "password" : password]
+        
+        let request = requestBuilder.build(for: .logIn,
+                                           method: .post,
+                                           parameters: parameters,
+                                           encoding: URLEncoding.httpBody,
+                                           authentication: .apiToken)
+        self.loginRequest = request
+        
+        requestExecutor.execute(request: request, success: { (request, response, data) in
+            guard let data = data else {
+                failure?(TeamupError.Comms.unknown, nil)
+                return
+            }
+            do {
+                let user = try self.decoder.decode(User.self, from: data)
+                let authData = UserAuthData(password: password)
+                
+                self.updateKeychain(for: user, authData: authData)
+                self.currentUser = user
+                
+                success?(user)
+                self.loginRequest = nil
+            } catch {
+                failure?(error, nil)
+                self.loginRequest = nil
+            }
+        }) { (request, response, error) in
+            failure?(error, response?.errorDetail)
+            self.loginRequest = nil
+        }
     }
 }
 
@@ -227,7 +227,7 @@ extension AuthenticationApiController: RequestExecutorAuthResponder {
                 executor.execute(request: request, success: success, failure: failure)
         },
                      failure:
-            { (error) in
+            { (error, details) in
                 failure(request, nil, error)
         },
                      force: true)

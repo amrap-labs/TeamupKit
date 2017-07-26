@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 /// A controller that is used to interact with an element of the service.
 public class ApiController: PageableController {

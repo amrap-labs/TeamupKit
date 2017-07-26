@@ -48,7 +48,7 @@ internal class ApiRequestExecutor: RequestExecutor {
         let request = executableRequest
         
         request.inProgress = true
-//        request.updateListeners({ $0.0.request(didBegin: request) })
+        print("requestBegin (\(request.url.absoluteString)")
         
         let dataRequest = Alamofire.request(request.url,
                                             method: request.method,
@@ -81,13 +81,13 @@ internal class ApiRequestExecutor: RequestExecutor {
             // Handle failed request
             guard response.isSuccessful else {
                 let error = response.error ?? RequestExecutorError.unknown
+                print("requestFailed (\(request.url.absoluteString)) - status: \(response.statusCode), error: \(error)")
                 failure(request, response, error)
-//                request.updateListeners({ $0.0.request(request, didFailWith: error, response: response) })
                 return
             }
             
+            print("requestComplete (\(request.url.absoluteString)")
             success(request, response, response.data)
-//            request.updateListeners({ $0.0.request(request, didFinishWith: response, data: response.data) })
         }
     }
     
