@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 class InstructorsApiController: AuthenticatedController, InstructorsController {
     
@@ -18,29 +19,29 @@ extension InstructorsApiController {
     func loadAll(success: ((ResultsPage<Instructor>) -> Void)?,
                  failure: Controller.MethodFailure?) {
         
-        var parameters = Request.Parameters()
-        parameters.set(config.business.businessId, for: "business")
+        let parameters: Alamofire.Parameters = [
+            "business" : config.business.businessId
+        ]
         
         let request = requestBuilder.build(for: .instructors,
                                            method: .get,
-                                           contentType: .json,
                                            parameters: parameters,
                                            authentication: .userToken)
         requestExecutor.execute(request: request,
                                 success:
             { (request, response, data) in
                 guard let data = data else {
-                    failure?(RequestError.unknown)
+                    failure?(TeamupError.unknown, nil)
                     return
                 }
                 do {
                     let instructors = try self.decoder.decode(ResultsPage<Instructor>.self, from: data)
                     success?(instructors)
                 } catch {
-                    failure?(RequestError(with: error))
+                    failure?(error, nil)
                 }
         }) { (request, response, error) in
-            failure?(error)
+            failure?(error, response?.errorDetail)
         }
     }
     
@@ -50,23 +51,22 @@ extension InstructorsApiController {
         
         let request = requestBuilder.build(for: .instructor(id: id),
                                            method: .get,
-                                           contentType: .json,
                                            authentication: .userToken)
         requestExecutor.execute(request: request,
                                 success:
             { (request, response, data) in
                 guard let data = data else {
-                    failure?(RequestError.unknown)
+                    failure?(TeamupError.unknown, nil)
                     return
                 }
                 do {
                     let instructor = try self.decoder.decode(Instructor.self, from: data)
                     success?(instructor)
                 } catch {
-                    failure?(RequestError(with: error))
+                    failure?(error, nil)
                 }
         }) { (request, response, error) in
-            failure?(error)
+            failure?(error, response?.errorDetail)
         }
     }
 }

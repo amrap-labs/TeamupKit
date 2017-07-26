@@ -51,23 +51,22 @@ extension BusinessApiController {
         
         let request = requestBuilder.build(for: .business(id: id),
                                            method: .get,
-                                           contentType: .json,
                                            authentication: .userToken)
         requestExecutor.execute(request: request,
                                 success:
             { (request, response, data) in
                 guard let data = data else {
-                    failure?(RequestError.unknown)
+                    failure?(TeamupError.unknown, nil)
                     return
                 }
                 do {
                     let business = try self.decoder.decode(Business.self, from: data)
                     success?(business)
                 } catch {
-                    failure?(RequestError(with: error))
+                    failure?(error, nil)
                 }
         }) { (request, response, error) in
-            failure?(error)
+            failure?(error, response?.errorDetail)
         }
     }
 }

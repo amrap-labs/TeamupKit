@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 /// A controller that is used to interact with an element of the service.
 public class ApiController: PageableController {
@@ -46,29 +47,29 @@ public class ApiController: PageableController {
                                    success: ((ResultsPage<DataType>) -> Void)?,
                                    failure: Controller.MethodFailure?) {
         guard let url = results.pageUrl(for: index) else {
-            failure?(RequestError(with: TeamupError.Paging.pageNotFound))
+            failure?(TeamupError.Paging.pageNotFound, nil)
             return
         }
         
         let request = requestBuilder.build(for: url,
                                            method: .get,
-                                           contentType: .json,
                                            authentication: .userToken)
+        
         requestExecutor.execute(request: request,
                                 success:
             { (request, response, data) in
                 guard let data = data else {
-                    failure?(RequestError.unknown)
+                    failure?(TeamupError.unknown, nil)
                     return
                 }
                 do {
                     let results = try self.decoder.decode(ResultsPage<DataType>.self, from: data)
                     success?(results)
                 } catch {
-                    failure?(RequestError(with: error))
+                    failure?(error, nil)
                 }
         }) { (request, response, error) in
-            failure?(error)
+            failure?(error, response?.errorDetail)
         }
     }
 }

@@ -8,6 +8,7 @@
 
 import Foundation
 import KeychainSwift
+import Alamofire
 
 class AuthenticationApiController: ApiController, AuthenticationController {
     
@@ -103,37 +104,36 @@ private extension AuthenticationApiController {
             }
         }
         
-        let body = Request.Body(["email" : email,
-                                 "password" : password])
+        let parameters = ["email" : email,
+                          "password" : password]
         
         let request = requestBuilder.build(for: .logIn,
                                            method: .post,
-                                           contentType: .formUrlEncoded,
-                                           body: body,
+                                           parameters: parameters,
+                                           encoding: URLEncoding.httpBody,
                                            authentication: .apiToken)
         self.loginRequest = request
-        requestExecutor.execute(request: request,
-                                success:
-            { (request, response, data) in
-                guard let data = data else {
-                    failure?(RequestError.unknown)
-                    return
-                }
-                do {
-                    let user = try self.decoder.decode(User.self, from: data)
-                    let authData = UserAuthData(password: password)
-                    
-                    self.updateKeychain(for: user, authData: authData)
-                    self.currentUser = user
-                    
-                    success?(user)
-                    self.loginRequest = nil
-                } catch {
-                    failure?(RequestError(with: error))
-                    self.loginRequest = nil
-                }
+        
+        requestExecutor.execute(request: request, success: { (request, response, data) in
+            guard let data = data else {
+                failure?(TeamupError.Comms.unknown, nil)
+                return
+            }
+            do {
+                let user = try self.decoder.decode(User.self, from: data)
+                let authData = UserAuthData(password: password)
+                
+                self.updateKeychain(for: user, authData: authData)
+                self.currentUser = user
+                
+                success?(user)
+                self.loginRequest = nil
+            } catch {
+                failure?(error, nil)
+                self.loginRequest = nil
+            }
         }) { (request, response, error) in
-            failure?(error)
+            failure?(error, response?.errorDetail)
             self.loginRequest = nil
         }
     }
@@ -210,7 +210,7 @@ extension AuthenticationApiController: RequestExecutorAuthResponder {
                          encounteredUnauthorizedErrorWhenExecuting request: Request,
                          response: Response,
                          success: @escaping (Request, Response, Data?) -> Void,
-                         failure: @escaping (Request, Response?, RequestError) -> Void) {
+                         failure: @escaping (Request, Response?, Error) -> Void) {
         guard let currentUser = currentUser , let authData = currentUserAuthData else {
             // TODO - Sign out
             return
@@ -227,7 +227,7 @@ extension AuthenticationApiController: RequestExecutorAuthResponder {
                 executor.execute(request: request, success: success, failure: failure)
         },
                      failure:
-            { (error) in
+            { (error, details) in
                 failure(request, nil, error)
         },
                      force: true)

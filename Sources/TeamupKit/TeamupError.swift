@@ -20,3 +20,10 @@ enum TeamupError: Error {
         case unknown
     }
 }
+
+extension TeamupError {
+    
+    static var unknown: Error {
+        return Comms.unknown
+    }
+}

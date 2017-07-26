@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 class WaitlistsApiController: AuthenticatedController, WaitlistsController {
     
@@ -14,29 +15,31 @@ class WaitlistsApiController: AuthenticatedController, WaitlistsController {
               success: ((Session.Waitlist) -> Void)?,
               failure: Controller.MethodFailure?) {
         
-        var parameters = Request.Parameters()
-        parameters.set(auth?.currentUser?.customer.id, for: "customer")
+        var parameters: Alamofire.Parameters = [:]
+        if let customerId = auth?.currentUser?.customer.id {
+            parameters["customer"] = customerId
+        }
         
         let request = requestBuilder.build(for: .sessionWaitlist(sessionId: session.id),
                                            method: .get,
-                                           contentType: .json,
                                            parameters: parameters,
                                            authentication: .userToken)
+        
         requestExecutor.execute(request: request,
                                 success:
             { (request, response, data) in
                 guard let data = data else {
-                    failure?(RequestError.unknown)
+                    failure?(TeamupError.unknown, nil)
                     return
                 }
                 do {
                     let waitlist = try self.decoder.decode(Session.Waitlist.self, from: data)
                     success?(waitlist)
                 } catch {
-                    failure?(RequestError(with: error))
+                    failure?(error, nil)
                 }
         }) { (request, response, error) in
-            failure?(error)
+            failure?(error, response?.errorDetail)
         }
     }
     
@@ -64,30 +67,36 @@ class WaitlistsApiController: AuthenticatedController, WaitlistsController {
                                 forSession session: Session,
                                 success: ((Session.Waitlist) -> Void)?,
                                 failure: Controller.MethodFailure?) {
-        var body = Request.Body()
-        body.add(auth?.currentUser?.customer.id, for: "customer")
-        body.add(action, for: "action")
+        
+        
+        var parameters: Alamofire.Parameters = [
+            "action" : action
+        ]
+        if let customerId = auth?.currentUser?.customer.id {
+            parameters["customer"] = customerId
+        }
         
         let request = requestBuilder.build(for: .sessionWaitlist(sessionId: session.id),
                                            method: .post,
-                                           contentType: .formUrlEncoded,
-                                           body: body,
+                                           parameters: parameters,
+                                           encoding: URLEncoding.httpBody,
                                            authentication: .userToken)
+        
         requestExecutor.execute(request: request,
                                 success:
             { (request, response, data) in
                 guard let data = data else {
-                    failure?(RequestError.unknown)
+                    failure?(TeamupError.unknown, nil)
                     return
                 }
                 do {
                     let waitlist = try self.decoder.decode(Session.Waitlist.self, from: data)
                     success?(waitlist)
                 } catch {
-                    failure?(RequestError(with: error))
+                    failure?(error, nil)
                 }
         }) { (request, response, error) in
-            failure?(error)
+            failure?(error, response?.errorDetail)
         }
     }
 }

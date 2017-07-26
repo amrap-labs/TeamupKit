@@ -8,6 +8,11 @@
 
 import Foundation
 
+internal enum RequestExecutorError: Error {
+    case cancelled
+    case unknown
+}
+
 internal protocol RequestExecutorAuthResponder: class {
     
     /// The request executor experienced an authentication error when executing a request.
@@ -30,7 +35,7 @@ internal protocol RequestExecutor: class {
     // MARK: Types
     
     typealias ExecutionSuccess = (_ request: Request, _ response: Response, _ data: Data?) -> Void
-    typealias ExecutionFailure = (_ request: Request, _ response: Response?, _ error: RequestError) -> Void
+    typealias ExecutionFailure = (_ request: Request, _ response: Response?, _ error: Error) -> Void
     
     // MARK: Properties
     
