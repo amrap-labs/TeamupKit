@@ -325,8 +325,8 @@
 		D67FF7F21F28A1BB00C876FC /* Executor */ = {
 			isa = PBXGroup;
 			children = (
-				D67FF7F31F28A1BB00C876FC /* ApiRequestExecutor.swift */,
 				D67FF7F41F28A1BB00C876FC /* RequestExecutor.swift */,
+				D67FF7F31F28A1BB00C876FC /* ApiRequestExecutor.swift */,
 			);
 			path = Executor;
 			sourceTree = "<group>";
