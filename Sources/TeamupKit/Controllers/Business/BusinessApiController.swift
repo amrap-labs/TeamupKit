@@ -8,7 +8,7 @@
 
 import Foundation
 
-class BusinessApiController: AuthenticatedController, BusinessController {
+class BusinessApiController: AuthenticatedApiController, BusinessController {
     
     // MARK: Properties
     

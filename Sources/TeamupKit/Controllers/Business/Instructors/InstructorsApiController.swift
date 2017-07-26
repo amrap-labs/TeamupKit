@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-class InstructorsApiController: AuthenticatedController, InstructorsController {
+class InstructorsApiController: AuthenticatedApiController, InstructorsController {
     
 }
 

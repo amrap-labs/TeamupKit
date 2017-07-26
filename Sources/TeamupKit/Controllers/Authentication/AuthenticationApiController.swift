@@ -212,7 +212,7 @@ extension AuthenticationApiController: RequestExecutorAuthResponder {
                          success: @escaping (Request, Response, Data?) -> Void,
                          failure: @escaping (Request, Response?, Error) -> Void) {
         guard let currentUser = currentUser , let authData = currentUserAuthData else {
-            // TODO - Sign out
+            signOut()
             return
         }
         guard request != self.loginRequest else { return }

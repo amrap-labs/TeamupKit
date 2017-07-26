@@ -1,5 +1,5 @@
 //
-//  AuthenticatedController.swift
+//  AuthenticatedApiController.swift
 //  TeamupKit
 //
 //  Created by Merrick Sapsford on 19/06/2017.
@@ -9,7 +9,7 @@
 import Foundation
 
 /// A controller that has access to the authentication controller.
-class AuthenticatedController: ApiController {
+class AuthenticatedApiController: ApiController {
     
     /// The active authentication service.
     weak private(set) var auth: AuthenticationController?

@@ -60,19 +60,19 @@ public class Request {
     // MARK: Actions
     
     func cancel() {
-        
+        // Overridden in ExecutableRequest
     }
     
     // MARK: Hashable
     
     var hashValue: Int {
-        return 0
+        return "\(method.rawValue) \(url.hashValue)".hashValue
     }
 }
 
 extension Request: Equatable {
     
     public static func ==(lhs: Request, rhs: Request) -> Bool {
-        return lhs.url == rhs.url
+        return lhs.hashValue == rhs.hashValue
     }
 }

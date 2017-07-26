@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-class SessionsApiController: AuthenticatedController, SessionsController {
+class SessionsApiController: AuthenticatedApiController, SessionsController {
     
     // MARK: Properties
     

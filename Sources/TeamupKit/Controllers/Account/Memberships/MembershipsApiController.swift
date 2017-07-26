@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-class MembershipsApiController: AuthenticatedController, MembershipsController {
+class MembershipsApiController: AuthenticatedApiController, MembershipsController {
     
     // MARK: Methods
     

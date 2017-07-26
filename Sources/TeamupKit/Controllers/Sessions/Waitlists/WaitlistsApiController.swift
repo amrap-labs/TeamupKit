@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-class WaitlistsApiController: AuthenticatedController, WaitlistsController {
+class WaitlistsApiController: AuthenticatedApiController, WaitlistsController {
     
     func load(forSession session: Session,
               success: ((Session.Waitlist) -> Void)?,
