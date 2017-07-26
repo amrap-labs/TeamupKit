@@ -40,7 +40,6 @@
 		D65FCB061EFADCE000449A9B /* Instructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65FCB051EFADCE000449A9B /* Instructor.swift */; };
 		D67238541F042A1000CC8EFB /* TeamupKitAuthenticationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67238531F042A1000CC8EFB /* TeamupKitAuthenticationTests.swift */; };
 		D672387E1F04313700CC8EFB /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D672387D1F04313700CC8EFB /* Controller.swift */; };
-		D67547261F0051E500760772 /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67547251F0051E500760772 /* RequestError.swift */; };
 		D67547281F0057F000760772 /* ErrorDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67547271F0057F000760772 /* ErrorDetail.swift */; };
 		D68D8FF51EFA5E18000E24B8 /* InstructorsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68D8FF41EFA5E18000E24B8 /* InstructorsController.swift */; };
 		D68D8FF71EFA5E20000E24B8 /* InstructorsApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68D8FF61EFA5E20000E24B8 /* InstructorsApiController.swift */; };
@@ -120,7 +119,6 @@
 		D65FCB051EFADCE000449A9B /* Instructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instructor.swift; sourceTree = "<group>"; };
 		D67238531F042A1000CC8EFB /* TeamupKitAuthenticationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamupKitAuthenticationTests.swift; sourceTree = "<group>"; };
 		D672387D1F04313700CC8EFB /* Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
-		D67547251F0051E500760772 /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
 		D67547271F0057F000760772 /* ErrorDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorDetail.swift; sourceTree = "<group>"; };
 		D68D8FF41EFA5E18000E24B8 /* InstructorsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructorsController.swift; sourceTree = "<group>"; };
 		D68D8FF61EFA5E20000E24B8 /* InstructorsApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructorsApiController.swift; sourceTree = "<group>"; };
@@ -190,7 +188,6 @@
 			children = (
 				D6E9DDA71EF0731F008CA490 /* Request.swift */,
 				D605F1421F288E080029C3A6 /* ExecutableRequest.swift */,
-				D67547251F0051E500760772 /* RequestError.swift */,
 				D60D634C1EF1D58E00C93B9A /* Response.swift */,
 				D6A0EE2E1F0C268F001E6D4E /* TeamupError.swift */,
 			);
@@ -681,7 +678,6 @@
 				D61E51E11F02DF95003B375F /* ApiRequestExecutor.swift in Sources */,
 				D659392F1F02D62C00A9C1B3 /* ControllerFactory.swift in Sources */,
 				D6E9DDA81EF0731F008CA490 /* Request.swift in Sources */,
-				D67547261F0051E500760772 /* RequestError.swift in Sources */,
 				D6FA171F1EF9ADFF00E3C506 /* MembershipsController.swift in Sources */,
 				D6FA17171EF9A86700E3C506 /* RegistrationsApiController.swift in Sources */,
 				D6FA17231EF9AF4200E3C506 /* Membership.swift in Sources */,
