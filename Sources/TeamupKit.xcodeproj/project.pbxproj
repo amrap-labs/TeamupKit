@@ -50,7 +50,6 @@
 		D6D877AE1EEC29E800908EAD /* AuthenticationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D877AD1EEC29E800908EAD /* AuthenticationController.swift */; };
 		D6D877B01EEC2B8F00908EAD /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6D877AF1EEC2B8F00908EAD /* Config.plist */; };
 		D6E9DDA81EF0731F008CA490 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E9DDA71EF0731F008CA490 /* Request.swift */; };
-		D6E9DDAC1EF07513008CA490 /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E9DDAB1EF07513008CA490 /* RequestBuilder.swift */; };
 		D6F9EA691EEBE981002ABF64 /* TeamupKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6F9EA5F1EEBE980002ABF64 /* TeamupKit.framework */; };
 		D6F9EA6E1EEBE981002ABF64 /* TeamupKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F9EA6D1EEBE981002ABF64 /* TeamupKitTests.swift */; };
 		D6F9EA701EEBE981002ABF64 /* TeamupKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D6F9EA621EEBE980002ABF64 /* TeamupKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -122,6 +121,7 @@
 		D67FF7F31F28A1BB00C876FC /* ApiRequestExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequestExecutor.swift; sourceTree = "<group>"; };
 		D67FF7F41F28A1BB00C876FC /* RequestExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestExecutor.swift; sourceTree = "<group>"; };
 		D67FF7F51F28A1D300C876FC /* TeamupError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamupError.swift; sourceTree = "<group>"; };
+		D6805F851F28C7ED001E3FF0 /* RequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
 		D68D8FF41EFA5E18000E24B8 /* InstructorsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructorsController.swift; sourceTree = "<group>"; };
 		D68D8FF61EFA5E20000E24B8 /* InstructorsApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructorsApiController.swift; sourceTree = "<group>"; };
 		D69B3B3E1F02EC8500AA7FE2 /* TeamupKitConfigTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamupKitConfigTests.swift; sourceTree = "<group>"; };
@@ -129,7 +129,6 @@
 		D6D877AD1EEC29E800908EAD /* AuthenticationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationController.swift; sourceTree = "<group>"; };
 		D6D877AF1EEC2B8F00908EAD /* Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		D6E9DDA71EF0731F008CA490 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
-		D6E9DDAB1EF07513008CA490 /* RequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
 		D6F9EA5F1EEBE980002ABF64 /* TeamupKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TeamupKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6F9EA621EEBE980002ABF64 /* TeamupKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeamupKit.h; sourceTree = "<group>"; };
 		D6F9EA681EEBE981002ABF64 /* TeamupKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TeamupKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -263,9 +262,9 @@
 			children = (
 				D600CD8C1F017D6B0064A97D /* Objects */,
 				D67FF7F21F28A1BB00C876FC /* Executor */,
+				D6805F841F28C7D4001E3FF0 /* Builder */,
 				D6319F671EF06D020057E3E3 /* Endpoints.swift */,
 				D6319F691EF06D670057E3E3 /* UrlBuilder.swift */,
-				D6E9DDAB1EF07513008CA490 /* RequestBuilder.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -329,6 +328,14 @@
 				D67FF7F31F28A1BB00C876FC /* ApiRequestExecutor.swift */,
 			);
 			path = Executor;
+			sourceTree = "<group>";
+		};
+		D6805F841F28C7D4001E3FF0 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				D6805F851F28C7ED001E3FF0 /* RequestBuilder.swift */,
+			);
+			path = Builder;
 			sourceTree = "<group>";
 		};
 		D68D8FF31EFA5E07000E24B8 /* Instructors */ = {
@@ -671,7 +678,6 @@
 				D610A0E41EF9C52F0079F3FA /* BusinessApiController.swift in Sources */,
 				D60D634D1EF1D58E00C93B9A /* Response.swift in Sources */,
 				D65FCB061EFADCE000449A9B /* Instructor.swift in Sources */,
-				D6E9DDAC1EF07513008CA490 /* RequestBuilder.swift in Sources */,
 				D65939311F02D64300A9C1B3 /* ApiControllerFactory.swift in Sources */,
 				D64FFF8F1EF85A510039911F /* SessionsApiController.swift in Sources */,
 				D6319F701EF06DEC0057E3E3 /* AuthenticationApiController.swift in Sources */,

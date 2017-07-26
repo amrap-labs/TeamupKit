@@ -13,11 +13,11 @@ public class Teamup {
     // MARK: Properties
     
     /// The active configuration.
-    private let config: Config
+    internal let config: Config
     /// The active request builder.
-    private var requestBuilder: RequestBuilder!
+    internal var requestBuilder: RequestBuilder!
     /// The active request executor.
-    private var requestExecutor: RequestExecutor!
+    internal var requestExecutor: RequestExecutor!
     
     /// The active factory for building controllers.
     private let controllerFactory: ControllerFactory
