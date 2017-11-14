@@ -13,7 +13,7 @@ internal class Config {
     // MARK: Constants
     
     private struct Constants {
-        static let plistFilename = "Config"
+        static let plistFilename = "TeamupKit-Config"
     }
     
     // MARK: Properties
@@ -25,17 +25,18 @@ internal class Config {
     
     /// Dictionary of configuration items from Config.plist
     private var configDictionary: [String : Any] {
-        let frameworkBundle = Bundle(for: type(of: self))
+        let frameworkBundle: Bundle = Bundle(for: type(of: self))
         let filename = Constants.plistFilename
         
-        var bundle: Bundle = frameworkBundle
+        var bundle: Bundle? = frameworkBundle
         if frameworkBundle.path(forResource: filename, ofType: "plist") == nil { // fall back to resource bundle
-            let resourceBundleUrl = frameworkBundle.resourceURL!.appendingPathComponent("TeamupKit.bundle")
-            bundle = Bundle(url: resourceBundleUrl)!
+            if let bundleUrl = frameworkBundle.url(forResource: "TeamupKit", withExtension: "bundle") {
+                bundle = Bundle(url: bundleUrl)
+            }
         }
         
         // attempt to load config dictionary
-        guard let plist = bundle.path(forResource: "Config", ofType: "plist"),
+        guard let plist = bundle?.path(forResource: filename, ofType: "plist"),
             let dictionary = NSDictionary(contentsOfFile: plist) else {
                 fatalError("Unable to configure Teamup Config. Please raise an issue on Github: https://github.com/amrap-labs/TeamupKit")
         }
