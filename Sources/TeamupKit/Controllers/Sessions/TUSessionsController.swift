@@ -1,5 +1,5 @@
 //
-//  SessionsController.swift
+//  TUSessionsController.swift
 //  TeamupKit
 //
 //  Created by Merrick Sapsford on 19/06/2017.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol SessionsController: class, PageableController {
+public protocol TUSessionsController: class, PageableController {
     
     // MARK: Properties
     
