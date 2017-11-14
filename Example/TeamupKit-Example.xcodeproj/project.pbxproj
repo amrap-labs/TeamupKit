@@ -35,6 +35,7 @@
 /* Begin PBXFileReference section */
 		3C10EB393C07BE911920D56A /* Pods-TeamupKit-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamupKit-Example.release.xcconfig"; path = "../Pods/Target Support Files/Pods-TeamupKit-Example/Pods-TeamupKit-Example.release.xcconfig"; sourceTree = "<group>"; };
 		3CBEA11D6B85A74E63C5B93D /* Pods-TeamupKit-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamupKit-Example.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-TeamupKit-Example/Pods-TeamupKit-Example.debug.xcconfig"; sourceTree = "<group>"; };
+		4681A3A61FBB81C100C0B3BD /* TeamupKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamupKit.framework; path = "../../../../Library/Developer/Xcode/DerivedData/TeamUpKit-hdoqaiehchbivsflowsnovntekhk/Build/Products/Debug-iphoneos/TeamupKit.framework"; sourceTree = "<group>"; };
 		92F079B93AF21C455EA6C0E6 /* Pods_TeamupKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TeamupKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6319F611EF06A220057E3E3 /* Credentials.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Credentials.plist; sourceTree = "<group>"; };
 		D6F9EA401EEBE927002ABF64 /* TeamupKit-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TeamupKit-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,6 +64,7 @@
 		8ADDC3D805C2F93854309ED2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4681A3A61FBB81C100C0B3BD /* TeamupKit.framework */,
 				92F079B93AF21C455EA6C0E6 /* Pods_TeamupKit_Example.framework */,
 			);
 			name = Frameworks;
