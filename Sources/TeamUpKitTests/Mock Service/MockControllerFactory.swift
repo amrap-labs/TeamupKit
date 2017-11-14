@@ -11,7 +11,7 @@ import Foundation
 
 class MockControllerFactory: ControllerFactory {
     
-    var authenticationController: AuthenticationController!
+    var authenticationController: TUAuthenticationController!
     var sessionsController: SessionsController!
     var accountController: AccountController!
     var businessController: BusinessController!

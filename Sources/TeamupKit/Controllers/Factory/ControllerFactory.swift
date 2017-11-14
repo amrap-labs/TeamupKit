@@ -13,7 +13,7 @@ internal protocol ControllerFactory: class {
     // MARK: Properties
     
     /// The active authentication controller.
-    var authenticationController: AuthenticationController! { get }
+    var authenticationController: TUAuthenticationController! { get }
     /// The active sessions controller.
     var sessionsController: SessionsController! { get }
     /// The active account controller.

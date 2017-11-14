@@ -34,7 +34,7 @@ class SessionsApiController: AuthenticatedApiController, SessionsController {
     override init(with config: Config,
                   requestBuilder: RequestBuilder,
                   executor: RequestExecutor,
-                  auth: AuthenticationController) {
+                  auth: TUAuthenticationController) {
         self.registrationsController = RegistrationsApiController(with: config,
                                                                   requestBuilder: requestBuilder,
                                                                   executor: executor,

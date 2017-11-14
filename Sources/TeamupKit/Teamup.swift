@@ -23,7 +23,7 @@ public class Teamup {
     private let controllerFactory: ControllerFactory
     
     /// The active authentication controller.
-    public var auth: AuthenticationController {
+    public var auth: TUAuthenticationController {
         return controllerFactory.authenticationController
     }
     /// The active sessions controller.

@@ -22,7 +22,7 @@ class BusinessApiController: AuthenticatedApiController, BusinessController {
     override init(with config: Config,
                   requestBuilder: RequestBuilder,
                   executor: RequestExecutor,
-                  auth: AuthenticationController) {
+                  auth: TUAuthenticationController) {
         instructorsController = InstructorsApiController(with: config,
                                                          requestBuilder: requestBuilder,
                                                          executor: executor,
