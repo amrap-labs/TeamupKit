@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		04BD55819B5380352E527690 /* Pods_TeamupKit_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92F079B93AF21C455EA6C0E6 /* Pods_TeamupKit_Example.framework */; };
-		D6319F621EF06A220057E3E3 /* Credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6319F611EF06A220057E3E3 /* Credentials.plist */; };
+		4681A3F71FBB9D7B00C0B3BD /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4681A3F61FBB9D7B00C0B3BD /* credentials.plist */; };
 		D6F9EA441EEBE927002ABF64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F9EA431EEBE927002ABF64 /* AppDelegate.swift */; };
 		D6F9EA461EEBE927002ABF64 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F9EA451EEBE927002ABF64 /* ViewController.swift */; };
 		D6F9EA491EEBE927002ABF64 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6F9EA471EEBE927002ABF64 /* Main.storyboard */; };
@@ -36,8 +36,8 @@
 		3C10EB393C07BE911920D56A /* Pods-TeamupKit-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamupKit-Example.release.xcconfig"; path = "../Pods/Target Support Files/Pods-TeamupKit-Example/Pods-TeamupKit-Example.release.xcconfig"; sourceTree = "<group>"; };
 		3CBEA11D6B85A74E63C5B93D /* Pods-TeamupKit-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamupKit-Example.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-TeamupKit-Example/Pods-TeamupKit-Example.debug.xcconfig"; sourceTree = "<group>"; };
 		4681A3A61FBB81C100C0B3BD /* TeamupKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamupKit.framework; path = "../../../../Library/Developer/Xcode/DerivedData/TeamUpKit-hdoqaiehchbivsflowsnovntekhk/Build/Products/Debug-iphoneos/TeamupKit.framework"; sourceTree = "<group>"; };
+		4681A3F61FBB9D7B00C0B3BD /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = credentials.plist; path = ../../credentials.plist; sourceTree = "<group>"; };
 		92F079B93AF21C455EA6C0E6 /* Pods_TeamupKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TeamupKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D6319F611EF06A220057E3E3 /* Credentials.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Credentials.plist; sourceTree = "<group>"; };
 		D6F9EA401EEBE927002ABF64 /* TeamupKit-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TeamupKit-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6F9EA431EEBE927002ABF64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D6F9EA451EEBE927002ABF64 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -107,7 +107,7 @@
 				D6F9EA4A1EEBE927002ABF64 /* Assets.xcassets */,
 				D6F9EA4C1EEBE927002ABF64 /* LaunchScreen.storyboard */,
 				D6F9EA4F1EEBE927002ABF64 /* Info.plist */,
-				D6319F611EF06A220057E3E3 /* Credentials.plist */,
+				4681A3F61FBB9D7B00C0B3BD /* credentials.plist */,
 			);
 			path = "TeamupKit-Example";
 			sourceTree = "<group>";
@@ -175,7 +175,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D6F9EA4E1EEBE927002ABF64 /* LaunchScreen.storyboard in Resources */,
-				D6319F621EF06A220057E3E3 /* Credentials.plist in Resources */,
+				4681A3F71FBB9D7B00C0B3BD /* credentials.plist in Resources */,
 				D6F9EA4B1EEBE927002ABF64 /* Assets.xcassets in Resources */,
 				D6F9EA491EEBE927002ABF64 /* Main.storyboard in Resources */,
 			);
