@@ -12,7 +12,7 @@ import Foundation
 class AuthenticatedApiController: ApiController {
     
     /// The active authentication service.
-    weak private(set) var auth: TUAuthenticationController?
+    weak private(set) var auth: AuthenticationController?
     
     // MARK: Init
     
@@ -26,7 +26,7 @@ class AuthenticatedApiController: ApiController {
     init(with config: Config,
          requestBuilder: RequestBuilder,
          executor: RequestExecutor,
-         auth: TUAuthenticationController) {
+         auth: AuthenticationController) {
         self.auth = auth
         super.init(with: config,
                    requestBuilder: requestBuilder,

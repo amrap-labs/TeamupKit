@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol TUAuthenticationController: class, Controller {
+public protocol AuthenticationController: class, Controller {
     
     /// The currently authenticated user.
     var currentUser: User? { get }

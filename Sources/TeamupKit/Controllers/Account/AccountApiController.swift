@@ -22,7 +22,7 @@ class AccountApiController: AuthenticatedApiController, AccountController {
     override init(with config: Config,
                   requestBuilder: RequestBuilder,
                   executor: RequestExecutor,
-                  auth: TUAuthenticationController) {
+                  auth: AuthenticationController) {
         membershipsController = MembershipsApiController(with: config,
                                                          requestBuilder: requestBuilder,
                                                          executor: executor,

@@ -10,7 +10,7 @@ import Foundation
 import KeychainSwift
 import Alamofire
 
-class AuthenticationApiController: ApiController, TUAuthenticationController {
+class AuthenticationApiController: ApiController, AuthenticationController {
     
     // MARK: Constants
     

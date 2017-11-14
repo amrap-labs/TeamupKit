@@ -9,7 +9,7 @@
 import Foundation
 @testable import TeamupKit
 
-class AuthenticationMockController: TUAuthenticationController {
+class AuthenticationMockController: AuthenticationController {
     
     var currentUser: User? {
         let customer = Customer(id: 12345, name: "Test User", emails: ["test@test.com"])
