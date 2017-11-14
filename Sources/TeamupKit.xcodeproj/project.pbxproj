@@ -33,7 +33,7 @@
 		D63282731F04258A00128C48 /* mockdata.json in Resources */ = {isa = PBXBuildFile; fileRef = D63282701F04236A00128C48 /* mockdata.json */; };
 		D6364C1D1EEC02D4004CF152 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6364C1C1EEC02D4004CF152 /* Config.swift */; };
 		D6364C1F1EEC0310004CF152 /* ApiConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6364C1E1EEC0310004CF152 /* ApiConfig.swift */; };
-		D64FFF8D1EF85A3A0039911F /* TUSessionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64FFF8C1EF85A3A0039911F /* TUSessionsController.swift */; };
+		D64FFF8D1EF85A3A0039911F /* SessionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64FFF8C1EF85A3A0039911F /* SessionsController.swift */; };
 		D64FFF8F1EF85A510039911F /* SessionsApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64FFF8E1EF85A510039911F /* SessionsApiController.swift */; };
 		D64FFF911EF868FE0039911F /* BusinessConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64FFF901EF868FE0039911F /* BusinessConfig.swift */; };
 		D659392F1F02D62C00A9C1B3 /* ControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D659392E1F02D62C00A9C1B3 /* ControllerFactory.swift */; };
@@ -115,7 +115,7 @@
 		D63282711F04246D00128C48 /* MockDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataProvider.swift; sourceTree = "<group>"; };
 		D6364C1C1EEC02D4004CF152 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		D6364C1E1EEC0310004CF152 /* ApiConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiConfig.swift; sourceTree = "<group>"; };
-		D64FFF8C1EF85A3A0039911F /* TUSessionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TUSessionsController.swift; sourceTree = "<group>"; };
+		D64FFF8C1EF85A3A0039911F /* SessionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionsController.swift; sourceTree = "<group>"; };
 		D64FFF8E1EF85A510039911F /* SessionsApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionsApiController.swift; sourceTree = "<group>"; };
 		D64FFF901EF868FE0039911F /* BusinessConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessConfig.swift; sourceTree = "<group>"; };
 		D659392E1F02D62C00A9C1B3 /* ControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerFactory.swift; sourceTree = "<group>"; };
@@ -313,7 +313,7 @@
 		D64FFF8B1EF85A2E0039911F /* Sessions */ = {
 			isa = PBXGroup;
 			children = (
-				D64FFF8C1EF85A3A0039911F /* TUSessionsController.swift */,
+				D64FFF8C1EF85A3A0039911F /* SessionsController.swift */,
 				D64FFF8E1EF85A510039911F /* SessionsApiController.swift */,
 				D6FA17131EF9A84800E3C506 /* Registrations */,
 				D610A0E51EF9C5B10079F3FA /* Waitlists */,
@@ -703,7 +703,7 @@
 				D65939311F02D64300A9C1B3 /* ApiControllerFactory.swift in Sources */,
 				D64FFF8F1EF85A510039911F /* SessionsApiController.swift in Sources */,
 				D6319F701EF06DEC0057E3E3 /* AuthenticationApiController.swift in Sources */,
-				D64FFF8D1EF85A3A0039911F /* TUSessionsController.swift in Sources */,
+				D64FFF8D1EF85A3A0039911F /* SessionsController.swift in Sources */,
 				D68D8FF51EFA5E18000E24B8 /* InstructorsController.swift in Sources */,
 				D6FA20CA1EF90F9A00E7EA17 /* Session.swift in Sources */,
 				D610A0E71EF9C5C10079F3FA /* WaitlistsController.swift in Sources */,

@@ -15,7 +15,7 @@ internal protocol ControllerFactory: class {
     /// The active authentication controller.
     var authenticationController: TUAuthenticationController! { get }
     /// The active sessions controller.
-    var sessionsController: TUSessionsController! { get }
+    var sessionsController: SessionsController! { get }
     /// The active account controller.
     var accountController: AccountController! { get }
     /// The active business controller.

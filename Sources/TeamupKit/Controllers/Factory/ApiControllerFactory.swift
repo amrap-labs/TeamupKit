@@ -13,7 +13,7 @@ internal class ApiControllerFactory: ControllerFactory {
     // MARK: Properties
     
     private(set) var authenticationController: TUAuthenticationController!
-    private(set) var sessionsController: TUSessionsController!
+    private(set) var sessionsController: SessionsController!
     private(set) var accountController: AccountController!
     private(set) var businessController: BusinessController!
     

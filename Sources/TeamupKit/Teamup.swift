@@ -27,7 +27,7 @@ public class Teamup {
         return controllerFactory.authenticationController
     }
     /// The active sessions controller.
-    public var sessions: TUSessionsController {
+    public var sessions: SessionsController {
         return controllerFactory.sessionsController
     }
     /// The active account controller.
