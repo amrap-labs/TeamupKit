@@ -33,6 +33,17 @@ public struct User: Codable {
         self.success = nil
     }
     
+    internal init(customer: Customer,
+                 token: String,
+                 expires: String,
+                 success: Bool) {
+        self.customer = customer
+        self.identifier = UUID().uuidString
+        self.token = token
+        self.expires = expires
+        self.success = success
+    }
+    
     static var local: User {
         return User(identifier: UUID().uuidString)
     }
