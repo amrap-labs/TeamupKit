@@ -14,7 +14,7 @@ public struct User: Codable {
     /// The customer associated with the user.
     public let customer: Customer?
     /// The local unique identifier for the user.
-    internal(set) var identifier: String!
+    public internal(set) var identifier: String!
     
     /// The access token for the user.
     internal let token: String?
