@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "9.0"
   s.requires_arc = true
 
-  s.version      = "0.1.0"
+  s.version      = "0.2.0"
   s.summary      = "Swift framework for Teamup services."
   s.description  = <<-DESC
   					Swift framework for communicating with Teamup, a service to super charge your fitness business.
