@@ -12,12 +12,39 @@ import Foundation
 public struct User: Codable {
     
     /// The customer associated with the user.
-    public let customer: Customer
+    public let customer: Customer?
+    /// The local unique identifier for the user.
+    internal(set) var identifier: String!
     
     /// The access token for the user.
-    internal let token: String
+    internal let token: String?
     /// The expiry date of the token.
-    internal let expires: String
+    internal let expires: String?
     /// Whether the user was successfully authenticated.
-    internal let success: Bool
+    internal let success: Bool?
+    
+    // MARK: Local User
+    
+    private init(identifier: String) {
+        self.customer = nil
+        self.identifier = identifier
+        self.token = nil
+        self.expires = nil
+        self.success = nil
+    }
+    
+    internal init(customer: Customer,
+                 token: String,
+                 expires: String,
+                 success: Bool) {
+        self.customer = customer
+        self.identifier = UUID().uuidString
+        self.token = token
+        self.expires = expires
+        self.success = success
+    }
+    
+    static var local: User {
+        return User(identifier: UUID().uuidString)
+    }
 }

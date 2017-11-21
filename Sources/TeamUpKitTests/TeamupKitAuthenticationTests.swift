@@ -17,7 +17,7 @@ class TeamupKitAuthenticationTests: TeamupKitTests {
         teamup.auth.logIn(email: "Test User",
                           password: "Test Password",
                           success: { (user) in
-              XCTAssertTrue(user.expires.count > 0)
+              XCTAssertTrue(user.expires?.count ?? 0 > 0)
         }) { (error, details) in
             XCTFail("Log In method fails")
         }

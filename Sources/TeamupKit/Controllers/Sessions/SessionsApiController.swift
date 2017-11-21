@@ -83,7 +83,7 @@ extension SessionsApiController {
         if let page = page {
             parameters["page"] = page
         }
-        if let customerId = auth?.currentUser?.customer.id {
+        if let customerId = auth?.currentUser?.customer?.id {
             parameters["customer"] = customerId
         }
         
@@ -119,7 +119,7 @@ extension SessionsApiController {
         var parameters: Alamofire.Parameters = [
             "include_registration_details" : includeRegistrationDetails
         ]
-        if let customerId = auth?.currentUser?.customer.id {
+        if let customerId = auth?.currentUser?.customer?.id {
             parameters["customer"] = customerId
         }
         

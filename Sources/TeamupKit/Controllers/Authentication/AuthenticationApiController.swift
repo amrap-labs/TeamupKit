@@ -34,7 +34,7 @@ class AuthenticationApiController: ApiController, AuthenticationController {
     private var loginRequest: Request?
     
     var isAuthenticated: Bool {
-        return currentUser != nil
+        return currentUser?.success == true
     }
     
     // MARK: Init
@@ -80,8 +80,9 @@ class AuthenticationApiController: ApiController, AuthenticationController {
     func signOut() {
         guard self.currentUser != nil else { return }
         
-        self.currentUser = nil
         clearKeychain()
+        self.currentUser = User.local
+        updateKeychain(for: currentUser, authData: nil)
         
         // TODO - Notify other controllers
     }
@@ -98,7 +99,7 @@ private extension AuthenticationApiController {
         
         // ignore log in if already logged in
         if force == false && currentUser != nil && currentUserAuthData != nil {
-            guard !(currentUser?.customer.emails.contains(where: { $0 == email }) ?? false) else {
+            guard !(currentUser?.customer?.emails.contains(where: { $0 == email }) ?? false) else {
                 success?(currentUser!)
                 return
             }
@@ -120,7 +121,8 @@ private extension AuthenticationApiController {
                 return
             }
             do {
-                let user = try self.decoder.decode(User.self, from: data)
+                var user = try self.decoder.decode(User.self, from: data)
+                user.identifier = self.currentUser?.identifier
                 let authData = UserAuthData(password: password)
                 
                 self.updateKeychain(for: user, authData: authData)
@@ -148,7 +150,7 @@ private extension AuthenticationApiController {
     /// - Parameter authData: The new user's auth data.
     private func updateKeychain(for user: User?,
                                 authData: UserAuthData?) {
-        guard let user = user, let authData = authData else {
+        guard let user = user else {
             clearKeychain()
             return
         }
@@ -156,9 +158,12 @@ private extension AuthenticationApiController {
         let encoder = JSONEncoder()
         do {
             let userData = try encoder.encode(user)
-            let authData = try encoder.encode(authData)
             keychain.set(userData, forKey: KeychainKeys.user)
-            keychain.set(authData, forKey: KeychainKeys.userAuthData)
+
+            if let authData = authData {
+                let authData = try encoder.encode(authData)
+                keychain.set(authData, forKey: KeychainKeys.userAuthData)
+            }
         } catch {}
     }
     
@@ -171,7 +176,11 @@ private extension AuthenticationApiController {
     ///
     /// - Returns: The currently authenticated user.
     private func loadAuthenticatedUserIfAvailable() -> User? {
-        guard let data = keychain.getData(KeychainKeys.user) else { return nil }
+        guard let data = keychain.getData(KeychainKeys.user) else {
+            let localUser = User.local
+            updateKeychain(for: localUser, authData: nil)
+            return localUser
+        }
         do {
             return try decoder.decode(User.self, from: data)
         } catch {
@@ -195,8 +204,8 @@ private extension AuthenticationApiController {
 extension AuthenticationApiController: RequestBuilderAuthProvider {
     
     func requestBuilder(requestUserTokenAuthHeaders requestBuilder: RequestBuilder) -> [String : String]? {
-        guard let currentUser = self.currentUser else { return nil }
-        return ["Authorization"  : "Token \(currentUser.token)"]
+        guard let token = self.currentUser?.token else { return nil }
+        return ["Authorization"  : "Token \(token)"]
     }
     
     func requestBuilder(requestApiTokenAuthHeaders requestBuilder: RequestBuilder) -> [String : String]? {
@@ -211,7 +220,9 @@ extension AuthenticationApiController: RequestExecutorAuthResponder {
                          response: Response,
                          success: @escaping (Request, Response, Data?) -> Void,
                          failure: @escaping (Request, Response?, Error) -> Void) {
-        guard let currentUser = currentUser , let authData = currentUserAuthData else {
+        guard let currentUser = currentUser,
+            let authData = currentUserAuthData,
+            let email = currentUser.customer?.emails.first else {
             signOut()
             return
         }
@@ -220,7 +231,7 @@ extension AuthenticationApiController: RequestExecutorAuthResponder {
         print("Attempting to reauth")
         
         // attempt to reauthenticate current user and then execute request
-        performLogIn(with: currentUser.customer.emails.first!,
+        performLogIn(with: email,
                      password: authData.password,
                      success:
             { (user) in

@@ -19,7 +19,7 @@ class MembershipsApiController: AuthenticatedApiController, MembershipsControlle
         var parameters: Alamofire.Parameters = [
             "business" : config.business.businessId,
         ]
-        if let customerId = auth?.currentUser?.customer.id {
+        if let customerId = auth?.currentUser?.customer?.id {
             parameters["customer"] = customerId
         }
         

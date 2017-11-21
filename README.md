@@ -68,3 +68,5 @@ teamup.auth.logIn(email: "test@test.com",
         // handle error    
 }
 ```
+
+**This is still a work in progress and lots of stuff needs documenting...**
