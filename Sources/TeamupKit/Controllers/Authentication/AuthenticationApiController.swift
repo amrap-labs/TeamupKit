@@ -98,7 +98,7 @@ private extension AuthenticationApiController {
         
         // ignore log in if already logged in
         if force == false && currentUser != nil && currentUserAuthData != nil {
-            guard !(currentUser?.customer.emails.contains(where: { $0 == email }) ?? false) else {
+            guard !(currentUser?.customer?.emails.contains(where: { $0 == email }) ?? false) else {
                 success?(currentUser!)
                 return
             }
@@ -211,7 +211,9 @@ extension AuthenticationApiController: RequestExecutorAuthResponder {
                          response: Response,
                          success: @escaping (Request, Response, Data?) -> Void,
                          failure: @escaping (Request, Response?, Error) -> Void) {
-        guard let currentUser = currentUser , let authData = currentUserAuthData else {
+        guard let currentUser = currentUser,
+            let authData = currentUserAuthData,
+            let email = currentUser.customer?.emails.first else {
             signOut()
             return
         }
@@ -220,7 +222,7 @@ extension AuthenticationApiController: RequestExecutorAuthResponder {
         print("Attempting to reauth")
         
         // attempt to reauthenticate current user and then execute request
-        performLogIn(with: currentUser.customer.emails.first!,
+        performLogIn(with: email,
                      password: authData.password,
                      success:
             { (user) in

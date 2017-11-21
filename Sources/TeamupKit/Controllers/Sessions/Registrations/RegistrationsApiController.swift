@@ -21,7 +21,7 @@ extension RegistrationsApiController {
                      failure: Controller.MethodFailure?) {
         
         var parameters: Alamofire.Parameters = [:]
-        if let customerId = auth?.currentUser?.customer.id {
+        if let customerId = auth?.currentUser?.customer?.id {
             parameters["customer"] = customerId
         }
         

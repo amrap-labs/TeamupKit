@@ -12,12 +12,14 @@ import Foundation
 public struct User: Codable {
     
     /// The customer associated with the user.
-    public let customer: Customer
+    public let customer: Customer?
     
     /// The access token for the user.
-    internal let token: String
+    internal let token: String?
     /// The expiry date of the token.
-    internal let expires: String
+    internal let expires: String?
     /// Whether the user was successfully authenticated.
-    internal let success: Bool
+    internal let success: Bool?
+    
+    
 }

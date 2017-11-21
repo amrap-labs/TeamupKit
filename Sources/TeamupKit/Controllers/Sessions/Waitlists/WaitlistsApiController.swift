@@ -16,7 +16,7 @@ class WaitlistsApiController: AuthenticatedApiController, WaitlistsController {
               failure: Controller.MethodFailure?) {
         
         var parameters: Alamofire.Parameters = [:]
-        if let customerId = auth?.currentUser?.customer.id {
+        if let customerId = auth?.currentUser?.customer?.id {
             parameters["customer"] = customerId
         }
         
@@ -72,7 +72,7 @@ class WaitlistsApiController: AuthenticatedApiController, WaitlistsController {
         var parameters: Alamofire.Parameters = [
             "action" : action
         ]
-        if let customerId = auth?.currentUser?.customer.id {
+        if let customerId = auth?.currentUser?.customer?.id {
             parameters["customer"] = customerId
         }
         
