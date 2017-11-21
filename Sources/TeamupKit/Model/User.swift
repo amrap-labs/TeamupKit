@@ -13,6 +13,8 @@ public struct User: Codable {
     
     /// The customer associated with the user.
     public let customer: Customer?
+    /// The local unique identifier for the user.
+    internal(set) var identifier: String!
     
     /// The access token for the user.
     internal let token: String?
@@ -21,5 +23,17 @@ public struct User: Codable {
     /// Whether the user was successfully authenticated.
     internal let success: Bool?
     
+    // MARK: Local User
     
+    private init(identifier: String) {
+        self.customer = nil
+        self.identifier = identifier
+        self.token = nil
+        self.expires = nil
+        self.success = nil
+    }
+    
+    static var local: User {
+        return User(identifier: UUID().uuidString)
+    }
 }
