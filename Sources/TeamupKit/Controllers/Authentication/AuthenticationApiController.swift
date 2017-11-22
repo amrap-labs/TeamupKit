@@ -75,6 +75,7 @@ class AuthenticationApiController: ApiController, AuthenticationController {
                   surname: String,
                   success: ((User) -> Void)?,
                   failure: Controller.MethodFailure?) {
+        fatalError("Not Implemented yet")
     }
     
     func signOut() {
@@ -84,7 +85,7 @@ class AuthenticationApiController: ApiController, AuthenticationController {
         self.currentUser = User.local
         updateKeychain(for: currentUser, authData: nil)
         
-        // TODO - Notify other controllers
+        NotificationCenter.default.post(name: .TeamupAuthenticationDidSignOut, object: nil)
     }
 }
 
@@ -128,6 +129,9 @@ private extension AuthenticationApiController {
                 self.updateKeychain(for: user, authData: authData)
                 self.currentUser = user
                 
+                NotificationCenter.default.post(name: .TeamupAuthenticationDidLogIn,
+                                                object: nil,
+                                                userInfo: ["user" : user])
                 success?(user)
                 self.loginRequest = nil
             } catch {
