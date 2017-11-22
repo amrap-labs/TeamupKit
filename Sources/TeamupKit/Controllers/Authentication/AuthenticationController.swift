@@ -8,6 +8,13 @@
 
 import Foundation
 
+public extension Notification.Name {
+    
+    public static let TeamupAuthenticationDidLogIn = Notification.Name(rawValue: "TU_AuthStateDidLogIn")
+    public static let TeamupAuthenticationDidRegister = Notification.Name(rawValue: "TU_AuthStateDidRegister")
+    public static let TeamupAuthenticationDidSignOut = Notification.Name(rawValue: "TU_AuthStateDidSignOut")
+}
+
 public protocol AuthenticationController: class, Controller {
     
     /// The currently authenticated user.
