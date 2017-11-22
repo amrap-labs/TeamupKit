@@ -2,11 +2,22 @@
 All notable changes to this project will be documented in this file.
 
 #### 0.x Releases
-- `0.2.x` Releases - [0.2.0](#020) | [0.2.1](#021)
+- `0.2.x` Releases - [0.2.0](#020) | [0.2.1](#021) | [0.2.2](#022)
 - `0.1.x` Releases - [0.1.0](#010)
 
 
 ---
+
+## [0.2.2](https://github.com/amrap-labs/TeamupKit/releases/tag/0.2.2)
+Released on 2017-11-22.
+
+#### Added
+- `TeamupAuthenticationDidLogIn` notification for successful log in call.
+     - by [msaps](https://github.com/msaps)
+- `TeamupAuthenticationDidRegister` notification for successful register call.
+     - by [msaps](https://github.com/msaps)
+- `TeamupAuthenticationDidSignOut` notification for successful sign out call.
+     - by [msaps](https://github.com/msaps)
 
 ## [0.2.1](https://github.com/amrap-labs/TeamupKit/releases/tag/0.2.1)
 Released on 2017-11-21.
