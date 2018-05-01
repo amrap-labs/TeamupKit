@@ -2,11 +2,16 @@
 All notable changes to this project will be documented in this file.
 
 #### 0.x Releases
-- `0.2.x` Releases - [0.2.0](#020) | [0.2.1](#021) | [0.2.2](#022)
+- `0.2.x` Releases - [0.2.0](#020) | [0.2.1](#021) | [0.2.2](#022) | [0.2.3](#023)
 - `0.1.x` Releases - [0.1.0](#010)
 
-
 ---
+
+## [0.2.3](https://github.com/amrap-labs/TeamupKit/releases/tag/0.2.3)
+Released on 2017-05-01.
+
+#### Updated
+- Project to support Xcode 9.3 and Swift 4.1.
 
 ## [0.2.2](https://github.com/amrap-labs/TeamupKit/releases/tag/0.2.2)
 Released on 2017-11-22.

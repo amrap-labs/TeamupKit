@@ -39,7 +39,7 @@ internal protocol RequestExecutor: class {
     
     // MARK: Properties
     
-    weak var authResponder: RequestExecutorAuthResponder? { get set }
+    var authResponder: RequestExecutorAuthResponder? { get set }
     
     // MARK: Init
     
